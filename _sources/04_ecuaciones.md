@@ -13,9 +13,10 @@ Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profun
 
 Los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D:
 
-$\frac{\partial h}{\partial t} + \triangledown (ℎ \vec{u}) = 𝑆_m$\\
+$\frac{\partial h}{\partial t} + \triangledown(ℎ\vec{u}) = 𝑆_m$
 
-$\frac{\partial(h \vec{u})}{\partial t }+ \triangledown(ℎ\vec{u} \otimes \vec{u}) = −g h \triangledown z_b+ \vec{S}_g − \frac{\vec{\tau}_b }{\rho} $\\
+
+$\frac{\partial(h \vec{u})}{\partial t }+ \triangledown(ℎ\vec{u} \otimes \vec{u}) = −g h \triangledown z_b+ \vec{S}_g − \frac{\vec{\tau}_b }{\rho} $
 ​
  
 Términos clave: $z_b$: elevación del lecho (topografía), $\vec{\tau}_b$: esfuerzo basal según el modelo reológico (puede ser Bingham, Voellmy, etc.), $\vec{S}_g$: fuerzas externas (por ejemplo, presiones dispersivas, sobrepresión de poros)
@@ -24,7 +25,9 @@ Términos clave: $z_b$: elevación del lecho (topografía), $\vec{\tau}_b$: esfu
 ### Ecuación de conservación de masa (Continuidad)
 Para un flujo en una dirección horizontal (e.g. coordenada $x$), la ecuación de continuidad superficial en régimen no permanente es:
 
-$\frac{\partial ℎ}{\partial t}+ \frac{\partial(ℎ \vec{u})}{\partial x}=𝑆_𝑚$\\
+
+$\frac{\partial ℎ}{\partial t}+ \frac{\partial(ℎ \vec{u})}{\partial x}=𝑆_m$
+
  
 Donde: $h(x,t)$: espesor del flujo [m], $u(x,t)$: velocidad media del flujo [m/s], $S_m$: fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]
 
@@ -33,7 +36,8 @@ Esta ecuación dice que el cambio del espesor en el tiempo es igual a la diferen
 ### Ecuación de conservación de cantidad de movimiento (momento lineal)
 Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resistencias (fricción basal, turbulencia, etc.). En dos dimensiones se extiende a vectores de velocidad $\vec{u} = (u,v)$, y aparecen términos de curvatura, presión lateral y coriolis si es relevante.
 
-$\frac{\partial(ℎ\vec{𝑢})}{\partial t} + \frac{\partial(ℎu^2)}{\partial x} = 𝑔 ℎsin⁡\theta − \tau_b / \rho + 𝑆_f$\\
+$\frac{\partial(ℎ\vec{𝑢})}{\partial t} + \frac{\partial(ℎu^2)}{\partial x} = 𝑔 ℎsin⁡\theta − \tau_b / \rho + 𝑆_f$
+
 ​ 
 Donde: $g$: gravedad, $\theta$: pendiente del terreno, $\tau_b$: esfuerzo cortante basal [Pa] (resistencia al movimiento), $\rho$: densidad del flujo, 
 $S_f$: otras fuerzas (presiones de poro, colisiones, etc.).
@@ -42,11 +46,11 @@ $S_f$: otras fuerzas (presiones de poro, colisiones, etc.).
 ### Ecuación de conservación de energía (forma general)
 La forma general del balance de energía para un flujo continuo es:
 
-$𝑑/𝑑𝑡(𝐸total)=Potencia-neta-de-entrada − Disipacion$\\
+$𝑑/𝑑𝑡(𝐸total)=Potencia-neta-de-entrada − Disipacion$  
 
 Desglose de la energía total por unidad de masa:
 
-$𝐸=𝐸_𝑝+𝐸_𝑘+𝐸_𝑖$​\\
+$𝐸=𝐸_𝑝+𝐸_𝑘+𝐸_𝑖$​  
  
 $E_p = g z$ → energía potencial (por altura), $E_k = \frac{1}{2} u^2$ → energía cinética, $E_i$ → energía interna (p. ej., calor, deformación interna, presión de poros), La disipación de energía aparece como términos negativos (resistencias), y depende del modelo reológico:
 

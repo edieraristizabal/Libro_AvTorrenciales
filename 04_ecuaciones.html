@@ -396,31 +396,31 @@ document.write(`
 <h2>Forma integrada: ecuaciones tipo Saint-Venant<a class="headerlink" href="#forma-integrada-ecuaciones-tipo-saint-venant" title="Permalink to this heading">#</a></h2>
 <p>Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y debris flows. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.</p>
 <p>Los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D:</p>
-<p>$\frac{\partial h}{\partial t} + \triangledown (ℎ \vec{u}) = 𝑆_m$\</p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial(h \vec{u})}{\partial t }+ \triangledown(ℎ\vec{u} \otimes \vec{u}) = −g h \triangledown z_b+ \vec{S}_g − \frac{\vec{\tau}_b }{\rho} \)</span>\
+<p><span class="math notranslate nohighlight">\(\frac{\partial h}{\partial t} + \triangledown(ℎ\vec{u}) = 𝑆_m\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial(h \vec{u})}{\partial t }+ \triangledown(ℎ\vec{u} \otimes \vec{u}) = −g h \triangledown z_b+ \vec{S}_g − \frac{\vec{\tau}_b }{\rho} \)</span>
 ​</p>
 <p>Términos clave: <span class="math notranslate nohighlight">\(z_b\)</span>: elevación del lecho (topografía), <span class="math notranslate nohighlight">\(\vec{\tau}_b\)</span>: esfuerzo basal según el modelo reológico (puede ser Bingham, Voellmy, etc.), <span class="math notranslate nohighlight">\(\vec{S}_g\)</span>: fuerzas externas (por ejemplo, presiones dispersivas, sobrepresión de poros)</p>
 <section id="ecuacion-de-conservacion-de-masa-continuidad">
 <h3>Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Permalink to this heading">#</a></h3>
 <p>Para un flujo en una dirección horizontal (e.g. coordenada <span class="math notranslate nohighlight">\(x\)</span>), la ecuación de continuidad superficial en régimen no permanente es:</p>
-<p>$\frac{\partial ℎ}{\partial t}+ \frac{\partial(ℎ \vec{u})}{\partial x}=𝑆_𝑚$\</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial ℎ}{\partial t}+ \frac{\partial(ℎ \vec{u})}{\partial x}=𝑆_m\)</span></p>
 <p>Donde: <span class="math notranslate nohighlight">\(h(x,t)\)</span>: espesor del flujo [m], <span class="math notranslate nohighlight">\(u(x,t)\)</span>: velocidad media del flujo [m/s], <span class="math notranslate nohighlight">\(S_m\)</span>: fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]</p>
 <p>Esta ecuación dice que el cambio del espesor en el tiempo es igual a la diferencia entre lo que entra y lo que sale, más lo que se gana o pierde localmente.</p>
 </section>
 <section id="ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">
 <h3>Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Permalink to this heading">#</a></h3>
 <p>Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resistencias (fricción basal, turbulencia, etc.). En dos dimensiones se extiende a vectores de velocidad <span class="math notranslate nohighlight">\(\vec{u} = (u,v)\)</span>, y aparecen términos de curvatura, presión lateral y coriolis si es relevante.</p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial(ℎ\vec{𝑢})}{\partial t} + \frac{\partial(ℎu^2)}{\partial x} = 𝑔 ℎsin⁡\theta − \tau_b / \rho + 𝑆_f\)</span>\
-​
+<p><span class="math notranslate nohighlight">\(\frac{\partial(ℎ\vec{𝑢})}{\partial t} + \frac{\partial(ℎu^2)}{\partial x} = 𝑔 ℎsin⁡\theta − \tau_b / \rho + 𝑆_f\)</span></p>
+<p>​
 Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span class="math notranslate nohighlight">\(\theta\)</span>: pendiente del terreno, <span class="math notranslate nohighlight">\(\tau_b\)</span>: esfuerzo cortante basal [Pa] (resistencia al movimiento), <span class="math notranslate nohighlight">\(\rho\)</span>: densidad del flujo,
 <span class="math notranslate nohighlight">\(S_f\)</span>: otras fuerzas (presiones de poro, colisiones, etc.).</p>
 </section>
 <section id="ecuacion-de-conservacion-de-energia-forma-general">
 <h3>Ecuación de conservación de energía (forma general)<a class="headerlink" href="#ecuacion-de-conservacion-de-energia-forma-general" title="Permalink to this heading">#</a></h3>
 <p>La forma general del balance de energía para un flujo continuo es:</p>
-<p>$𝑑/𝑑𝑡(𝐸total)=Potencia-neta-de-entrada − Disipacion$\</p>
+<p><span class="math notranslate nohighlight">\(𝑑/𝑑𝑡(𝐸total)=Potencia-neta-de-entrada − Disipacion\)</span></p>
 <p>Desglose de la energía total por unidad de masa:</p>
-<p>$𝐸=𝐸_𝑝+𝐸_𝑘+𝐸_𝑖$​\</p>
+<p><span class="math notranslate nohighlight">\(𝐸=𝐸_𝑝+𝐸_𝑘+𝐸_𝑖\)</span>​</p>
 <p><span class="math notranslate nohighlight">\(E_p = g z\)</span> → energía potencial (por altura), <span class="math notranslate nohighlight">\(E_k = \frac{1}{2} u^2\)</span> → energía cinética, <span class="math notranslate nohighlight">\(E_i\)</span> → energía interna (p. ej., calor, deformación interna, presión de poros), La disipación de energía aparece como términos negativos (resistencias), y depende del modelo reológico:</p>
 <p>Viscoso: <span class="math notranslate nohighlight">\(\Phi = \mu (\partial u/\partial y)^2\)</span></p>
 <p>Dispersivo: término <span class="math notranslate nohighlight">\(\propto \dot\gamma^2\)</span></p>
