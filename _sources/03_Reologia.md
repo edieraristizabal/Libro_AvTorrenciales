@@ -1,8 +1,5 @@
-# Reología
 
-## Mecanismos de disipación de energía (regímenes reológicos)
-
-Las diferencias entre flujo plástico, turbulento, dispersivo y de Coulomb se refieren a los mecanismos físicos dominantes que controlan cómo se resiste o disipa la energía del flujo en movimiento. Estas denominaciones corresponden a distintos regímenes reológicos o mecanismos de disipación de energía en flujos de escombros (debris flows), que pueden coexistir o dominar en diferentes momentos o zonas del flujo.
+# Regímenes reológicos
 
 ### Flujo plástico
 Dominado por la cohesión y viscosidad interna de una matriz fangosa. Como mecanismo dominante se refiere a un esfuerzo de fluencia ($\tau_y$): el flujo no se moviliza hasta superar ese umbral. Luego, se comporta como un fluido viscoso. La resistencia viene de la cohesión de finos (arcillas, limos) y la viscosidad del fluido. Aparece en flujos hiperconcentrados, ricos en finos cohesivos. Típico en zonas tropicales con suelos arcillosos y alta saturación. Se comporta como lodo espeso que no fluye hasta que lo fuerzas.
@@ -10,13 +7,15 @@ Dominado por la cohesión y viscosidad interna de una matriz fangosa. Como mecan
 ### Flujo turbulento
 Dominado por la agitación caótica del fluido intersticial. Como mecanismo dominante se encuentra la resistencia proporcional al cuadrado de la velocidad. No hay cohesión ni umbral de fluencia; lo que domina es la turbulencia del agua que transporta partículas. Se encuentra en la parte externa de flujos rápidos, con bajo contenido de finos o cuando la matriz líquida es dominante (tipo lahar diluido).
 
-## Flujo dispersivo
+### Flujo dispersivo
 Dominado por colisiones entre partículas sólidas grandes. como mecanismo dominante está que la energía se disipa por interacciones granulares, especialmente colisiones dispersivas entre bloques o gravas suspendidas. Es un comportamiento no viscoso, sino granular. Se observa en la cabeza del flujo, o en flujos con mucho bloque flotante en una matriz pobre en finos. A altas velocidades.
 
-## Flujo tipo Coulomb
+### Flujo tipo Coulomb
 Dominado por la fricción entre partículas y con el lecho, como en un deslizamiento seco. Como mecanismo dominante se encuentra que la resistencia al movimiento es controlada por la fricción basal proporcional al peso normal. No hay términos viscosos ni por velocidad. se observa en avalanchas secas, deslizamientos sin mucha agua, o en flujos donde domina la fricción entre bloques sin agitación de fluido.
 
-### 🔥 Resumen general: mecanismos de disipación de energía en flujos de escombros
+### Mecanismos de disipación de energía en flujos de escombros
+
+Las diferencias entre flujo plástico, turbulento, dispersivo y de Coulomb se refieren a los mecanismos físicos dominantes que controlan cómo se resiste o disipa la energía del flujo en movimiento. Estos mecanismos de disipación de energía en flujos de escombros (*debris flows*), que pueden coexistir o dominar en diferentes momentos o zonas del flujo.
 
 | Tipo de flujo       | Mecanismo de disipación principal         | Forma de disipación de energía                                                                 |
 |---------------------|-------------------------------------------|------------------------------------------------------------------------------------------------|
@@ -25,19 +24,14 @@ Dominado por la fricción entre partículas y con el lecho, como en un deslizami
 | **Turbulento**         | Agitación caótica del fluido               | Cascada de vórtices → fricción microscópica → disipación en calor                              |
 | **Dispersivo (granular)** | Colisiones inelásticas entre partículas   | Fricción interpartícula, deformación, calor, sonido, reorganización granular                    |
 | **Coulombiano**        | Fricción basal seca                        | Pérdida por roce entre masa movilizada y superficie subyacente (dependiente de $\tan\phi$)     |
-| **Tixotrópico**        | Reestructuración interna con el tiempo     | Pérdida por ruptura de redes internas (floculación, enlaces entre partículas)                  |
 | **Dilatante**          | Expansión volumétrica por cizalla          | Trabajo contra presión normal para permitir expansión → disipación mecánica                    |
-| **Presión de poros**   | Drenaje o consolidación hidráulica         | Pérdida de energía asociada a cambios de presión intersticial en el fluido                     |
-| **Arrastre de fondo**  | Fricción partícula-lecho                   | Interacción partícula–substrato → fricción y colisiones                                        |
-| **Erosión**            | Remoción de material del lecho             | Trabajo mecánico usado en romper enlaces y arrancar partículas del fondo                       |
-| **Sedimentación**      | Detención y reacomodo final                | Pérdida de energía cinética al transformarse en calor, compactación y estructura del depósito   |
 
 
 Existen parámetros cuantitativos que ayudan a distinguir los regímenes de flujo (plástico, turbulento, dispersivo, Coulomb) en flujos de escombros, basados en conceptos de mecánica de fluidos, reología y dinámica granular. Estos números adimensionales permiten evaluar qué tipo de comportamiento físico domina en un flujo dado. 
 
 **Número de Bingham (Bn)**. Evalúa la importancia del umbral de fluencia (flujo plástico) frente al esfuerzo viscoso. Útil para identificar flujos tipo Bingham o Herschel–Bulkley, típicos en ambientes tropicales ricos en finos cohesivos.
 
-$Bn=\frac{𝜏𝑦⋅𝐿}{𝜇⋅𝑉}$
+$Bn=\frac{𝜏_𝑦⋅𝐿}{𝜇⋅𝑉}$
 ​
  
 $\tau_y$: esfuerzo de fluencia (Pa). $L$: escala característica (por ejemplo, espesor del flujo). $\mu$: viscosidad plástica (Pa·s). $V$: velocidad del flujo (m/s)
@@ -47,7 +41,7 @@ $\tau_y$: esfuerzo de fluencia (Pa). $L$: escala característica (por ejemplo, e
 * Bn ≪ 1: flujo más viscoso o inercial → la cohesión es despreciable frente a la viscosidad o inercia.
 
 
-**Número de Reynolds (Re)**. Mide la relación entre fuerzas inerciales y viscosas → indica si el flujo es laminar o turbulento. Útil para evaluar si es más adecuado un modelo viscoso vs. turbulento (por ejemplo, aplicar Voellmy con término cuadrático cuando Re es alto)
+**Número de Reynolds (Re)**. Mide la relación entre fuerzas inerciales y viscosas. Indica si el flujo es laminar o turbulento. Útil para evaluar si es más adecuado un modelo viscoso vs. turbulento (por ejemplo, aplicar Voellmy con término cuadrático cuando Re es alto)
 
 $Re=\frac{𝜌⋅𝑉⋅𝐿}{𝜇}$
 ​
@@ -58,9 +52,9 @@ $\rho$: densidad del flujo. $V$: velocidad. $L$: altura del flujo. $\mu$: viscos
 
 * Re > 2000–4000: régimen turbulento → la disipación turbulenta domina, apropiado para flujos rápidos y diluidos.
 
-**Número de Savage (Sav)**. Relaciona energía cinética de partículas con presiones de confinamiento → detecta flujo dispersivo granular. Muy útil para distinguir entre núcleo fangoso (Sav bajo) y cabeza de bloques (Sav alto) en un debris flow.
+**Número de Savage (Sav)**. Relaciona energía cinética de partículas con presiones de confinamiento. Detecta flujo dispersivo granular. Muy útil para distinguir entre núcleo fangoso (Sav bajo) y cabeza de bloques (Sav alto) en un debris flow.
 
-$Sav=\frac{𝛾˙⋅𝑑}{(𝑃/𝜌𝑠)^(1/2)}$
+$Sav=\frac{\dot{\gamma}⋅𝑑}{(𝑃/𝜌_𝑠)^(1/2)}$
 ​
  
 $\dot{\gamma}$: tasa de deformación. $d$: tamaño medio de grano. $P$: presión normal (típicamente $\sim \rho g h$). $\rho_s$: densidad de sólidos.
@@ -69,7 +63,7 @@ $\dot{\gamma}$: tasa de deformación. $d$: tamaño medio de grano. $P$: presión
 
 * Sav ≪ 1: partículas confinadas, sin dispersión → flujo cohesivo o tipo lodo.
 
-**Número de Froude (Fr)**. Indica la relación entre velocidad y gravedad → clasifica flujo como subcrítico, crítico o supercrítico. En flujos de escombros: Fr > 1 suele asociarse a frentes dispersivos y rápidos → apropiado usar Voellmy o dispersivo.
+**Número de Froude (Fr)**. Indica la relación entre velocidad y gravedad. Clasifica flujo como subcrítico, crítico o supercrítico. En flujos de escombros: Fr > 1 suele asociarse a frentes dispersivos y rápidos → apropiado usar Voellmy o dispersivo.
 
 $Fr=\frac{𝑉𝑔⋅ℎ}{V}$
 ​
@@ -81,9 +75,9 @@ $V$: velocidad del flujo. $g$: gravedad. $h$: espesor del flujo
 * Fr > 1: flujo supercrítico (rápido, dominado por inercia)
 
 
-🧱 5. Número de Stokes (St) (menos usado, pero útil en régimen de partícula única). Relaciona la inercia de una partícula con la viscosidad del medio. Valores altos indican dominio de inercia granular → dispersión; valores bajos → régimen viscoso.
+**Número de Stokes (St)**. Relaciona la inercia de una partícula con la viscosidad del medio. Valores altos indican dominio de inercia granular → dispersión; valores bajos → régimen viscoso.
 
-$St=\frac{𝜌𝑠⋅𝑑2⋅𝛾˙}{𝜇}$
+$St=\frac{𝜌𝑠⋅𝑑^2⋅\dot{\gamma}}{𝜇}$
 ​
  
  ## Modelos reológicos
@@ -95,20 +89,20 @@ Un rasgo distintivo de los flujos de escombros es su comportamiento viscoplásti
 ## Modelo Plástico de Bingham
 El modelo de fluido de Bingham es uno de los más sencillos y empleados para describir flujos de detritos con alto contenido de finos. Se trata de un modelo viscoplástico: asume que el material posee un esfuerzo de fluencia $\tau_y$ (también llamado tensión umbral o cedente) que debe superarse para que ocurra deformación continua, y una vez superado ese umbral, el material fluye con un comportamiento plástico perfecto caracterizado por una viscosidad plástica aproximadamente constante $\mu_p$. Matemáticamente, la relación esfuerzo-deformación cortante se expresa como:
 
-$$𝜏=𝜏_𝑦+𝜇_𝑝𝛾$$,(si 𝜏>𝜏_𝑦; de lo contrario, no hay flujo)
+$$\tau = \tau_y + \mu_p \dot\gamma$$
 
 En esta formulación lineal con intercepto, $\tau_y$ representa el valor de esfuerzo cortante en el cual comienza el flujo (intercepto no nulo), mientras que $\mu_p$ es la pendiente de la relación tensión vs. tasa de corte, es decir, la viscosidad (constante) de la mezcla una vez movilizada. Por debajo de $\tau_y$, el material se comporta como un sólido rígido (no hay deformación irreversible), y por encima se comporta como un fluido newtoniano de alta viscosidad. Un ejemplo cotidiano de fluido tipo Bingham es la mayonesa, que no fluye hasta que la tensión aplicada excede cierto valor, tras lo cual se comporta como un líquido espeso. 
 
 **Fundamentos físicos**: El comportamiento Bingham en flujos de escombros se asocia a la presencia de una fase fina cohesiva (barro, arcilla, limo) que genera enlaces inter-partícula y cohesión estática. Este esfuerzo cohesivo debe romperse para iniciar el flujo, de forma análoga a superar la resistencia al corte de un suelo cohesivo. Luego, la resistencia viscosa durante el flujo proviene de la fricción interna del fluido mezclado con partículas. Estudios experimentales con lodos naturales han demostrado que suspensiones de alta concentración (por ejemplo, material <2 mm de un flujo de escombros) se aproximan bien a un comportamiento de Bingham a tasas de corte moderadas y altas. Major y Pierson (1990) midieron reologías de un flujo de escombros natural y encontraron que, a tasas de deformación mayores de ~5 s^-1, la mezcla presentaba un límite de fluencia claro y viscosidad plástica definidas (comportándose como un Bingham plástico), con $\tau_y$ y $\mu_p$ fuertemente dependientes de la concentración de sedimento. 
 
-**Supuestos y aplicaciones**: El modelo de Bingham asume flujo laminar y homogéneo, con propiedades reológicas constantes durante el movimiento. Es más aplicable a flujos lentos o intermedios donde la turbulencia es despreciable y donde la cohesión de finos domina la resistencia (por eso, se recomienda para flujos con elevado contenido de finos arcillosos o limo). Por ejemplo, en flujos híper-concentrados o “flujos de barro” iniciales, típicos en cuencas tropicales tras lluvias intensas, la matriz arcillosa induce un claro umbral de fluencia y altos valores de viscosidad, lo cual encaja en la idealización de Bingham. De hecho, en flujos híper-concentrados naturales se han reportado $\tau_y$ del orden de cientos de Pascales y viscosidades plásticas de 10^(-1)–10^1 Pa·s o mayores, dependiendo de la concentración y mineralogía (valores que exceden por mucho la viscosidad del agua, ~0.001 Pa·s). El modelo de Bingham se ha utilizado con éxito para simular flujos de detritos con altas concentraciones de sedimento tanto en laboratorio como en campo. Herramientas de modelación ingenieril, como HEC-RAS o algunos códigos de flujo transitorio, incluyen esta ley reológica para representar corrientes de lodo y escombros cohesivos bajo condiciones de bajo número de Reynolds. 
+**Supuestos y aplicaciones**: El modelo de Bingham asume flujo laminar y homogéneo, con propiedades reológicas constantes durante el movimiento. Es más aplicable a flujos lentos o intermedios donde la turbulencia es despreciable y donde la cohesión de finos domina la resistencia (por eso, se recomienda para flujos con elevado contenido de finos arcillosos o limo). Por ejemplo, en flujos híper-concentrados o “flujos de barro” iniciales, típicos en cuencas tropicales tras lluvias intensas, la matriz arcillosa induce un claro umbral de fluencia y altos valores de viscosidad, lo cual encaja en la idealización de Bingham. De hecho, en flujos híper-concentrados naturales se han reportado $\tau_y$ del orden de cientos de Pascales y viscosidades plásticas de $10^(-1)–10^1$ Pa·s o mayores, dependiendo de la concentración y mineralogía (valores que exceden por mucho la viscosidad del agua, 0.001 Pa·s). El modelo de Bingham se ha utilizado con éxito para simular flujos de detritos con altas concentraciones de sedimento tanto en laboratorio como en campo. Herramientas de modelación ingenieril, como HEC-RAS o algunos códigos de flujo transitorio, incluyen esta ley reológica para representar corrientes de lodo y escombros cohesivos bajo condiciones de bajo número de Reynolds. 
 
-**Limitaciones**: A pesar de su simplicidad, el modelo de Bingham tiene limitaciones importantes. En primer lugar, impone una relación lineal entre esfuerzo y tasa de deformación una vez iniciado el flujo, lo cual no siempre concuerda con materiales naturales: experimentos han mostrado que la relación puede ser no lineal (concavidades en la curva esfuerzo vs. deformación) debido a efectos de estructura interna o dispersión granular. Asimismo, la hipótesis de viscosidad constante solo es razonable a altas tasas de corte; a bajas tasas, muchos lodos exhiben tixotropía o variación de viscosidad (por ejemplo, la mezcla puede comportarse más rígida de lo predicho, endureciéndose al reposo). Major y Pierson notaron que por debajo de 5 s^-1 las suspensiones desviaban su comportamiento del modelo Bingham, indicando que otros procesos (formación de puente de partículas, etc.) entraban en juego. Otra limitación es que el modelo no incluye efectos granular-inerciales: si el flujo contiene una fracción importante de grava o bloques que interactúan por colisiones, el Bingham puro no capturará el aumento de resistencia a altas velocidades debido a esos choques. En tales casos, un término cuadrático (como veremos en otros modelos) sería necesario. Finalmente, la determinación de los parámetros $\tau_y$ y $\mu_p$ requiere datos experimentales (reometría, ensayos de flujo inclinado, etc.), y estos parámetros pueden variar dinámicamente si cambia la concentración (por erosión/dilución durante el recorrido), algo que el modelo base no contempla (se asume constantes). Aun con estas limitaciones, el modelo de Bingham proporciona una primera aproximación robusta para flujos donde la cohesión de finos y la viscosidad laminar son los controles primarios de la dinámica.
+**Limitaciones**: A pesar de su simplicidad, el modelo de Bingham tiene limitaciones importantes. En primer lugar, impone una relación lineal entre esfuerzo y tasa de deformación una vez iniciado el flujo, lo cual no siempre concuerda con materiales naturales: experimentos han mostrado que la relación puede ser no lineal (concavidades en la curva esfuerzo vs. deformación) debido a efectos de estructura interna o dispersión granular. Asimismo, la hipótesis de viscosidad constante solo es razonable a altas tasas de corte; a bajas tasas, muchos lodos exhiben tixotropía o variación de viscosidad (por ejemplo, la mezcla puede comportarse más rígida de lo predicho, endureciéndose al reposo). Major y Pierson notaron que por debajo de 5 $s^(-1)$ las suspensiones desviaban su comportamiento del modelo Bingham, indicando que otros procesos (formación de puente de partículas, etc.) entraban en juego. Otra limitación es que el modelo no incluye efectos granular-inerciales: si el flujo contiene una fracción importante de grava o bloques que interactúan por colisiones, el Bingham puro no capturará el aumento de resistencia a altas velocidades debido a esos choques. En tales casos, un término cuadrático (como veremos en otros modelos) sería necesario. Finalmente, la determinación de los parámetros $\tau_y$ y $\mu_p$ requiere datos experimentales (reometría, ensayos de flujo inclinado, etc.), y estos parámetros pueden variar dinámicamente si cambia la concentración (por erosión/dilución durante el recorrido), algo que el modelo base no contempla (se asume constantes). Aun con estas limitaciones, el modelo de Bingham proporciona una primera aproximación robusta para flujos donde la cohesión de finos y la viscosidad laminar son los controles primarios de la dinámica.
 
 ## Modelo Generalizado de Herschel–Bulkley
 El modelo de Herschel–Bulkley (HB) es una generalización del modelo de Bingham que permite capturar relaciones no lineales entre el esfuerzo cortante y la tasa de deformación, manteniendo a la vez la noción de un esfuerzo de fluencia. Su ecuación constitutiva se expresa típicamente como:
 
-$$𝜏=𝜏_𝑦+𝐾 𝛾˙^n$$,(si $𝜏>𝜏_𝑦$; si 𝜏<𝜏_𝑦 no hay flujo)
+$$\tau=\tau_y+ 𝐾 \dot\gamma^n$$
 ​
 donde $\tau_y$ es de nuevo el esfuerzo umbral de fluencia, $K$ es el índice de consistencia (una especie de viscosidad generalizada) y $n$ es el índice de comportamiento (exponente de la ley de potencia). Cuando $n = 1$, el modelo de Herschel–Bulkley se reduce al caso Bingham simple (con $K$ equivalente a $\mu_p$). Si $n < 1$, el fluido es pseudoplástico (reóctipo adelgazante), exhibiendo viscosidad aparente decreciente con mayor tasa de corte (shear-thinning); por el contrario, $n > 1$ indica un comportamiento dilatante o espesante, donde la viscosidad aparente aumenta al incrementarse $\dot\gamma$. En todos los casos, persiste la condición de umbral: por debajo de $\tau_y$ no hay deformación permanente, análogo a un sólido. 
 
@@ -121,7 +115,7 @@ donde $\tau_y$ es de nuevo el esfuerzo umbral de fluencia, $K$ es el índice de 
 ## Modelo de Voellmy–Salm (Fricción Coulomb-Turbulenta)
 El modelo de Voellmy–Salm surge originalmente en el contexto de las avalanchas de nieve (Voellmy, 1955; refinado por Salm et al., 1990) y ha sido adaptado con éxito para flujos de escombros y otros movimientos rápidos de detritos. A diferencia de los modelos viscoplásticos anteriormente descritos, Voellmy–Salm no se basa en una viscosidad de fluido, sino en una descripción de la resistencia al flujo como combinación de fricción seca y resistencia turbulenta. En esencia, este modelo asume que la fuerza resistiva por unidad de volumen (o la pendiente de energía $S_f$ equivalente) se puede descomponer en dos componentes: uno independiente de la velocidad (análogo a una fricción Coulomb constante) y otro proporcional al cuadrado de la velocidad (similar a una resistencia aerodinámica o turbulenta). Una forma típica de expresarlo es:
 
-$$𝑆_𝑓=𝜇_𝑓𝑁+frac{𝜌𝑚𝑔𝑉^2}{𝜉}$$
+$$𝑆_𝑓 = 𝜇_𝑓 𝑁 +frac{𝜌_𝑚 𝑔 𝑉^2}{\xi}$$
  
 donde $S_f$ es la pendiente de fricción (término de pérdida de energía por unidad de peso, usado en ecuaciones tipo Saint-Venant), $\mu_f$ es el coeficiente de fricción "en seco" (análogo al $\tan\phi$ de un ángulo de fricción basal), $N$ es la fuerza normal (por unidad de área) sobre el lecho, $\rho_m$ es la densidad de la mezcla, $g$ la aceleración gravitacional, $V$ la velocidad del flujo, y $\xi$ es el coeficiente de fricción turbulenta (Voellmy). El término $\mu_f N$ representa una resistencia Coulombiana constante (proporcional al peso del material, $N \approx \rho_m g h \cos\theta$ en flujo sobre pendiente $\theta$), mientras que $\rho_m g V^2/\xi$ representa una resistencia dinámica cuadrática que crece con el cuadrado de la velocidad. En la práctica, $\mu_f$ y $\xi$ son parámetros que se calibran según el caso: $\mu_f$ típicamente varía en un rango 0.1–0.5 (adimensional) dependiendo de la pendiente de detención observada del flujo, y $\xi$ tiene unidades de [$L/T^2$] (similar a un coeficiente de Chezy invertido) con valores comunes entre ~100 y 1000 $m/s^2$. Un valor alto de $\xi$ indica baja resistencia turbulenta (fluidos más “suaves” o caminos menos accidentados), mientras que $\xi$ bajo significa que incluso velocidades moderadas generan gran resistencia (por ejemplo, cauces rugosos con muchos obstáculos, o flujos con intensas colisiones granulares). 
 
@@ -137,6 +131,9 @@ Propuesto por O’Brien et al. (1985), combina tres contribuciones al esfuerzo c
 
 ## Modelo de fricción de Coulomb puro: 
 Es el caso límite en que la resistencia se considera totalmente dominada por la fricción interna del material, con un criterio de falla tipo Mohr-Coulomb (esfuerzo cortante máximo = $\tau_ = \tau_c + \sigma \tan\phi$). En flujo continuo, esto equivale esencialmente a $\tau = \mu ,\sigma_n + c$ (con $c$ cohesión, a menudo cero) constante durante el movimiento. Este modelo no tiene término viscoso ni dependiente de tasa de deformación. Es adecuado solo para flujos casi secos o grandes avalanchas de rocas donde el material se comporta más como un deslave granular que como un fluido. En contextos de escombros saturados, el modelo de Coulomb puro suele ser insuficiente, aunque a veces se incluye como componente basal en modelos más completos. Por ejemplo, el “modelo Coulomb-viscoso” mencionado en literatura combina una fricción Coulomb basal con un término viscoso lineal para tener tanto cohesión (c) como fricción $\tan\phi$.
+
+## Modelos de dos fases (granular-fluido): 
+Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial (e.g. modelo de Iverson & Denlinger 2001; Pudasaini 2012). Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros. Para un curso teórico avanzado, vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, etc.) son a veces considerados simplificaciones “efectivas” de un sistema bifásico más complejo, y que autores como Iverson han criticado la aproximación reológica por considerarla una “ficción” conveniente. Sin embargo, en la práctica de la ingeniería y la geociencia aplicada, los modelos reológicos sencillos siguen siendo ampliamente usados dada su parsimonia de parámetros y la relativa facilidad de calibración frente a datos de campo
 
 ## Comparación, Supuestos y Limitaciones de los Modelos
 A continuación se comparan los modelos presentados, enfatizando sus supuestos fundamentales y los escenarios donde mejor se ajustan, así como sus limitaciones inherentes:

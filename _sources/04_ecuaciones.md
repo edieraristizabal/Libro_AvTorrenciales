@@ -6,7 +6,7 @@ Para modelar flujos de escombros (debris flows) y otros flujos geofísicos, se e
 
 * Conservación de cantidad de movimiento
 
-*Conservación (o balance) de energía
+* Conservación (o balance) de energía
 
 ## Forma integrada: ecuaciones tipo Saint-Venant
 Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y debris flows. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.
@@ -15,11 +15,10 @@ Los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint
 
 $$∂ℎ/∂𝑡+∇⋅(ℎ𝑢⃗)=𝑆_m$$
 
-$$∂(ℎ𝑢⃗)/∂𝑡+∇⋅(ℎ𝑢⃗⊗𝑢⃗)=−𝑔ℎ∇𝑧𝑏+𝑆⃗𝑔−𝜏⃗_𝑏/𝜌$$
+$$∂(ℎ𝑢⃗)/∂𝑡+∇⋅(ℎ𝑢⃗⊗𝑢⃗)=−𝑔ℎ∇𝑧𝑏+ \vec{S}_g − \vec{\tau}_b/𝜌 $$
 ​
  
-Términos clave:
-$z_b$: elevación del lecho (topografía), $\vec{\tau}_b$: esfuerzo basal según el modelo reológico (puede ser Bingham, Voellmy, etc.), $\vec{S}_g$: fuerzas externas (por ejemplo, presiones dispersivas, sobrepresión de poros)
+Términos clave: $z_b$: elevación del lecho (topografía), $\vec{\tau}_b$: esfuerzo basal según el modelo reológico (puede ser Bingham, Voellmy, etc.), $\vec{S}_g$: fuerzas externas (por ejemplo, presiones dispersivas, sobrepresión de poros)
 
 
 ### Ecuación de conservación de masa (Continuidad)
@@ -66,7 +65,7 @@ $𝑚⋅𝑑𝑢/𝑑𝑡=𝑚𝑔sin𝜃−𝜏_𝑏$
  
 Pero si se requiere simular procesos dinámicos completos, como: evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.
 
-### 📊 Modelos numéricos de flujos de escombros: conservación de masa, momento y reología
+### Modelos numéricos de flujos de escombros: conservación de masa, momento y reología
 
 | Modelo        | Conservación de masa                             | Conservación de momento                                     | Reología utilizada                                | Dimensiones | Comentarios principales                                                 |
 |---------------|--------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------|--------------|-------------------------------------------------------------------------|
