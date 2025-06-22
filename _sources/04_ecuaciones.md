@@ -63,7 +63,7 @@ Turbulento: términos como $\propto V^2/\xi$ en Voellmy
 
 generalmente los modelos son simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de "box model" o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:
 
-$𝑚\frac{𝑑}{𝑑}𝑡=𝑚𝑔sin𝜃−𝜏_𝑏$  
+$𝑚\frac{𝑑u}{𝑑t}𝑡=𝑚𝑔sin𝜃−𝜏_𝑏$  
 ​
  
 Pero si se requiere simular procesos dinámicos completos, como: evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.
