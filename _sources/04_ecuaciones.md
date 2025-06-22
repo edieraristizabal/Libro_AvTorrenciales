@@ -46,7 +46,7 @@ $S_f$: otras fuerzas (presiones de poro, colisiones, etc.).
 ### Ecuación de conservación de energía (forma general)
 La forma general del balance de energía para un flujo continuo es:
 
-$\frac{𝑑}{𝑑𝑡}(𝐸total)=$Potencia neta de entrada − Disipacion  
+$\frac{𝑑}{𝑑𝑡}(𝐸_{total})=$ Potencia neta de entrada − Disipación  
 
 Desglose de la energía total por unidad de masa:
 
