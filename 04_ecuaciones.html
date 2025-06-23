@@ -366,13 +366,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-integrada-ecuaciones-tipo-saint-venant">Forma integrada: ecuaciones tipo Saint-Venant</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-energia-forma-general">Ecuación de conservación de energía (forma general)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
 </ul>
             </nav>
         </div>
@@ -386,52 +382,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ecuaciones-de-saint-venant">
 <h1>Ecuaciones de Saint-Venant<a class="headerlink" href="#ecuaciones-de-saint-venant" title="Permalink to this heading">#</a></h1>
-<p>Para modelar flujos de escombros (debris flows) y otros flujos geofísicos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Estas incluyen principalmente:</p>
-<ul class="simple">
-<li><p>Conservación de masa</p></li>
-<li><p>Conservación de cantidad de movimiento</p></li>
-<li><p>Conservación (o balance) de energía</p></li>
-</ul>
-<section id="forma-integrada-ecuaciones-tipo-saint-venant">
-<h2>Forma integrada: ecuaciones tipo Saint-Venant<a class="headerlink" href="#forma-integrada-ecuaciones-tipo-saint-venant" title="Permalink to this heading">#</a></h2>
-<p>Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y debris flows. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.</p>
-<p>Los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D:</p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial h}{\partial t} + \triangledown(ℎ\vec{u}) = 𝑆_m\)</span></p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial(h \vec{u})}{\partial t }+ \triangledown(ℎ\vec{u} \otimes \vec{u}) = −g h \triangledown z_b+ \vec{S}_g − \frac{\vec{\tau}_b }{\rho} \)</span>
-​</p>
-<p>Términos clave: <span class="math notranslate nohighlight">\(z_b\)</span>: elevación del lecho (topografía), <span class="math notranslate nohighlight">\(\vec{\tau}_b\)</span>: esfuerzo basal según el modelo reológico (puede ser Bingham, Voellmy, etc.), <span class="math notranslate nohighlight">\(\vec{S}_g\)</span>: fuerzas externas (por ejemplo, presiones dispersivas, sobrepresión de poros)</p>
+<p>Para modelar flujos de escombros (debris flows) y otros flujos geofísicos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y debris flows. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.</p>
+<p>Comparado con aguas limpias, los flujos de lodo y detritos generan fuerzas resistentes adicionales. El aumento del contenido de sólidos incrementa la viscosidad de los flujos no newtonianos, generando fuerzas resistentes internas dentro del fluido. A concentraciones más altas, particularmente con partículas gruesas, la colisión y fricción entre partículas introducen fuerzas resistentes internas adicionales. La mayoría de las modificaciones teóricas y numéricas implican la integración de las nuevas fuerzas internas del fluido en la ecuación de momento. Las ecuaciones promediadas en la profundidad pueden adaptarse para simulaciones no newtonianas añadiendo un término de pendiente de pérdida adicional (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) al término clásico de la pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) en la ecuación de conservación de momento.</p>
+<p>En este sentido, los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D de la siguiente forma:</p>
 <section id="ecuacion-de-conservacion-de-masa-continuidad">
-<h3>Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Permalink to this heading">#</a></h3>
+<h2>Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Permalink to this heading">#</a></h2>
 <p>Para un flujo en una dirección horizontal (e.g. coordenada <span class="math notranslate nohighlight">\(x\)</span>), la ecuación de continuidad superficial en régimen no permanente es:</p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial ℎ}{\partial t}+ \frac{\partial(hu)}{\partial x}=𝑆_m\)</span></p>
-<p>Donde: <span class="math notranslate nohighlight">\(h(x,t)\)</span>: espesor del flujo [m], <span class="math notranslate nohighlight">\(u(x,t)\)</span>: velocidad media del flujo [m/s], <span class="math notranslate nohighlight">\(S_m\)</span>: fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial h}{\partial t} + \frac{\partial(ℎ\vec{u})}{\partial x} = 𝑆_m\)</span></p>
+<p>Donde: <span class="math notranslate nohighlight">\(h(x,t)\)</span>: espesor del flujo [m], <span class="math notranslate nohighlight">\(\vec{u}(x,t)\)</span>: velocidad media del flujo [m/s], <span class="math notranslate nohighlight">\(S_m\)</span>: fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]</p>
 <p>Esta ecuación dice que el cambio del espesor en el tiempo es igual a la diferencia entre lo que entra y lo que sale, más lo que se gana o pierde localmente.</p>
 </section>
 <section id="ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">
-<h3>Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Permalink to this heading">#</a></h3>
+<h2>Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Permalink to this heading">#</a></h2>
 <p>Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resistencias (fricción basal, turbulencia, etc.). En dos dimensiones se extiende a vectores de velocidad <span class="math notranslate nohighlight">\(\vec{u} = (u,v)\)</span>, y aparecen términos de curvatura, presión lateral y coriolis si es relevante.</p>
-<p><span class="math notranslate nohighlight">\(\frac{\partial(hu)}{\partial t} + \frac{\partial(hu^2)}{\partial x} = 𝑔 hsin⁡\theta − \tau_b / \rho + 𝑆_f\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial(h\vec{u})}{\partial t} + \frac{\partial(h\vec{u}^2)}{\partial x} = 𝑔 hsen⁡\theta − S_{MD} + 𝑆_f\)</span></p>
+<p><span class="math notranslate nohighlight">\(S_{MD}=\frac{\tau_{MD}}{\rho_mgR}\)</span></p>
 <p>​
-Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span class="math notranslate nohighlight">\(\theta\)</span>: pendiente del terreno, <span class="math notranslate nohighlight">\(\tau_b\)</span>: esfuerzo cortante basal [Pa] (resistencia al movimiento), <span class="math notranslate nohighlight">\(\rho\)</span>: densidad del flujo,
-<span class="math notranslate nohighlight">\(S_f\)</span>: otras fuerzas (presiones de poro, colisiones, etc.).</p>
-</section>
-<section id="ecuacion-de-conservacion-de-energia-forma-general">
-<h3>Ecuación de conservación de energía (forma general)<a class="headerlink" href="#ecuacion-de-conservacion-de-energia-forma-general" title="Permalink to this heading">#</a></h3>
-<p>La forma general del balance de energía para un flujo continuo es:</p>
-<p><span class="math notranslate nohighlight">\(\frac{𝑑}{𝑑𝑡}(𝐸_{total})=\)</span> Potencia neta de entrada − Disipación</p>
-<p>Desglose de la energía total por unidad de masa:</p>
-<p><span class="math notranslate nohighlight">\(𝐸=𝐸_𝑝+𝐸_𝑘+𝐸_𝑖\)</span>​</p>
-<p><span class="math notranslate nohighlight">\(E_p = g z\)</span> → energía potencial (por altura), <span class="math notranslate nohighlight">\(E_k = \frac{1}{2} u^2\)</span> → energía cinética, <span class="math notranslate nohighlight">\(E_i\)</span> → energía interna (p. ej., calor, deformación interna, presión de poros), La disipación de energía aparece como términos negativos (resistencias), y depende del modelo reológico:</p>
-<p>Viscoso: <span class="math notranslate nohighlight">\(\Phi = \mu (\partial u/\partial y)^2\)</span></p>
-<p>Dispersivo: término <span class="math notranslate nohighlight">\(\propto \dot\gamma^2\)</span></p>
-<p>Turbulento: términos como <span class="math notranslate nohighlight">\(\propto V^2/\xi\)</span> en Voellmy</p>
-<p>generalmente los modelos son simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de “box model” o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:</p>
-<p><span class="math notranslate nohighlight">\(𝑚\frac{𝑑u}{𝑑t}=𝑚𝑔sin𝜃−𝜏_𝑏\)</span><br />
+Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span class="math notranslate nohighlight">\(\theta\)</span>: pendiente del terreno, <span class="math notranslate nohighlight">\(S_{MD}\)</span>: pendiente de fricción para lodos y escombros, <span class="math notranslate nohighlight">\(S_f\)</span>: pendiente de fricción newtoniana o pendiente de fricción viscosa, <span class="math notranslate nohighlight">\(\tau_{MD}\)</span> el esfuerzo cortante interno y reológico, <span class="math notranslate nohighlight">\(\rho_m\)</span> la densidad dela mezcla de sedimentos y agua (<span class="math notranslate nohighlight">\(kg/m^3\)</span>) y <span class="math notranslate nohighlight">\(R\)</span> el radio hidráulico (m). la Pendiente de fricción para lodos y escombros (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) se refiere a la resistencia al movimiento introducida por la fricción interna y basal de materiales no newtonianos, como mezclas de lodo, escombros o flujos hiperconcentrados, que pueden tener comportamientos viscoplásticos o de tipo Bingham. La Pendiente de fricción newtoniana <span class="math notranslate nohighlight">\(S_f\)</span> se refiere a la componente del modelo que representa las fuerzas de fricción o resistencia debidas a un comportamiento fluido tipo Newtoniano (como el agua o fluidos con viscosidad constante).</p>
+<p>Generalmente los modelos son simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de “box model” o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:</p>
+<p><span class="math notranslate nohighlight">\(𝑚\frac{\partial\vec{u}}{\partialt}=𝑚𝑔sin𝜃−𝜏_𝑏\)</span><br />
 ​</p>
-<p>Pero si se requiere simular procesos dinámicos completos, como: evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.</p>
+<p>Pero si se requiere simular procesos dinámicos completos, como evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.</p>
 </section>
 <section id="modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">
-<h3>Modelos numéricos de flujos de escombros: conservación de masa, momento y reología<a class="headerlink" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia" title="Permalink to this heading">#</a></h3>
+<h2>Modelos numéricos de flujos de escombros: conservación de masa, momento y reología<a class="headerlink" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia" title="Permalink to this heading">#</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -503,7 +477,6 @@ Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span 
 </table>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -559,13 +532,9 @@ Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forma-integrada-ecuaciones-tipo-saint-venant">Forma integrada: ecuaciones tipo Saint-Venant</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-energia-forma-general">Ecuación de conservación de energía (forma general)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
 </ul>
   </nav></div>
 

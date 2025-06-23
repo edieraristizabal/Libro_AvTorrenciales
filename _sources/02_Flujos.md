@@ -4,15 +4,15 @@
 Las diferencias entre fenómenos puramente hidrológicos y movimientos en masa están bien establecidas físicamente (Coussot and Meunier 1996; O’Brien and Julien 1985; Pierson and Costa 1987; Takahashi 1981); sin embargo, no existe unanimidad sobre definiciones específicas para flujos torrenciales que contienen una mezcla de agua y sedimentos en proporciones variables. De forma general, los flujos se definen como un fenómeno de transporte de sedimentos compuesto por una mezcla de material fino y grueso con una cantidad variable de agua, donde tanto las fuerzas sólidas como las fluidas influyen fuertemente (Iverson 1997; Nettleton et al. 2005). Según el tipo de proceso dominante y relación sedimentos-agua, esta mezcla es considerada desde procesos gravitacionales tipo flujo (Cruden and Varnes 1996) hasta procesos hidrológicos tipo inundaciones súbitas (NWS, 2005), donde en muchos casos el término flujo hiperconcentrado es utilizado para describir flujos intermedios entre estos dos fenómenos. 
 
 :::{figure-md} rheology
-<img src="https://i.pinimg.com/736x/70/07/4b/70074b59f169e99adf125629a62c7486.jpg" width="700px">h
+<img src="https://i.pinimg.com/736x/70/07/4b/70074b59f169e99adf125629a62c7486.jpg" width="700px">
 
-Reologia de flujos. Tomado de [Mud and Debris flow](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
+Reologia de flujos modificado de Philips (1988) luego de Bradley & McCutcheon (1985). Tomado de [HEC RAS Non-Newtonian User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
 :::
 
 Iverson (1997) distingue los procesos gravitacionales como aquellos donde las interacciones entre los fragmentos sólidos dominan la transferencia de momento, y las inundaciones cargadas de sedimentos como aquellas donde la turbulencia del fluido domina la transferencia de momento; para casos intermedios usa el término flujos de escombros, donde los sólidos y fluidos deben transferir el momento de forma sinérgica para sostener el movimiento. Takahashi (1981) distingue el transporte de sedimentos entre flujos fluidos y movimientos en masa, porque mientras que en los fluidos las fuerzas de arrastre y levantamiento, dadas por la alta velocidad relativa, son claves para el transporte individual de partículas, en los movimientos tipo caída, deslizamiento o flujos todas las partículas, así como el fluido intersticial, son movidos por la fuerza de la gravedad, de modo que la velocidad relativa entre la fase sólida y la líquida desempeña un papel menor. En este mismo sentido, Ancey (2001) distingue entre dos regímenes de flujo, flujos de dos fases, donde el agua es el agente principal y el pequeño porcentaje de sedimentos es transportado como carga de fondo y por suspensión; y flujos de una fase, compuestos por una mezcla altamente concentrada de sedimentos y agua. Sin embargo, Pierson (2005) propone que, además de la concentración de sedimentos suspendidos, la distribución del tamaño de granos y la densidad de los granos se debe utilizar para definir las mezclas sedimento-agua.
 
 :::{figure-md} rheology
-<img src="https://www.mdpi.com/symmetry/symmetry-10-00094/article_deploy/html/images/symmetry-10-00094-g001.png" alt="rheology" width="700px">h
+<img src="https://www.mdpi.com/symmetry/symmetry-10-00094/article_deploy/html/images/symmetry-10-00094-g001.png" alt="rheology" width="700px">
 
 Reologia de flujos. Tomado de [Wang et al. (2018)](https://www.mdpi.com/2073-8994/10/4/94/htm).
 :::
@@ -26,9 +26,9 @@ En la literatura existen clasificaciones para procesos gravitacionales, donde se
 Existen tambien clasificaciones de flujos de escombros, en las que se utiliza el término para nombrar una mezcla de agua y sedimentos en diferentes proporciones (O’Brien & Julien 1985). Crosta et al. (1990) proponen usar el término flujos de escombros en un significado amplio, dividiéndolos en cuatro categorías: (i) Flujos de escombros no canalizados en drenajes de orden cero, originados como desgarres superficiales, (ii) Flujos de escombros en cuencas canalizadas de pendientes medias, originados como deslizamientos rotacionales o traslacionales, (iii) Avalanchas de escombros en intercuencas de pendientes mayores a 45°, (iv)  Torrente de escombros que se dan inicio en valles estrechos, causados por la falla o ruptura de presas generadas por deslizamientos, flujos de escombros o bloqueos de avalanchas de nieve.
 
 :::{figure-md} flow taxonomy
-<img src="https://i.pinimg.com/736x/b0/85/c7/b085c7b4549b1401c87c3d79752032d5.jpg" alt="Flow axonomy" width="700px">h
+<img src="https://i.pinimg.com/736x/b0/85/c7/b085c7b4549b1401c87c3d79752032d5.jpg" alt="Flow axonomy" width="700px">
 
-Taxonomía de flujos no Newtonianos con los modelos reológicos y ecuaciones utilizadas para modelar. Tomado de [Mud and Debris flow](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
+Taxonomía de flujos no Newtonianos con los modelos reológicos y ecuaciones utilizadas para modelar según Gibson et al., 2020. Tomado de [HEC RAS Non-Newtonian User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
 :::
 
 Entre tanto, O’Brien and Julien (1985) proponen una clasificación para flujos de acuerdo con las propiedades controladas por la concentración de sedimentos, cuya clasificación va desde inundaciones hasta movimientos en masa. Los autores identifican cinco categorías de flujos: (i) Crecientes: Definidos como inundaciones de agua por descargas excesivas donde los sedimentos son transportados a través de suspensión y saltación por el lecho, (ii) Inundaciones de lodo: Flujos donde la concentración de sedimentos finos varía de 20 a 45% por volumen, (iii) Flujos de lodo: Flujos donde la concentración de sedimentos finos varía de 45 a 50% por volumen, (iv) Flujos de escombros: Aplicado a flujos de lodo con más del 50% de sedimentos más gruesos que arena, (v) Deslizamientos: Movimiento en masa donde la concentración por volumen de sedimentos es mayor al 50%.
@@ -36,9 +36,9 @@ Entre tanto, O’Brien and Julien (1985) proponen una clasificación para flujos
 Coussot & Meunier (1996) proponen una clasificación en función de la concentración de sedimentos y el tipo de material, la cual varía desde flujos de corriente, donde los sedimentos son transportados por suspensión y carga de fondo hasta deslizamientos. Como términos intermedios entre estos dos fenómenos se encuentran los flujos hiperconcentrados, flujos de lodo, flujos de escombros y flujos granulares.  
 
 :::{figure-md} flow taxonomy
-<img src="https://i.pinimg.com/736x/61/76/45/6176459c6f45d39f3cf5bcff67e9076f.jpg" width="700px">h
+<img src="https://i.pinimg.com/736x/61/76/45/6176459c6f45d39f3cf5bcff67e9076f.jpg" width="700px">
 
-Taxonomía de flujos no Newtonianos con los modelos reológicos. Tomado de [Mud and Debris flow](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
+Taxonomía de flujos no Newtonianos con los modelos reológicos de acuerdo con Coussot & Meuniers (1986). Tomado de [HEC RAS Non-Newtonian User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
 :::
 
 Iverson (1997) incluye dentro de la categoría de flujos de escombros una gran cantidad de fenómenos como deslizamientos de escombros, torrentes de escombros, inundaciones de escombros, flujos de lodo, deslizamientos de lodo, y lahares para flujos de escombros de origen volcánico. 
