@@ -1,0 +1,556 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Interacción atmosfera-ladera-cauce &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06_Interaccion';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelos de propagacion" href="07_Routing.html" />
+    <link rel="prev" title="Modelos de dos fases (granular-fluido):" href="05_DosFases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Avenidas torrenciales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Interacción atmosfera-ladera-cauce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F06_Interaccion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06_Interaccion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interacción atmosfera-ladera-cauce</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acoplamiento">Acoplamiento</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interaccion-atmosfera-ladera-cauce">
+<h1>Interacción atmosfera-ladera-cauce<a class="headerlink" href="#interaccion-atmosfera-ladera-cauce" title="Permalink to this heading">#</a></h1>
+<p>Tomado de <em>Kaitna et al. (2024)</em> Causes and triggers en Advances in Debris-flow science and practice. Eds. Matias Jakob, Scott McDougall, Paul Santi.</p>
+<p>La lluvia convectiva ocurre cuando hay abundante humedad disponible en la atmósfera y la inestabilidad flotante de las masas de aire genera fuertes movimientos verticales. En los movimientos ascendentes, la humedad se condensa formando grandes gotas, que finalmente caen al suelo con intensidades de lluvia intensa. Este sistema básico de movimientos ascendentes y descendentes se denomina célula convectiva.</p>
+<p>Las células convectivas se forman en ambientes favorables, crecen hasta alcanzar las tasas de lluvia más intensas y luego se disipan, en ciclos de vida que duran alrededor de 30 a 60 minutos. Pueden extenderse verticalmente hasta la tropopausa y sus escalas horizontales son del orden de unos pocos kilómetros cuadrados.</p>
+<p>Las tormentas convectivas pueden estar compuestas por numerosas células convectivas, por lo que pueden durar mucho más que una célula individual y cubrir áreas relativamente grandes.  Por ejemplo, los frentes fríos típicamente asociados con el paso de sistemas de baja presión presentan numerosas células convectivas y cubren regiones extensas durante varias horas. No obstante, también pueden formarse células convectivas aisladas, especialmente en áreas montañosas donde los movimientos verticales del aire se ven reforzados por el ascenso orográfico de las masas de aire y por efectos locales de calentamiento, como ocurre con las tormentas aisladas de verano en los Alpes (Barry &amp; Chorley, 2010).</p>
+<p>La orografía restringe físicamente el movimiento de las masas de aire, induciendo movimientos verticales y turbulencia, y afecta los procesos de precipitación (Bonacina, 1945; Roe, 2005). En general, estos movimientos verticales generan un aumento en la precipitación sobre las laderas de barlovento y una disminución sobre las laderas de sotavento. Cada ladera experimenta ambos efectos dependiendo de la dirección del viento durante las tormentas, aunque generalmente predomina el aumento. De hecho, se observan mayores cantidades de precipitación en altitudes elevadas, fenómeno conocido como realce orográfico de la precipitación.</p>
+<p>De manera inesperada, las precipitaciones convectivas intensas no obedecen a esta regla general. La intensidad de la lluvia intensa y de corta duración, crucial para la generación de flujos de escombros, ha resultado ser menor a mayores altitudes. Este fenómeno, conocido como efecto orográfico inverso, se ha observado en varias cadenas montañosas, incluyendo los Alpes, los Apeninos italianos y las montañas de Judea en el sureste del Mediterráneo (Allamano et al., 2009; Avanzi et al., 2015; Marra et al., 2021; Mazzoglio et al., 2022). La orografía induce turbulencia en las masas de aire, lo que dificulta los movimientos verticales y redistribuye la humedad dentro de las células convectivas. Como resultado, el rendimiento total de precipitación durante la vida de las células se mantiene aproximadamente igual, pero las tasas máximas de lluvia que pueden generar las células convectivas suelen ser más bajas (Formetta et al., 2022; Marra et al., 2021, 2022).</p>
+<p>Existen evidencias emergentes a nivel global del aumento de la precipitación convectiva debido al cambio climático (Fowler et al., 2021), lo que genera preocupación en regiones montañosas como los Alpes (Dallan et al., 2022; Libertino et al., 2019), ya que puede incrementar la probabilidad de peligros como avenidas torrenciales. Los mecanismos subyacentes incluyen:</p>
+<ul class="simple">
+<li><p>una mayor capacidad de la atmósfera para retener vapor de agua a temperaturas más altas;</p></li>
+<li><p>cambios en la dinámica de las células convectivas impulsados por la temperatura, que redistribuyen la humedad hacia el núcleo de las células, aumentando su intensidad máxima pero reduciendo su extensión espacial;</p></li>
+<li><p>y cambios en la circulación global, que pueden modificar la frecuencia de los sistemas meteorológicos asociados a la generación de flujos de detritos (Armon et al., 2022; Berg et al., 2013; Lochbiler et al., 2017).</p></li>
+</ul>
+<p>Estos cambios probablemente influirán en la probabilidad futura de ocurrencia de flujos de detritos (Gariano &amp; Guzzetti, 2016).</p>
+<p>Un marco común para evaluar cuándo los deslizamientos generan flujos de detritos es el criterio de falla de <em>Coulomb</em> (Iverson et al., 1997). Este criterio fue descrito por primera vez por Coulomb (1973) y ha sido ampliamente utilizado en mecánica de suelos y flujos granulares (e.g., Iverson &amp; Denlinger, 2001). Se ha demostrado mediante datos de campo y laboratorio que la falla de una masa de suelo ocurre cuando:</p>
+<div class="math notranslate nohighlight">
+\[
+\tau = \sigma' \tan \varphi + c
+\]</div>
+<p>donde:  <span class="math notranslate nohighlight">\(\tau\)</span> es el esfuerzo cortante medio que actúa sobre la superficie de falla,  <span class="math notranslate nohighlight">\(\sigma'\)</span> es el esfuerzo normal efectivo,  <span class="math notranslate nohighlight">\(\varphi\)</span> es el ángulo de fricción del suelo (por fricción superficial e interbloqueo de clastos),  <span class="math notranslate nohighlight">\(c\)</span> es la cohesión aparente (Lambe &amp; Whitman, 1991).</p>
+<p>La cohesión puede originarse en distintos factores, como las fuerzas entre partículas de arcilla (Ikari &amp; Kopf, 2011), la cementación (Cui et al., 2017), raíces y vegetación (Zhang et al., 2010) o hielo (Arenson &amp; Springman, 2005).</p>
+<p>El esfuerzo normal efectivo <span class="math notranslate nohighlight">\(\sigma'\)</span> se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma' = \sigma - p
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\sigma\)</span> es el esfuerzo normal total sobre la superficie de falla y <span class="math notranslate nohighlight">\(p\)</span> es la presión de poros (Terzaghi, 1936).</p>
+<p>Aunque el criterio de Coulomb define la falla sobre una superficie de deslizamiento, no especifica cuándo un deslizamiento se convierte en flujo de detritos. La teoría indica que cuando la cohesión es baja o nula, y el gradiente vertical de presión de poros iguala el gradiente vertical del esfuerzo normal total, el esfuerzo efectivo es cero y el suelo puede fluir como un líquido (<em>licuefacción</em>).</p>
+<p>Estas condiciones pueden ocurrir debido a:</p>
+<ul class="simple">
+<li><p>Eventos transitorios como terremotos o deslizamientos, que alteran las estructuras y trayectorias del flujo (Sassa et al., 1996),</p></li>
+<li><p>Contracción de suelos densamente empaquetados bajo cizalladura, donde el espacio poroso se reduce más rápido que la disipación de la presión de poros (Goren et al., 2010; Iverson, 2005).</p></li>
+</ul>
+<p>Se ha planteado que la movilización en flujo de escombros ocurre principalmente en suelos sueltos, es decir, con densidades inferiores al estado crítico de equilibrio (Wood, 1990). Durante la contracción (por falla del suelo o impacto de un deslizamiento sobre un canal), la presión de poros aumenta, ya que el agua no puede disiparse. Esto es conocido como carga no drenada (Terzaghi &amp; Peck, 1948).</p>
+<section id="acoplamiento">
+<h2>Acoplamiento<a class="headerlink" href="#acoplamiento" title="Permalink to this heading">#</a></h2>
+<p>La forma más directa de acoplar áreas fuente y recorrido es evaluando primero las áreas fuente potenciales y utilizando estas en un modelo de propagación. Esto puede hacerse considerando puntos de inicio binarios (<strong>fuente/no fuente</strong>) o utilizando el valor de susceptibilidad o probabilidad de la zona de inicio, si está disponible, vinculando así la susceptibilidad de recorrido con la susceptibilidad de inicio (por ejemplo, Michoud et al., 2012 para caída de rocas usando el software Flow-R).</p>
+<p>Existen pocos estudios sobre el acoplamiento de análisis estadísticos de susceptibilidad a deslizamientos con los modelos de recorrido correspondientes. Desde principios de la década de 2000 se ha escrito mucho sobre análisis estadísticos de susceptibilidad (liberación), omitiendo las consecuencias ladera abajo de los deslizamientos. Solo recientemente se han propuesto enfoques más integrados (por ejemplo, Goetz et al., 2021; Mergili et al., 2019).</p>
+<p>Mergili et al. (2019) señalaron dos formas posibles de acoplamiento, basadas en un modelo estadístico simple de liberación de deslizamientos y la herramienta de enrutamiento r.randomwalk:</p>
+<ul class="simple">
+<li><p><strong>Enfoque ascendente (bottom-up):</strong> para cada píxel del área de estudio (píxel objetivo), se combina la probabilidad de que haya al menos un deslizamiento en el área de captación con la probabilidad de que dicho deslizamiento alcance el píxel objetivo, basándose en la función de densidad de probabilidad empíricamente derivada del ángulo de alcance para el área de estudio.</p></li>
+<li><p><strong>Enfoque descendente (top-down):</strong> el enrutamiento se realiza desde cada píxel del área de estudio (píxel fuente), y la probabilidad de que cada píxel objetivo sea afectado por un deslizamiento es función de la susceptibilidad de liberación y de la probabilidad de que el píxel objetivo sea alcanzado por el deslizamiento, nuevamente basada en la función de densidad de probabilidad empíricamente derivada del ángulo de alcance. Esto se resuelve escalando el número de caminatas aleatorias con la susceptibilidad de liberación de cada píxel fuente.</p></li>
+</ul>
+<p>Mergili et al. (2019) afirman que el enfoque ascendente es estadística y matemáticamente más limpio y proporciona una probabilidad espacial real y cuantitativa. Sin embargo, este enfoque no es muy intuitivo e implica un nivel sustancial de suavizado de los patrones de susceptibilidad a deslizamientos, por lo que el resultado se correlaciona fuertemente con el tamaño de la cuenca de captación de cada píxel objetivo. El enfoque descendente, en contraste, es más intuitivo y directo. Sin embargo, la superposición de las trayectorias que parten de muchos píxeles fuente complica la derivación de una probabilidad real y conduce a una dominancia del componente de recorrido sobre el componente de liberación en los resultados finales. Las estrategias para abordar estos problemas de superposición mejorarán el acoplamiento estadístico de los modelos de liberación y recorrido.</p>
+<p>Los métodos basados en escenarios son una alternativa práctica y con frecuencia se acoplan con estadísticas de susceptibilidad. Estos métodos implican ejecutar múltiples escenarios de flujos de escombros a partir de clases de susceptibilidad (y sus respectivas métricas de probabilidad) utilizando ubicaciones de inicio asignadas aleatoriamente, de forma uniforme o manualmente dentro de cada clase. Las zonas de inicio generadas aleatoriamente o de forma uniforme requieren que el usuario aplique una red suficientemente densa de ubicaciones potenciales de inicio de deslizamientos, y numere esas ubicaciones del 1 al n de modo que ningún escenario individual se superponga de manera poco realista. El usuario puede ejecutar cada escenario (<strong>escenario 1 … escenario n</strong>) múltiples veces para determinar las diferencias entre las ejecuciones del escenario.</p>
+<p>Las zonas de inicio generadas manualmente son similares, pero tienden a basarse en el juicio experto (ubicaciones fuente potenciales observables) dentro de una clase de susceptibilidad. Las zonas de inicio generadas aleatoria o uniformemente se adaptan mejor a las pruebas estadísticas y son más prácticas en regiones más grandes. Los datos de amenaza (<strong>hazard data</strong>), más que solo los datos de susceptibilidad, proporcionan mejores limitaciones y discretización de los escenarios (es decir, es útil conocer el número esperado de flujos de escombros/unidad de área/unidad de tiempo para un escenario dado dentro de una clase determinada).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_DosFases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelos de dos fases (granular-fluido):</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07_Routing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelos de propagacion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acoplamiento">Acoplamiento</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

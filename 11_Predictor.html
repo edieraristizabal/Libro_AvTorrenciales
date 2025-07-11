@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introducción &#8212; Avenidas Torrenciales</title>
+    <title>DebrisFlow Predictor &#8212; Avenidas Torrenciales</title>
   
   
   
@@ -62,11 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '01_Intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '11_Predictor';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros" href="02_Flujos.html" />
-    <link rel="prev" title="Avenidas torrenciales" href="intro.html" />
+    <link rel="next" title="Flow-Py" href="12_FlowPy.html" />
+    <link rel="prev" title="r.randomwalk" href="10_RandomWalk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -177,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DebrisFlow Predictor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
 </ul>
 
@@ -250,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_Intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F11_Predictor.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -280,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/01_Intro.md" target="_blank"
+      <li><a href="_sources/11_Predictor.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +351,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -360,11 +364,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introducción</h1>
+    <h1>DebrisFlow Predictor</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -374,13 +389,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="introduccion">
-<h1>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this heading">#</a></h1>
-<p>Aunque las avenidas torrenciales han sido un fenómeno común en Colombia, los estudios realizados al respecto son escasos. Probablemente una de las razones está asociada a la falta de un consenso con respecto a clasificación y terminología de fenómenos tipo flujos torrenciales que permita caracterizar adecuadamente qué son las avenidas torrenciales. La literatura técnica en inglés utiliza términos como <em>flash flood</em>, <em>debris flood</em>, <em>debris torrent</em> y <em>debris flow</em> para una gran cantidad de fenómenos de mezcla de agua y sedimentos que se transportan de la ladera a los cauces. En español existen términos como inundación súbita, avenida torrencial e incluso avalanchas para designar este tipo de fenómenos.</p>
-<p>En Colombia las avenidas torrenciales son entendidas como movimientos en masa o como crecientes súbitas, fenómenos aparentemente muy diferentes que implica el uso de métodos con enfoques diferentes. INGEOMINAS (2001) define las avenidas torrenciales como fenómenos de remoción en masa donde el agua de una corriente aumenta considerablemente su volumen por el transporte de material solido que alcanza su cauce desde las laderas adyacentes. En este mismo sentido, Castro (1999) propone establecer el uso del término avenidas torrenciales como un flujo de escombros canalizado. La <em>Guía para la Evaluación de Amenazas por Movimientos en Masa en la Región Andina (PMA-GCA, 2007)</em> define las avenidas torrenciales como flujos de detritos (<em>debris flow</em>) siguiendo la definición de Hungr et al (2001). Por otro lado, en el marco de los Planes de Ordenación y Manejo de Cuencas (POMCA), las avenidas torrenciales son entendidas como inundaciones de tipo fluvial rápidas o torrenciales. La <em>Guía Técnica para la Incorporación de la Gestión del Riesgo en los POMCA</em> define las avenidas torrenciales como crecientes súbitas que por las condiciones geomorfológicas de la cuenca están compuestas por un flujo de agua con alto contenido de materiales de arrastre, con un gran potencial destructivo debido a su alta velocidad (MADS, 2014). El Fondo de Prevención y Atención de Emergencias de la ciudad de Bogotá (FOPAE) define las avenidas torrenciales como sinónimo de inundaciones rápidas generadas por crecientes que ocurren de manera repentina debido a la alta pendiente del río o la quebrada y su cuenca, donde en ocasiones se produce el arrastre de una gran cantidad de material como detritos (FOPAE, 2011).</p>
-<p>Estas dos miradas sobre las avenidas torrenciales se reflejan en la <em>Guía Metodológica para la Evaluación de la Amenaza por Movimientos en Masa en Suelo Rural</em> del Servicio Geológico Colombiano (SGC). En esta guía las avenidas torrenciales se consideran equivalentes a los flujos de detritos y flujos de lodos descritos por el PMA-CGA (2007), pero adopta la definición de la guía de los POMCA como procesos tipo flujo que incluye eventos generados sobre ríos y quebradas de alta montaña y en cuencas con características geomorfológicas que favorecen la alta acumulación de sedimentos sobre el cauce, cambios drásticos en el gradiente del afluente, alta densidad de drenaje y eventos de precipitación (MADS &amp; UNAL, 2013).</p>
-<p>Estas dos miradas han dado como resultado metodologías con enfoques diferentes para evaluar la susceptibilidad o amenaza ante avenidas torrenciales. En la guía de los POMCA se propone el uso de índices morfométricos para evaluar la respuesta hidrológica de la cuenca, específicamente el <em>Índice de Vulnerabilidad frente a Eventos Torrenciales (IVET)</em>, combinado con análisis geomorfológicos para evaluar el potencial aporte de sedimentos de la cuenca. Y en las guías que ha elaborado el SGC para movimientos en masa se han propuesto métodos estadísticos para evaluar la susceptibilidad por movimientos en masa sobre las laderas de la cuenca, como potencial aporte de sedimentos, combinado con análisis geomorfológico (Ingeominas, 1988; SGC, 2017).</p>
-<p>La reciente <em>Guía metodológica para zonificación de amenaza por avenidas torrenciales</em> del Servicio Geológico Colombiano, elaborada por la Pontificia Universidad Javeriana, adopta la definición de avenidas torrenciales como flujos rápidos que transitan por cauces permanentes o  intermitentes con pendientes longitudinales altas que puede ser generado por efecto de lluvias intensas. Término que comprende para los autores flujos de detritos, flujos de lodos y flujos hiperconcentrados. De esta forma proponen un esquema metodológico  que combina criterios geológico-geomorfológicos, análisis geotécnicos sobre las laderas para evaluar el potencial aporte de sedimentos por movimientos en masa y erosión laminar, análisis hidrológicos para estimar el factor detonante lluvia, y finalmente modelos fluido-dinámicos de acuerdo con la reología, para propagar el flujo.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="debrisflow-predictor">
+<h1>DebrisFlow Predictor<a class="headerlink" href="#debrisflow-predictor" title="Permalink to this heading">#</a></h1>
+<p><em>DebrisFlow Predictor</em> es un paquete de simulación de deslizamientos basado en agentes que modela el comportamiento complejo de flujos de detritos y avalanchas de detritos (Guthrie &amp; Befus, 2021). Fue desarrollado en lenguaje <em>C#</em> y <em>XAML</em>, y es un programa independiente con una interfaz de usuario completa que incluye la capacidad de importar archivos <em>shapefile</em> y un DEM (archivos ascii), y exportar datos a Excel o como Geotiffs y <em>shapefiles</em>.</p>
+<section id="componentes">
+<h2>Componentes<a class="headerlink" href="#componentes" title="Permalink to this heading">#</a></h2>
+<p>Las áreas fuente pueden seleccionarse manualmente en el software y a menudo consisten en nueve agentes (15 m × 15 m) o más grandes. Alternativamente, las ubicaciones de inicio pueden seleccionarse aleatoriamente, de forma uniforme o manualmente (por escenario) e importarse como archivos de puntos en el software. A cada archivo de puntos se le puede asignar individualmente una ubicación de inicio de 15 m × 15 m y puede activarse o desactivarse para ejecutar diferentes escenarios.</p>
+<p>Una vez iniciado, los agentes siguen un conjunto de reglas en cada paso de tiempo:</p>
+<ul class="simple">
+<li><p><strong>Erosionar y depositar:</strong> los agentes consultan curvas de referencia que representan la probabilidad de que erosionen o depositen (de forma independiente) en la pendiente actual. Estas curvas se basan en un conjunto de datos empírico (Guthrie &amp; Befus, 2021; Guthrie et al., 2008).</p></li>
+<li><p><strong>Pérdida de masa con cambios de dirección:</strong> los agentes pierden masa con los cambios de dirección como un porcentaje del barrido neto (ponderado para que los cambios angulares mayores pierdan más masa).</p></li>
+<li><p><strong>Fusionar:</strong> cuando un agente colisiona con otro agente durante un paso de tiempo, se fusionan en un solo agente y combinan sus masas.</p></li>
+<li><p><strong>Girar:</strong> los agentes giran hacia las tres elevaciones más bajas y se mueven hacia el espacio desocupado más bajo con algunas reglas adicionales para escenarios ambiguos (sin espacios desocupados, elevaciones iguales, etc.).</p></li>
+<li><p><strong>Expandir:</strong> los agentes se expanden según una función PDF:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \left(\left(\frac{m_{MAX} - m}{m_{MAX}}\right)^n \times \left((\sigma_L - \sigma_S) + \sigma_S\right)\right)
+\]</div>
+<p>donde: <span class="math notranslate nohighlight">\(m_{MAX}\)</span> es la pendiente máxima del abanico, <span class="math notranslate nohighlight">\(m\)</span> es la pendiente del DEM, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\sigma_L\)</span> y <span class="math notranslate nohighlight">\(\sigma_S\)</span> son los coeficientes de asimetría, pendiente baja y pendiente alta, respectivamente.
+El comportamiento de expansión se controla mediante deslizadores dentro del programa y se calibra para las condiciones locales.</p>
+<p>La propagación continua mientras algún agente tenga masa.
+Se crean nuevos agentes durante la función de expansión, y la propagación se detiene cuando todos los agentes terminan (masa = 0 para cada agente).
+Debido a que los resultados son estocásticos, generalmente se recomienda que el usuario realice múltiples ejecuciones por escenario.</p>
+</section>
+<section id="requisitos-de-datos">
+<h2>Requisitos de datos<a class="headerlink" href="#requisitos-de-datos" title="Permalink to this heading">#</a></h2>
+<p><em>DebrisFlow Predictor</em> necesita, como mínimo, un DEM de 5 m importado como archivo ASCII y una ubicación de inicio del deslizamiento (esta última puede elegirse usando la herramienta dentro del programa).
+Otros autores han discutido las limitaciones del modelo con respecto al tamaño de celda del DEM (Horton et al., 2013).
+<strong>DebrisFlow Predictor</strong> no está diseñado para DEM con resoluciones menores a 5 m.
+Para escalas regionales e incluso a escala de una sola cuenca, la resolución de 5 m proporciona un detalle considerable.</p>
+</section>
+<section id="salidas">
+<h2>Salidas<a class="headerlink" href="#salidas" title="Permalink to this heading">#</a></h2>
+<p><em>DebrisFlow Predictor</em> produce resultados de cualquier combinación de ejecuciones únicas/múltiples y deslizamientos únicos/múltiples.
+Cada píxel puede consultarse en el software para obtener información sobre la profundidad del depósito y el número del deslizamiento.
+Se proporcionan estadísticas básicas, incluyendo el número de veces que un píxel fue ocupado por un agente y las profundidades promedio, mínima y máxima del depósito a lo largo de todas las ejecuciones.
+La información específica de cada deslizamiento, incluyendo el área y volúmenes de deslizamientos individuales (para ejecuciones únicas), puede exportarse a Excel.
+Los escenarios de deslizamientos, los resultados de ejecuciones únicas o múltiples, pueden exportarse como <em>shapefiles</em>.
+Finalmente, los resultados también pueden exportarse como Geotiff para visualización en otros programas.
+El software no genera salidas de velocidad.</p>
+<p>El usuario compara los resultados de las ejecuciones iniciales del modelo con deslizamientos observados o mapeados o con datos morfológicos proporcionados por el DEM.
+La evidencia de campo, la geología y la geomorfología, combinadas con el conocimiento experto de los procesos de flujos de detritos, son útiles para distinguir un resultado creíble de uno poco realista.
+La calibración también es posible mediante la comparación de relaciones magnitud-frecuencia y volumen-área con inventarios existentes de deslizamientos.
+Una vez calibrado, el modelo puede aplicarse a una región más amplia.
+Puede ser necesaria una recalibración si las condiciones locales resultan en un comportamiento de flujo diferente de una región a otra.</p>
+</section>
+<section id="calibracion-y-evaluacion">
+<h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Permalink to this heading">#</a></h2>
+<p>Al igual que otros modelos descritos en esta sección, la calibración de <em>DebrisFlow Predictor</em> se basa en el método de prueba y error.
+Se realiza de forma iterativa utilizando los controles dentro del programa.</p>
+<p><em>DebrisFlow Predictor</em> permite a los especialistas en geoamenazas modelar el alcance de flujos de detritos a escala regional y recopilar información importante sobre las características de los deslizamientos individuales dentro del dominio modelado.
+Esa información incluye la longitud del alcance, la probabilidad de inundación, y la profundidad de erosón y depósito a lo largo de las trayectorias del flujo de detritos.</p>
+<p><em>DebrisFlow Predictor</em> despliega agentes, programas subautónomos de 5 m por 5 m, sobre un modelo digital de elevación de la misma resolución.
+Cada agente aplica un conjunto de reglas físicas y empíricamente derivadas que describen su comportamiento en cada paso de tiempo basado en los datos de entrada proporcionados por el DEM y el vecindario de agentes en cada ejecución del modelo.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -414,20 +477,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="10_RandomWalk.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Avenidas torrenciales</p>
+        <p class="prev-next-title">r.randomwalk</p>
       </div>
     </a>
     <a class="right-next"
-       href="02_Flujos.html"
+       href="12_FlowPy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</p>
+        <p class="prev-next-title">Flow-Py</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -437,6 +500,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

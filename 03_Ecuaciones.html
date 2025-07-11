@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ecuaciones de Saint-Venant &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_Ecuaciones';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelos de dos fases (granular-fluido):" href="05_DosFases.html" />
+    <link rel="prev" title="Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros" href="02_Flujos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Avenidas torrenciales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ecuaciones de Saint-Venant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Interaccion.html">Interacción atmosfera-ladera-cauce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F03_Ecuaciones.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03_Ecuaciones.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ecuaciones de Saint-Venant</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ecuaciones-de-saint-venant">
+<h1>Ecuaciones de Saint-Venant<a class="headerlink" href="#ecuaciones-de-saint-venant" title="Permalink to this heading">#</a></h1>
+<p>Para modelar flujos de escombros (<em>debris flows</em>) y otros flujos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y <em>debris flows</em>. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.</p>
+<p>Las ecuaciones de flujo de aguas someras (o de aguas poco profundas) resuelven simultáneamente las ecuaciones de continuidad y de momento para calcular la cota del agua y la velocidad. Las fuerzas de fricción entre el fluido y el contorno sólido son las principales fuerzas de resistencia en las ecuaciones hidráulicas estándar para agua clara newtoniana. Comparado con aguas limpias, los flujos de lodo y detritos generan fuerzas resistentes adicionales. El aumento del contenido de sólidos incrementa la viscosidad de los flujos no newtonianos, generando fuerzas resistentes internas dentro del fluido. A concentraciones más altas, particularmente con partículas gruesas, la colisión y fricción entre partículas introducen fuerzas resistentes internas adicionales. La mayoría de las modificaciones teóricas y numéricas implican la integración de las nuevas fuerzas internas del fluido en la ecuación de momento. Las ecuaciones promediadas en la profundidad pueden adaptarse para simulaciones no newtonianas añadiendo un término de pendiente de pérdida adicional (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) al término clásico de la pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) en la ecuación de conservación de momento.</p>
+<p>La aplicación del transporte no newtoniano en un modelo de aguas someras (o de aguas poco profundas) requiere calcular las pérdidas internas añadiendo un término de pendiente a la pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) en la ecuación de momento y aumentando el flujo para tener en cuenta el volumen de los sólidos. La pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) del modelo de aguas someras representa las fuerzas que actúan contra el flujo en el contorno del fluido (por ejemplo, el canal), mientras que la “pendiente de lodo y detritos” (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) representa las pérdidas internas debidas a la viscosidad, la turbulencia y/o la dispersión dentro del fluido.</p>
+<p>Generalmente los modelos entonces calculan un esfuerzo cortante no newtoniano basándose en la clasificación del flujo (p. ej., flujo de lodo, flujo de detritos, etc.) y el enfoque reológico apropiado (es decir, el modelo de esfuerzo-deformación). Luego, la librería integra el cortante viscoso, turbulento y de dispersión del modelo de esfuerzo-deformación en la ecuación de momento, convirtiendo el esfuerzo cortante en una pendiente y sumando esta pendiente a la pendiente de fricción. Adicionalmente, debido a que estos flujos pueden contener entre un 5% y un 70% de sólidos por volumen, un modelo de lecho fijo debe aumentar el volumen del flujo para tener en cuenta el impacto del sedimento en la masa y la profundidad del flujo.</p>
+<p>En este sentido, los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D de la siguiente forma:</p>
+<section id="ecuacion-de-conservacion-de-masa-continuidad">
+<h2>Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Permalink to this heading">#</a></h2>
+<p>Para un flujo en una dirección horizontal (e.g. coordenada <span class="math notranslate nohighlight">\(x\)</span>), la ecuación de continuidad superficial en régimen no permanente en 1D es:</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial A}{\partial t} + \frac{\partial(Q)}{\partial x} = 𝑆_m\)</span></p>
+<p>Donde: <span class="math notranslate nohighlight">\(Q\)</span> es el caudal [<span class="math notranslate nohighlight">\(m_3/s\)</span>] el cual se obtiene a partir de <span class="math notranslate nohighlight">\(h(x,t)\)</span>: espesor del flujo [m], <span class="math notranslate nohighlight">\(\vec{u}(x,t)\)</span>: velocidad media del flujo [m/s] y <span class="math notranslate nohighlight">\(A\)</span> el área de la seccion transversal del canal [<span class="math notranslate nohighlight">\(m_2\)</span>]. <span class="math notranslate nohighlight">\(S_m\)</span> es la fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]. Esta ecuación dice que el cambio del espesor en el tiempo es igual a la diferencia entre lo que entra y lo que sale, más lo que se gana o pierde localmente.</p>
+</section>
+<section id="ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">
+<h2>Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Permalink to this heading">#</a></h2>
+<p>Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resistencias (fricción basal, turbulencia, etc.). En 1D la ecuación de conservación de momento es:</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial(Q)}{\partial t} + \frac{\partial(Q\vec{u})}{\partial x} = 𝑔 hsen⁡\theta − S_{MD} + 𝑆_f\)</span></p>
+<p><span class="math notranslate nohighlight">\(S_{MD}=\frac{\tau_{MD}}{\rho_mgR}\)</span></p>
+<p>​
+Donde: <span class="math notranslate nohighlight">\(g\)</span>: gravedad, <span class="math notranslate nohighlight">\(\theta\)</span>: pendiente del terreno, <span class="math notranslate nohighlight">\(S_{MD}\)</span>: pendiente de fricción para lodos y escombros, <span class="math notranslate nohighlight">\(S_f\)</span>: pendiente de fricción newtoniana o pendiente de fricción viscosa, <span class="math notranslate nohighlight">\(\tau_{MD}\)</span> el esfuerzo cortante interno y reológico, <span class="math notranslate nohighlight">\(\rho_m\)</span> la densidad dela mezcla de sedimentos y agua (<span class="math notranslate nohighlight">\(kg/m^3\)</span>) y <span class="math notranslate nohighlight">\(R\)</span> el radio hidráulico (m).</p>
+<p>La pendiente de fricción para lodos y escombros (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) se refiere a la resistencia al movimiento introducida por la fricción interna y basal de materiales no newtonianos, como mezclas de lodo, escombros o flujos hiperconcentrados, que pueden tener comportamientos viscoplásticos o de tipo Bingham.</p>
+<p>La pendiente de fricción newtoniana <span class="math notranslate nohighlight">\(S_f\)</span> se refiere a la componente del modelo que representa las fuerzas de fricción o resistencia debidas a un comportamiento fluido tipo Newtoniano (como el agua o fluidos con viscosidad constante).</p>
+<p>Generalmente los modelos son simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de “box model” o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:</p>
+<p><span class="math notranslate nohighlight">\(𝑚\frac{\partial\vec{u}}{\partial t}=𝑚𝑔sin𝜃−𝜏_𝑏\)</span><br />
+​</p>
+<p>Pero si se requiere simular procesos dinámicos completos, como evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.</p>
+</section>
+<section id="modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">
+<h2>Modelos numéricos de flujos de escombros: conservación de masa, momento y reología<a class="headerlink" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia" title="Permalink to this heading">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Conservación de masa</p></th>
+<th class="head"><p>Conservación de momento</p></th>
+<th class="head"><p>Reología utilizada</p></th>
+<th class="head"><p>Dimensiones</p></th>
+<th class="head"><p>Comentarios principales</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>HEC-RAS</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \frac{\partial (hu)}{\partial x} = S_m\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial (hu)}{\partial t} + \frac{\partial (hu^2)}{\partial x} = g h \sin\theta - \frac{\tau_b}{\rho}\)</span></p></td>
+<td><p>Bingham, Herschel–Bulkley, lineal</p></td>
+<td><p>1D / 2D</p></td>
+<td><p>Hidráulica no newtoniana en cauces, incluye módulo sedimentológico</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RAMMS::DF</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \nabla \cdot (h \vec{u}) = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial (h \vec{u})}{\partial t} + \nabla \cdot (h \vec{u} \otimes \vec{u}) = -g h \nabla z - \mu g h \cos\theta - \frac{\vec{u}^2}{\xi}\)</span></p></td>
+<td><p>Voellmy–Salm</p></td>
+<td><p>2D</p></td>
+<td><p>Simulación de alta resolución sobre DEM, calibración con runout</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FLO-2D</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \nabla \cdot (h \vec{u}) = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial (h \vec{u})}{\partial t} + \nabla \cdot (h \vec{u}^2) = g h \sin\theta - \tau_y - \mu \frac{u}{h} - k_d \left( \frac{u}{h} \right)^2\)</span></p></td>
+<td><p>O’Brien–Julien (Bingham + dispersivo)</p></td>
+<td><p>2D</p></td>
+<td><p>Permite erosión, deposición y flujos urbanos</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DAN3D</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \nabla \cdot (h \vec{u}) = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial (h \vec{u})}{\partial t} + \nabla \cdot (h \vec{u} \otimes \vec{u}) = -g h \nabla z - \frac{\tau_b}{\rho}\)</span></p></td>
+<td><p>Voellmy, Coulomb, viscoplástico</p></td>
+<td><p>3D</p></td>
+<td><p>Simula caída, transformación y flujo tridimensional</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>r.avaflow</strong></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \nabla \cdot (h \vec{u}) = S_m\)</span></p></td>
+<td><p>Ecuaciones de mezcla bifásica (Pudasaini &amp; Hutter 2007)</p></td>
+<td><p>Mezcla sólido-líquido no newtoniana</p></td>
+<td><p>2D (raster)</p></td>
+<td><p>Modelo acoplado sólido-fluido, erosión dinámica</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Flow-R</strong></p></td>
+<td><p>—</p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle E_{\text{kin}} = E_{\text{pot}} - E_{\text{fricción}}\)</span></p></td>
+<td><p>Fricción basal (ángulo de talud)</p></td>
+<td><p>2D (raster)</p></td>
+<td><p>Modelo empírico-geométrico para simulación de trayectoria y runout</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Box models</strong></p></td>
+<td><p>—</p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle m \frac{du}{dt} = m g \sin\theta - \tau_b\)</span></p></td>
+<td><p>Coulombiano</p></td>
+<td><p>1D / simplificado</p></td>
+<td><p>Estimación rápida de distancia de detención</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RMB</strong></p></td>
+<td><p>—</p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle E_k + E_p = \text{constante} - \int \tau_b dx\)</span></p></td>
+<td><p>Voellmy (simplificado energético)</p></td>
+<td><p>1D</p></td>
+<td><p>Balance energético para flujos sin cambio de masa</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_Flujos.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_DosFases.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modelos de dos fases (granular-fluido):</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
