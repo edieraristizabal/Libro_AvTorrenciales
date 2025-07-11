@@ -322,7 +322,7 @@ A continuación se comparan los modelos presentados, enfatizando sus supuestos f
 
 **Validez de la aproximación continua**: Todos los modelos mencionados tratan al flujo de escombros como un continuo. Esto es razonable cuando la mezcla es muy heterogénea pero persistentemente mezclada (caso típico de flujos con matriz fluida abundante). Sin embargo, para avalanchas de rocas o flujos de detritos con gran proporción de bloques enormes, el supuesto de continuo puede fallar a escala local (bloques rodando individualmente). En tales casos, modelos discretos (DEM) o bifásicos pueden ser más apropiados. Iverson (2003) llegó a criticar la noción de un fluido reológico monofásico como un “mito” en contextos de flujos altamente heterogéneos, abogando por modelos de mezcla de múltiples fases. Aún así, la comunidad reconoce que, hasta que los modelos de dos fases se desarrollen más, los modelos reológicos efectivos siguen siendo herramientas valiosas y razonables para escalas de cuencas.
 
-### Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018))
+Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018)).
 
 | Modelo          | Reología                                                  | Incorpora arrastre | Referencias seleccionadas                                                 |
 |-----------------|------------------------------------------------------------|--------------------|--------------------------------------------------------------------------|

@@ -73,7 +73,7 @@ Consideran que los factores que afectan la generación de inundaciones súbitas 
 Borga et al. (2014) define las inundaciones súbitas como fenómenos creados por precipitaciones cortas de alta intensidad de origen convectivo, espacialmente confinado, que se producen en cuencas de pocos cientos de kilómetros cuadrados o menos, donde el proceso de transferencia de escorrentía predominante es superficial, con altas pendientes como característica morfológica distintiva. 
 Estos mismos autores consideran las inundaciones súbitas y los flujos deescombros como fenómenos separados pero muy relacionados por el factor detonante lluvia, que a menudo ocurren en un mismo evento en diferentes escalas espaciales o temporales.
 
-## Definicion  origen
+## Definicion y origen
 
 Como se aprecia en las clasificaciones descritas anteriormente, existe una gran cantidad
 de términos para describir fenómenos de flujos torrenciales formados por la mezcla
@@ -246,7 +246,7 @@ Además, las pruebas de armas nucleares en las décadas de 1950 y 1960 duplicaro
 La presencia artificial de $^{14}C$ durante este período puede utilizarse como control de edad para depósitos más jóvenes (Chiverrell & Jakob, 2013). 
 La datación por $^{14}C$ requiere múltiples muestras que deben ser recolectadas y almacenadas adecuadamente, preferiblemente en condiciones secas y oscuras. 
 Generalmente, se necesitan solo unos pocos gramos de materia orgánica cuando se aplica el método convencional para medir la tasa de desintegración del $^{14}C$. 
-Se permiten muestras más pequeñas si se utiliza el método **AMS** (Reimer et al., 2013). Estas limitaciones deben considerarse al definir la estrategia de muestreo.
+Se permiten muestras más pequeñas si se utiliza el método AMS (Reimer et al., 2013). Estas limitaciones deben considerarse al definir la estrategia de muestreo.
 
 Se debe tener cuidado al interpretar las edades límite de los paleosuelos frente a las fechas reales de los orgánicos encontrados dentro de las unidades de flujo de escombros. 
 Además, la edad de un trozo de madera encontrado dentro de una unidad de flujo de escombros no necesariamente indica la edad de la unidad misma. 
@@ -273,7 +273,7 @@ Este enfoque se basa en las condiciones autótrofas que obligan a los organismos
 Así, estos organismos son testigos silenciosos de los cambios ambientales y geomorfológicos (Ballesteros-Cánovas & Stoffel, 2017; Stoffel & Corona, 2014) y ajustan sus condiciones de crecimiento en consecuencia. 
 El análisis de las tasas anuales de crecimiento de estos organismos permite una datación absoluta de las formas del terreno creadas por flujos de escombros.
 
-#### Anillos de crecimiento de árboles (**Dendrocronología**)
+#### Anillos de crecimiento de árboles (Dendrocronología)
 
 La dendrocronología es la ciencia que data los patrones de crecimiento en árboles y arbustos que viven en zonas donde los anillos se forman anualmente. 
 La dendrocronología se ha aplicado en numerosas disciplinas, incluyendo arqueología, climatología y ecología (Cook y Kairiukstis, 2013). 

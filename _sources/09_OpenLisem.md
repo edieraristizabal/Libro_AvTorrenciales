@@ -13,7 +13,6 @@ Las soluciones numéricas a las ecuaciones se resuelven utilizando un esquema de
 Mientras que las ecuaciones de Saint–Venant para el flujo de agua poco profunda permiten tal solución, las ecuaciones generalizadas de flujo de detritos no permiten la derivación de velocidades características. En su lugar, se emplea el *solver Riemann* de Harten-Lax-van Leer para el agua clara, mientras que un cálculo directo del flujo se activa con concentraciones más altas de sólidos. Todos los cálculos pueden realizarse en paralelo tanto en CPU como en GPU.
 
 ### Parámetros comunes 
-
 | Componente del modelo | Parámetro                          | Unidad       |
 |------------------------|------------------------------------|--------------|
 | Flujo                  | Rugosidad de Manning               | –            |
@@ -37,7 +36,6 @@ Mientras que las ecuaciones de Saint–Venant para el flujo de agua poco profund
 ---
 
 ### Necesidades de datos
-
 El requisito de datos central es el DEM, que determina en gran medida la calidad de las simulaciones. Para el modelado del flujo, deben estar disponibles las propiedades del material, a saber: densidad, tamaño de grano, ángulo basal de fricción del material, y las cantidades de fluidos y sólidos. Si los materiales iniciales se estiman mediante el modelado de la estabilidad de laderas, se requieren la densidad, el tamaño de grano y el ángulo de fricción interna del suelo, así como la profundidad del suelo.El contenido de agua del suelo puede predecirse mediante los componentes hidrológicos del software.
 Finalmente, el coeficiente de rugosidad superficial de Manning se utiliza para estimar la fuerza de fricción de la fase líquida.
 

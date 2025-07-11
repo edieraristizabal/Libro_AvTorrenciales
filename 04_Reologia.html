@@ -183,6 +183,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 </ul>
 
     </div>
@@ -394,10 +396,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pcm">Modelo PCM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-lista-de-modelos-numericos-seleccionados-para-el-calculo-del-alcance-de-deslizamientos-adaptado-de-kang-y-chan-2018">Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018))</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a></li>
 </ul>
             </nav>
         </div>
@@ -753,8 +752,7 @@ v_i = v_{i-1} \cos \left( \theta_{i-1} - \theta_i \right) \quad \text{si} \quad 
 <p><strong>Calibración y parámetros</strong>: Los modelos presentados requieren distintos insumos paramétricos. Bingham: <span class="math notranslate nohighlight">\(\tau_y\)</span> y <span class="math notranslate nohighlight">\(\mu_p\)</span> medibles con reometría de lodos; Herschel–Bulkley: <span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(n\)</span> (difíciles de estimar sin datos detallados); Voellmy: <span class="math notranslate nohighlight">\(\mu_f\)</span> y <span class="math notranslate nohighlight">\(\xi\)</span> (se calibran con casos observados, no medibles directamente); O’Brien: <span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, más parámetros granulares (<span class="math notranslate nohighlight">\(c_{Bd}\)</span>, etc.) parcialmente empíricos. Así, los modelos viscoplásticos suelen vincularse más a propiedades intrínsecas del material (contenido de finos, humedad determinan <span class="math notranslate nohighlight">\(\tau_y\)</span>), mientras los inerciales requieren calibración macroscópica (por ejemplo, usando registros de huellas de flujo para ajustar <span class="math notranslate nohighlight">\(\mu_f\)</span>). Cabe destacar que, en cualquier caso, los modelos reológicos efectivos suelen involucrar coeficientes de ajuste. Garcés et al. (2022) recalcan la importancia de identificar los parámetros más sensibles y reconocer que múltiples combinaciones de parámetros pueden reproducir observaciones, lo que exige criterio experto para evitar calibraciones no físicas.</p>
 <p><strong>Interacción con procesos de campo</strong>: Una limitación común de los modelos reológicos simples es que no contemplan cambios en la mezcla debidos a erosión o deposición durante el recorrido. En ambientes montañosos y tropicales, los flujos de escombros a menudo erosionan material del lecho (aumentando su carga de sólidos) o se diluyen con afluentes de agua a lo largo de la trayectoria. Esto altera la reología instantáneamente (un flujo que gana sedimento puede pasar de Newtoniano a Bingham espeso en minutos). Los modelos presentados asumen generalmente propiedades homogéneas constantes; para mayor realismo, algunos modelos numéricos acoplan ecuaciones de <em>entrainment</em> (erosión) y recalculan parámetros reológicos localmente. No obstante, esa es una frontera activa de investigación, ya que incorporar la retroalimentación entre erosión y reología sigue siendo complejo.</p>
 <p><strong>Validez de la aproximación continua</strong>: Todos los modelos mencionados tratan al flujo de escombros como un continuo. Esto es razonable cuando la mezcla es muy heterogénea pero persistentemente mezclada (caso típico de flujos con matriz fluida abundante). Sin embargo, para avalanchas de rocas o flujos de detritos con gran proporción de bloques enormes, el supuesto de continuo puede fallar a escala local (bloques rodando individualmente). En tales casos, modelos discretos (DEM) o bifásicos pueden ser más apropiados. Iverson (2003) llegó a criticar la noción de un fluido reológico monofásico como un “mito” en contextos de flujos altamente heterogéneos, abogando por modelos de mezcla de múltiples fases. Aún así, la comunidad reconoce que, hasta que los modelos de dos fases se desarrollen más, los modelos reológicos efectivos siguen siendo herramientas valiosas y razonables para escalas de cuencas.</p>
-<section id="tabla-lista-de-modelos-numericos-seleccionados-para-el-calculo-del-alcance-de-deslizamientos-adaptado-de-kang-y-chan-2018">
-<h3>Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018))<a class="headerlink" href="#tabla-lista-de-modelos-numericos-seleccionados-para-el-calculo-del-alcance-de-deslizamientos-adaptado-de-kang-y-chan-2018" title="Permalink to this heading">#</a></h3>
+<p>Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018)).</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -888,7 +886,6 @@ v_i = v_{i-1} \cos \left( \theta_{i-1} - \theta_i \right) \quad \text{si} \quad 
 </table>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -971,10 +968,7 @@ v_i = v_{i-1} \cos \left( \theta_{i-1} - \theta_i \right) \quad \text{si} \quad 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-pcm">Modelo PCM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-lista-de-modelos-numericos-seleccionados-para-el-calculo-del-alcance-de-deslizamientos-adaptado-de-kang-y-chan-2018">Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan (2018))</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-supuestos-y-limitaciones-de-los-modelos">Comparación, Supuestos y Limitaciones de los Modelos</a></li>
 </ul>
   </nav></div>
 

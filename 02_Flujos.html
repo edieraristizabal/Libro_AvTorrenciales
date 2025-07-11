@@ -183,6 +183,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 </ul>
 
     </div>
@@ -377,7 +379,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificaciones-para-flujos">Clasificaciones para flujos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-origen">Definicion  origen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-y-origen">Definicion y origen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion">Técnicas de datación</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensores-remotos">Sensores remotos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion-radiometrica">Técnicas de Datación Radiométrica</a></li>
@@ -385,7 +387,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datacion-por-luminiscencia">Datación por luminiscencia</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-tecnicas-radiometricas">Otras técnicas radiométricas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion-biologica">Técnicas de Datación Biológica</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anillos-de-crecimiento-de-arboles-dendrocronologia">Anillos de crecimiento de árboles (<strong>Dendrocronología</strong>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anillos-de-crecimiento-de-arboles-dendrocronologia">Anillos de crecimiento de árboles (Dendrocronología)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#liquenometria">Liquenometría</a></li>
 </ul>
 </li>
@@ -505,8 +507,8 @@ Consideran que los factores que afectan la generación de inundaciones súbitas 
 Borga et al. (2014) define las inundaciones súbitas como fenómenos creados por precipitaciones cortas de alta intensidad de origen convectivo, espacialmente confinado, que se producen en cuencas de pocos cientos de kilómetros cuadrados o menos, donde el proceso de transferencia de escorrentía predominante es superficial, con altas pendientes como característica morfológica distintiva.
 Estos mismos autores consideran las inundaciones súbitas y los flujos deescombros como fenómenos separados pero muy relacionados por el factor detonante lluvia, que a menudo ocurren en un mismo evento en diferentes escalas espaciales o temporales.</p>
 </section>
-<section id="definicion-origen">
-<h2>Definicion  origen<a class="headerlink" href="#definicion-origen" title="Permalink to this heading">#</a></h2>
+<section id="definicion-y-origen">
+<h2>Definicion y origen<a class="headerlink" href="#definicion-y-origen" title="Permalink to this heading">#</a></h2>
 <p>Como se aprecia en las clasificaciones descritas anteriormente, existe una gran cantidad
 de términos para describir fenómenos de flujos torrenciales formados por la mezcla
 variada de agua y sedimentos que se transportan a grandes velocidades a lo largo de
@@ -656,7 +658,7 @@ Por lo tanto, obtener edades calibradas con precisión durante los últimos 300 
 La presencia artificial de <span class="math notranslate nohighlight">\(^{14}C\)</span> durante este período puede utilizarse como control de edad para depósitos más jóvenes (Chiverrell &amp; Jakob, 2013).
 La datación por <span class="math notranslate nohighlight">\(^{14}C\)</span> requiere múltiples muestras que deben ser recolectadas y almacenadas adecuadamente, preferiblemente en condiciones secas y oscuras.
 Generalmente, se necesitan solo unos pocos gramos de materia orgánica cuando se aplica el método convencional para medir la tasa de desintegración del <span class="math notranslate nohighlight">\(^{14}C\)</span>.
-Se permiten muestras más pequeñas si se utiliza el método <strong>AMS</strong> (Reimer et al., 2013). Estas limitaciones deben considerarse al definir la estrategia de muestreo.</p>
+Se permiten muestras más pequeñas si se utiliza el método AMS (Reimer et al., 2013). Estas limitaciones deben considerarse al definir la estrategia de muestreo.</p>
 <p>Se debe tener cuidado al interpretar las edades límite de los paleosuelos frente a las fechas reales de los orgánicos encontrados dentro de las unidades de flujo de escombros.
 Además, la edad de un trozo de madera encontrado dentro de una unidad de flujo de escombros no necesariamente indica la edad de la unidad misma.
 Por ejemplo, si el trozo de madera corresponde al anillo interno de un árbol de 200 años, la fecha del flujo de escombros sería la fecha radiocarbónica menos los 200 años de la edad del árbol.</p>
@@ -686,7 +688,7 @@ Este enfoque se basa en las condiciones autótrofas que obligan a los organismos
 Así, estos organismos son testigos silenciosos de los cambios ambientales y geomorfológicos (Ballesteros-Cánovas &amp; Stoffel, 2017; Stoffel &amp; Corona, 2014) y ajustan sus condiciones de crecimiento en consecuencia.
 El análisis de las tasas anuales de crecimiento de estos organismos permite una datación absoluta de las formas del terreno creadas por flujos de escombros.</p>
 <section id="anillos-de-crecimiento-de-arboles-dendrocronologia">
-<h4>Anillos de crecimiento de árboles (<strong>Dendrocronología</strong>)<a class="headerlink" href="#anillos-de-crecimiento-de-arboles-dendrocronologia" title="Permalink to this heading">#</a></h4>
+<h4>Anillos de crecimiento de árboles (Dendrocronología)<a class="headerlink" href="#anillos-de-crecimiento-de-arboles-dendrocronologia" title="Permalink to this heading">#</a></h4>
 <p>La dendrocronología es la ciencia que data los patrones de crecimiento en árboles y arbustos que viven en zonas donde los anillos se forman anualmente.
 La dendrocronología se ha aplicado en numerosas disciplinas, incluyendo arqueología, climatología y ecología (Cook y Kairiukstis, 2013).
 También se ha utilizado para datar retrospectivamente la actividad de procesos geomorfológicos como los flujos de escombros (es decir, <em>dendrogeomorfología</em>).</p>
@@ -903,7 +905,7 @@ En estas cuencas, el cambio climático se manifestará en un aumento tanto en la
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificaciones-para-flujos">Clasificaciones para flujos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-origen">Definicion  origen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-y-origen">Definicion y origen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion">Técnicas de datación</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensores-remotos">Sensores remotos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion-radiometrica">Técnicas de Datación Radiométrica</a></li>
@@ -911,7 +913,7 @@ En estas cuencas, el cambio climático se manifestará en un aumento tanto en la
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datacion-por-luminiscencia">Datación por luminiscencia</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-tecnicas-radiometricas">Otras técnicas radiométricas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-datacion-biologica">Técnicas de Datación Biológica</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anillos-de-crecimiento-de-arboles-dendrocronologia">Anillos de crecimiento de árboles (<strong>Dendrocronología</strong>)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anillos-de-crecimiento-de-arboles-dendrocronologia">Anillos de crecimiento de árboles (Dendrocronología)</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#liquenometria">Liquenometría</a></li>
 </ul>
 </li>

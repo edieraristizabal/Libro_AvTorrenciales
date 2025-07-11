@@ -126,7 +126,7 @@ Un aspecto clave es definir el peso $w_{\alpha(i)}$ para cada dirección.
 En los flujos de detritos, es poco probable que el flujo cambie abruptamente de dirección, por lo que tiende a mantener su trayectoria.  
 El esquema de pesos propuesto por Gamma (2000) asigna un 50% más de peso en la misma dirección previa. Horton et al. (2013) propusieron esquemas alternativos de ponderación, resumidos en la siguiente tabla.
 
-### Tabla: Esquemas de ponderación para la persistencia del flujo según el cambio de dirección
+Tabla: Esquemas de ponderación para la persistencia del flujo según el cambio de dirección.
 
 | Cambio en la dirección | Gamma (2000) | Horton et al. (2013) - Proporcional | Horton et al. (2013) - Coseno | Han et al. (2017) <10º | Han et al. (2017) 10º–17º | Han et al. (2017) 17º–23º | Han et al. (2017) >23º |
 |------------------------|---------------|-------------------------------------|-------------------------------|------------------------|--------------------------|--------------------------|------------------------|
