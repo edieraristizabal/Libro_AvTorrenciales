@@ -7,8 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Avenidas Torrenciales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Gravitational Process Path (GPP) &#8212; Avenidas Torrenciales</title>
   
   
   
@@ -61,9 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '13_GMP';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Flow-Py" href="12_FlowPy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,7 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
@@ -177,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gravitational Process Path (GPP)</a></li>
 </ul>
 
     </div>
@@ -249,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F13_GMP.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -261,6 +263,54 @@ const thebe_selector_output = ".output, .cell_output"
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/13_GMP.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -311,7 +361,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Gravitational Process Path (GPP)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -325,13 +375,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="gravitational-process-path-gpp">
+<h1>Gravitational Process Path (GPP)<a class="headerlink" href="#gravitational-process-path-gpp" title="Permalink to this heading">#</a></h1>
+<p>El software <em>Gravitational Process Path (GPP)</em> ha sido diseñado para simular la trayectoria del proceso y el área de runout de procesos gravitacionales basado en un modelo digital de elevación (<em>DEM</em>).
+Los primeros componentes del software se desarrollaron desde el año 2000 (por ejemplo, Wichmann &amp; Becht, 2004) y una implementación completamente revisada y de código abierto se publicó en 2017 (Wichmann, 2017). El software está implementado en <em>C++</em> como una herramienta para el <em>System of Automated Geoscientific Analyses (SAGA)</em> (Conrad et al., 2015), lo que facilita la preparación de datos de entrada y el análisis de resultados del modelo.</p>
+<p><strong>Modelo conceptual</strong>. El modelo conceptual combina varios componentes (trayectoria del proceso, longitud de <em>runout</em>, relleno de depresiones y deposición de material) para simular el movimiento de un punto de masa desde la fuente hasta el área de depósito.</p>
+<p>Desde la versión 1.1 (lanzada en 2022), el software también permite detectar objetos potencialmente en peligro, como infraestructuras, e informar desde qué trayectorias y áreas fuente podrían verse afectados. Se proporcionan varios enfoques de modelado para cada componente, lo que hace que el software sea configurable para diferentes procesos como caídas de rocas, flujos de escombros o avalanchas de nieve. El software ha sido desarrollado principalmente para estudios a escala regional, pero también contiene componentes para modelado basado en escenarios de eventos individuales.</p>
+<p><strong>Componentes</strong>. El diseño del GPP es modular, lo que permite combinar diferentes métodos para el cálculo de la trayectoria del proceso, la longitud del runout y la deposición del material (relleno de depresiones). Todos los componentes, excepto el cálculo de la trayectoria del proceso, son opcionales.</p>
+<p>Se encuentran disponibles los algoritmos de dirección de flujo de <em>pendiente máxima</em> (O’Callaghan &amp; Mark, 1984) y <em>mfdf</em> (Gamma, 2000) para el cálculo de trayectorias. Este último está implementado como un paseo aleatorio (<em>random walk</em>), según Gamma (2000). La dispersión lateral del proceso se simula realizando varias iteraciones desde la misma celda de inicio (<em>simulación Monte Carlo</em>). Cuando se combina con el modelo de relleno de depresiones, las iteraciones posteriores pueden superar depresiones pequeñas en el DEM.</p>
+<p>El <em>random walk</em> proporciona tres parámetros de calibración: un umbral de pendiente por encima del cual no se modela dispersión lateral, un exponente que controla la cantidad de dispersión lateral y un factor de persistencia que añade más peso a la dirección de flujo actual.</p>
+<p>Se proporcionan tres enfoques basados en la línea de energía para determinar la longitud del <em>runout</em> (velocidad), así como un modelo de fricción de uno y dos parámetros. Los métodos disponibles basados en la línea de energía incluyen el gradiente geométrico (Heim, 1932), el <em>Fahrböschung</em> (Heim, 1932) y el ángulo de sombra (Hungr &amp; Evans, 1988). El modelo de un parámetro (Scheidegger, 1975) simula la velocidad basada en fricción por deslizamiento o rodadura. El modelo de dos parámetros es el modelo PCM de Perla et al. (1980).</p>
+<p>En GPP es posible usar coeficientes de fricción espacialmente distribuidos (además de constantes), lo que permite simular, por ejemplo, un aumento en el contenido de agua a lo largo del trayecto y la consiguiente reducción de la fricción. Para cálculos de runout de flujos de escombros, generalmente se usan el <em>Fahrböschung</em> o el modelo PCM.</p>
+<p>GPP implementa varios enfoques de deposición, siendo el relleno de depresiones el más importante. Cuando la trayectoria llega a una depresión, el sumidero se rellena con el material disponible, utilizando un algoritmo que preserva cierta pendiente descendente. Esto permite superar la depresión en iteraciones posteriores. Otros enfoques depositan el material al detenerse o a lo largo de la trayectoria según umbrales de pendiente y velocidad, alterando el DEM e influyendo en las iteraciones posteriores (por ejemplo, simulando el taponamiento de un canal).</p>
+<p><strong>Datos</strong>. En su configuración básica, el modelo solo requiere un DEM y un ráster con las áreas fuente potenciales. Estos datos pueden prepararse directamente en SAGA. Si no se modela deposición, los sumideros del DEM deben rellenarse previamente, como en análisis hidrológicos.</p>
+<p>Las áreas fuente pueden identificarse mediante diversos métodos. Si no se hace en SAGA, es posible importar un ráster con las fuentes en diferentes formatos.</p>
+<p>Si se va a modelar deposición, se requiere un ráster con el material disponible en cada celda de inicio. Para el modelado del runout, se pueden usar coeficientes de fricción espacialmente distribuidos (o ángulos en el caso de enfoques basados en la línea de energía). Estos rásteres pueden derivarse, por ejemplo, de mapas de cobertura del suelo o acumulación de flujo (área de captación). Gamma (2000) derivó relaciones funcionales entre el área de captación y el coeficiente de fricción por deslizamiento para escenarios de mínima, probable y máxima distancia de runout.</p>
+<p><strong>Salidas</strong>. GPP genera resultados como capas ráster:</p>
+<ul class="simple">
+<li><p><strong>Área del proceso</strong>: se reporta como un ráster que almacena la frecuencia de transición, es decir, el número de veces que una celda ha sido parte de la trayectoria del proceso.</p></li>
+<li><p><strong>Velocidad máxima</strong>: se guarda en otro ráster.</p></li>
+<li><p><strong>Altura del depósito</strong>: si se modela deposición, un ráster muestra la altura del material depositado. Sumado al DEM original, muestra la topografía final después de la simulación.</p></li>
+<li><p><strong>Posiciones de detención</strong>: opcionalmente, un ráster muestra las celdas donde se alcanzó la distancia máxima de runout.</p></li>
+<li><p><strong>Objetos potencialmente impactados</strong>: si se proporciona un ráster de objetos potencialmente en peligro, se genera un ráster que informa qué clases de objetos pueden ser afectadas desde cada celda.</p></li>
+</ul>
+<p><strong>Calibración y evaluación</strong>. Una configuración típica para cartografía regional de susceptibilidad utiliza el <em>random walk</em> para la trayectoria y el modelo PCM para el cálculo de distancia de runout.</p>
+<p>Los parámetros se calibran probando diferentes valores dentro de un rango determinado. El resultado de cada combinación de parámetros se compara con eventos mapeados de flujos de escombros, y se elige el conjunto que muestra mejor ajuste con las áreas mapeadas. Un procedimiento automático de optimización y validación de parámetros para GPP fue desarrollado por Goetz et al. (2021).</p>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -343,6 +432,15 @@ document.write(`
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="12_FlowPy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Flow-Py</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
