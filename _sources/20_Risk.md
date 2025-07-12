@@ -36,7 +36,7 @@ Estos son los tres componentes clave del riesgo, que permanecen constantes en cu
 2. **Exposición de los elementos en riesgo.**
 3. **Vulnerabilidad de los elementos en riesgo.**
 
-## ¿Cuál es la probabilidad e intensidad de los flujos de escombros?
+### ¿Cuál es la probabilidad e intensidad de los flujos de escombros?
 
 La amenaza se refiere a las características de los flujos de escombros que podrían ocurrir en un lugar determinado. En una evaluación de riesgos, la amenaza se representa mediante una probabilidad (o probabilidad de ocurrencia) de una intensidad de impacto dada. Como la profundidad y velocidad* de los flujos de escombros en un sitio varían según el tamaño y la naturaleza del evento específico, el peligro completo a menudo discretiza en un conjunto de escenarios posibles, donde cada escenario tiene su propia probabilidad de ocurrencia e intensidad de impacto. El mapeo geomorfológico, las evaluaciones empíricas de *runout* y el modelado numérico se utilizan para estimar la distribución espacial de los impactos de flujos de escombros.
 
@@ -101,11 +101,9 @@ El conjunto de escenarios debe cubrir un grupo representativo de casos creíbles
    
 ### Exposición  
 
-#### ¿Qué podría verse afectado?
-
 La exposición se refiere a los elementos en riesgo, como personas, edificaciones o infraestructura crítica que se encuentran dentro de la zona de peligro por flujo de escombros y que podrían experimentar pérdidas. Evaluar la exposición es un componente crucial de la evaluación del riesgo porque identifica qué podría ser afectado por el flujo de escombros y proporciona la base para estimar las consecuencias.
 
-#### Modelos de Exposición
+#### Modelos de exposición
 
 La exposición se representa en una evaluación de riesgo mediante un modelo de exposición, que es un inventario espacio-temporal de los elementos en riesgo, caracterizados con información sobre su valor (por ejemplo, número de ocupantes de un edificio, valor económico del edificio y su contenido, cantidad y valor del petróleo en una tubería), características temporales (por ejemplo, permanente, transitorio, proporción del tiempo dentro de la zona de peligro) y características que definen su vulnerabilidad a los flujos de escombros (por ejemplo, tipo de edificio, antigüedad, presencia de sótano; profundidad de enterramiento, diámetro y espesor de pared de la tubería). Un modelo de exposición es un subconjunto de un modelo de activos, que identifica y caracteriza todos los elementos dentro de una región de planificación o consulta (Porter et al., 2009).
 
@@ -122,7 +120,7 @@ Existen muchos tipos de elementos en riesgo y atributos asociados que pueden inc
 
 Los elementos en riesgo con características comunes de vulnerabilidad suelen agruparse en categorías dentro del modelo de exposición para facilitar la evaluación del riesgo (FEMA, 2021a). Por ejemplo, todos los edificios de concreto reforzado dentro de un modelo de exposición pueden asignarse a un mismo valor de vulnerabilidad, mientras que los edificios de madera a otro diferente (por ejemplo, Lan et al., 2013). El propósito es asignar relaciones de vulnerabilidad a grupos de elementos similares y reducir la carga de evaluar las consecuencias para cada elemento individualmente.
 
-### Análisis de Exposición
+### Análisis de exposición
 
 El modelo de exposición se produce durante un análisis de exposición, el cual puede requerir mucho tiempo según la complejidad del modelo. Las exposiciones clave seleccionadas determinan el alcance, el nivel de esfuerzo y la complejidad de la evaluación de exposición.
 
@@ -143,8 +141,6 @@ Sugerencias para el análisis de exposición:
 - Enfocar el esfuerzo en los elementos de alto riesgo: A menudo, una pequeña proporción de los elementos en riesgo representa la mayor parte del riesgo, ya sea porque son desproporcionadamente valiosos o porque son desproporcionadamente impactados por flujos de escombros. Los modelos de exposición enfocados en los elementos de alto riesgo reducen la incertidumbre en el valor del riesgo y el esfuerzo de modelado.
 - Tener cuidado con las diferencias entre el costo de reemplazo y el costo económico: El costo de reemplazo es el costo de reemplazar, reparar, mantener o limpiar la propiedad perdida o dañada a una calidad o utilidad equivalente. Los costos económicos corresponden al valor del activo considerando la depreciación. Los valores de avalúo asignados por los gobiernos para fines fiscales tienden a ser costos económicos y generalmente son menores que los costos de reemplazo en la mayoría de los mercados. La diferencia entre estos valores puede ser significativa, y la elección de cuál aplicar debe ser deliberada.
 - Medir la altura del primer piso sobre el suelo: Los resultados de las evaluaciones de riesgo por flujo de escombros o flujos aluviales son frecuentemente más sensibles a la altura del primer piso (que suele considerarse el principal espacio habitable) respecto a la profundidad del flujo. Esta altura debe medirse y no asumirse sin fundamento. Puede obtenerse mediante levantamientos de campo o mediante interpretación de fotografías del sitio (p.ej., Google Streetview).
-
-### Cambios Temporales en la Exposición
 
 El riesgo asociado a flujos de escombros depende del tiempo durante el cual un elemento expuesto permanece dentro de la zona de peligro. Por ejemplo, una persona que atraviesa un abanico aluvial una vez al año tendría un riesgo varios órdenes de magnitud menor que alguien que vive todo el año en el mismo abanico. En una evaluación de riesgo, esto se expresa como la probabilidad temporal de impacto dentro de la ecuación de riesgo.
 
@@ -188,31 +184,21 @@ Existen muchas medidas de intensidad que se utilizan en modelos de vulnerabilida
 
 Cada modelo de vulnerabilidad se aplica a un tipo particular de pérdida, y cada modelo de fragilidad se aplica a un estado de daño particular. Es importante comprender cómo se derivaron las métricas de pérdida y la definición específica de cada estado de daño en los modelos de fragilidad para interpretar correctamente los resultados de la evaluación de riesgos. Por ejemplo, Fuchs et al. (2007) y Ciurean et al. (2017) derivaron modelos de vulnerabilidad para estimar la pérdida económica de edificios; sin embargo, el primero se basa en la relación de costos de daño con los costos de reemplazo, y el segundo se basa en la relación de costos de daño con el valor de mercado del edificio. Del mismo modo, existen muchos sistemas de clasificación distintos que definen los estados de daño después del impacto de un flujo de escombros, y la definición de daño menor, moderado, extenso o completo es inconsistente entre muchos de ellos (Luo et al., 2021).
 
-## Análisis del Riesgo
+## Análisis del riesgo
 
 Factores y preguntas clave para definir el alcance de una evaluación de riesgo:
 
-    Decisión a tomar: ¿Cuáles son los objetivos de los actores clave? (ej. protección de la vida, reducción de pérdidas económicas, reducción de la interrupción del servicio). ¿Cuál es el propósito de la evaluación de riesgo?
-
-    Quiénes son los actores clave: ¿Quiénes están afectados por el flujo de escombros potencial? ¿Quiénes están afectados por los posibles planes de gestión del riesgo? ¿Quién está asumiendo el riesgo? ¿Quiénes obtienen los beneficios de asumir el riesgo? ¿Quiénes sufren las pérdidas? ¿Quién asume el costo de las medidas de reducción del riesgo? ¿Quién necesita aportar información a la evaluación de riesgo? ¿Quién toma la decisión final?
-
-    Experiencia y preferencias previas: ¿Cómo se han tomado decisiones similares en el pasado? ¿Se usará un marco de evaluación de riesgos existente o habrá que introducir uno nuevo? ¿Qué nivel de conocimiento técnico y experiencia en riesgos tienen los tomadores de decisiones y actores clave? ¿Qué formato será más transparente y convincente?
-
-    Elementos clave en riesgo y métrica de riesgo: ¿Cuáles son los elementos clave en riesgo y las consecuencias clave? ¿Edificaciones, personas, instalaciones críticas? ¿Pérdida de vidas, pérdida económica, pérdida de servicios, interrupción de negocios, pérdidas intangibles? ¿Cómo se medirá y describirá el riesgo?
-
-    Extensión geográfica: ¿Es a escala local o regional? ¿Cuál es la extensión máxima creíble del flujo de escombros? ¿Cuál es la extensión de los elementos en riesgo?
-
-    Disponibilidad de información: ¿Qué información sobre el peligro por flujo de escombros, los elementos en riesgo y la vulnerabilidad está disponible para la estimación del riesgo? ¿Cómo se recopilará la información? ¿Qué información está disponible para apoyar la evaluación del riesgo, como costos y beneficios de las opciones de mitigación o información que ponga las estimaciones de riesgo en contexto?
-
-    Tiempo disponible para la toma de decisiones: ¿Es necesario tomar una decisión inmediatamente? ¿El peligro es inminente? ¿La decisión apoya la planificación de inversiones a largo plazo?
-
-    Presupuesto disponible para la evaluación de riesgo y su comunicación: ¿Existe presupuesto suficiente para una estimación detallada del riesgo y para reducir incertidumbres? ¿Hay limitaciones presupuestarias que requieran un método simplificado con supuestos generales?
-
-    Opciones disponibles para la gestión del riesgo: ¿Existen opciones para gestionar el riesgo o el plan de gestión está predeterminado? ¿Hay recursos disponibles para la reducción del riesgo? ¿Los actores clave están dispuestos a asumir el costo de las medidas de reducción del riesgo?
-
-    Experiencia del analista de riesgo: ¿Tienen los analistas de riesgo una metodología preferida que hayan desarrollado y usado en decisiones anteriores? ¿Son esos métodos los más efectivos y eficientes para orientar la decisión y comunicar el riesgo y las opciones de gestión del riesgo?
-
-    Contexto del peligro: ¿Qué otros peligros (por ejemplo, incendios forestales, inundaciones, terremotos) existen además de los flujos de escombros? ¿Qué importancia tienen los otros peligros en comparación con los flujos de escombros? ¿Cómo deben compararse los riesgos entre sí? ¿Cómo deben asignarse los recursos entre los diferentes tipos de peligro?
+* Decisión a tomar: ¿Cuáles son los objetivos de los actores clave? (ej. protección de la vida, reducción de pérdidas económicas, reducción de la interrupción del servicio). ¿Cuál es el propósito de la evaluación de riesgo?
+* Quiénes son los actores clave: ¿Quiénes están afectados por el flujo de escombros potencial? ¿Quiénes están afectados por los posibles planes de gestión del riesgo? ¿Quién está asumiendo el riesgo? ¿Quiénes obtienen los beneficios de asumir el riesgo? ¿Quiénes sufren las pérdidas? ¿Quién asume el costo de las medidas de reducción del riesgo? ¿Quién necesita aportar información a la evaluación de riesgo? ¿Quién toma la decisión final?
+* Experiencia y preferencias previas: ¿Cómo se han tomado decisiones similares en el pasado? ¿Se usará un marco de evaluación de riesgos existente o habrá que introducir uno nuevo? ¿Qué nivel de conocimiento técnico y experiencia en riesgos tienen los tomadores de decisiones y actores clave? ¿Qué formato será más transparente y convincente?
+* Elementos clave en riesgo y métrica de riesgo: ¿Cuáles son los elementos clave en riesgo y las consecuencias clave? ¿Edificaciones, personas, instalaciones críticas? ¿Pérdida de vidas, pérdida económica, pérdida de servicios, interrupción de negocios, pérdidas intangibles? ¿Cómo se medirá y describirá el riesgo?
+* Extensión geográfica: ¿Es a escala local o regional? ¿Cuál es la extensión máxima creíble del flujo de escombros? ¿Cuál es la extensión de los elementos en riesgo?
+* Disponibilidad de información: ¿Qué información sobre el peligro por flujo de escombros, los elementos en riesgo y la vulnerabilidad está disponible para la estimación del riesgo? ¿Cómo se recopilará la información? ¿Qué información está disponible para apoyar la evaluación del riesgo, como costos y beneficios de las opciones de mitigación o información que ponga las estimaciones de riesgo en contexto?
+* Tiempo disponible para la toma de decisiones: ¿Es necesario tomar una decisión inmediatamente? ¿El peligro es inminente? ¿La decisión apoya la planificación de inversiones a largo plazo?
+* Presupuesto disponible para la evaluación de riesgo y su comunicación: ¿Existe presupuesto suficiente para una estimación detallada del riesgo y para reducir incertidumbres? ¿Hay limitaciones presupuestarias que requieran un método simplificado con supuestos generales?
+* Opciones disponibles para la gestión del riesgo: ¿Existen opciones para gestionar el riesgo o el plan de gestión está predeterminado? ¿Hay recursos disponibles para la reducción del riesgo? ¿Los actores clave están dispuestos a asumir el costo de las medidas de reducción del riesgo?
+* Experiencia del analista de riesgo: ¿Tienen los analistas de riesgo una metodología preferida que hayan desarrollado y usado en decisiones anteriores? ¿Son esos métodos los más efectivos y eficientes para orientar la decisión y comunicar el riesgo y las opciones de gestión del riesgo?
+* Contexto del peligro: ¿Qué otros peligros (por ejemplo, incendios forestales, inundaciones, terremotos) existen además de los flujos de escombros? ¿Qué importancia tienen los otros peligros en comparación con los flujos de escombros? ¿Cómo deben compararse los riesgos entre sí? ¿Cómo deben asignarse los recursos entre los diferentes tipos de peligro?
 
 Una vez definido el alcance de la evaluación del riesgo, la siguiente fase es estimar el riesgo combinando estimaciones o modelos de peligro, exposición y vulnerabilidad. Estos parámetros pueden combinarse de muchas formas, y ningún método es universalmente mejor o más preciso que otro. Todos son pronósticos inciertos de eventos futuros. Los métodos se agrupan en dos grandes categorías: cualitativos y cuantitativos.
 
@@ -221,7 +207,7 @@ Una vez definido el alcance de la evaluación del riesgo, la siguiente fase es e
 
 Hay muchas métricas posibles para medir las pérdidas, relacionadas con los elementos en riesgo y los objetivos de la evaluación del riesgo, pero las más comunes son pérdida de vidas humanas y unidades monetarias.
 
-### Métodos Cualitativos
+### Métodos cualitativos
 
 Los análisis cualitativos del riesgo miden los riesgos en términos relativos, utilizando una métrica que puede ser:
 
@@ -231,7 +217,7 @@ Los análisis cualitativos del riesgo miden los riesgos en términos relativos, 
 
 Los análisis cualitativos permiten comparar riesgos relativos entre distintos peligros o sitios evaluados dentro del mismo esquema. Se utilizan para: Evaluaciones preliminares para identificar dónde existen riesgos significativos, por ejemplo, para definir el alcance de estudios más detallados, Clasificar diferentes sitios de peligro, por ejemplo, a lo largo de una carretera o dentro de una región, Seguimiento de cómo cambian los riesgos y los controles de riesgo con el tiempo, Identificación de riesgos tolerables e intolerables, Demostrar la reducción del riesgo lograda mediante medidas de control y comparar opciones de mitigación.
 
-#### Índice de Riesgo
+#### Índice de riesgo
 
 Un índice de riesgo es un valor asignado a un sitio de peligro determinado que describe el nivel relativo de riesgo en comparación con otros sitios. El valor del índice se refiere a una escala predefinida, como 0 a 1, 0 a 100 o una calificación por letras (por ejemplo, A a F). El valor no tiene significado fuera del esquema.
 
@@ -242,7 +228,7 @@ Permiten explorar la efectividad de diferentes opciones de reducción del riesgo
 Desventajas clave: Los componentes del riesgo están ocultos, Cada esquema de índice de riesgo es único, lo que dificulta las comparaciones externas y la comunicación del riesgo con partes interesadas no familiarizadas.
 
 
-#### Matriz de Riesgo
+#### Matriz de riesgo
 
 La matriz de riesgo es una herramienta común para organizar la información sobre el peligro y las consecuencias, y estructurar la selección de un valor de riesgo.
 El valor de riesgo suele ser un descriptor relativo (por ejemplo, Bajo, Medio, Alto).
@@ -264,7 +250,7 @@ Transferencia limitada: Los umbrales de tolerancia al riesgo establecidos por un
 Múltiples escenarios: No permiten representar adecuadamente sitios donde existen múltiples escenarios de flujo con diferentes magnitudes e impactos.
 Eventos de baja probabilidad y alta consecuencia: Tienden a omitirse porque muchas matrices consideran períodos de retorno de hasta 100 años como “muy baja” probabilidad, pero los flujos más extremos pueden tener períodos de retorno de miles de años. Fatalidades fraccionarias: Las matrices suelen omitir escenarios donde la pérdida esperada de vidas humanas es menor a una (por ejemplo, una persona expuesta con vulnerabilidad < 1). Peligros superpuestos: Un solo evento desencadenante (como una lluvia intensa) puede generar flujos simultáneos en varios sitios, lo cual es difícil de representar correctamente si cada sitio se evalúa por separado con una matriz.
 
-### Metodos Cuantitativos
+### Metodos cuantitativos
 
 Los análisis cuantitativos del riesgo miden los riesgos en términos absolutos como la pérdida esperada durante un período de tiempo. La métrica de pérdida depende de los elementos expuestos al riesgo y de los objetivos de la evaluación del riesgo. Las métricas comunes incluyen:
 
@@ -278,9 +264,6 @@ Los análisis cuantitativos del riesgo miden los riesgos en términos absolutos 
 
 Los análisis cuantitativos permiten comparaciones absolutas entre un peligro o sitio de peligro con diversas medidas externas. Por ejemplo: comparar el riesgo de flujos de escombros con otros riesgos no relacionados (por ejemplo, morir en un accidente automovilístico o ahogado en un tsunami) y con niveles de riesgo de fondo (por ejemplo, el riesgo anual de morir por todas las causas). Comparar el riesgo de flujos de escombros con umbrales de tolerancia al riesgo (incluidos umbrales establecidos en otros contextos de riesgo). Comparar un tipo de consecuencia (por ejemplo, pérdida ambiental) con otros tipos no relacionados (por ejemplo, pérdida económica). Comparar los beneficios de tolerar el riesgo de flujo de escombros con el riesgo mismo. Comparar los beneficios de diferentes opciones de reducción del riesgo. Evaluar la rentabilidad de diferentes opciones de mitigación.
 
-
-#### Fórmula General del Riesgo
-
 El riesgo se estima cuantitativamente como el producto de la pérdida potencial y la probabilidad de que ocurra la pérdida. La Ecuación es una forma general de la ecuación de riesgo que puede usarse con varias métricas y para estimar el riesgo total de múltiples escenarios de flujo de escombros (adaptado de Jakob et al., 2016):
 
 $$
@@ -289,7 +272,7 @@ $$
 
 Donde: $Rj$ es el riesgo para el elemento (j) de (n) escenarios de flujo de escombros. El riesgo para múltiples elementos puede sumarse para cuantificar el riesgo total dentro de una zona de peligro, una región de estudio o dentro de una organización. $hi$ es la probabilidad del escenario de flujo de escombros (i), de un total de (n) escenarios, durante un período de tiempo dado. Cuando se suman, la probabilidad total de todos los escenarios (incluido el escenario "no ocurre flujo de escombros") debe ser 1 (certeza). Este parámetro se relaciona principalmente con el período de retorno o la probabilidad de los flujos de escombros lo suficientemente grandes como para causar pérdidas. Si,j es la probabilidad espacial de impacto, que dado que ocurre el escenario (i), es la probabilidad condicional de que el flujo de escombros alcance el elemento (j). Este parámetro se relaciona principalmente con el comportamiento de recorrido del flujo. Ti,j es la probabilidad temporal de impacto, que dado que ocurre el escenario (i), es la probabilidad condicional de que el elemento (j) esté presente en el momento del impacto. Para elementos estacionarios, como edificios, esta probabilidad es 1. Ej es la exposición, que representa la cantidad del elemento en riesgo. Por ejemplo, puede ser el número de personas expuestas (o 1 para individuos) o el valor económico total de la infraestructura en la zona de peligro. Vi,j es la vulnerabilidad física, que dado que ocurre el escenario (i) e impacta al elemento (j), es la probabilidad condicional de que ocurra la pérdida o la proporción de pérdida. Este parámetro depende tanto de las características del elemento en riesgo como de la intensidad del flujo de escombros.
 
-### Riesgo Económico
+### Riesgo económico
 
 En el caso del riesgo económico, es común evaluar el riesgo para grupos de elementos similares, como carreteras, edificios o negocios. El riesgo de cada uno de estos elementos se suma para estimar el riesgo económico total debido a flujos de escombros. En este caso: La exposición es el valor económico de los elementos. La vulnerabilidad física es la proporción de pérdida causada por el escenario de flujo de escombros en cada elemento.
 
@@ -299,7 +282,7 @@ La mayoría de los análisis de riesgo económico tienden a subestimar el riesgo
 
 Estas pérdidas adicionales pueden representarse o evaluarse cualitativamente para complementar la evaluación cuantitativa del riesgo. Alternativamente, se pueden asignar valores económicos a estas pérdidas indirectas e intangibles, normalmente tras una evaluación y debate significativos, de modo que puedan incorporarse directamente a la evaluación cuantitativa del riesgo económico.
 
-#### Riesgo Individual de Pérdida de Vida
+#### Riesgo individual de pérdida de vida
 
 El riesgo individual de pérdida de vida suele presentarse como la Probabilidad de Muerte de un Individuo (PDI) o el Riesgo Anual de Fatalidad Individual (AIFR), típicamente para la persona más expuesta al riesgo. Generalmente es la persona que pasa más tiempo en la zona de peligro o aquella más vulnerable al peligro, como un infante, un adulto mayor o una persona que permanece en el hogar (por ejemplo, un ama de casa).
 
@@ -311,7 +294,7 @@ Una unidad de riesgo llamada micromort ayuda a superar algunos de estos desafío
 
 Los valores de riesgo en micromorts pueden ayudar a los analistas de riesgos, interesados y responsables de la toma de decisiones a tener una comprensión más intuitiva de la magnitud de los riesgos e incertidumbres (Strouth & McDougall, 2022).
 
-#### Riesgo Grupal de Pérdida de Vida
+#### Riesgo grupal de pérdida de vida
 
 El riesgo grupal de pérdida de vida puede expresarse como pérdida probable de vidas (PLL) o representarse gráficamente mediante un diagrama fN o FN (Strouth & McDougall, 2021). La pérdida probable de vidas (PLL) se calcula directamente utilizando la ecuación de riesgo. Describe el número esperado de muertes durante un período de tiempo, como la pérdida probable anual de vidas o durante la vida útil de una estructura (por ejemplo, 100 años). El PLL expresa el riesgo grupal como un solo valor (por ejemplo, "3 vidas perdidas por cada 100 años"), útil para: Comparar concisamente diferentes peligros o sitios de peligro. Realizar análisis costo-beneficio. Comparar opciones de mitigación de flujos de escombros. 
 
@@ -349,9 +332,7 @@ Independientemente de la métrica de pérdida utilizada, se aplican los siguient
 | Pérdida individual de vidas| • Se utiliza para evaluaciones del nivel de seguridad para determinar si una zona de peligro es "lo suficientemente segura"<br>• Más aplicable donde una persona pasa mucho tiempo en la zona de peligro (por ejemplo, en un edificio)<br>• Los umbrales de riesgo individual tienen una base más clara que los umbrales de riesgo grupal y son más fáciles de aplicar | • Los parámetros de entrada y los valores de riesgo pueden ser altamente inciertos debido a datos históricos limitados |
 | Pérdida grupal de vidas    | • Se utiliza para evaluaciones del nivel de seguridad para determinar si una zona de peligro es "lo suficientemente segura"<br>• Usado donde ningún individuo ocupa la zona de peligro por un largo período de tiempo (por ejemplo, áreas públicas)<br>• Más aplicable donde 10 o más personas podrían morir en un solo escenario | • Los parámetros de entrada y los valores de riesgo pueden ser altamente inciertos debido a datos históricos limitados<br>• Los umbrales de tolerancia al riesgo grupal son difíciles de comprender y generalmente carecen de una base sólida para su aplicación |
 
-## Tolerancia al Riesgo
-
-### Marco de Tolerabilidad del Riesgo
+## Tolerancia al riesgo
 
 El marco de tolerabilidad del riesgo desarrollado por la *Health and Safety Executive (HSE) del Reino Unido (2001)* es un modelo ampliamente adoptado para conceptualizar los niveles de riesgo por flujos de escombros (Macciotta & Lefsrud, 2018; Porter & Morgenstern, 2013). Este clasifica los riesgos como:
 

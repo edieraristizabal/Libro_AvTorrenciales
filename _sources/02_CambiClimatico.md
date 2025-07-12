@@ -1,4 +1,4 @@
-<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Iverson & George (2024) en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
+<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Kaitna et al. (2024)* Causes and triggers y Kang et al. (2024) Sediment entrainment and deposition. y Ballesteros et al. (2024) Debris flow dating and magnitude reconstruction en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
 
 # Cambio Climático
 Se espera que un clima más cálido conduzca a una intensificación del ciclo hidrológico. Los modelos climáticos globales generalmente predicen un aumento de la precipitación media global del 2–3% por cada grado Celsius de calentamiento (Held & Soden, 2006), fenómeno que puede explicarse por restricciones energéticas globales (Trenberth et al., 2009). 

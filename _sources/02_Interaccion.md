@@ -1,8 +1,6 @@
-<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Iverson & George (2024) en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
+<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Kaitna et al. (2024)* Causes and triggers y Kang et al. (2024) Sediment entrainment and deposition. y Ballesteros et al. (2024) Debris flow dating and magnitude reconstruction en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
 
 # Interacción atmosfera-ladera-cauce
-
-Tomado de *Kaitna et al. (2024)* Causes and triggers y Kang et al. (2024) Sediment entrainment and deposition. y Ballesteros et al. (2024) Debris flow dating and magnitude reconstruction. en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024)
 
 Los flujos de escombros pueden iniciarse mediante tres mecanismos:  
 - sedimentos de deslizamientos de tierra que evolucionan directamente en flujos de escombros durante su desplazamiento cuesta abajo,  
