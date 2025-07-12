@@ -1,7 +1,7 @@
 # Modelos de dos fases (granular-fluido): 
 Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial (e.g. modelo de Iverson & Denlinger 2001; Pudasaini 2012). 
 Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros. 
-Para un curso teórico avanzado, vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, etc.) son a veces considerados simplificaciones “efectivas” de un sistema bifásico más complejo, y que autores como Iverson han criticado la aproximación reológica por considerarla una “ficción” conveniente. 
+Vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, etc.) son a veces considerados simplificaciones “efectivas” de un sistema bifásico más complejo, y que autores como Iverson han criticado la aproximación reológica por considerarla una “ficción” conveniente. 
 Sin embargo, en la práctica de la ingeniería y la geociencia aplicada, los modelos reológicos sencillos siguen siendo ampliamente usados dada su parsimonia de parámetros y la relativa facilidad de calibración frente a datos de campo.
 
 Los modelos promediados en profundidad más simples idealizan los flujos de escombros como materiales monofásicos con densidades volumétricas fijas. 
@@ -32,21 +32,22 @@ Los modelos que pueden predecir con éxito el valor del mayor número de variabl
 
 ## Fenómenos físicos clave en flujos bifásicos
 
-El modelo bifásico general de Pudasaini (2012) se distingue por incorporar de manera rigurosa una serie de mecanismos físicos que son fundamentales para describir la dinámica de los flujos de detritos. A continuación, se detallan los más importantes:
+El modelo bifásico general de Pudasaini (2012) se distingue por incorporar de manera rigurosa una serie de mecanismos físicos que son fundamentales para describir la dinámica de los flujos de escombros. A continuación, se detallan los más importantes:
 
-#### Arrastre Generalizado (*Generalized Drag*)
+#### Arrastre generalizado (*Generalized Drag*)
+
+La fuerza de arrastre (o drag) es una fuerza de fricción que surge cuando hay un movimiento relativo entre dos componentes, típicamente un objeto sólido y el fluido que lo rodea. Es como la resistencia que se siente al mover la mano rápidamente a través del agua. Esa resistencia es el arrastre.
 
 El arrastre es uno de los aspectos más básicos e importantes de un flujo bifásico, ya que influye directamente en el movimiento relativo entre las fases sólida y fluida. Un aumento en el valor del coeficiente de arrastre ($C_{DG}$) produce menos movimiento relativo (y, por tanto, menos separación) entre las fases, ralentiza el movimiento general y frena el avance del frente. Esto se debe a que un frente de flujo con una mayor intensidad de arrastre se quedará rezagado con respecto a uno con menor intensidad. Por lo tanto, una modelización adecuada del arrastre es un requisito indispensable para simular adecuadamente los flujos de detritos bifásicos.
 
-la fuerza de arrastre (o drag) es una fuerza de fricción que surge cuando hay un movimiento relativo entre dos componentes, típicamente un objeto sólido y el fluido que lo rodea. Piénsalo como la resistencia que sientes al mover tu mano rápidamente a través del agua. Esa resistencia es el arrastre.
+Un modelo bifásico resuelve ecuaciones de conservación de masa y momento por separado para la fase sólida y para la fase fluida. 
+Esto tiene consecuencias cruciales. 
+Lo primero es la existencia de velocidad relativa ($u_f − u_s$): Al tener ecuaciones separadas, el modelo calcula una velocidad para los sólidos ($u_s$) y otra para el fluido ($u_f$). 
+La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos real, esta diferencia es constante: el agua puede percolar a través de los sólidos, o los bloques en el frente pueden moverse más rápido que la matriz lodosa.
 
-Un modelo bifásico resuelve ecuaciones de conservación de masa y momento por separado para la fase sólida y para la fase fluida. Esto tiene consecuencias cruciales:
+La fuerza de arrastre es directamente proporcional a esta velocidad relativa. Si la velocidad relativa es cero, el arrastre es cero. Si es alta, el arrastre es una fuerza dominante. Esta fuerza es el mecanismo principal de transferencia de momento entre las fases. Es la forma en que el fluido "empuja" a los sólidos, y los sólidos "frenan" al fluido.
 
-* Existencia de velocidad relativa ($u_f − u_s$): Al tener ecuaciones separadas, el modelo calcula una velocidad para los sólidos ($u_s$) y otra para el fluido ($u_f$). La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos real, esta diferencia es constante: el agua puede percolar a través de los sólidos, o los bloques en el frente pueden moverse más rápido que la matriz lodosa.
-
-* El arrastre como fuerza de interacción: La fuerza de arrastre (MD) es directamente proporcional a esta velocidad relativa. Si la velocidad relativa es cero, el arrastre es cero. Si es alta, el arrastre es una fuerza dominante. Esta fuerza es el mecanismo principal de transferencia de momento entre las fases. Es la forma en que el fluido "empuja" a los sólidos, y los sólidos "frenan" al fluido.
-
-* Simulación de Fenómenos Reales: Solo al considerar el arrastre se pueden simular fenómenos clave observados en la realidad, como: (i) Frentes ricos en bloques: Donde los sólidos más grandes, por inercia, se mueven más rápido que el fluido, y el fluido ejerce una fuerza de arrastre que los frena. (ii) Frentes fluidizados: Donde el agua a alta presión se mueve más rápido que los sólidos, los "arrastra" y reduce la fricción interna, aumentando la movilidad. (iii) Separación de fases: La diferencia de velocidades y el arrastre resultante son los que provocan que, con el tiempo, un flujo pueda desarrollar un frente más grueso y una cola más diluida.
+Solo al considerar el arrastre se pueden simular fenómenos clave observados en la realidad, como: (i) Frentes ricos en bloques: Donde los sólidos más grandes, por inercia, se mueven más rápido que el fluido, y el fluido ejerce una fuerza de arrastre que los frena. (ii) Frentes fluidizados: Donde el agua a alta presión se mueve más rápido que los sólidos, los "arrastra" y reduce la fricción interna, aumentando la movilidad. (iii) Separación de fases: La diferencia de velocidades y el arrastre resultante son los que provocan que, con el tiempo, un flujo pueda desarrollar un frente más grueso y una cola más diluida.
 
 En conclusión, el efecto de arrastre no es una propiedad del material, sino un resultado de la interacción dinámica entre fases que se mueven a diferentes velocidades. Por lo tanto, es un fenómeno que, por su propia naturaleza física, solo puede ser capturado por un modelo que trate al menos dos fases (sólidos y fluido) de forma independiente, como lo hace el modelo bifásico de Pudasaini (2012). Los modelos monofásicos, al promediar todo en un único "fluido equivalente", pierden por completo esta física esencial.
 
@@ -66,7 +67,7 @@ Debido a la fuerza de masa virtual, las partículas sólidas arrastran consigo m
 
 La viscosidad del fluido, que puede variar según la composición del flujo, afecta sustancialmente la dinámica. Un flujo con un fluido no viscoso ($\eta_f \approx 0$) se comporta de manera muy diferente a uno con un fluido viscoso (por ejemplo, con una viscosidad de 2 Pa·s, un valor típico para flujos de detritos).
 
-Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del frente del flujo y determina cómo la masa de detritos se alarga y deforma. La cantidad de fluido en la cola de un flujo es sustancialmente mayor cuando no hay esfuerzo viscoso en comparación con un flujo que sí lo experimenta. Incluso con una pequeña cantidad de fluido en la mezcla, el efecto del esfuerzo viscoso es importante, ya que reduce sustancialmente la deformación. Por lo tanto, el efecto de la resistencia viscosa debe tenerse en cuenta en la simulación de flujos de detritos. Los modelos anteriores no incluían sistemáticamente el efecto del esfuerzo viscoso (o la viscosidad del fluido) en la dinámica de los flujos bifásicos.
+Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del frente del flujo y determina cómo la masa de detritos se alarga y deforma. La cantidad de fluido en la cola de un flujo es sustancialmente mayor cuando no hay esfuerzo viscoso en comparación con un flujo que sí lo experimenta. Incluso con una pequeña cantidad de fluido en la mezcla, el efecto del esfuerzo viscoso es importante, ya que reduce sustancialmente la deformación. Por lo tanto, el efecto de la resistencia viscosa debe tenerse en cuenta en la simulación de flujos de escombros. Los modelos anteriores no incluían sistemáticamente el efecto del esfuerzo viscoso (o la viscosidad del fluido) en la dinámica de los flujos bifásicos.
 
 
 
