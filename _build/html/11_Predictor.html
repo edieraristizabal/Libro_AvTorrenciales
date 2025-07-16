@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DebrisFlow Predictor &#8212; Avenidas Torrenciales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '11_Predictor';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Flow-Py" href="12_FlowPy.html" />
+    <link rel="prev" title="r.randomwalk" href="10_RandomWalk.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Avenidas torrenciales
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: desde crecientes súbitas hasta flujos de escombros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Interaccion.html">Interacción atmosfera-ladera-cauce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DebrisFlow Predictor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F11_Predictor.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/11_Predictor.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>DebrisFlow Predictor</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="debrisflow-predictor">
+<h1>DebrisFlow Predictor<a class="headerlink" href="#debrisflow-predictor" title="Permalink to this heading">#</a></h1>
+<p><em>DebrisFlow Predictor</em> es un paquete de simulación de deslizamientos basado en agentes que modela el comportamiento complejo de flujos de detritos y avalanchas de detritos (Guthrie &amp; Befus, 2021). Fue desarrollado en lenguaje <em>C#</em> y <em>XAML</em>, y es un programa independiente con una interfaz de usuario completa que incluye la capacidad de importar archivos <em>shapefile</em> y un DEM (archivos ascii), y exportar datos a Excel o como Geotiffs y <em>shapefiles</em>.</p>
+<section id="componentes">
+<h2>Componentes<a class="headerlink" href="#componentes" title="Permalink to this heading">#</a></h2>
+<p>Las áreas fuente pueden seleccionarse manualmente en el software y a menudo consisten en nueve agentes (15 m × 15 m) o más grandes. Alternativamente, las ubicaciones de inicio pueden seleccionarse aleatoriamente, de forma uniforme o manualmente (por escenario) e importarse como archivos de puntos en el software. A cada archivo de puntos se le puede asignar individualmente una ubicación de inicio de 15 m × 15 m y puede activarse o desactivarse para ejecutar diferentes escenarios.</p>
+<p>Una vez iniciado, los agentes siguen un conjunto de reglas en cada paso de tiempo:</p>
+<ul class="simple">
+<li><p><strong>Erosionar y depositar:</strong> los agentes consultan curvas de referencia que representan la probabilidad de que erosionen o depositen (de forma independiente) en la pendiente actual. Estas curvas se basan en un conjunto de datos empírico (Guthrie &amp; Befus, 2021; Guthrie et al., 2008).</p></li>
+<li><p><strong>Pérdida de masa con cambios de dirección:</strong> los agentes pierden masa con los cambios de dirección como un porcentaje del barrido neto (ponderado para que los cambios angulares mayores pierdan más masa).</p></li>
+<li><p><strong>Fusionar:</strong> cuando un agente colisiona con otro agente durante un paso de tiempo, se fusionan en un solo agente y combinan sus masas.</p></li>
+<li><p><strong>Girar:</strong> los agentes giran hacia las tres elevaciones más bajas y se mueven hacia el espacio desocupado más bajo con algunas reglas adicionales para escenarios ambiguos (sin espacios desocupados, elevaciones iguales, etc.).</p></li>
+<li><p><strong>Expandir:</strong> los agentes se expanden según una función PDF:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \left(\left(\frac{m_{MAX} - m}{m_{MAX}}\right)^n \times \left((\sigma_L - \sigma_S) + \sigma_S\right)\right)
+\]</div>
+<p>donde: <span class="math notranslate nohighlight">\(m_{MAX}\)</span> es la pendiente máxima del abanico, <span class="math notranslate nohighlight">\(m\)</span> es la pendiente del DEM, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\sigma_L\)</span> y <span class="math notranslate nohighlight">\(\sigma_S\)</span> son los coeficientes de asimetría, pendiente baja y pendiente alta, respectivamente.
+El comportamiento de expansión se controla mediante deslizadores dentro del programa y se calibra para las condiciones locales.</p>
+<p>La propagación continua mientras algún agente tenga masa.
+Se crean nuevos agentes durante la función de expansión, y la propagación se detiene cuando todos los agentes terminan (masa = 0 para cada agente).
+Debido a que los resultados son estocásticos, generalmente se recomienda que el usuario realice múltiples ejecuciones por escenario.</p>
+</section>
+<section id="requisitos-de-datos">
+<h2>Requisitos de datos<a class="headerlink" href="#requisitos-de-datos" title="Permalink to this heading">#</a></h2>
+<p><em>DebrisFlow Predictor</em> necesita, como mínimo, un DEM de 5 m importado como archivo ASCII y una ubicación de inicio del deslizamiento (esta última puede elegirse usando la herramienta dentro del programa).
+Otros autores han discutido las limitaciones del modelo con respecto al tamaño de celda del DEM (Horton et al., 2013).
+<strong>DebrisFlow Predictor</strong> no está diseñado para DEM con resoluciones menores a 5 m.
+Para escalas regionales e incluso a escala de una sola cuenca, la resolución de 5 m proporciona un detalle considerable.</p>
+</section>
+<section id="salidas">
+<h2>Salidas<a class="headerlink" href="#salidas" title="Permalink to this heading">#</a></h2>
+<p><em>DebrisFlow Predictor</em> produce resultados de cualquier combinación de ejecuciones únicas/múltiples y deslizamientos únicos/múltiples.
+Cada píxel puede consultarse en el software para obtener información sobre la profundidad del depósito y el número del deslizamiento.
+Se proporcionan estadísticas básicas, incluyendo el número de veces que un píxel fue ocupado por un agente y las profundidades promedio, mínima y máxima del depósito a lo largo de todas las ejecuciones.
+La información específica de cada deslizamiento, incluyendo el área y volúmenes de deslizamientos individuales (para ejecuciones únicas), puede exportarse a Excel.
+Los escenarios de deslizamientos, los resultados de ejecuciones únicas o múltiples, pueden exportarse como <em>shapefiles</em>.
+Finalmente, los resultados también pueden exportarse como Geotiff para visualización en otros programas.
+El software no genera salidas de velocidad.</p>
+<p>El usuario compara los resultados de las ejecuciones iniciales del modelo con deslizamientos observados o mapeados o con datos morfológicos proporcionados por el DEM.
+La evidencia de campo, la geología y la geomorfología, combinadas con el conocimiento experto de los procesos de flujos de detritos, son útiles para distinguir un resultado creíble de uno poco realista.
+La calibración también es posible mediante la comparación de relaciones magnitud-frecuencia y volumen-área con inventarios existentes de deslizamientos.
+Una vez calibrado, el modelo puede aplicarse a una región más amplia.
+Puede ser necesaria una recalibración si las condiciones locales resultan en un comportamiento de flujo diferente de una región a otra.</p>
+</section>
+<section id="calibracion-y-evaluacion">
+<h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Permalink to this heading">#</a></h2>
+<p>Al igual que otros modelos descritos en esta sección, la calibración de <em>DebrisFlow Predictor</em> se basa en el método de prueba y error.
+Se realiza de forma iterativa utilizando los controles dentro del programa.</p>
+<p><em>DebrisFlow Predictor</em> permite a los especialistas en geoamenazas modelar el alcance de flujos de detritos a escala regional y recopilar información importante sobre las características de los deslizamientos individuales dentro del dominio modelado.
+Esa información incluye la longitud del alcance, la probabilidad de inundación, y la profundidad de erosón y depósito a lo largo de las trayectorias del flujo de detritos.</p>
+<p><em>DebrisFlow Predictor</em> despliega agentes, programas subautónomos de 5 m por 5 m, sobre un modelo digital de elevación de la misma resolución.
+Cada agente aplica un conjunto de reglas físicas y empíricamente derivadas que describen su comportamiento en cada paso de tiempo basado en los datos de entrada proporcionados por el DEM y el vecindario de agentes en cada ejecución del modelo.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10_RandomWalk.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">r.randomwalk</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="12_FlowPy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Flow-Py</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Edier V. Aristizábal G.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

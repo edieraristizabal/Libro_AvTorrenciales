@@ -1,11 +1,7 @@
-# Welcome to your Jupyter Book
+# Avenidas torrenciales
+Este es el texto guia para el curso Avenidas torrenciales del área curricular de Medio Ambiente y Geociencias de la Facultad de Minas de la Universidad Nacional de Colombia sede Medellín, dictada por el profesor Edier Aristizábal.  
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+El contenido esta basado en una amplia literatura, pero se destacan los trabajos de Advances in Debris-flow science and practice Eds. Matthias Jakob, Scott McDougall, Paul Santi. (2024), asi como Debros-flow hazards and related phenomena Eds. Matthias Jakob & Oldrich Hungr (2005).
 
 ```{tableofcontents}
 ```
