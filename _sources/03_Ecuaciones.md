@@ -18,7 +18,7 @@ Los términos utilizados en las ecuaciones de conservación de masa y momento de
 
 - **Pendiente de fricción newtoniana:** Representa la resistencia al flujo generada por la fricción basal y la viscosidad interna en materiales con comportamiento newtoniano, como el agua o fluidos con viscosidad constante. En hidráulica clásica, es análoga a la pendiente de energía perdida por fricción (e.g., fórmulas de Manning o Chezy).
 
-- **Pendiente de fricción para lodos y escombros:** Representa la resistencia basal y interna característica de flujos no newtonianos, como mezclas de lodo y escombros, que pueden mostrar comportamiento viscoplástico (por ejemplo, tipo Bingham) o hiperconcentrado.
+- **Pendiente de fricción para lodos y escombros:** Representa la resistencia basal e interna característica de flujos no newtonianos, como mezclas de lodo y escombros, que pueden mostrar comportamiento viscoplástico (por ejemplo, tipo Bingham) o hiperconcentrado.
 
 Generalmente los modelos entonces calculan un esfuerzo cortante no newtoniano basándose en la clasificación del flujo (p. ej., flujo de lodo, flujo de detritos, etc.) y el enfoque reológico apropiado (es decir, el modelo de esfuerzo-deformación). Luego, la librería integra el cortante viscoso, turbulento y de dispersión del modelo de esfuerzo-deformación en la ecuación de momento, convirtiendo el esfuerzo cortante en una pendiente ($𝑆_{𝑀D}$) y sumando esta pendiente a la pendiente de fricción ($S_f$). Adicionalmente, debido a que estos flujos pueden contener entre un 5% y un 70% de sólidos por volumen, un modelo de lecho fijo debe aumentar el volumen del flujo para tener en cuenta el impacto del sedimento en la masa y la profundidad del flujo.
 
@@ -146,7 +146,7 @@ El modelo, en cada celda de la malla, "se para" sobre la pendiente y alinea su p
 Su eje x siempre apunta en la dirección de máxima pendiente, su eje y es horizontal (a lo largo de la curva de nivel) y su eje z es perpendicular (normal) a la superficie del terreno.
 Esto confiere ventajas en términos de fidelidad física. 
 Porque la fuerza de la gravedad se descompone de forma natural y directa en dos componentes.
-Pero puede presentar desafíos prácticos para modelar flujos sobre topografías complejas del mundo real. P
+Pero puede presentar desafíos prácticos para modelar flujos sobre topografías complejas del mundo real. 
 En general, es necesaria una transformación de las variables calculadas en coordenadas adaptadas al terreno a coordenadas cartesianas uniformes de MDE, y dicha transformación debe ser aproximada (Mergili et al., 2017).
 Esta transformación puede introducir pequeñas imprecisiones numéricas.
 

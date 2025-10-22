@@ -1,4 +1,7 @@
 # Modelos de dos fases (granular-fluido): 
+
+Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) (O’Brien and Julien, 1984; Phillips and Davies, 1991; Major and Pierson, 1992; Coussot and Piau, 1994) o como dos o más fases (enfoques de mezcla de Coulomb) (Savage and Hutter, 1989; Iverson, 1997). El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.
+
 Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial (e.g. modelo de Iverson & Denlinger 2001; Pudasaini 2012). 
 Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros. 
 Vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, etc.) son a veces considerados simplificaciones “efectivas” de un sistema bifásico más complejo, y que autores como Iverson han criticado la aproximación reológica por considerarla una “ficción” conveniente. 
@@ -26,9 +29,6 @@ Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (<0.
 
 El uso de más de tres ecuaciones de conservación en modelos bifásicos y de mezcla bifásica hace que su estructura matemática y computacional sea más compleja que la de los modelos monofásicos. 
 Sin embargo, el uso de ecuaciones de conservación adicionales simplifica los modelos bifásicos y de mezcla bifásica desde un punto de vista físico, porque reduce la cantidad de supuestos necesarios en la derivación de las ecuaciones y clarifica las definiciones de los parámetros del modelo. 
-El número total de ecuaciones diferenciales en cualquier modelo de flujo de escombros debe, por supuesto, igualar el número total de variables dependientes del modelo. 
-Un principio básico de la física matemática, aplicable en la modelación de flujos de escombros, es que predecir el valor de un número creciente de variables dependientes permite realizar pruebas del modelo cada vez más diversas y estrictas. 
-Los modelos que pueden predecir con éxito el valor del mayor número de variables dependientes de forma simultánea son los más probables de ser físicamente correctos (Iverson, 2003b).
 
 ## Fenómenos físicos clave en flujos bifásicos
 

@@ -58,21 +58,6 @@ Los cambios en la circulación y en la eficiencia de precipitación podrían afe
 
 No obstante, el aumento proyectado en la intensidad y tamaño de los AR sugiere un incremento en los impactos por inundaciones y flujos de escombros en las áreas donde ocurren AR (por ejemplo, Corringham et al., 2022; Curry et al., 2019; Jakob & Owen, 2021).
 
-### Efectos del Cambio Climático sobre la Ocurrencia y Tamaño de Flujos de Escombros
-
-Cada cuenca propensa a flujos de escombros tiene sus propias características, las cuales pueden cambiar en respuesta al cambio climático. A escala regional, la amenaza por flujos de escombros puede caracterizarse una vez que se hayan aislado las variables hidroclimáticas clave responsables de dichos cambios y se consulten los modelos climáticos correspondientes.
-
-Un estudio de Jakob y Owen (2021) proporciona orientación sobre cómo podría ejecutarse dicho análisis.
- Los autores utilizaron una base de datos sustancial de ocurrencias (fechas, ubicación y tipo) de deslizamientos superficiales y flujos de escombros en Columbia Británica, Canadá, y crearon un modelo que explica qué combinación de variables hidroclimáticas son responsables de la ocurrencia de flujos de escombros, a saber, una combinación de condiciones de humedad antecedente (una ventana de aproximadamente 3–5 semanas de lluvias otoñales sustanciales) y picos de lluvia de alta intensidad (intensidades de 2–6 horas). 
- Con base en estas variables, se crearon modelos estadísticos para explicar tanto la ocurrencia de flujos de escombros (número de flujos por tormenta) como los volúmenes de flujo.
-
-Sus hallazgos mostraron que la frecuencia de los flujos de escombros podría aumentar hasta en un 300% para la década de 2080, acompañada de un aumento en la magnitud media de aproximadamente un 30%. 
-La respuesta mucho menor en magnitud se explica porque las pendientes donde ocurren los deslizamientos superficiales que evolucionan en flujos de escombros son de longitud finita, y solo pueden aumentar los volúmenes mediante fallas de múltiples fuentes puntuales (típicamente avalanchas de escombros) por cuenca, o un ensanchamiento más vigoroso de los caminos de las avalanchas y el consiguiente arrastre.
-
-### Cambios en la dinámica de sedimentos y hábitats fluviales
-
-Estos hallazgos plantean un gran desafío para la gestión de flujos de escombros. Un mayor aporte de sedimentos a los ríos receptores podría cambiar sus características fluviales de amenaza única a trenzado, contaminar recursos hídricos mediante la introducción de sedimentos finos y reducir hábitats de peces (por ejemplo, si las gravas finas utilizadas como hábitats de desove son destruidas directamente por deslizamientos o cubiertas por sedimentos finos que impiden la supervivencia de alevinos).
-
 ### Tipos de cuencas y su respuesta al clima
 
 En cuencas limitadas por el suministro de sedimentos en el canal, un aumento de la temperatura y la lluvia probablemente incrementará las tasas de meteorización y, por lo tanto, la recarga de sedimentos en el canal. 
@@ -87,29 +72,6 @@ Además, un incendio forestal que destruya la vegetación protectora puede conve
 
 En cuencas completamente ilimitadas en suministro, los flujos ocurren cada vez que se supera un umbral hidroclimático, y su magnitud depende únicamente de la intensidad y duración del evento meteorológico. 
 En estas cuencas, el cambio climático se manifestará en un aumento tanto en la magnitud como en la frecuencia de los flujos de escombros.
-
-### Preguntas clave para evaluar el riesgo bajo cambio climático
-
-De acuerdo con el modelo general de entradas, susceptibilidad y reacciones en un sistema de flujo de escombros, las respuestas potenciales al cambio climático incluyen:
-
-1. **¿Cuáles son los cambios observados y proyectados en la precipitación extrema en el área de estudio?**
-   - ¿Existe una tendencia clara de aumento en frecuencia y/o magnitud?
-   - ¿Los modelos climáticos muestran acuerdo respecto a la dirección y magnitud del cambio?
-   - Si se esperan aumentos significativos, considere integrarlos en modelos lluvia-escorrentía utilizados como entrada para las ecuaciones de transporte de sedimentos.
-
-2. **¿La cuenca tiene antecedentes de tala extensiva, incendios recientes y/o infestaciones de insectos?**
-   - ¿Cuál es el consenso científico sobre el futuro de estos procesos?
-   - Si se prevé su ocurrencia/intensificación, considere integrarlos en modelos lluvia-escorrentía, añadiendo incertidumbre en el transporte de sedimentos y en el diseño de medidas de mitigación.
-
-3. **¿Existen áreas de permafrost en la cuenca?**
-   - ¿Son rocosas o depósitos no consolidados ricos en hielo?
-   - ¿La degradación del permafrost reducirá la cohesión del hielo, liberando sedimentos previamente cementados?
-   - ¿Podrían estos cambios desencadenar fallas de ladera masivas que afecten los sistemas fluviales?
-
-4. **¿Existen glaciares en la parte alta de la cuenca?**
-   - ¿Cómo afectará su reducción al caudal, la colonización vegetal de los campos glaciares y la formación de lagos proglaciares o supraglaciares que podrían drenar catastróficamente?
-   - ¿Cómo podrían mitigarse estos riesgos mediante monitoreo (niveles de lago) o infraestructura de protección?
-
 
 
 ```{bibliography}
