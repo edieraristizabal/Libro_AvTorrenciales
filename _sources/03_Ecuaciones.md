@@ -2,9 +2,9 @@
 
 # Ecuaciones de Saint-Venant
 
-Para modelar flujos de escombros (*debris flows*) y otros flujos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y *debris flows*. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial.
+Para modelar flujos de escombros (*debris flows*) y otros flujos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y *debris flows*. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial. Las ecuaciones de flujo de aguas someras (o de aguas poco profundas) resuelven simultáneamente las ecuaciones de conservación de masa y de momento para calcular la cota del agua y la velocidad. 
 
-Las ecuaciones de flujo de aguas someras (o de aguas poco profundas) resuelven simultáneamente las ecuaciones de conservación de masa y de momento para calcular la cota del agua y la velocidad. Las fuerzas de fricción entre el fluido y el contorno sólido son las principales fuerzas de resistencia en las ecuaciones hidráulicas estándar para agua clara newtoniana. Comparado con aguas limpias, los flujos de lodo y detritos generan fuerzas resistentes adicionales. El aumento del contenido de sólidos incrementa la viscosidad de los flujos no newtonianos, generando fuerzas resistentes internas dentro del fluido. A concentraciones más altas, particularmente con partículas gruesas, la colisión y fricción entre partículas introducen fuerzas resistentes internas adicionales. La mayoría de las modificaciones teóricas y numéricas implican la integración de las nuevas fuerzas internas del fluido en la ecuación de momento. 
+Las fuerzas de fricción entre el fluido y el contorno sólido son las principales fuerzas de resistencia en las ecuaciones hidráulicas estándar para agua clara newtoniana. Comparado con aguas limpias, los flujos de lodo y detritos generan fuerzas resistentes adicionales. El aumento del contenido de sólidos incrementa la viscosidad de los flujos no newtonianos, generando fuerzas resistentes internas dentro del fluido. A concentraciones más altas, particularmente con partículas gruesas, la colisión y fricción entre partículas introducen fuerzas resistentes internas adicionales. La mayoría de las modificaciones teóricas y numéricas implican la integración de las nuevas fuerzas internas del fluido en la ecuación de momento. 
 
 La aplicación del transporte no newtoniano en un modelo de aguas someras (o de aguas poco profundas) requiere calcular las pérdidas internas añadiendo un término de pendiente a la pendiente de fricción ($S_f$) en la ecuación de momento y aumentando el flujo para tener en cuenta el volumen de los sólidos. La pendiente de fricción ($S_f$) del modelo de aguas someras representa las fuerzas que actúan contra el flujo en el contorno del fluido (por ejemplo, el canal), mientras que la pendiente de lodo y detritos ($S_{MD}$) representa las pérdidas internas debidas a la viscosidad, la turbulencia y/o la dispersión dentro del fluido.
 
@@ -36,9 +36,14 @@ Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resi
 
 $$\frac{\partial(Q)}{\partial t} + \frac{\partial(Q\vec{u})}{\partial x} = 𝑔 hsen⁡\theta − S_{MD} + 𝑆_f$$
 
-$$S_{MD}=\frac{\tau_{MD}}{\rho_mgR}$$
 ​ 
-Donde: $g$: gravedad, $\theta$: pendiente del terreno, $\tau_{MD}$ el esfuerzo cortante interno y reológico, $\rho_m$ la densidad de la mezcla de sedimentos y agua ($kg/m^3$) y $R$ el radio hidráulico (m). El radio hidráulico se define como el área de la sección transversal del flujo ($A$) dividida por el perímetro mojado ($P$).
+Donde: $g$: gravedad y $\theta$: pendiente del terreno.
+
+El esfuerzo cortante interno y reológico $\tau_{MD}$ se calcula según el modelo seleccionado. Los modelos se relacionan con el esfuerzo cortante mediante la expresión $\tau=\rho gRS_{MD}$.
+
+$$S_{MD}=\frac{\tau_{MD}}{\rho_mgR}$$
+
+ $\tau_{MD}$ el esfuerzo cortante interno y reológico, $\rho_m$ la densidad de la mezcla de sedimentos y agua ($kg/m^3$) y $R$ el radio hidráulico (m). El radio hidráulico se define como el área de la sección transversal del flujo ($A$) dividida por el perímetro mojado ($P$).
 
 Existen modelos simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de "box model" o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:
 
