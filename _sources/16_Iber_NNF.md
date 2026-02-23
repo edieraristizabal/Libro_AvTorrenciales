@@ -72,7 +72,7 @@ $$S_{f}=\frac{1}{\rho gh}(\tau_{y}+k(\frac{v}{h})^{a})$$
 
 ### Velocidades y Tiempos de Llegada
 * [cite_start]**Velocidad:** El modelo de **Manning** llegó en menos de 0:30 h[cite: 181]. [cite_start]**Voellmy** y **Bingham** fueron los más lentos (3:40 - 3:50 h)[cite: 182].
-* **Comparación:** Iber-NNF capturó bien la velocidad estimada por Muñoz-Salinas et al. (2007) [cite_start]en la mayoría de los puntos de control[cite: 187, 189].
+* **Comparación:** Iber-NNF capturó bien la velocidad estimada por Muñoz-Salinas et al. {cite}`parker_2009` [cite_start]en la mayoría de los puntos de control[cite: 187, 189].
 
 ---
 
