@@ -1,9 +1,13 @@
 # Avenidas Torrenciales
 
-```{image} logo.png
+```{image} cover.jpg
 :width: 100%
 :class: cover-image
 ```
+
+<div style="text-align: center; margin: 10px 0;">
+  <img src="logo_unal.jpg" alt="Universidad Nacional de Colombia" width="80px"/>
+</div>
 
 **Como referenciar**: Aristizábal Edier. 2025. Avenidas Torrenciales. Texto guía del curso Avenidas Torrenciales, Área Curricular de Medio Ambiente y Geociencias, Facultad de Minas, Universidad Nacional de Colombia, Medellín.
 
