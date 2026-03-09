@@ -108,7 +108,7 @@ Dado que el modelo es muy rápido, es factible ejecutar múltiples escenarios ("
 ## Modelo Vinculado de Movilidad Topográfica
 
 
-El "Modelo Vinculado" (*Linked-Model Approach*) descrito por Brien et al. (2025) no es un software independiente, sino un marco conceptual y metodológico que se implementa utilizando el paquete de herramientas Grfin Tools. Su principal innovación es que permite que la topografía local controle de forma automática qué tipo de modelo de alcance (*runout*) se aplica, diferenciando explícitamente entre el recorrido de un deslizamiento en una ladera abierta y su transformación en un flujo de detritos canalizado.
+El "Modelo Vinculado" (*Linked-Model Approach*) descrito por Brien et al. {cite}`unknown_2018` no es un software independiente, sino un marco conceptual y metodológico que se implementa utilizando el paquete de herramientas Grfin Tools. Su principal innovación es que permite que la topografía local controle de forma automática qué tipo de modelo de alcance (*runout*) se aplica, diferenciando explícitamente entre el recorrido de un deslizamiento en una ladera abierta y su transformación en un flujo de detritos canalizado.
 
 El marco se basa en la definición de tres **"zonas de movilidad"** distintas dentro del paisaje:
 
@@ -171,7 +171,7 @@ El producto final de este enfoque es un mapa de susceptibilidad combinado que in
 
 ### Calibración y Evaluación
 
-La calibración de este modelo es un proceso multifacético que busca ajustar los parámetros empíricos para que los resultados coincidan con los datos de eventos observados. El estudio de Brien et al. (2025) detalla este proceso:
+La calibración de este modelo es un proceso multifacético que busca ajustar los parámetros empíricos para que los resultados coincidan con los datos de eventos observados. El estudio de Brien et al. {cite}`unknown_2018a` detalla este proceso:
 
 1.  **Análisis de los eventos observados:** Se utiliza un inventario de deslizamientos (como el del Huracán María) para extraer las características de los flujos más móviles y así definir rangos plausibles para los parámetros de las zonas de crecimiento (pendiente, orden del cauce, etc.).
 2.  **Definición de escenarios:** Se crean múltiples escenarios de simulación variando sistemáticamente los parámetros más influyentes, como los umbrales para las zonas de crecimiento, el factor de crecimiento $c_1$ y el volumen máximo $V_{max}$.

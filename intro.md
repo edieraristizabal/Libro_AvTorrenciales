@@ -18,6 +18,3 @@ Este libro web no corresponde a una construcción original del profesor Edier Ar
 Este es el texto guía para el curso **Avenidas Torrenciales** del área curricular de Medio Ambiente y Geociencias de la Facultad de Minas de la Universidad Nacional de Colombia sede Medellín, dictado por el profesor Edier Aristizábal.
 
 El contenido está basado en una amplia literatura, pero se destacan los trabajos de *Advances in Debris-flow Science and Practice* (Eds. Matthias Jakob, Scott McDougall, Paul Santi, 2024), así como *Debris-flow Hazards and Related Phenomena* (Eds. Matthias Jakob & Oldrich Hungr, 2005) {cite}`hungr_debrisflow_2005`.
-
-```{tableofcontents}
-```

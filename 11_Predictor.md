@@ -1,7 +1,7 @@
 
 # DebrisFlow Predictor
 
-*DebrisFlow Predictor* es un paquete de simulación de deslizamientos basado en agentes que modela el comportamiento complejo de flujos de detritos y avalanchas de detritos (Guthrie & Befus, 2021). Fue desarrollado en lenguaje *C#* y *XAML*, y es un programa independiente con una interfaz de usuario completa que incluye la capacidad de importar archivos *shapefile* y un DEM (archivos ascii), y exportar datos a Excel o como Geotiffs y *shapefiles*.
+*DebrisFlow Predictor* es un paquete de simulación de deslizamientos basado en agentes que modela el comportamiento complejo de flujos de detritos y avalanchas de detritos {cite}`guthrie_predictor_2021`. Fue desarrollado en lenguaje *C#* y *XAML*, y es un programa independiente con una interfaz de usuario completa que incluye la capacidad de importar archivos *shapefile* y un DEM (archivos ascii), y exportar datos a Excel o como Geotiffs y *shapefiles*.
 
 ### Componentes
 
@@ -9,7 +9,7 @@ Las áreas fuente pueden seleccionarse manualmente en el software y a menudo con
 
 Una vez iniciado, los agentes siguen un conjunto de reglas en cada paso de tiempo:
 
-- **Erosionar y depositar:** los agentes consultan curvas de referencia que representan la probabilidad de que erosionen o depositen (de forma independiente) en la pendiente actual. Estas curvas se basan en un conjunto de datos empírico (Guthrie & Befus, 2021; Guthrie et al., 2008).
+- **Erosionar y depositar:** los agentes consultan curvas de referencia que representan la probabilidad de que erosionen o depositen (de forma independiente) en la pendiente actual. Estas curvas se basan en un conjunto de datos empírico {cite}`guthrie_predictor_2021,guthrie_debris_2008`.
 - **Pérdida de masa con cambios de dirección:** los agentes pierden masa con los cambios de dirección como un porcentaje del barrido neto (ponderado para que los cambios angulares mayores pierdan más masa).
 - **Fusionar:** cuando un agente colisiona con otro agente durante un paso de tiempo, se fusionan en un solo agente y combinan sus masas.
 - **Girar:** los agentes giran hacia las tres elevaciones más bajas y se mueven hacia el espacio desocupado más bajo con algunas reglas adicionales para escenarios ambiguos (sin espacios desocupados, elevaciones iguales, etc.).
@@ -29,7 +29,7 @@ Debido a que los resultados son estocásticos, generalmente se recomienda que el
 ### Requisitos de datos
 
 *DebrisFlow Predictor* necesita, como mínimo, un DEM de 5 m importado como archivo ASCII y una ubicación de inicio del deslizamiento (esta última puede elegirse usando la herramienta dentro del programa). 
-Otros autores han discutido las limitaciones del modelo con respecto al tamaño de celda del DEM (Horton et al., 2013). 
+Otros autores han discutido las limitaciones del modelo con respecto al tamaño de celda del DEM {cite}`horton_flowr_2013`. 
 **DebrisFlow Predictor** no está diseñado para DEM con resoluciones menores a 5 m. 
 Para escalas regionales e incluso a escala de una sola cuenca, la resolución de 5 m proporciona un detalle considerable.
 
