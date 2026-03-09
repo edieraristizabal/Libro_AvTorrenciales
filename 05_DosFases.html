@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Modelos de dos fases (granular-fluido): &#8212; Avenidas Torrenciales</title>
   
@@ -14,49 +15,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05_DosFases';</script>
@@ -73,23 +78,28 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -111,20 +121,12 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -139,9 +141,6 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-
-  
-    
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -160,18 +159,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
 <ul class="nav bd-sidenav">
@@ -223,7 +211,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -232,14 +220,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -361,28 +349,26 @@
 </button>
 
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
-
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -419,10 +405,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-de-dos-fases-granular-fluido">
-<h1>Modelos de dos fases (granular-fluido):<a class="headerlink" href="#modelos-de-dos-fases-granular-fluido" title="Link to this heading">#</a></h1>
+<h1>Modelos de dos fases (granular-fluido):<a class="headerlink" href="#modelos-de-dos-fases-granular-fluido" title="Permalink to this heading">#</a></h1>
 <p>Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) <span id="id1">[]</span> o como dos o más fases (enfoques de mezcla de Coulomb) <span id="id2">[<a class="reference internal" href="02_Flujos.html#id100" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Ive97</a>, <a class="reference internal" href="02_Flujos.html#id149" title="Stuart B. Savage and Kolumban Hutter. The motion of a finite mass of granular material down a rough incline. Journal of Fluid Mechanics, 199:177–215, 1989. doi:10.1017/S0022112089000340.">SH89</a>]</span>. El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.</p>
 <p>Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial <span id="id3">[<a class="reference internal" href="02_Flujos.html#id103" title="Richard M. Iverson and Roger P. Denlinger. Flow of variably fluidized granular masses across three-dimensional terrain: 1. Coulomb mixture theory. Journal of Geophysical Research: Solid Earth, 106(B1):537–552, 2001. doi:10.1029/2000JB900329.">ID01</a>, <a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>.
 Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros.
@@ -446,10 +432,10 @@ Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (&lt
 <p>El uso de más de tres ecuaciones de conservación en modelos bifásicos y de mezcla bifásica hace que su estructura matemática y computacional sea más compleja que la de los modelos monofásicos.
 Sin embargo, el uso de ecuaciones de conservación adicionales simplifica los modelos bifásicos y de mezcla bifásica desde un punto de vista físico, porque reduce la cantidad de supuestos necesarios en la derivación de las ecuaciones y clarifica las definiciones de los parámetros del modelo.</p>
 <section id="fenomenos-fisicos-clave-en-flujos-bifasicos">
-<h2>Fenómenos físicos clave en flujos bifásicos<a class="headerlink" href="#fenomenos-fisicos-clave-en-flujos-bifasicos" title="Link to this heading">#</a></h2>
+<h2>Fenómenos físicos clave en flujos bifásicos<a class="headerlink" href="#fenomenos-fisicos-clave-en-flujos-bifasicos" title="Permalink to this heading">#</a></h2>
 <p>El modelo bifásico general de Pudasaini <span id="id11">[<a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span> se distingue por incorporar de manera rigurosa una serie de mecanismos físicos que son fundamentales para describir la dinámica de los flujos de escombros. A continuación, se detallan los más importantes:</p>
 <section id="arrastre-generalizado-generalized-drag">
-<h3>Arrastre generalizado (<em>Generalized Drag</em>)<a class="headerlink" href="#arrastre-generalizado-generalized-drag" title="Link to this heading">#</a></h3>
+<h3>Arrastre generalizado (<em>Generalized Drag</em>)<a class="headerlink" href="#arrastre-generalizado-generalized-drag" title="Permalink to this heading">#</a></h3>
 <p>La fuerza de arrastre (o drag) es una fuerza de fricción que surge cuando hay un movimiento relativo entre dos componentes, típicamente un objeto sólido y el fluido que lo rodea. Es como la resistencia que se siente al mover la mano rápidamente a través del agua. Esa resistencia es el arrastre.</p>
 <p>El arrastre es uno de los aspectos más básicos e importantes de un flujo bifásico, ya que influye directamente en el movimiento relativo entre las fases sólida y fluida. Un aumento en el valor del coeficiente de arrastre (<span class="math notranslate nohighlight">\(C_{DG}\)</span>) produce menos movimiento relativo (y, por tanto, menos separación) entre las fases, ralentiza el movimiento general y frena el avance del frente. Esto se debe a que un frente de flujo con una mayor intensidad de arrastre se quedará rezagado con respecto a uno con menor intensidad. Por lo tanto, una modelización adecuada del arrastre es un requisito indispensable para simular adecuadamente los flujos de detritos bifásicos.</p>
 <p>Un modelo bifásico resuelve ecuaciones de conservación de masa y momento por separado para la fase sólida y para la fase fluida.
@@ -461,17 +447,17 @@ La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos 
 <p>En conclusión, el efecto de arrastre no es una propiedad del material, sino un resultado de la interacción dinámica entre fases que se mueven a diferentes velocidades. Por lo tanto, es un fenómeno que, por su propia naturaleza física, solo puede ser capturado por un modelo que trate al menos dos fases (sólidos y fluido) de forma independiente, como lo hace el modelo bifásico de Pudasaini <span id="id12">[<a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. Los modelos monofásicos, al promediar todo en un único “fluido equivalente”, pierden por completo esta física esencial.</p>
 </section>
 <section id="flotabilidad-buoyancy">
-<h3>Flotabilidad (<em>Buoyancy</em>)<a class="headerlink" href="#flotabilidad-buoyancy" title="Link to this heading">#</a></h3>
+<h3>Flotabilidad (<em>Buoyancy</em>)<a class="headerlink" href="#flotabilidad-buoyancy" title="Permalink to this heading">#</a></h3>
 <p>La flotabilidad es un aspecto crucial porque aumenta la movilidad del flujo al reducir la resistencia por fricción en la mezcla. Este efecto está presente siempre que haya un fluido en la mezcla. La flotabilidad reduce el esfuerzo normal de los sólidos, los esfuerzos normales laterales y el esfuerzo cortante basal (es decir, la resistencia por fricción) en un factor de <span class="math notranslate nohighlight">\((1 - \gamma)\)</span>, donde <span class="math notranslate nohighlight">\(\gamma\)</span> es la relación de densidades entre el fluido y el sólido. El efecto es sustancial cuando la relación de densidades es grande, como ocurre en los flujos de detritos naturales.</p>
 <p>En el caso extremo de que el flujo sea neutramente flotante <span id="id13">[<a class="reference internal" href="02_Flujos.html#id61" title="Ralph A. Bagnold. Experiments on a gravity-free dispersion of large solid spheres in a Newtonian fluid under shear. Proceedings of the Royal Society of London. Series A, 225(1160):49–63, 1954. doi:10.1098/rspa.1954.0186.">Bag54</a>]</span>, la masa de detritos se fluidiza y puede recorrer distancias mucho más largas. Un flujo neutramente flotante muestra un comportamiento completamente diferente a uno normalmente flotante: las fases sólida y fluida se mueven juntas, la masa de detritos se fluidiza, el frente avanza mucho más lejos, la cola se queda atrás y la altura general del flujo se reduce.</p>
 </section>
 <section id="masa-virtual-virtual-mass">
-<h3>Masa Virtual (<em>Virtual Mass</em>)<a class="headerlink" href="#masa-virtual-virtual-mass" title="Link to this heading">#</a></h3>
+<h3>Masa Virtual (<em>Virtual Mass</em>)<a class="headerlink" href="#masa-virtual-virtual-mass" title="Permalink to this heading">#</a></h3>
 <p>Mientras que la fuerza de arrastre considera la interacción de las fases en un campo de flujo uniforme, la masa virtual entra en juego cuando las partículas sólidas aceleran con respecto al fluido. Esta aceleración relativa obliga a que una parte del fluido circundante también se acelere, lo que induce una fuerza adicional llamada fuerza de masa virtual (que representa la energía cinética inducida en la fase fluida por las partículas sólidas).</p>
 <p>Debido a la fuerza de masa virtual, las partículas sólidas arrastran consigo más masa de fluido, y este es “bombeado” hacia el frente del flujo. Al observar el frente, se puede ver un flujo de agua (“agua lodosa”) seguido por el pulso principal de detritos. La masa sólida pierde algo de inercia y es, en cierto modo, empujada hacia atrás por el fluido. Este fenómeno de un frente liderado por un flujo de agua es observable en algunos flujos de detritos naturales. Los modelos de flujos de detritos anteriores no incluían el efecto de la masa virtual.</p>
 </section>
 <section id="esfuerzo-viscoso-newtoniano-newtonian-viscous-stress">
-<h3>Esfuerzo Viscoso Newtoniano (<em>Newtonian Viscous Stress</em>)<a class="headerlink" href="#esfuerzo-viscoso-newtoniano-newtonian-viscous-stress" title="Link to this heading">#</a></h3>
+<h3>Esfuerzo Viscoso Newtoniano (<em>Newtonian Viscous Stress</em>)<a class="headerlink" href="#esfuerzo-viscoso-newtoniano-newtonian-viscous-stress" title="Permalink to this heading">#</a></h3>
 <p>La viscosidad del fluido, que puede variar según la composición del flujo, afecta sustancialmente la dinámica. Un flujo con un fluido no viscoso (<span class="math notranslate nohighlight">\(\eta_f \approx 0\)</span>) se comporta de manera muy diferente a uno con un fluido viscoso (por ejemplo, con una viscosidad de 2 Pa·s, un valor típico para flujos de detritos).</p>
 <p>Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del frente del flujo y determina cómo la masa de detritos se alarga y deforma. La cantidad de fluido en la cola de un flujo es sustancialmente mayor cuando no hay esfuerzo viscoso en comparación con un flujo que sí lo experimenta. Incluso con una pequeña cantidad de fluido en la mezcla, el efecto del esfuerzo viscoso es importante, ya que reduce sustancialmente la deformación. Por lo tanto, el efecto de la resistencia viscosa debe tenerse en cuenta en la simulación de flujos de escombros. Los modelos anteriores no incluían sistemáticamente el efecto del esfuerzo viscoso (o la viscosidad del fluido) en la dinámica de los flujos bifásicos.</p>
 </section>
@@ -505,8 +491,8 @@ La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos 
               
               
               
-                <footer class="prev-next-footer d-print-none">
-                  
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_Reologia.html"
@@ -534,7 +520,6 @@ La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -570,10 +555,9 @@ By Edier V. Aristizábal G.
   
   <div class="footer-item">
     
-
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -597,8 +581,8 @@ By Edier V. Aristizábal G.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

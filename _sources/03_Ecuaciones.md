@@ -20,36 +20,55 @@ Los términos utilizados en las ecuaciones de conservación de masa y momento de
 
 - **Pendiente de fricción para lodos y escombros:** Representa la resistencia basal e interna característica de flujos no newtonianos, como mezclas de lodo y escombros, que pueden mostrar comportamiento viscoplástico (por ejemplo, tipo Bingham) o hiperconcentrado.
 
-Generalmente los modelos entonces calculan un esfuerzo cortante no newtoniano basándose en la clasificación del flujo (p. ej., flujo de lodo, flujo de detritos, etc.) y el enfoque reológico apropiado (es decir, el modelo de esfuerzo-deformación). Luego, la librería integra el cortante viscoso, turbulento y de dispersión del modelo de esfuerzo-deformación en la ecuación de momento, convirtiendo el esfuerzo cortante en una pendiente ($𝑆_{𝑀D}$) y sumando esta pendiente a la pendiente de fricción ($S_f$). Adicionalmente, debido a que estos flujos pueden contener entre un 5% y un 70% de sólidos por volumen, un modelo de lecho fijo debe aumentar el volumen del flujo para tener en cuenta el impacto del sedimento en la masa y la profundidad del flujo.
+Generalmente los modelos entonces calculan un esfuerzo cortante no newtoniano basándose en la clasificación del flujo (p. ej., flujo de lodo, flujo de detritos, etc.) y el enfoque reológico apropiado (es decir, el modelo de esfuerzo-deformación). Luego, se integra el cortante viscoso, turbulento y de dispersión del modelo de esfuerzo-deformación en la ecuación de momento, convirtiendo el esfuerzo cortante en una pendiente ($𝑆_{𝑀D}$) y sumando esta pendiente a la pendiente de fricción ($S_f$). Adicionalmente, debido a que estos flujos pueden contener entre un 5% y un 70% de sólidos por volumen, un modelo de lecho fijo debe aumentar el volumen del flujo para tener en cuenta el impacto del sedimento en la masa y la profundidad del flujo.
 
-En este sentido, los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D de la siguiente forma:
+En este sentido, los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D. A continuación, se detalla su estructura para flujo de detritos.
 
-#### Ecuación de conservación de masa (Continuidad)
-Para un flujo en una dirección horizontal (e.g. coordenada $x$), la ecuación de continuidad superficial en régimen no permanente en 1D es:
+#### 1. Ecuación de conservación de masa (Continuidad)
+Esta ecuación garantiza que la materia no se crea ni se destruye; solo se desplaza o cambia de volumen ("abultamiento" o *bulking*). En la modelización de procesos de ladera, describe cómo cambian el espesor (o nivel) y la masa de la mezcla a medida que desciende por un canal o ladera.
 
-$$\frac{\partial A}{\partial t} + \frac{\partial Q}{\partial x} = 𝑆_m$$
- 
-Donde: $Q$ es el caudal [$m_3/s$] el cual se obtiene a partir de $h(x,t)$: espesor del flujo [m], $\vec{u}(x,t)$: velocidad media del flujo [m/s] y $A$ el área de la seccion transversal del canal [$m_2$]. $S_m$ es la fuente o pérdida de masa (por ejemplo, aporte de afluentes, erosión, infiltración) [m/s]. Esta ecuación dice que el cambio del espesor en el tiempo es igual a la diferencia entre lo que entra y lo que sale, más lo que se gana o pierde localmente.
+Para un flujo en una dimensión horizontal (1D), la ecuación de continuidad se puede presentar de esta forma (asumiendo ancho unitario):
 
-#### Ecuación de conservación de cantidad de movimiento (momento lineal)
-Esta ecuación representa el balance entre fuerzas propulsoras (gravedad) y resistencias (fricción basal, turbulencia, etc.). En 1D la ecuación de conservación de momento es:
+$$\frac{\partial h}{\partial t} + \frac{\partial (uh)}{\partial x} = S_m$$
 
-$$\frac{\partial(Q)}{\partial t} + \frac{\partial(Q\vec{u})}{\partial x} = 𝑔 hsen⁡\theta − S_{MD} + 𝑆_f$$
+Desglose de términos:
+- **Variación temporal de la profundidad ($\frac{\partial h}{\partial t}$):** Representa cómo sube o baja el nivel hidrodinámico ($h$) de la onda en un punto fijo a medida que pasa el tiempo.
+- **Gradiente de flujo o de masa ($\frac{\partial (uh)}{\partial x}$):** Refleja el cambio espacial del caudal. Describe cómo el movimiento del fluido (con velocidad media $u$) transporta la masa a lo largo de la coordenada $x$. En 2D, se suma la contribución ortogonal ($v$) en dirección $y$: $\frac{\partial (uh)}{\partial x} + \frac{\partial (vh)}{\partial y}$.
+- **Término fuente/sumidero ("Bulking") ($S_m$):** Es vital para flujos de lodo/detritos. Consiste en la incorporación de sedimentos del lecho (erosión local) o la pérdida de masa/agua, alterando significativamente el volumen total en tránsito.
 
-​ 
-Donde: $g$: gravedad y $\theta$: pendiente del terreno.
+#### 2. Ecuación de conservación de cantidad de movimiento (momento lineal)
+Es el derivado de la Segunda Ley de Newton para un fluido superficial. Relaciona las aceleraciones tridimensionales del evento con las fuerzas que lo impulsan (como el plano de gravedad) contra las que lo frenan (el esfuerzo material y las reologías).
 
-El esfuerzo cortante interno y reológico $\tau_{MD}$ se calcula según el modelo seleccionado. Los modelos se relacionan con el esfuerzo cortante mediante la expresión $\tau=\rho gRS_{MD}$.
+En 1D, su presentación analítica se formula como:
 
-$$S_{MD}=\frac{\tau_{MD}}{\rho_mgR}$$
+$$\frac{\partial (uh)}{\partial t} + \frac{\partial}{\partial x} \left( u^2h + \frac{1}{2}gh^2 \right) = gh(S_0 - S_f - S_{MD})$$
 
- $\tau_{MD}$ el esfuerzo cortante interno y reológico, $\rho_m$ la densidad de la mezcla de sedimentos y agua ($kg/m^3$) y $R$ el radio hidráulico (m). El radio hidráulico se define como el área de la sección transversal del flujo ($A$) dividida por el perímetro mojado ($P$).
+**A. Lado Izquierdo (Aceleraciones e Inercia)**
+- **Aceleración local ($\frac{\partial (uh)}{\partial t}$):** El cambio neto de la cantidad de movimiento local únicamente por el avance del tiempo (muy crítico a la hora de procesar o suavizar el arribo del frente brusco en flujos no estacionarios).
+- **Aceleración convectiva ($\frac{\partial (u^2h)}{\partial x}$):** Transporte de cantidad de movimiento por la traslación del fluido. Explica los cambios o cuellos de botella por variaciones en la sección o velocidad topográfica.
+- **Gradiente de presión hidrostática ($\frac{\partial (\frac{1}{2}gh^2)}{\partial x}$):** Fuerza que actúa empujando aguas abajo generada en la propia dinámica del terreno, yendo desde las crestas transitorias engrosadas hacia porciones menos profundas.
 
-Existen modelos simplificados (usan solo la ecuación de momento), tales como algunos modelos empíricos o semi-analíticos, algunos modelos usados para estimar alcance máximo o zona de detención (por ejemplo, el método de "box model" o modelos de trayectoria pura). Usan solo Fuerza neta = masa⋅aceleración. Se considera una masa movilizada fija, y se analiza cómo frena con diferentes mecanismos (fricción basal, turbulencia). A veces se reduce a un problema 1D con:
+**B. Lado Derecho (Esfuerzos propulsores y resistivos)**
+Aquí es donde radica la precisión del modelo y sus diferencias sustanciales con aguas claras. Se utilizan convencionalmente tres pendientes ("Slope") bien diferenciables:
+- **Pendiente topográfica o del lecho ($S_0$):** Equivale a $\sin \theta$. Es la fuerza netamente impulsora producida por el peso topográfico que proyecta la masa pendiente abajo.
+- **Pendiente de fricción basal ($S_f$):** Representa la resistencia externa en el contorno del valle (suelo). Para un flujo newtoniano clásico, se usaría la hidráulica tradicional (como la fricción de pérdida Manning $S_f = \frac{n^2 u^2}{h^{4/3}}$).
+- **Pendiente de lodo y detritos ($S_{MD}$):** Representa las fundamentales *pérdidas internas* del perfil del flujo (viscosidades de la suspensión de arcillas, colisiones macrogranulares y resistencias inerciales inelásticas).
 
-$$𝑚\frac{\partial\vec{u}}{\partial t}=𝑚𝑔sin𝜃−𝜏_𝑏$$
-​
-Pero si se requiere simular procesos dinámicos completos, como evolución del espesor del flujo, deposición progresiva, erosión basal, bifurcaciones de cauce, es obligatorio usar ambas ecuaciones de Saint-Venant.
+Normalmente, los modelos aplican la regla de transformar analíticamente el esfuerzo interno reológico ($\tau_{MD}$) en su representativo "pérdida de pendiente":
+$$S_{MD} = \frac{\tau_{MD}}{\rho_m g R}$$
+donde $\rho_m$ es la densidad de la mezcla en rotación de sedimentos y agua ($kg/m^3$) y $R$ es el perímetro y radio hidráulico ($h$ de tirante principal puro en flujos lateralizados anchos).
+
+---
+
+El cálculo específico de $S_{MD}$ (o la adaptación de $S_f$) se determinará según el **modelo reológico** seleccionado. Una vez definido el tipo de flujo y el mecanismo de disipación de energía, cada comportamiento hidrodinámico particular (Bingham, O'Brien, Voellmy, etc.) tendrá su sub-traducción en esta pérdida de pendiente. Para un detalle riguroso de cada modelo reológico, sus parámetros y correspondencia matemática, consulte el capítulo *04_Reologia*.
+
+---
+
+Existen a su vez simplificaciones para predicciones globales en tiempo rápido usadas analíticamente para proyecciones de alcances de depositación a nivel de diseño preliminar de infraestructuras (como el método del bloque de masas integradas o "box model" referenciado en RAMMS y correlativos del RMB). Suprimiendo de manera integral la hidrodinámica promediada de Saint-Venant por un cálculo netamente acelerativo 1D clásico a todo el volumen inercial movilizado de manera fija (sintetizado localmente en Fuerza Neta = masa ⋅ aceleración):
+
+$$𝑚\frac{\partial\vec{u}}{\partial t} = 𝑚𝑔\sin\theta−\tau_b$$
+
+Por esto, la simulacion computacional integral que permita comprender frentes bifásicos con engrosamiento y *bulking* o el flujo transversal adaptativo a los conos y los cambios abanicos del aluvión (que prevengan cuellos de botella no previstos), exigen modelos de cálculo con integradores sobre ambas ecuaciones conjuntas acopladas de masa y momento de Saint-Venant en alta iteración temporal.
 
 ### Modelos numéricos de flujos de escombros: conservación de masa, momento y reología
 
