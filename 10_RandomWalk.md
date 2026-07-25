@@ -1,8 +1,8 @@
-<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024), {cite}`mergili_2017`[https://www.landslidemodels.org/r.randomwalk/manual.php].</em></p>
+<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024), {cite}`mergili_2015b`[https://www.landslidemodels.org/r.randomwalk/manual.php].</em></p>
 
 # r.randomwalk
 
-*r.randomwalk* {cite}`mergili_2017a,mergili_randomwalk_2015` representa una herramienta multifuncional para el enrutamiento de procesos de movimientos en masa. Puede utilizarse como una extensión del software de código abierto *GRASS GIS*. La arquitectura de la herramienta consiste en un núcleo programado en *C*, con un script en *Python* envolviéndolo para el pre- y postprocesamiento de los datos. Los procedimientos estadísticos automáticos, visualización y funcionalidades de evaluación están incluidos a través de scripts en *R*, que son llamados directamente desde el script en Python.
+*r.randomwalk* {cite}`mergili_2022b,mergili_randomwalk_2015` representa una herramienta multifuncional para el enrutamiento de procesos de movimientos en masa. Puede utilizarse como una extensión del software de código abierto *GRASS GIS*. La arquitectura de la herramienta consiste en un núcleo programado en *C*, con un script en *Python* envolviéndolo para el pre- y postprocesamiento de los datos. Los procedimientos estadísticos automáticos, visualización y funcionalidades de evaluación están incluidos a través de scripts en *R*, que son llamados directamente desde el script en Python.
 
 ### Componentes
 
@@ -51,3 +51,6 @@ Para la creación del *script*, inicialmente se recomienda crear una carpeta par
 sh test.randomwalk.start.sh
 ```
 Los resultados del cálculo se guardan en el directorio `projects/test`.
+```{bibliography}
+:filter: docname in docnames
+```

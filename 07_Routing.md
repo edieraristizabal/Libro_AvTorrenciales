@@ -11,7 +11,7 @@ Los algoritmos de dirección del flujo provienen de aplicaciones hidrológicas y
 
 ---
 
-* **D8 (ocho posibles direcciones de flujo), máxima pendiente o flujo unidireccional** {cite}`o’callaghan_2003`
+* **D8 (ocho posibles direcciones de flujo), máxima pendiente o flujo unidireccional** {cite}`ocallaghan_2003`
 
 Es el método más simple y sigue la pendiente más pronunciada. El principal problema de este enfoque es que no permite divergencia del flujo, forzándolo a seguir direcciones con pasos de 45° (cardinales y diagonales), lo cual produce patrones poco realistas en laderas con diferentes orientaciones. Además, no puede desviarse de la dirección de máxima pendiente, incluso en áreas menos inclinadas, por lo que no representa con precisión los procesos de flujo de escombros {cite}`huggel_2019`. Por lo tanto, tiene un potencial limitado para aplicaciones realistas, pero puede usarse en análisis rápidos {cite}`horton_flowr_2013,wichmann_gpp_2017`.
 
@@ -22,7 +22,7 @@ Huggel et al. {cite}`huggel_2019a` introdujeron una cierta capacidad de desviaci
 :::
 ---
 
-* **D-infinity** {cite}`maidment_2009`
+* **D-infinity** {cite}`tarboton_1997`
 
 Este algoritmo distribuye el flujo hacia una o dos celdas vecinas, según el cálculo de los vectores de pendiente descendente en facetas triangulares planas. Aunque es popular en aplicaciones hidrológicas, no es comúnmente utilizado para la propagación de flujos de escombros.
 
@@ -123,7 +123,7 @@ Aunque estas oscilaciones locales suelen ser invisibles al visualizar la superpo
 
 * **Enfoques Basados en Agentes (*Agent-Based Approaches*)**
   
-Los modelos basados en agentes (ABM) fueron concebidos hace varias décadas {cite}`kienzle_1966,wolfram_1984`, pero su uso en el modelamiento regional de deslizamientos ha sido limitado {cite}`guthrie_predictor_2021,guthrie_debris_2008,turcotte_2002`. No existe una definición universal del término *agente* {cite}`macal_2009`. Bonabeau (2002) describe los ABM de la siguiente manera:
+Los modelos basados en agentes (ABM) fueron concebidos hace varias décadas {cite}`schelling_1950,wolfram_1984`, pero su uso en el modelamiento regional de deslizamientos ha sido limitado {cite}`guthrie_predictor_2021,guthrie_debris_2008,turcotte_2002`. No existe una definición universal del término *agente* {cite}`macal_2009`. Bonabeau (2002) describe los ABM de la siguiente manera:
 
 > “En la modelación basada en agentes, un sistema se modela como un conjunto de entidades autónomas que toman decisiones, llamadas agentes. Cada agente evalúa individualmente su situación y toma decisiones basadas en un conjunto de reglas.”
 
@@ -156,7 +156,7 @@ donde:  $v_i$ es la velocidad en la celda actual $i$ [m/s],  $g$ es la aceleraci
 
 El ángulo $\alpha$ presenta valores característicos según el tipo de movimiento gravitacional. Para flujos de escombros con alta proporción de sedimentos finos, el ángulo mínimo observado es de aproximadamente 4° ($\tan \alpha \approx 0.07$). Para flujos con material más grueso, el ángulo es de **10–11°** ($\tan \alpha \approx 0.19$) {cite}`rickenmann_runout_2005`.
 
-El ángulo $\alpha$ también puede expresarse como función del volumen del flujo o del área de la cuenca de aporte. Con base en datos de campo, Zimmermann et al. {cite}`unknown_2020` propusieron la siguiente relación para el límite inferior del ángulo $\alpha$ en función del área de cuenca $A$ [km²]:
+El ángulo $\alpha$ también puede expresarse como función del volumen del flujo o del área de la cuenca de aporte. Con base en datos de campo, Zimmermann et al. {cite}`zimmermann_2020` propusieron la siguiente relación para el límite inferior del ángulo $\alpha$ en función del área de cuenca $A$ [km²]:
 
 $$
 \tan \alpha_{\text{min}} = 0.20 A^{-0.26}
@@ -175,3 +175,7 @@ El método mostró buenos resultados, pero fue desarrollado y probado en un núm
 
 
 
+
+```{bibliography}
+:filter: docname in docnames
+```

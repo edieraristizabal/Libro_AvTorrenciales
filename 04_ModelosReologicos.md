@@ -1,189 +1,6 @@
+<p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido adaptado del [HEC-RAS Non-Newtonian / Mud and Debris Flow User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows) y de la literatura clásica de reología de flujos de escombros (Bagnold, O'Brien y Julien, Coussot, entre otros).</em></p>
 
-# Regímenes reológicos
-
-La reología es el estudio de cómo los materiales se deforman bajo un esfuerzo (o estrés). Por lo tanto, los *modelos reológicos* a menudo se expresan como relaciones simples entre esfuerzo y deformación. 
-Los modelos hidráulicos de aguas claras ya asumen un modelo reológico para las simulaciones hidrodinámicas. 
-Asumen que el agua comienza a deformarse (movimiento o deformación) bajo cualquier esfuerzo (intersección en cero en la relación esfuerzo-deformación), la deformación aumenta linealmente con el esfuerzo, y la viscosidad del agua es la relación entre el esfuerzo y la deformación. 
-Estas son las suposiciones del flujo "newtoniano". 
-Existen fluidos que se desvían de estas suposiciones, incluyendo una intersección esfuerzo-deformación distinta de cero o una relación esfuerzo-deformación no lineal, o ambas.
-
-:::{figure-md} flow taxonomy
-<img src="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg" alt="Flow axonomy" width="700px">h
-
-Modelos reológicos utilizados para simular (a) agua limpia y (b, c) flujos de lodos y flujos de escombros. Tomado de [HEC RAS Non-Newtonian User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows).
-:::
-
-La propiedad reológica de un flujo conformado por aguas y sedimentos depende de una variedad de factores, tales como la concentración de sólidos en suspensión, la cohesión, la distribución del tamaño de las partículas (granulometría), la forma de las partículas, la fricción entre granos y la presión de poros. En general, a medida que la concentración aumenta y el tamaño de grano se vuelve más grueso, la mezcla de fluido y sedimento pasa a través de cinco clasificaciones: (1) Flujo Newtoniano (agua clara o transporte de sedimento aluvial), (2) flujo hiperconcentrado, (3) flujo de lodo, (4) flujo de detritos y (5) flujo clástico. Sin embargo, estos tipos de flujo son continuos y se solapan entre sí.
-
-## Propiedades físicas y reológicas
-
-**Densidad aparente (ρ):** Varía entre 1500 y 2500 kg/m³. Los flujos hiperconcentrados oscilan entre 1330 y 1800 kg/m³ y los flujos de escombros entre 1800 y 2300 kg/m³, dependiendo de la composición litológica.
-
-**Viscosidad (μ, en Pa·s):** Comúnmente entre 0,001 y 0,1 Pa·s. Controla la resistencia al corte y depende de la concentración de sedimentos, especialmente de limo y arcilla.
-
-**Esfuerzo cortante (τ):** Calculado mediante:
-
-$$
-τ = ρ * g * R * S
-$$
-
-donde *ρ* es la densidad, *g* la gravedad, *R* el radio hidráulico y *S* la pendiente. A mayor densidad, mayor capacidad erosiva.
-
-**Presión intersticial (pfp):** Varía espacial y temporalmente, reduciendo la resistencia friccional cuando es alta, lo que incrementa la movilidad del flujo.
-
-## Características hidráulicas
-
-**Velocidad (u, en m/s):** La velocidad del flujo se puede descomponer en tres componentes {cite}`doyle_2019`:
-   - Velocidad superficial (*usurf*): calculada a partir de grabaciones de video.
-   - Velocidad de desplazamiento (*ur*): velocidad total del flujo.
-   - Velocidad del cuerpo (*ub*): velocidad media en profundidad para una ubicación dada.
-   
-La velocidad del cuerpo *ub* se considera proporcional a la velocidad superficial mediante un factor de corrección *k*, que varía entre 0,7 y 0,9 {cite}`creutin_2018` y está definido por una distribución vertical de velocidades {cite}`hayes_2002` (Cronin et al., 1999). La velocidad del frente del flujo se usa frecuentemente en ecuaciones, ya que la cabeza del flujo, rica en bloques, juega un papel crucial en la intensidad inicial del impacto sobre estructuras {cite}`lavigne_2004,thouret_2007`.
-
-**Caudal (Q, en m³/s):** Es función de la velocidad media del flujo, su capacidad de erosionar y cargar material del lecho y las orillas del canal, y la geometría del canal. La descarga se expresa mediante:
-   
-$$
-Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
-$$
-
-donde *A* es el área mojada, *ub* la velocidad del cuerpo y *i* representa las mediciones individuales en intervalos Δt = ti+1 - ti {cite}`doyle_2019a`. La tasa de descarga varía en el tiempo y el espacio debido a los ciclos de carga (*bulking*) y descarga (*debulking*) de sedimentos.
-
-**Profundidad del flujo (H, en m):** Puede ser de 4 a 5 veces el espesor del depósito. A mayor profundidad, mayor área expuesta y mayor altura alcanzada en las estructuras.
-
-**Movilidad del flujo:** La velocidad, el caudal, la profundidad y la relación ancho/profundidad del canal influyen en la movilidad del flujo y determinan la distancia de recorrido.
-
-
-## Mecanismos de disipación de energía en flujos
-Las diferencias entre flujo plástico, turbulento, dispersivo y de Coulomb se refieren a los mecanismos físicos dominantes que controlan cómo se resiste o disipa la energía del flujo en movimiento. Estos mecanismos de disipación de energía en flujos de escombros (*debris flows*), que pueden coexistir o dominar en diferentes momentos o zonas del flujo.
-
-| Tipo de flujo            | Ecuación general del esfuerzo cortante                                                                                 | Variables principales                                                                               |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Viscoso**              | $\tau = \mu , \dot{\gamma}$                                                                                          | $\mu$: viscosidad dinámica <br> $\dot{\gamma}$: tasa de cizalla                                 |
-| **Plástico (Bingham)**   | $\tau = \tau_y + \mu_p , \dot{\gamma}$                                                                             | $\tau_y$: esfuerzo de fluencia <br> $\mu_p$: viscosidad plástica                              |
-| **Turbulento**           | $\tau \propto \rho , u^2$                                                                                            | $\rho$: densidad <br> $u$: velocidad promedio                                                   |
-| **Dispersivo (Bagnold)** | $\tau \propto \rho_s , d^2 , \dot{\gamma}^2$                                                                        | $\rho_s$: densidad de sólidos <br> $d$: tamaño de grano <br> $\dot{\gamma}$: tasa de cizalla |
-| **Coulomb**          | $\tau = \sigma_n , \tan \phi + c$                                                                                   | $\sigma_n$: presión normal <br> $\phi$: ángulo de fricción interna <br> $c$: cohesión        |
-| **Dilatante**            | $\tau = \sigma_n^{\text{eff}} , \tan \phi$ con $\sigma_n^{\text{eff}} = \sigma_n + \Delta \sigma_{\text{dil}}$ | $\Delta \sigma_{\text{dil}}$: aumento de presión normal por expansión volumétrica                |
-
-
-### Flujo Friccional
-
-* **Mecanismo Dominante:** La resistencia al movimiento es controlada por la fricción de contacto entre las partículas sólidas y entre estas y el lecho. Es una resistencia seca, independiente de la velocidad.
-* **Explicación:** Este es el comportamiento más simple y se rige por la ley de fricción de Coulomb. La fuerza de resistencia es directamente proporcional a la fuerza normal (el peso del material perpendicular a la pendiente) y a un coeficiente de fricción ($\mu$ o $\tan\phi$). No hay términos que dependan de la velocidad de deformación (viscosidad) ni de la turbulencia. Es la física de un sólido deslizándose sobre otro.
-* **Ejemplo Intuitivo:** Imagina empujar una caja de madera pesada sobre un suelo de cemento. La fuerza que necesitas para moverla depende del peso de la caja y de la rugosidad de las superficies, no de si la empujas lenta o rápidamente.
-* **Tipo de flujo:** Es el modelo ideal para avalanchas de rocas secas, deslizamientos de bloques cohesivos, o la fase inicial de un deslizamiento donde el agua aún no juega un papel dominante.
-
-### Flujo Viscoso
-
-* **Mecanismo Dominante:** La resistencia al movimiento proviene de la fricción interna del propio fluido intersticial, que se opone a la deformación. La resistencia es directamente proporcional a la tasa de deformación ($\dot{\gamma}$).
-* **Explicación:** En este régimen, no existe un umbral de esfuerzo para iniciar el movimiento (esfuerzo de cedencia); el flujo comienza con cualquier esfuerzo, por pequeño que sea. La relación entre el esfuerzo aplicado y la deformación resultante es lineal, y la pendiente de esa relación es la viscosidad. Un fluido más viscoso ofrece más resistencia.
-* **Ejemplo Intuitivo:** Compara verter agua y verter miel. Ambos fluyen inmediatamente al inclinar el recipiente, pero la miel, al ser mucho más viscosa, fluye mucho más lentamente porque su "fricción interna" es mayor.
-* **Tipo de flujo:** Este comportamiento es típico de flujos muy diluidos con bajo contenido de sólidos, o de la fase fluida dentro de una mezcla más compleja. Es la base para entender la resistencia del "líquido" que transporta los sólidos.
-
-### Flujo Plástico
-
-* **Mecanismo Dominante:** La resistencia está dominada por un esfuerzo de cedencia o fluencia ($\tau_y$). El material se comporta como un sólido rígido hasta que el esfuerzo aplicado supera este umbral, momento en el que empieza a fluir como un fluido viscoso.
-* **Explicación:** La resistencia total en un flujo plástico tiene dos componentes: una resistencia inicial constante (el esfuerzo de cedencia) y una resistencia que aumenta con la velocidad de deformación (la parte viscosa). La presencia de arcillas y limos en la matriz fluida es la que genera esta cohesión y resistencia inicial.
-* **Ejemplo Intuitivo:** La pasta de dientes. Puedes poner el tubo boca abajo y no se cae (resiste la gravedad como un sólido). Necesitas apretar con una fuerza mínima (superar el esfuerzo de cedencia) para que empiece a fluir. Una vez que fluye, se comporta como un líquido muy espeso.
-* **Tipo de flujo:** Es el modelo clásico para flujos de lodo (*mudflows*) y flujos de detritos ricos en finos cohesivos, donde la matriz de lodo tiene la capacidad de mantener en suspensión a las partículas más grandes cuando el flujo se detiene.
-
-### Flujo Turbulento
-
-* **Mecanismo Dominante:** La resistencia al flujo y el transporte de partículas provienen de la energía caótica de los remolinos (eddies) en la fase fluida.
-* **Explicación:** En lugar de un flujo suave y ordenado (laminar), el movimiento es caótico, con un intenso intercambio de momento dentro del propio fluido. Esta turbulencia es la que mantiene a los sedimentos en suspensión. La resistencia en este régimen no es lineal con la velocidad, sino que es proporcional al cuadrado de la velocidad. Por eso, los flujos turbulentos pueden ser tan erosivos y destructivos.
-* **Ejemplo Intuitivo:** Un río de montaña durante una creciente aquí en Antioquia. El agua no fluye de forma ordenada; hierve con remolinos que son capaces de arrancar y transportar piedras y troncos.
-* **Tipo de flujo:** Es el régimen típico de los flujos hiperconcentrados y los flujos de lodo más diluidos y rápidos, donde la concentración de sólidos no es tan alta como para que las interacciones entre granos dominen.
-
-### Flujo Dispersivo
-
-* **Mecanismo Dominante:** La resistencia es generada por las colisiones e interacciones mecánicas entre las partículas sólidas grandes.
-* **Explicación:** En flujos con alta concentración de granos gruesos, el momento se transfiere principalmente por el choque de un grano con otro. Estas colisiones generan una "presión dispersiva" que tiende a separar las partículas y se opone al cizallamiento. Este es el famoso efecto *Bagnold*. Es un comportamiento puramente granular, no viscoso. El esfuerzo dispersivo es proporcional al cuadrado del tamaño del grano y al cuadrado de la tasa de cizalla.
-* **Ejemplo Intuitivo:** Imagina una caja de balines densamente empacados. Si la agitas vigorosamente, los balines chocan constantemente entre sí y contra las paredes, generando una presión interna que se opone al movimiento.
-* **Tipo de flujo:** Es el mecanismo dominante en flujos de detritos granulares y secos y en el frente de muchas avalanchas de rocas, donde los bloques más grandes interactúan directamente.
-
-### Flujo Dilatante
-
-* **Mecanismo Dominante:** La resistencia proviene de la **expansión volumétrica (dilatancia) del esqueleto granular** cuando se somete a un esfuerzo de cizalla.
-* **Explicación Detallada:** Cuando un material granular está densamente empaquetado, las partículas no pueden simplemente deslizarse unas sobre otras. Para moverse, necesitan "montarse" unas sobre otras, lo que obliga al volumen total de la masa a expandirse. Este trabajo mecánico de expansión consume energía y se manifiesta como una resistencia adicional al cizallamiento. A menudo coexiste con la fricción de Coulomb y los esfuerzos dispersivos.
-* **Ejemplo Intuitivo:** Una bolsa de café en grano bien apretada. Si intentas meter la mano, sientes una fuerte resistencia. Los granos están tan juntos que para moverse necesitan separarse, y tú tienes que hacer fuerza para crear ese espacio.
-* **Tipo de flujo:** Este fenómeno es especialmente importante en la **fase de iniciación del movimiento** de materiales granulares densos, como arenas compactas o la base de un flujo de detritos denso. Puede explicar por qué se necesita un esfuerzo inicial mayor para poner en movimiento una masa densa.
-
-| Tipo de flujo       | Mecanismo de disipación principal         | Forma de disipación de energía                                                                 |
-|---------------------|-------------------------------------------|------------------------------------------------------------------------------------------------|
-| **Viscoso (laminar)**   | Fricción interna (viscosidad)              | Calor generado por fricción molecular entre capas del fluido                                   |
-| **Plástico (Bingham, HB)** | Ruptura de estructuras cohesivas          | Trabajo mecánico necesario para superar el esfuerzo de fluencia ($\tau_y$) → pérdida irreversible |
-| **Turbulento**         | Agitación caótica del fluido               | Cascada de vórtices → fricción microscópica → disipación en calor                              |
-| **Dispersivo (granular)** | Colisiones inelásticas entre partículas   | Fricción interpartícula, deformación, calor, sonido, reorganización granular                    |
-| **Coulomb**        | Fricción basal seca                        | Pérdida por roce entre masa movilizada y superficie subyacente (dependiente de $\tan\phi$)     |
-| **Dilatante**          | Expansión volumétrica por cizalla          | Trabajo contra presión normal para permitir expansión → disipación mecánica                    |
-
-
-## Números adimensionales
-
-Existen parámetros cuantitativos que ayudan a distinguir los regímenes de flujo (plástico, turbulento, dispersivo, Coulomb) en flujos de escombros, basados en conceptos de mecánica de fluidos, reología y dinámica granular. Estos números adimensionales permiten evaluar qué tipo de comportamiento físico domina en un flujo dado. 
-
-**Número de Bingham (Bn)**. Evalúa la importancia del umbral de fluencia (flujo plástico) frente al esfuerzo viscoso. Útil para identificar flujos tipo Bingham o Herschel–Bulkley, típicos en ambientes tropicales ricos en finos cohesivos.
-
-$Bn=\frac{𝜏_𝑦⋅𝐿}{𝜇⋅𝑉}$
-​
- 
-$\tau_y$: esfuerzo de fluencia (Pa). $L$: escala característica (por ejemplo, espesor del flujo). $\mu$: viscosidad plástica (Pa·s). $V$: velocidad del flujo (m/s)
-
-* Bn ≫ 1: flujo dominantemente plástico → el esfuerzo de fluencia es más importante que el esfuerzo viscoso.
-
-* Bn ≪ 1: flujo más viscoso o inercial → la cohesión es despreciable frente a la viscosidad o inercia.
-
-
-**Número de Reynolds (Re)**. Mide la relación entre fuerzas inerciales y viscosas. Indica si el flujo es laminar o turbulento. Útil para evaluar si es más adecuado un modelo viscoso vs. turbulento (por ejemplo, aplicar Voellmy con término cuadrático cuando Re es alto)
-
-$Re=\frac{𝜌⋅𝑉⋅𝐿}{𝜇}$
-​
- 
-$\rho$: densidad del flujo. $V$: velocidad. $L$: altura del flujo. $\mu$: viscosidad dinámica.
-
-* Re < 1000: régimen laminar → modelos como Bingham, Herschel–Bulkley son más válidos.
-
-* Re > 2000–4000: régimen turbulento → la disipación turbulenta domina, apropiado para flujos rápidos y diluidos.
-
-**Número de Savage (Sav)**. Relaciona energía cinética de partículas con presiones de confinamiento. Detecta flujo dispersivo granular. Muy útil para distinguir entre núcleo fangoso (Sav bajo) y cabeza de bloques (Sav alto) en un debris flow.
-
-$Sav=\frac{\dot{\gamma}⋅𝑑}{(𝑃/𝜌_𝑠)^{1/2}}$
-​
- 
-$\dot{\gamma}$: tasa de deformación. $d$: tamaño medio de grano. $P$: presión normal (típicamente $\sim \rho g h$). $\rho_s$: densidad de sólidos.
-
-* Sav ≫ 1: flujo dispersivo/granular inercial, choques frecuentes → aplicar modelo de Bagnold o término cuadrático dispersivo.
-
-* Sav ≪ 1: partículas confinadas, sin dispersión → flujo cohesivo o tipo lodo.
-
-**Número de Froude (Fr)**. Indica la relación entre velocidad y gravedad. Clasifica flujo como subcrítico, crítico o supercrítico. En flujos de escombros: Fr > 1 suele asociarse a frentes dispersivos y rápidos → apropiado usar Voellmy o dispersivo.
-
-$Fr=\frac{𝑉𝑔⋅ℎ}{V}$
-​
- 
-$V$: velocidad del flujo. $g$: gravedad. $h$: espesor del flujo
-
-* Fr < 1: flujo subcrítico (lento, estable)
-
-* Fr > 1: flujo supercrítico (rápido, dominado por inercia)
-
-
-**Número de Stokes (St)**. Relaciona la inercia de una partícula con la viscosidad del medio. Valores altos indican dominio de inercia granular → dispersión; valores bajos → régimen viscoso.
-
-$St=\frac{𝜌𝑠⋅𝑑^2⋅\dot{\gamma}}{𝜇}$
-
-
-| Número adimensional                        | Fórmula                                               | Descripción                                                                                                      | Valores típicos o umbrales                                              |
-|---------------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| **Número de Froude**                       | Fr = √(u / gH)                                       | Relación entre la fuerza inercial y la fuerza gravitacional                                                     | <1: domina la gravedad<br>>1: domina la inercia                        |
-| **Número de Reynolds**                     | NRe = ρ₀H(gL)¹ᐟ² / µf                               | Relación entre la fuerza inercial y la fuerza viscosa                                                           | <500: flujo laminar<br>500–12,500: flujo transicional<br>>12,500: turbulento |
-| **Número de difusión de presión de poros** | NP = (L/g)¹ᐟ² µf H² / (kE)                           | Relación entre la escala temporal del flujo y la difusión normal al talud de la presión positiva del fluido de poros | -                                                                       |
-| **Número inercial**                        | I = √(γ δ ̇P / ρ₀)                                   | Relación entre el esfuerzo inercial y el esfuerzo de confinamiento                                              | 1 × 10⁻⁵ – 1 × 10⁻¹ *(rango típico en flujos de detritos naturales)* {cite}`jerolmack_2019` |
-| **Número de Savage**                       | NS = (ρs – ρf) / ρs                                  | Relación entre el esfuerzo colisional y el esfuerzo por fricción                                                | <0.1: domina el esfuerzo por fricción<br>>0.1: domina el esfuerzo colisional |
-| **Número de Bagnold**                      | NB = (1 – vs) / vs                                    | Relación entre el esfuerzo colisional y el esfuerzo viscoso                                                     | <40: domina el esfuerzo viscoso<br>>450: domina el esfuerzo colisional |
-| **Número de fricción**                     | Nfric = (1 – vs) / vs · (ρs γ δ²) / µf               | Relación entre el esfuerzo por fricción y el esfuerzo viscoso                                                   | <100: domina el esfuerzo viscoso<br>>100: domina el esfuerzo por fricción |
-
-## Modelos reológicos
+# Modelos reológicos
 Modelar la dinámica de flujos de detritos y lahares es un paso crítico en la evaluación de amenazas, el manejo del riesgo y el diseño de obras de mitigación. Sin embargo, dada la complejidad de estos materiales de dos fases (sólido-líquido), no existe un modelo único que describa perfectamente todos los regímenes de flujo. Los enfoques modernos emplean herramientas numéricas promediadas en profundidad, donde la resistencia al flujo se incorpora como términos friccionales a través de **modelos reológicos** que tratan a la mezcla como un "fluido equivalente" para capturar su comportamiento macroscópico general.
 
 Estos modelos, aunque simplificados, permiten integrar la física dominante (como cohesión plástica, fricción de Coulomb o turbulencia). El desafío actual en la modelación radica en la incertidumbre intrínseca de los parámetros (como el coeficiente de fricción de Coulomb $\mu$, viscosidad dinámica $\mu_B$, límite de cedencia $\tau_y$, coeficiente de turbulencia $\xi$ y esfuerzos granulares), la escasez de datos de calibración histórica y las variabilidades de una topografía compleja. La elección apropiada del modelo determina si el fluido podrá simular procesos de detención en pendientes suaves o continuará fluyendo indefinidamente. A continuación se presentan los principales modelos reológicos aplicables a flujos de escombros, junto con sus fundamentos y el consiguiente mapeo de la *pendiente por pérdida de lodo y detritos ($S_{MD}$ o $S_f$)*.
@@ -215,7 +32,7 @@ La reología de los flujos de escombros es un campo complejo que integra concept
 A continuación se detalla cada modelo principal, con sus ecuaciones constitutivas, supuestos y aplicabilidad.
 
 ### Modelo de Bingham
-El modelo de fluido de Bingham {cite}`ingham_2000` es uno de los más sencillos y empleados para describir flujos de detritos con alto contenido de finos. Se trata de un modelo viscoplástico: asume que el material posee un esfuerzo de fluencia $\tau_y$ (también llamado tensión umbral o cedente) que debe superarse para que ocurra deformación continua, y una vez superado ese umbral, el material fluye con un comportamiento plástico perfecto caracterizado por una viscosidad plástica aproximadamente constante $\mu_p$. Matemáticamente, la relación esfuerzo-deformación cortante se expresa como:
+El modelo de fluido de Bingham {cite}`coussot_ancey_2000` es uno de los más sencillos y empleados para describir flujos de detritos con alto contenido de finos. Se trata de un modelo viscoplástico: asume que el material posee un esfuerzo de fluencia $\tau_y$ (también llamado tensión umbral o cedente) que debe superarse para que ocurra deformación continua, y una vez superado ese umbral, el material fluye con un comportamiento plástico perfecto caracterizado por una viscosidad plástica aproximadamente constante $\mu_p$. Matemáticamente, la relación esfuerzo-deformación cortante se expresa como:
 
 $\tau = \tau_y + \mu_p \dot\gamma$  
 
@@ -236,7 +53,7 @@ El modelo de Bingham solo requiere dos datos de entrada por parte del usuario: e
 Modelo de Bingham. Tomado de [HEC RAS Non-Newtonian User's Manual](https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/non-newtonian-transport-editor/non-newtonian-methods).
 :::
 
-El comportamiento Bingham en flujos de escombros se asocia a la presencia de una fase fina cohesiva (arcilla, limo) que genera enlaces inter-partícula y cohesión estática. Este esfuerzo cohesivo debe romperse para iniciar el flujo, de forma análoga a superar la resistencia al corte de un suelo cohesivo. Luego, la resistencia viscosa durante el flujo proviene de la fricción interna del fluido mezclado con partículas. Estudios experimentales con lodos naturales han demostrado que suspensiones de alta concentración (por ejemplo, material <2 mm de un flujo de escombros) se aproximan bien a un comportamiento de Bingham a tasas de corte moderadas y altas. Major y Pierson {cite}`pierson-mathy_1990` midieron reologías de un flujo de escombros natural y encontraron que, a tasas de deformación mayores de ~5 $s^-1$, la mezcla presentaba un límite de fluencia claro y viscosidad plástica definidas (comportándose como un Bingham plástico), con $\tau_y$ y $\mu_p$ fuertemente dependientes de la concentración de sedimento. 
+El comportamiento Bingham en flujos de escombros se asocia a la presencia de una fase fina cohesiva (arcilla, limo) que genera enlaces inter-partícula y cohesión estática. Este esfuerzo cohesivo debe romperse para iniciar el flujo, de forma análoga a superar la resistencia al corte de un suelo cohesivo. Luego, la resistencia viscosa durante el flujo proviene de la fricción interna del fluido mezclado con partículas. Estudios experimentales con lodos naturales han demostrado que suspensiones de alta concentración (por ejemplo, material <2 mm de un flujo de escombros) se aproximan bien a un comportamiento de Bingham a tasas de corte moderadas y altas. Major y Pierson {cite}`major_pierson_1990` midieron reologías de un flujo de escombros natural y encontraron que, a tasas de deformación mayores de ~5 $s^-1$, la mezcla presentaba un límite de fluencia claro y viscosidad plástica definidas (comportándose como un Bingham plástico), con $\tau_y$ y $\mu_p$ fuertemente dependientes de la concentración de sedimento. 
 
 El modelo de Bingham asume flujo laminar y homogéneo, con propiedades reológicas constantes durante el movimiento. Es más aplicable a flujos lentos o intermedios donde la turbulencia es despreciable y donde la cohesión de finos domina la resistencia (por eso, se recomienda para flujos con elevado contenido de finos arcillosos o limo). Por ejemplo, en flujos híper-concentrados o flujos de lodo iniciales, típicos en cuencas tropicales tras lluvias intensas, la matriz arcillosa induce un claro umbral de fluencia y altos valores de viscosidad, lo cual encaja en la idealización de Bingham. De hecho, en flujos híper-concentrados naturales se han reportado $\tau_y$ del orden de cientos de Pascales y viscosidades plásticas de $10^{-1}–10^1$ Pa·s o mayores, dependiendo de la concentración y mineralogía (valores que exceden por mucho la viscosidad del agua, 0.001 Pa·s). El modelo de Bingham se ha utilizado con éxito para simular flujos de detritos con altas concentraciones de sedimento tanto en laboratorio como en campo.
 
@@ -272,14 +89,14 @@ Implementación del modelo de Herschel-Bulckley en HEC-RAS. Tomado de [HEC RAS N
 :::
 
 
-El modelo Herschel–Bulkley fue introducido para reflejar observaciones experimentales ya que muchos lodos naturales y sedimentos no siguen la relación lineal de Bingham, sino que presentan curvatura en la curva esfuerzo-deformación. Por ejemplo, Major y Pierson {cite}`major_1992` hallaron que, tras exceder $\tau_y$, los lodos podían mostrar inicialmente una pendiente alta (alta viscosidad aparente) que luego disminuía con mayor tasa de corte, sugiriendo comportamiento pseudoplástico (debido posiblemente a la destrucción progresiva de la estructura floculada). En esos casos, un exponente $n < 1$ en la fórmula HB brindaría un mejor ajuste que $n=1$. Este modelo es útil para suspensiones de finos bajo altas tasas de deformación donde la no linealidad es pronunciada. También se ha utilizado en modelación de flujos de escombros para incorporar cierta dependencia de la viscosidad con la velocidad de deformación, aportando mayor realismo que Bingham. Muchos códigos numéricos modernos (e.g. HEC-RAS 6.0) ofrecen la opción de Herschel–Bulkley generalizado justamente para permitir ajustar mejor la reología con datos de laboratorio. Típicamente, se encuentran valores de $n$ entre ~0.2 y 0.8 para lodos volcanogénicos o arcillosos (shear-thinning marcado), mientras que mezclas con arena gruesa pueden tender a $n$ cercano a 1 o incluso >1 si hay interacciones dilatantes. Por su parte, $K$ (consistencia) refleja la resistencia viscosa de la mezcla; sus unidades dependen del valor de $n$ (lo cual dificulta la interpretación física directa de $K$). Para dar una idea, un flujo con alta fracción de arcilla podría tener $\tau_y$ de varios cientos de Pa, $n \approx 0.5$ y $K$ correspondiente a viscosidades aparentes del orden de 1–10 Pa·s a tasas de corte típicas, mientras que un flujo más diluido podría tener $\tau_y$ bajo (cercano a 0) y comportamiento más Newtoniano ($n \to 1$). 
+El modelo Herschel–Bulkley fue introducido para reflejar observaciones experimentales ya que muchos lodos naturales y sedimentos no siguen la relación lineal de Bingham, sino que presentan curvatura en la curva esfuerzo-deformación. Por ejemplo, Major y Pierson {cite}`major_pierson_1992` hallaron que, tras exceder $\tau_y$, los lodos podían mostrar inicialmente una pendiente alta (alta viscosidad aparente) que luego disminuía con mayor tasa de corte, sugiriendo comportamiento pseudoplástico (debido posiblemente a la destrucción progresiva de la estructura floculada). En esos casos, un exponente $n < 1$ en la fórmula HB brindaría un mejor ajuste que $n=1$. Este modelo es útil para suspensiones de finos bajo altas tasas de deformación donde la no linealidad es pronunciada. También se ha utilizado en modelación de flujos de escombros para incorporar cierta dependencia de la viscosidad con la velocidad de deformación, aportando mayor realismo que Bingham. Muchos códigos numéricos modernos (e.g. HEC-RAS 6.0) ofrecen la opción de Herschel–Bulkley generalizado justamente para permitir ajustar mejor la reología con datos de laboratorio. Típicamente, se encuentran valores de $n$ entre ~0.2 y 0.8 para lodos volcanogénicos o arcillosos (shear-thinning marcado), mientras que mezclas con arena gruesa pueden tender a $n$ cercano a 1 o incluso >1 si hay interacciones dilatantes. Por su parte, $K$ (consistencia) refleja la resistencia viscosa de la mezcla; sus unidades dependen del valor de $n$ (lo cual dificulta la interpretación física directa de $K$). Para dar una idea, un flujo con alta fracción de arcilla podría tener $\tau_y$ de varios cientos de Pa, $n \approx 0.5$ y $K$ correspondiente a viscosidades aparentes del orden de 1–10 Pa·s a tasas de corte típicas, mientras que un flujo más diluido podría tener $\tau_y$ bajo (cercano a 0) y comportamiento más Newtoniano ($n \to 1$). 
 
 Al igual que Bingham, Herschel–Bulkley sigue siendo un modelo monofásico continuo que trata la mezcla heterogénea como un fluido efectivo. No incorpora explícitamente la física granular (colisiones, rozamiento inter-grano) ni efectos dependientes del tiempo como la tixotropía. Se asume también flujo laminar o lentamente variado, donde la tensión total se puede partir en un componente cohesivo (*yield*) más uno viscoso general. 
 
 El modelo HB añade flexibilidad a costa de introducir más parámetros que requieren calibración. Determinar $\tau_y$, $K$ y $n$ simultáneamente exige datos reológicos detallados; frecuentemente $\tau_y$ se mide mediante pruebas de fluencia o reómetros de torsión a bajo corte, y luego $K, n$ se ajustan a curvas esfuerzo-$\dot\gamma$. La presencia de $n \neq 1$ conlleva que $K$ tenga unidades no triviales (Pa·s^n), lo cual complica su estimación a priori. Además, aunque HB captura la no linealidad, no representa explícitamente la transición sólido-fluido de manera dinámica: es decir, el mismo $\tau_y$ rige la iniciación y la detención, cuando en realidad en flujos naturales puede existir histéresis (se requiere más esfuerzo para iniciar que para mantener el flujo, debido a reestructuración interna). Por ello, a veces se usan variantes como el modelo de Papanastasiou que suaviza la transición en torno a $\tau_y$. Otra limitación es similar a Bingham: en escenarios de alto número de Reynolds o flujos muy rápidos, el modelo HB por sí solo no refleja la aparición de turbulencia ni de tensiones dispersivas por choques. En suma, Herschel–Bulkley es más general que Bingham y suele proporcionar mejores ajustes a datos reométricos de flujos de detritos reales, pero sigue siendo apropiado principalmente cuando el comportamiento está dominado por la matriz fluida y cohesiva bajo flujo laminar. En casos con componentes granulares dominantes o flujos extremadamente rápidos, será necesario complementarlo o optar por otros modelos.
 
 ### Modelo de Voellmy–Salm
-El modelo de Voellmy–Salm surge originalmente en el contexto de las avalanchas de nieve {cite}`voellmy_lawinen_1955,perez_1990` y ha sido adaptado con éxito para flujos de escombros y otros movimientos rápidos de detritos. A diferencia de los modelos viscoplásticos anteriormente descritos, Voellmy–Salm no se basa en una viscosidad de fluido, sino en una descripción de la resistencia al flujo como combinación de fricción seca y resistencia turbulenta. En esencia, este modelo asume que la fuerza resistiva por unidad de volumen (o la pendiente de energía $S_f$ equivalente) se puede descomponer en dos componentes: uno independiente de la velocidad (análogo a una fricción Coulomb constante) y otro proporcional al cuadrado de la velocidad (similar a una resistencia aerodinámica o turbulenta). Una forma típica de expresarlo es:
+El modelo de Voellmy–Salm surge originalmente en el contexto de las avalanchas de nieve {cite}`voellmy_lawinen_1955,perla_twoparameter_1980` y ha sido adaptado con éxito para flujos de escombros y otros movimientos rápidos de detritos. A diferencia de los modelos viscoplásticos anteriormente descritos, Voellmy–Salm no se basa en una viscosidad de fluido, sino en una descripción de la resistencia al flujo como combinación de fricción seca y resistencia turbulenta. En esencia, este modelo asume que la fuerza resistiva por unidad de volumen (o la pendiente de energía $S_f$ equivalente) se puede descomponer en dos componentes: uno independiente de la velocidad (análogo a una fricción Coulomb constante) y otro proporcional al cuadrado de la velocidad (similar a una resistencia aerodinámica o turbulenta). Una forma típica de expresarlo es:
 
 $S_f = \mu \cos \theta + \frac{V^2}{\xi h}$  
  
@@ -288,14 +105,14 @@ $S_f = \mu \cos \theta + \frac{V^2}{\xi h}$
 * **Fricción Topológica de Coulomb ($\mu \cos \theta$):** Reemplazo directo al limitador *yield*. No es en absoluto dependiente de la rapidez del recorrido, se calcula pura y rígidamente sobre el factor angular ortogonal topográfico y su propio peso dinámico depositado. Si la gravedad proyectada no supera esta fricción, el material se detiene por rozamiento seco.
 * **Término Hidrodinámico "Drag" ($\frac{V^2}{\xi h}$):** Donde el coeficiente turbulento $\xi$ compensa la agresividad local (típicamente entre 100 y 1000 m/s²). Actúa sumando un freno cuadrático inmerso proporcional al cuadrado de la velocidad del flujo ($V^2$), regulando las aceleraciones veloces en terrenos accidentados y choques inerciales.
 
-El modelo Voellmy–Salm conceptúa el flujo de detritos como un continuo granular fluido donde la resistencia al deslizamiento proviene de dos fuentes: (a) fricción basal entre el material y el lecho (y entre partículas, en promedio), representada por $\mu_f$ constante, y (b) pérdidas por energía de fluctuaciones turbulentas o dispersivas dentro del flujo, representadas por el término cuadrático. El término de fricción seca actúa como un esfuerzo de fluencia basal basado en el peso: si la componente de la gravedad paralela al plano ($\rho g h \sin\theta$) no supera $\mu_f \rho g h \cos\theta$, el flujo tenderá a frenar y detenerse, lo que es análogo a decir que $\tan\theta < \mu_f$ resulta en detención (criterio similar al de un bloque rozante en un plano inclinado). Este modelo por tanto no considera cohesión, asumiendo material sin cohesión (cohesión = 0 en términos de Mohr-Coulomb). Por otro lado, el término turbulento-inercial capta que a mayores velocidades, la agitación interna y los choques entre partículas ejercen una fuerza resistiva creciente (al igual que la resistencia del aire crece con $V^2$). En flujos de escombros rápidos, especialmente con alto contenido de bloques grandes y surcando cauces estrechos, se observa un comportamiento semejante: una vez que aceleran, la disipación adicional proviene más de la turbulencia y colisiones que de la viscosidad del fluido intersticial. El modelo Voellmy ha sido implementado en herramientas de simulación de avalanchas y flujos, como el software RAMMS (Rapid Mass Movement Simulation) para avalanchas de nieve y flujos de detritos, y en modelos de flujo bidimensionales de investigadores en Suiza, Canadá y otros países. Por ejemplo, Zimmermann et al. {cite}`unknown_2020a` calibraron el modelo Voellmy–Salm en 19 flujos de ladera en los Alpes Suizos, hallando que el parámetro de fricción $\mu_f$ correlacionaba con el porcentaje de arcilla del material movilizado (más arcilla tendía a elevar ligeramente la fricción dinámica, posiblemente por mayor cohesión residual al detenerse). 
+El modelo Voellmy–Salm conceptúa el flujo de detritos como un continuo granular fluido donde la resistencia al deslizamiento proviene de dos fuentes: (a) fricción basal entre el material y el lecho (y entre partículas, en promedio), representada por $\mu_f$ constante, y (b) pérdidas por energía de fluctuaciones turbulentas o dispersivas dentro del flujo, representadas por el término cuadrático. El término de fricción seca actúa como un esfuerzo de fluencia basal basado en el peso: si la componente de la gravedad paralela al plano ($\rho g h \sin\theta$) no supera $\mu_f \rho g h \cos\theta$, el flujo tenderá a frenar y detenerse, lo que es análogo a decir que $\tan\theta < \mu_f$ resulta en detención (criterio similar al de un bloque rozante en un plano inclinado). Este modelo por tanto no considera cohesión, asumiendo material sin cohesión (cohesión = 0 en términos de Mohr-Coulomb). Por otro lado, el término turbulento-inercial capta que a mayores velocidades, la agitación interna y los choques entre partículas ejercen una fuerza resistiva creciente (al igual que la resistencia del aire crece con $V^2$). En flujos de escombros rápidos, especialmente con alto contenido de bloques grandes y surcando cauces estrechos, se observa un comportamiento semejante: una vez que aceleran, la disipación adicional proviene más de la turbulencia y colisiones que de la viscosidad del fluido intersticial. El modelo Voellmy ha sido implementado en herramientas de simulación de avalanchas y flujos, como el software RAMMS (Rapid Mass Movement Simulation) para avalanchas de nieve y flujos de detritos, y en modelos de flujo bidimensionales de investigadores en Suiza, Canadá y otros países. Por ejemplo, Zimmermann et al. {cite}`zimmermann_2020` calibraron el modelo Voellmy–Salm en 19 flujos de ladera en los Alpes Suizos, hallando que el parámetro de fricción $\mu_f$ correlacionaba con el porcentaje de arcilla del material movilizado (más arcilla tendía a elevar ligeramente la fricción dinámica, posiblemente por mayor cohesión residual al detenerse). 
 
 Voellmy–Salm es apropiado para flujos muy rápidos y dominados por componentes granulares. Típicamente se usa en escenarios de flujos en canales empinados o avalanchas de detritos donde el material se mueve a varios m/s y recorre largas distancias con comportamiento análogo a un flujo turbulento de alta densidad. En regiones de montaña con flujos de escombros canalizados (por ejemplo, en los Himalayas, Andes o Alpes), este modelo puede reproducir adecuadamente la rápida aceleración y luego desaceleración por rozamiento que se observa en eventos extremos. También se ha empleado en simulaciones de avalanchas de rocas o flujos de detritos generados por colapsos de presas naturales, donde la componente líquida es secundaria y el comportamiento se acerca más al de un flujo granular. Debe destacarse que $\mu_f$ y $\xi$ no se miden directamente en laboratorio sino que se calibran retrospectivamente: por ejemplo, a partir de la distancia de alcance y velocidad estimada del flujo, se eligen combinaciones de $\mu_f$ y $\xi$ que reproduzcan esos datos. Valores típicos para flujos de escombros líquidos suelen ser $\mu_f \sim 0.1–0.3$ y $\xi \sim 200–600 m/s^2$, mientras que para avalanchas de roca seca $\mu_f$ puede ser aún menor (~0.05–0.1) y $\xi$ mayor (>1000) debido a la menor resistencia basal y alta movilidad. 
 
 Aunque eficaz para capturar la dinámica general de flujos rápidos, el modelo Voellmy–Salm es fenomenológico y tiene limitaciones. En primer lugar, al no incluir $\tau_y$ cohesivo, no modela bien el inicio de movimientos en materiales muy cohesivos o en flujos de baja velocidad: en tales casos, Voellmy predice que cualquier pendiente por encima de la fricción $\mu_f$ (p. ej. >10°) debería movilizarse, lo que no explica retardos por cohesión o umbrales de humedad necesarios para iniciar ciertos flujos tropicales. Por ello, algunas versiones extendidas incluyen un término cohesivo adicional (como un $\tau_y$ pequeño o un $\mu_f$ que disminuye con la velocidad). En segundo lugar, la naturaleza de $\xi$ es un “cajón de sastre” que engloba tanto turbulencia de fluido como dispersión granular; no distingue entre agua y sólidos ni sus interacciones de forma rigurosa. Esto significa que $\xi$ puede variar de un evento a otro sin correlación simple con parámetros físicos medibles (Zimmermann et al. encontraron que un parámetro extra de cohesión mejoraba las simulaciones pero no podía relacionarse directamente con propiedades del suelo o la saturación). Asimismo, el modelo asume condiciones de flujo permanente promedio, por lo que no captura transitorios como la fase de parada final donde la turbulencia decae y la mezcla se deposita (a menudo en la práctica, se impone que el flujo se detiene cuando $V$ cae a casi cero, pues Voellmy en teoría nunca da $\tau = 0$ a menos que $V=0$ exactamente). Pese a estas simplificaciones, la formulación Voellmy–Salm ha demostrado ser muy útil en ingeniería para estimar corridas y velocidades máximas de flujos de escombros en 2D, integrándose en códigos como RAMMS DF (de Suiza) o DAN3D (de Canadá) y permitiendo calibrar escenarios de riesgo con relativamente pocos parámetros. Su popularidad se debe a que capta bien la diferencia entre la fase inicial dominada por la gravedad (aceleración rápida limitada solo por fricción basal) y la fase avanzada dominada por la disipación turbulenta (donde la velocidad máxima se regula por el balance entre pendiente y resistencia cuadrática).
 
 ### Modelo PCM
-El modelo PCM {cite}`perla_twoparameter_1980` es un modelo de fricción de dos parámetros basado en el modelo de Voellmy {cite}`voellmy_lawinen_1955`. Fue desarrollado inicialmente para avalanchas de nieve, pero ha sido utilizado con éxito para simular la propagación de flujos de detritos por varios autores {cite}`gamma_dflow_2000,horton_flowr_2013,rickenmann_2023,wichmann_becht_2004,unknown_2020a`.
+El modelo PCM {cite}`perla_twoparameter_1980` es un modelo de fricción de dos parámetros basado en el modelo de Voellmy {cite}`voellmy_lawinen_1955`. Fue desarrollado inicialmente para avalanchas de nieve, pero ha sido utilizado con éxito para simular la propagación de flujos de detritos por varios autores {cite}`gamma_dflow_2000,horton_flowr_2013,rickenmann_2016b,wichmann_becht_2004,zimmermann_2020`.
 
 El modelo, basado en el centro de masa, asume que el movimiento está controlado principalmente por un coeficiente de fricción por deslizamiento $\mu$, y una relación masa-resistencia aerodinámica $M/D$. El parámetro $\mu$ domina el comportamiento de la velocidad en la zona de alcance (*runout*).
 
@@ -381,11 +198,11 @@ Forma Simplificada: $\tau_i \propto \rho_s D^2 \cdot (\dot{\gamma})^2$
 El modelo de Bagnol tiene como suposiciones claves que el fluido entre los granos (agua) es simple (Newitoniano); no hay fuerzas electroquímicas (cohesión) entre las partículas. Esto lo hace inapropiado para flujos con alto contenido de arcilla; los granos son esféricos, rígidos, de tamaño uniforme (monodispersos) y flotabilidad neutra (en sus experimentos originales, $\rho_s = \rho_f$); el modelo describe un flujo en equilibrio, no su inicio o detención; y altas concentracione, el modelo se desarrolló para $C > 9\%$.
 
 ### Modelo cuadrático de O'Brien y Julien
-El modelo reológico cuadrático de O’Brien et al. {cite}`unknown_2018` combina los cuatro componentes de esfuerzo de las mezclas de sedimentos no newtonianas: (1) cohesión entre partículas, (2) fricción interna entre el fluido y las partículas de sedimento, (3) turbulencia, y (4) impacto inercial entre partículas. El modelo cuadrático separa las relaciones de esfuerzo-deformación en estos cuatro componentes aditivos, de modo que el esfuerzo cortante es:
+El modelo reológico cuadrático de O’Brien et al. {cite}`obrien_julien_1988` combina los cuatro componentes de esfuerzo de las mezclas de sedimentos no newtonianas: (1) cohesión entre partículas, (2) fricción interna entre el fluido y las partículas de sedimento, (3) turbulencia, y (4) impacto inercial entre partículas. El modelo cuadrático separa las relaciones de esfuerzo-deformación en estos cuatro componentes aditivos, de modo que el esfuerzo cortante es:
 
 $$\tau_{MD} = \tau_c + \tau_v + \tau_t + \tau_d$$  
 
-Donde: $\tau_{MD}$ = el esfuerzo cortante total de lodo y detritos (Pa), $\tau_c$ = esfuerzo de cedencia (Pa), $\tau_v$ = esfuerzo cortante viscoso (Pa), $\tau_t$ = esfuerzo cortante turbulento (Pa) {cite}`unknown_2021a`, $\tau_d$ = esfuerzo cortante dispersivo (Pa).
+Donde: $\tau_{MD}$ = el esfuerzo cortante total de lodo y detritos (Pa), $\tau_c$ = esfuerzo de cedencia (Pa), $\tau_v$ = esfuerzo cortante viscoso (Pa), $\tau_t$ = esfuerzo cortante turbulento (Pa) {cite}`julien_obrien_1997`, $\tau_d$ = esfuerzo cortante dispersivo (Pa).
 
 **Traducción a pérdida reológica (Ecuación de Momento):**
 Como pendiente de lodo-escombros agrupa esta ecuación combinada separando los efectos en cuatro disipaciones sumadas: $S_{MD} = S_y + S_v + S_t + S_d$
@@ -396,13 +213,13 @@ Como pendiente de lodo-escombros agrupa esta ecuación combinada separando los e
 
 En conjunto, la fórmula cuadrática busca modelar flujos de lodo sumamente heterogéneos: a tasas de corte muy reducidas y durante la fase estática domina la cedencia de límite $\tau_c$ (Bingham clásico), a tasas intermedias el avance es netamente resistido viscosamente, y a tasas altísimas las dinámicas de fricción colisional y turbulencias (tipo dilatante engrosante). Modelos clásicos de simulación integral como FLO-2D aplican esta aproximación incorporando todo el tren termodinámico en su core matemático. Su calibración resulta muy precisa en capturar el efecto de la concentración de grandes bloques, pero requiere parametrización de factores cruzados (el límite de cedencia, los empujes newtonianos visco-reales, el choque dispersivo cuadrático de partículas y turbulencias macro).
 
-O’Brien et al. {cite}`unknown_2018a` formulan cada uno de estos componentes de esfuerzo para construir su modelo cuadrático, el cual se basa en la tasa de deformación ($dv_x/dz$):
+O’Brien et al. {cite}`obrien_julien_1988` formulan cada uno de estos componentes de esfuerzo para construir su modelo cuadrático, el cual se basa en la tasa de deformación ($dv_x/dz$):
 
 $$ \tau_{MD} = \tau_c + \mu_m \left( \frac{dv_x}{dz} \right) + \rho_m l_m^2 \left( \frac{dv_x}{dz} \right)^2 + c_{Bgd} \rho_s \left( \left[ \frac{C_*}{C_v} \right]^{\frac{1}{3}} - 1 \right)^{-2} d_s^2 \left( \frac{dv_x}{dz} \right)^2 $$   
 
 donde: $dv_x/dz$ = la tasa de corte (1/s), calculada como una función de la velocidad promediada en la profundidad y la profundidad del flujo, $\mu_m$ = viscosidad dinámica de la mezcla (Pa·s), $\rho_m$ = densidad de masa de la mezcla de sedimento (kg/m³), $l_m$ = longitud de mezcla (m), $c_{Bgd}$ = coeficiente empírico de impacto de Bagnold ($c_{Bgd} \cong 0.01$), $\rho_s$ = densidad de las partículas de sedimento (kg/m³), $C_*$ = concentración volumétrica máxima de sedimento, $C_v$ = concentración volumétrica de sedimento, $d_s$ = tamaño de grano del sedimento (m).
 
-Takahashi {cite}`unknown_1980` identificó experimentalmente que el coeficiente de impacto de Bagnold ($c_{Bgd}$) varía entre 0.35 y 0.5, y que es significativamente mayor que el valor recomendado por Bagnold (1954 y 1956). Iverson {cite}`iverson_physics_1997` propone aproximar la tasa de corte media ($dv_x/dz$) como $3\bar{u}/h$ para un perfil de velocidad parabólico, o como $2\bar{u}/h$ para un perfil lineal, donde $\bar{u}$ = velocidad promediada en la profundidad (m/s), $h$ = profundidad del flujo (m). 
+Takahashi {cite}`takahashi_1980` identificó experimentalmente que el coeficiente de impacto de Bagnold ($c_{Bgd}$) varía entre 0.35 y 0.5, y que es significativamente mayor que el valor recomendado por Bagnold (1954 y 1956). Iverson {cite}`iverson_physics_1997` propone aproximar la tasa de corte media ($dv_x/dz$) como $3\bar{u}/h$ para un perfil de velocidad parabólico, o como $2\bar{u}/h$ para un perfil lineal, donde $\bar{u}$ = velocidad promediada en la profundidad (m/s), $h$ = profundidad del flujo (m). 
 
 La ecuación para la longitud de mezcla de Prandtl se define como: $l_m = kz$. donde: $k$ = el coeficiente de Von Kármán ($\cong 0.41$), $z$ = la distancia proporcional desde el contorno (lecho).
 
@@ -410,7 +227,7 @@ Este modelo cuadrático combina modos reológicos lineales y no lineales para ca
 
 La ecuación de O'Brien utiliza un modelo cuadrático para añadir los impactos no lineales de la colisión de partículas y la turbulencia a los términos lineales de cedencia y viscosidad del modelo de Bingham. No es tan flexible como la de Herschel-Bulkley. Los efectos no lineales son siempre una función del cuadrado de la deformación, por lo que siempre son efectos de espesamiento por cizalla (shear-thickening) fuertes. Sin embargo, el modelo de O'Brien es más fácil de parametrizar que el de Herschel-Bulkley. La ecuación de O'Brien utiliza valores físicos para desarrollar efectos cuadráticos teóricos. La desventaja de este enfoque es que si la formulación teórica no refleja los procesos del flujo geofísico, introducirá errores. Pero el beneficio de este enfoque físico-teórico es que todos los parámetros de entrada en los términos no lineales son parámetros físicos que son o bien predeterminados o relativamente intuitivos de especificar para el usuario.
 
-Además del esfuerzo de cedencia, Gibson et al. {cite}`parker_2008` demostraron que valores más bajos de cedencia y viscosidad son a menudo apropiados para el enfoque de O'Brien en comparación con el de Bingham, porque la ecuación de O'Brien está considerando explícitamente procesos en el término cuadrático que Bingham está agrupando (lumping) en los parámetros lineales. Y además de la viscosidad del flujo cargado de sedimento que se requiere para el modelo de Bingham, el modelo de O'Brien solo requiere la concentración volumétrica (que ya es necesaria para el aumento de volumen o bulking y para algunas estimaciones de cedencia y viscosidad) y un tamaño de grano representativo. HEC-RAS también ha expuesto el valor predeterminado de la concentración volumétrica máxima en el término de Bagnold de O'Brien (0.615 o 61.5%). Este término es aceptable para flujos de menor concentración (Cv<50%). Pero a medida que la concentración se acerca o supera este máximo teórico, los usuarios deberían aumentarlo para que sea mayor que la concentración volumétrica.
+Además del esfuerzo de cedencia, Gibson et al. {cite}`gibson_2008` demostraron que valores más bajos de cedencia y viscosidad son a menudo apropiados para el enfoque de O'Brien en comparación con el de Bingham, porque la ecuación de O'Brien está considerando explícitamente procesos en el término cuadrático que Bingham está agrupando (lumping) en los parámetros lineales. Y además de la viscosidad del flujo cargado de sedimento que se requiere para el modelo de Bingham, el modelo de O'Brien solo requiere la concentración volumétrica (que ya es necesaria para el aumento de volumen o bulking y para algunas estimaciones de cedencia y viscosidad) y un tamaño de grano representativo. HEC-RAS también ha expuesto el valor predeterminado de la concentración volumétrica máxima en el término de Bagnold de O'Brien (0.615 o 61.5%). Este término es aceptable para flujos de menor concentración (Cv<50%). Pero a medida que la concentración se acerca o supera este máximo teórico, los usuarios deberían aumentarlo para que sea mayor que la concentración volumétrica.
 
 :::{figure-md} quadratic O'Brien model
 <img src="https://i.pinimg.com/736x/13/ab/a5/13aba5b9705dff738d2f30616141f667.jpg" width="700px">
@@ -421,7 +238,7 @@ Implementación del modelo cuadrático de O'Brien en HEC-RAS. Tomado de [HEC RAS
 ### Modelo de fricción de Coulomb
 Es el caso límite en que la resistencia se considera totalmente dominada por la fricción interna del material, con un criterio de falla tipo Mohr-Coulomb (esfuerzo cortante máximo = $\tau_f = \tau_c + \sigma \tan\phi$). En flujo continuo, esto equivale esencialmente a $\tau = \mu \sigma_n + c$ (con $c$ cohesión, a menudo cero) constante durante el movimiento. Este modelo no tiene término viscoso ni dependiente de tasa de deformación. Es adecuado solo para flujos casi secos o grandes avalanchas de rocas donde el material se comporta más como un deslave granular que como un fluido. En contextos de escombros saturados, el modelo de Coulomb puro suele ser insuficiente, aunque a veces se incluye como componente basal en modelos más completos. Por ejemplo, el “modelo Coulomb-viscoso” mencionado en literatura combina una fricción Coulomb basal con un término viscoso lineal para tener tanto cohesión (c) como fricción $\tan\phi$.
 
-HEC-RAS simula los flujos de detritos clásticos con una aproximación de Coulomb basada en el modelo viscoso de Coulomb de Johnson y Rodine {cite}`rodine_1970` {cite}`naef_2006`. Este enfoque reemplaza el esfuerzo de cedencia de Bingham ($\tau_c$) por un esfuerzo de cedencia de Coulomb de tipo geotécnico, definido como:
+HEC-RAS simula los flujos de detritos clásticos con una aproximación de Coulomb basada en el modelo viscoso de Coulomb de Johnson y Rodine {cite}`johnson_rodine_1970` {cite}`naef_2006`. Este enfoque reemplaza el esfuerzo de cedencia de Bingham ($\tau_c$) por un esfuerzo de cedencia de Coulomb de tipo geotécnico, definido como:
 
 $$
 \tau_{yc} = \rho_m g h \cos\alpha \tan\phi 
@@ -448,29 +265,33 @@ Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de 
 
 | Modelo          | Reología                                                  | Incorpora arrastre | Referencias seleccionadas                                                 |
 |-----------------|------------------------------------------------------------|--------------------|--------------------------------------------------------------------------|
-| 3dDMM           | Friccional y Voellmy                                       | Sí                 | Kwan y Sun {cite}`shim_2007`                                                       |
+| 3dDMM           | Friccional y Voellmy                                       | Sí                 | Kwan y Sun {cite}`kwan_sun_2007`                                                       |
 | DAN2D           | Friccional, Voellmy y Bingham                             | Sí                 | Hungr {cite}`hungr_model_1995`                                                            |
 | DAN3D           | Friccional, Voellmy y Bingham                             | Sí                 | McDougall {cite}`mcdougall_2006`                                                        |
 | FLATModel       | Friccional y Voellmy                                       | Sí                 | Medina et al. {cite}`medina_flatmodel_2008`                                                    |
-| FLO-2D          | Cuadrática                                                 | No                 | O’Brien {cite}`brien_2006`                                                          |
+| FLO-2D          | Cuadrática                                                 | No                 | O’Brien {cite}`obrien_flo2d_2006`                                                          |
 | Flow-R          | Voellmy                                                    | No                 | Horton et al. {cite}`horton_flowr_2013`                                                    |
 | GeoFlow-SPH     | Friccional, Voellmy y Bingham                             | Sí                 | Pastor et al. {cite}`pastor_depth_2009`                                                    |
 | D-Claw          | Friccional                                                 | Sí                 | Iverson y George {cite}`iverson_george_2014`; Iverson {cite}`iverson_mechanics_2012`                                 |
-| MADFLOW         | Friccional, Voellmy y Bingham                             | Sí                 | Chen y Lee {cite}`shu_2000`                                                       |
+| MADFLOW         | Friccional, Voellmy y Bingham                             | Sí                 | Chen y Lee {cite}`chen_lee_2000`                                                       |
 | MassMov2D       | Voellmy y Bingham                                          | Sí                 | Begueria et al. (2009)                                                  |
 | PFC             | Interacción entre partículas e interacción partícula-pared | Sí                 | Kang y Chan {cite}`kang_2018`                                                     |
 | RAMMS           | Voellmy                                                    | No                 | Christen et al. {cite}`christen_ramms_2010`                                                  |
-| RASH3D          | Friccional, Voellmy y Cuadrática                          | Sí                 | Pirulli {cite}`castelli_2023`                                                          |
+| RASH3D          | Friccional, Voellmy y Cuadrática                          | Sí                 | Pirulli {cite}`pirulli_2023`                                                          |
 | r.avalanche     | Friccional                                                 | Sí                 | Mergili et al. {cite}`mergili_randomwalk_2012`                                                   |
 | r.avaflow       | Friccional (sólido) y no newtoniano (fluido)               | Sí                 | Mergili et al. {cite}`mergili_ravaflow_2017`                                                   |
-| Sassa-Wang      | Friccional                                                 | Sí                 | Wang y Sassa {cite}`wang_2002`                                                     |
-| SCIDDICA S3-hex | Basado en energía                                          | No                 | D’Ambrosio et al. {cite}`parker_2009a`                                                |
-| SHALTOP-2D      | Friccional                                                 | No                 | Mangeney-Castelnau et al. {cite}`dias_2025`                                        |
-| TITAN2D         | Friccional                                                 | No                 | Pitman et al. {cite}`unknown_2020`                                                    |
+| Sassa-Wang      | Friccional                                                 | Sí                 | Wang y Sassa {cite}`wang_sassa_2002`                                                     |
+| SCIDDICA S3-hex | Basado en energía                                          | No                 | D’Ambrosio et al. {cite}`dambrosio_2003`                                                |
+| SHALTOP-2D      | Friccional                                                 | No                 | Mangeney-Castelnau et al. {cite}`mangeney_2003`                                        |
+| TITAN2D         | Friccional                                                 | No                 | Pitman et al. {cite}`pitman_2003`                                                    |
 | TOCHNOG         | Friccional (modelo elastoplástico)                        | Sí                 | Roddeman {cite}`roddeman_1994`                                                         |
-| TopFlowDF       | Friccional, Voellmy y Cuadrática                          | No                 | Scheidl y Rickenmann {cite}`scheidl_2009`; Han et al. {cite}`unknown_2016a`                          |
+| TopFlowDF       | Friccional, Voellmy y Cuadrática                          | No                 | Scheidl y Rickenmann {cite}`scheidl_rickenmann_2009`; Han et al. {cite}`han_2015`                          |
 | VolcFlow        | Friccional y Voellmy                                       | Sí                 | Kelfoun y Druitt {cite}`kelfoun_druitt_2005`                                                 |
-| Wang            | Friccional                                                 | No                 | Wang et al. {cite}`parker_2010a`; Kang y Chan {cite}`kang_2018`                                |
+| Wang            | Friccional                                                 | No                 | Wang et al. {cite}`wang_runout_2003`; Kang y Chan {cite}`kang_2018`                                |
 | Massflow        | Friccional                                                 | Sí                 | Ouyang et al. (2015)                                                    |
 
 
+
+```{bibliography}
+:filter: docname in docnames
+```
