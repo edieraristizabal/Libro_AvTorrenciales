@@ -1,6 +1,6 @@
 # Modelos de dos fases (granular-fluido): 
 
-Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) {cite}`julien_1984,phillips_1991,major_1992,coussot_1994` o como dos o más fases (enfoques de mezcla de Coulomb) {cite}`savage_hutter_1989,iverson_physics_1997`. El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.
+Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) {cite}`julien_1984,phillips_1991,major_pierson_1992,coussot_1994` o como dos o más fases (enfoques de mezcla de Coulomb) {cite}`savage_hutter_1989,iverson_physics_1997`. El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.
 
 Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial {cite}`iverson_denlinger_2001,pudasaini_twophase_2012`. 
 Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros. 
@@ -8,7 +8,7 @@ Vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, et
 Sin embargo, en la práctica de la ingeniería y la geociencia aplicada, los modelos reológicos sencillos siguen siendo ampliamente usados dada su parsimonia de parámetros y la relativa facilidad de calibración frente a datos de campo.
 
 Los modelos promediados en profundidad más simples idealizan los flujos de escombros como materiales monofásicos con densidades volumétricas fijas. 
-Estos modelos incluyen tres ecuaciones de conservación: una que expresa la conservación de masa y dos que expresan la conservación de los componentes ortogonales del momento lineal, ya sea paralelo al lecho o en dirección horizontal {cite}`mcdougall_hungr_2004,moro_2004a`. 
+Estos modelos incluyen tres ecuaciones de conservación: una que expresa la conservación de masa y dos que expresan la conservación de los componentes ortogonales del momento lineal, ya sea paralelo al lecho o en dirección horizontal {cite}`mcdougall_hungr_2004,mcdougall_hungr_2004b`. 
 Las tres ecuaciones generalmente difieren de las ecuaciones estándar de aguas poco profundas solo en sus definiciones de la resistencia al flujo y de los coeficientes de tensión longitudinal. 
 Su similitud con las ecuaciones de aguas poco profundas tiene ventajas significativas desde el punto de vista matemático y computacional, debido a que las ecuaciones de aguas poco profundas tienen una larga historia de análisis teórico, soluciones numéricas y aplicaciones prácticas {cite}`berger_debris_2011,vreugdenhil_swe_1994`. 
 
@@ -17,7 +17,7 @@ Esta evolución indica que la resistencia al flujo es una propiedad emergente qu
 
 Los modelos que tratan los flujos de escombros como materiales bifásicos, con densidades volumétricas en evolución, interacciones sólido-fluido y resistencia al flujo variable, típicamente incluyen de cuatro a seis ecuaciones de conservación. 
 Una de estas ecuaciones expresa la conservación de la masa sólida y otra expresa la conservación de la masa del fluido o la conservación de la masa de la mezcla bifásica como un todo. 
-Las demás ecuaciones de conservación expresan los componentes ortogonales del momento lineal, ya sea de constituyentes sólido y fluido separados pero que interactúan {cite}`gray_2016,meyrat_2009,pitman_le_2005,pudasaini_twophase_2012` o de una mezcla bifásica cuyos volúmenes fraccionales de sólido y fluido evolucionan a medida que los constituyentes interactúan {cite}`iverson_george_2014,kowalski_mcelwaine_2013`.
+Las demás ecuaciones de conservación expresan los componentes ortogonales del momento lineal, ya sea de constituyentes sólido y fluido separados pero que interactúan {cite}`gray_edwards_2014,meyrat_2009,pitman_le_2005,pudasaini_twophase_2012` o de una mezcla bifásica cuyos volúmenes fraccionales de sólido y fluido evolucionan a medida que los constituyentes interactúan {cite}`iverson_george_2014,kowalski_mcelwaine_2013`.
 
 Los fundamentos conceptuales de estos dos enfoques son similares, pero difieren en un aspecto importante. 
 Un enfoque que considera fases sólidas y fluidas distintas permite la posibilidad de una separación completa de las dos fases en cuerpos compuestos enteramente de fluido o enteramente de granos sólidos, mientras que un enfoque que considera una mezcla bifásica asume que siempre hay alguna amalgama de granos y fluido, aunque las concentraciones de granos o fluido puedan volverse muy pequeñas en algunas circunstancias.
@@ -25,7 +25,7 @@ Un enfoque que considera fases sólidas y fluidas distintas permite la posibilid
 Un aspecto fundamental en la formulación de todos los modelos bifásicos de flujo de escombros es la definición de la fase fluida. 
 Una justificación proporcionada por Iverson {cite}`iverson_physics_1997` es que la fase fluida incluye granos pequeños que pueden permanecer en suspensión por fuerzas puramente hidrodinámicas, sin necesidad de fuerzas de interacción granular, durante la duración de un flujo de escombros.
 Estas partículas pequeñas en suspensión aumentan la viscosidad efectiva del fluido en relación con la viscosidad del agua pura y, en concentraciones suficientemente altas, pueden conferir cierta resistencia al flujo en la fase fluida. 
-Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (<0.0625 mm), mientras que las partículas más grandes se consideran parte de la fase granular. El agua lodosa que drena de los márgenes de depósitos recientes de flujo de escombros proporciona evidencia de que las partículas del tamaño de limo y arcilla pueden permanecer en suspensión incluso después de que el movimiento del flujo de escombros cesa {cite}`parker_2010`.
+Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (<0.0625 mm), mientras que las partículas más grandes se consideran parte de la fase granular. El agua lodosa que drena de los márgenes de depósitos recientes de flujo de escombros proporciona evidencia de que las partículas del tamaño de limo y arcilla pueden permanecer en suspensión incluso después de que el movimiento del flujo de escombros cesa {cite}`iverson_george_2016`.
 
 El uso de más de tres ecuaciones de conservación en modelos bifásicos y de mezcla bifásica hace que su estructura matemática y computacional sea más compleja que la de los modelos monofásicos. 
 Sin embargo, el uso de ecuaciones de conservación adicionales simplifica los modelos bifásicos y de mezcla bifásica desde un punto de vista físico, porque reduce la cantidad de supuestos necesarios en la derivación de las ecuaciones y clarifica las definiciones de los parámetros del modelo. 
@@ -72,3 +72,7 @@ Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del
 
 
 
+
+```{bibliography}
+:filter: docname in docnames
+```

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Modelos de dos fases (granular-fluido): &#8212; Avenidas Torrenciales</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '05_DosFases';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Modelos de propagacion" href="07_Routing.html" />
-    <link rel="prev" title="Regímenes reológicos" href="04_Reologia.html" />
+    <link rel="prev" title="Modelos reológicos" href="04_ModelosReologicos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +183,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -155,24 +200,33 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
-    <script>document.write(`<img src="_static/logo_book.jpg" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Interaccion.html">Interacción atmosfera-ladera-cauce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_CambiClimatico.html">Cambio Climático</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Datacion.html">Técnicas de datación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Reologia.html">Regímenes reológicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelos de dos fases (granular-fluido):</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
 </ul>
@@ -186,16 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Análisis de Modelos Reológicos para la Modelación de Lahares con Iber-NNF</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Gestión del Riesgo</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="20_Risk.html">Evaluacion del riesgo</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 </ul>
 
     </div>
@@ -204,14 +249,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -220,14 +270,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -336,7 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -349,26 +399,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -388,7 +432,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fenomenos-fisicos-clave-en-flujos-bifasicos">Fenómenos físicos clave en flujos bifásicos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrastre-generalizado-generalized-drag">Arrastre generalizado (<em>Generalized Drag</em>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flotabilidad-buoyancy">Flotabilidad (<em>Buoyancy</em>)</a></li>
@@ -405,37 +449,37 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-de-dos-fases-granular-fluido">
-<h1>Modelos de dos fases (granular-fluido):<a class="headerlink" href="#modelos-de-dos-fases-granular-fluido" title="Permalink to this heading">#</a></h1>
-<p>Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) <span id="id1">[]</span> o como dos o más fases (enfoques de mezcla de Coulomb) <span id="id2">[<a class="reference internal" href="02_Flujos.html#id100" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Ive97</a>, <a class="reference internal" href="02_Flujos.html#id149" title="Stuart B. Savage and Kolumban Hutter. The motion of a finite mass of granular material down a rough incline. Journal of Fluid Mechanics, 199:177–215, 1989. doi:10.1017/S0022112089000340.">SH89</a>]</span>. El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.</p>
-<p>Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial <span id="id3">[<a class="reference internal" href="02_Flujos.html#id103" title="Richard M. Iverson and Roger P. Denlinger. Flow of variably fluidized granular masses across three-dimensional terrain: 1. Coulomb mixture theory. Journal of Geophysical Research: Solid Earth, 106(B1):537–552, 2001. doi:10.1029/2000JB900329.">ID01</a>, <a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>.
+<h1>Modelos de dos fases (granular-fluido):<a class="headerlink" href="#modelos-de-dos-fases-granular-fluido" title="Link to this heading">#</a></h1>
+<p>Las teorías físicas existentes para describir el proceso de flujo y depositación de los flujos de escombros se dividen principalmente en teorías que se basan en el tratamiento del material como una sola fase (enfoques reológicos) <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id146" title="Philippe Coussot. Steady, laminar flow of concentrated mud suspensions in open channel. 1994.">Cou94</a>, <a class="reference internal" href="#id207" title="Pierre Y. Julien. Sediment transport by debris flows and hyperconcentrated flows. 1984.">Jul84</a>, <a class="reference internal" href="#id227" title="Jon J. Major and Thomas C. Pierson. Debris-flow rheology: experimental analysis of fine-grained slurries. 1992.">MP92</a>, <a class="reference internal" href="#id259" title="Christopher J. Phillips and Tim R. H. Davies. Determining rheological parameters of debris-flow material. 1991.">PD91</a>]</span> o como dos o más fases (enfoques de mezcla de Coulomb) <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id55" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Ive97</a>, <a class="reference internal" href="#id105" title="Stuart B. Savage and Kolumban Hutter. The motion of a finite mass of granular material down a rough incline. Journal of Fluid Mechanics, 199:177–215, 1989. doi:10.1017/S0022112089000340.">SH89</a>]</span>. El enfoque de mezcla de Coulomb especifica ecuaciones constitutivas distintas para la fase sólida, la fase líquida y la fase de las fuerzas de interacción. Por el contrario, utilizando un enfoque reológico, el comportamiento de la mezcla en conjunto puede caracterizarse por un número limitado de parámetros, que relacionan el esfuerzo cortante y la viscosidad con la tasa de cizalla.</p>
+<p>Más allá de los modelos reológicos efectivos, en años recientes han surgido modelos basados en mezclas bifásicas, que resuelven por separado el comportamiento del sólido granular y del fluido intersticial <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id58" title="Richard M. Iverson and Roger P. Denlinger. Flow of variably fluidized granular masses across three-dimensional terrain: 1. Coulomb mixture theory. Journal of Geophysical Research: Solid Earth, 106(B1):537–552, 2001. doi:10.1029/2000JB900329.">ID01</a>, <a class="reference internal" href="#id97" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>.
 Estos modelos no suponen una reología única, sino que combinan ecuaciones de balanza para cada fase con términos de interacción (arrastre, colisión, presión de poros). Aunque proporcionan una descripción física más detallada (pudiendo reproducir la generación de sobrepresiones de poro o la sedimentación de granos), son matemáticamente más complejos y requieren muchos parámetros.
 Vale la pena mencionar que los modelos reológicos monofásicos (Bingham, HB, etc.) son a veces considerados simplificaciones “efectivas” de un sistema bifásico más complejo, y que autores como Iverson han criticado la aproximación reológica por considerarla una “ficción” conveniente.
 Sin embargo, en la práctica de la ingeniería y la geociencia aplicada, los modelos reológicos sencillos siguen siendo ampliamente usados dada su parsimonia de parámetros y la relativa facilidad de calibración frente a datos de campo.</p>
 <p>Los modelos promediados en profundidad más simples idealizan los flujos de escombros como materiales monofásicos con densidades volumétricas fijas.
-Estos modelos incluyen tres ecuaciones de conservación: una que expresa la conservación de masa y dos que expresan la conservación de los componentes ortogonales del momento lineal, ya sea paralelo al lecho o en dirección horizontal <span id="id4">[<a class="reference internal" href="02_Flujos.html#id119" title="Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. Canadian Geotechnical Journal, 41(6):1084–1097, 2004. doi:10.1139/t04-052.">MH04</a>]</span>.
+Estos modelos incluyen tres ecuaciones de conservación: una que expresa la conservación de masa y dos que expresan la conservación de los componentes ortogonales del momento lineal, ya sea paralelo al lecho o en dirección horizontal <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id74" title="Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. Canadian Geotechnical Journal, 41(6):1084–1097, 2004. doi:10.1139/t04-052.">MH04a</a>, <a class="reference internal" href="#id238" title="Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. 2004.">MH04b</a>]</span>.
 Las tres ecuaciones generalmente difieren de las ecuaciones estándar de aguas poco profundas solo en sus definiciones de la resistencia al flujo y de los coeficientes de tensión longitudinal.
-Su similitud con las ecuaciones de aguas poco profundas tiene ventajas significativas desde el punto de vista matemático y computacional, debido a que las ecuaciones de aguas poco profundas tienen una larga historia de análisis teórico, soluciones numéricas y aplicaciones prácticas <span id="id5">[<a class="reference internal" href="02_Flujos.html#id63" title="Christoph Berger, Brian W. McArdell, and Fritz Schlunegger. Sediment transfer patterns at the Illgraben catchment, Switzerland: Implications for the time scales of debris flow activities. Geomorphology, 125(3):421–432, 2011. doi:10.1016/j.geomorph.2010.10.019.">BMS11</a>, <a class="reference internal" href="02_Flujos.html#id160" title="Cornelis B. Vreugdenhil. Numerical Methods for Shallow-Water Flow. Kluwer Academic Publishers, Dordrecht, 1994. doi:10.1007/978-94-015-8354-1.">Vre94</a>]</span>.</p>
+Su similitud con las ecuaciones de aguas poco profundas tiene ventajas significativas desde el punto de vista matemático y computacional, debido a que las ecuaciones de aguas poco profundas tienen una larga historia de análisis teórico, soluciones numéricas y aplicaciones prácticas <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id18" title="Christoph Berger, Brian W. McArdell, and Fritz Schlunegger. Sediment transfer patterns at the Illgraben catchment, Switzerland: Implications for the time scales of debris flow activities. Geomorphology, 125(3):421–432, 2011. doi:10.1016/j.geomorph.2010.10.019.">BMS11</a>, <a class="reference internal" href="#id116" title="Cornelis B. Vreugdenhil. Numerical Methods for Shallow-Water Flow. Kluwer Academic Publishers, Dordrecht, 1994. doi:10.1007/978-94-015-8354-1.">Vre94</a>]</span>.</p>
 <p>Sin embargo, los modelos monofásicos de flujo de escombros omiten una característica central del comportamiento de los flujos de escombros: la evolución natural de la resistencia al flujo que resulta de las interacciones cambiantes entre los constituyentes sólido y fluido durante la evolución de la velocidad del flujo y de la densidad volumétrica.
-Esta evolución indica que la resistencia al flujo es una propiedad emergente que coevoluciona con la dinámica del flujo <span id="id6">[<a class="reference internal" href="02_Flujos.html#id101" title="Richard M. Iverson. The debris-flow rheology myth. In Dieter Rickenmann and Cheng-lung Chen, editors, Debris-flow Hazards Mitigation: Mechanics, Prediction, and Assessment, pages 303–314. Millpress, Rotterdam, 2003.">Ive03</a>]</span>, lo que implica que no es apropiado especificar a priori una resistencia al flujo en evolución.</p>
+Esta evolución indica que la resistencia al flujo es una propiedad emergente que coevoluciona con la dinámica del flujo <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id56" title="Richard M. Iverson. The debris-flow rheology myth. In Dieter Rickenmann and Cheng-lung Chen, editors, Debris-flow Hazards Mitigation: Mechanics, Prediction, and Assessment, pages 303–314. Millpress, Rotterdam, 2003.">Ive03</a>]</span>, lo que implica que no es apropiado especificar a priori una resistencia al flujo en evolución.</p>
 <p>Los modelos que tratan los flujos de escombros como materiales bifásicos, con densidades volumétricas en evolución, interacciones sólido-fluido y resistencia al flujo variable, típicamente incluyen de cuatro a seis ecuaciones de conservación.
 Una de estas ecuaciones expresa la conservación de la masa sólida y otra expresa la conservación de la masa del fluido o la conservación de la masa de la mezcla bifásica como un todo.
-Las demás ecuaciones de conservación expresan los componentes ortogonales del momento lineal, ya sea de constituyentes sólido y fluido separados pero que interactúan <span id="id7">[<a class="reference internal" href="02_Flujos.html#id138" title="E. Bruce Pitman and Long Le. A two-fluid model for avalanche and debris flows. Philosophical Transactions of the Royal Society A, 363(1832):1573–1601, 2005. doi:10.1098/rsta.2005.1596.">PL05</a>, <a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span> o de una mezcla bifásica cuyos volúmenes fraccionales de sólido y fluido evolucionan a medida que los constituyentes interactúan <span id="id8">[<a class="reference internal" href="02_Flujos.html#id104" title="Richard M. Iverson and David L. George. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. I. Physical basis. Proceedings of the Royal Society A, 470(2170):20130819, 2014. doi:10.1098/rspa.2013.0819.">IG14</a>, <a class="reference internal" href="02_Flujos.html#id112" title="Julia Kowalski and Jim N. McElwaine. Shallow two-component gravity-driven flows with vertical variation. Journal of Fluid Mechanics, 714:434–462, 2013. doi:10.1017/jfm.2012.489.">KM13</a>]</span>.</p>
+Las demás ecuaciones de conservación expresan los componentes ortogonales del momento lineal, ya sea de constituyentes sólido y fluido separados pero que interactúan <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id184" title="John M. N. T. Gray and Andrew N. Edwards. A depth-averaged mu(i)-rheology for shallow granular free-surface flows. 2014.">GE14</a>, <a class="reference internal" href="#id243" title="Guillaume et al. Meyrat. Two-layer models for debris avalanches and their interaction with obstacles. 2009.">Mey09</a>, <a class="reference internal" href="#id93" title="E. Bruce Pitman and Long Le. A two-fluid model for avalanche and debris flows. Philosophical Transactions of the Royal Society A, 363(1832):1573–1601, 2005. doi:10.1098/rsta.2005.1596.">PL05</a>, <a class="reference internal" href="#id97" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span> o de una mezcla bifásica cuyos volúmenes fraccionales de sólido y fluido evolucionan a medida que los constituyentes interactúan <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id59" title="Richard M. Iverson and David L. George. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. I. Physical basis. Proceedings of the Royal Society A, 470(2170):20130819, 2014. doi:10.1098/rspa.2013.0819.">IG14</a>, <a class="reference internal" href="#id67" title="Julia Kowalski and Jim N. McElwaine. Shallow two-component gravity-driven flows with vertical variation. Journal of Fluid Mechanics, 714:434–462, 2013. doi:10.1017/jfm.2012.489.">KM13</a>]</span>.</p>
 <p>Los fundamentos conceptuales de estos dos enfoques son similares, pero difieren en un aspecto importante.
 Un enfoque que considera fases sólidas y fluidas distintas permite la posibilidad de una separación completa de las dos fases en cuerpos compuestos enteramente de fluido o enteramente de granos sólidos, mientras que un enfoque que considera una mezcla bifásica asume que siempre hay alguna amalgama de granos y fluido, aunque las concentraciones de granos o fluido puedan volverse muy pequeñas en algunas circunstancias.</p>
 <p>Un aspecto fundamental en la formulación de todos los modelos bifásicos de flujo de escombros es la definición de la fase fluida.
-Una justificación proporcionada por Iverson <span id="id9">[<a class="reference internal" href="02_Flujos.html#id100" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Ive97</a>]</span> es que la fase fluida incluye granos pequeños que pueden permanecer en suspensión por fuerzas puramente hidrodinámicas, sin necesidad de fuerzas de interacción granular, durante la duración de un flujo de escombros.
+Una justificación proporcionada por Iverson <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id55" title="Richard M. Iverson. The physics of debris flows. Reviews of Geophysics, 35(3):245–296, 1997. doi:10.1029/97RG00426.">Ive97</a>]</span> es que la fase fluida incluye granos pequeños que pueden permanecer en suspensión por fuerzas puramente hidrodinámicas, sin necesidad de fuerzas de interacción granular, durante la duración de un flujo de escombros.
 Estas partículas pequeñas en suspensión aumentan la viscosidad efectiva del fluido en relación con la viscosidad del agua pura y, en concentraciones suficientemente altas, pueden conferir cierta resistencia al flujo en la fase fluida.
-Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (&lt;0.0625 mm), mientras que las partículas más grandes se consideran parte de la fase granular. El agua lodosa que drena de los márgenes de depósitos recientes de flujo de escombros proporciona evidencia de que las partículas del tamaño de limo y arcilla pueden permanecer en suspensión incluso después de que el movimiento del flujo de escombros cesa <span id="id10">[]</span>.</p>
+Típicamente, estas partículas pequeñas son del tamaño de arcilla y limo (&lt;0.0625 mm), mientras que las partículas más grandes se consideran parte de la fase granular. El agua lodosa que drena de los márgenes de depósitos recientes de flujo de escombros proporciona evidencia de que las partículas del tamaño de limo y arcilla pueden permanecer en suspensión incluso después de que el movimiento del flujo de escombros cesa <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id60" title="Richard M. Iverson and David L. George. Modelling landslide liquefaction, mobility bifurcation and the dynamics of the 2014 Oso disaster. Géotechnique, 66(3):175–187, 2016. doi:10.1680/jgeot.15.LM.004.">IG16</a>]</span>.</p>
 <p>El uso de más de tres ecuaciones de conservación en modelos bifásicos y de mezcla bifásica hace que su estructura matemática y computacional sea más compleja que la de los modelos monofásicos.
 Sin embargo, el uso de ecuaciones de conservación adicionales simplifica los modelos bifásicos y de mezcla bifásica desde un punto de vista físico, porque reduce la cantidad de supuestos necesarios en la derivación de las ecuaciones y clarifica las definiciones de los parámetros del modelo.</p>
 <section id="fenomenos-fisicos-clave-en-flujos-bifasicos">
-<h2>Fenómenos físicos clave en flujos bifásicos<a class="headerlink" href="#fenomenos-fisicos-clave-en-flujos-bifasicos" title="Permalink to this heading">#</a></h2>
-<p>El modelo bifásico general de Pudasaini <span id="id11">[<a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span> se distingue por incorporar de manera rigurosa una serie de mecanismos físicos que son fundamentales para describir la dinámica de los flujos de escombros. A continuación, se detallan los más importantes:</p>
+<h2>Fenómenos físicos clave en flujos bifásicos<a class="headerlink" href="#fenomenos-fisicos-clave-en-flujos-bifasicos" title="Link to this heading">#</a></h2>
+<p>El modelo bifásico general de Pudasaini <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id97" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span> se distingue por incorporar de manera rigurosa una serie de mecanismos físicos que son fundamentales para describir la dinámica de los flujos de escombros. A continuación, se detallan los más importantes:</p>
 <section id="arrastre-generalizado-generalized-drag">
-<h3>Arrastre generalizado (<em>Generalized Drag</em>)<a class="headerlink" href="#arrastre-generalizado-generalized-drag" title="Permalink to this heading">#</a></h3>
+<h3>Arrastre generalizado (<em>Generalized Drag</em>)<a class="headerlink" href="#arrastre-generalizado-generalized-drag" title="Link to this heading">#</a></h3>
 <p>La fuerza de arrastre (o drag) es una fuerza de fricción que surge cuando hay un movimiento relativo entre dos componentes, típicamente un objeto sólido y el fluido que lo rodea. Es como la resistencia que se siente al mover la mano rápidamente a través del agua. Esa resistencia es el arrastre.</p>
 <p>El arrastre es uno de los aspectos más básicos e importantes de un flujo bifásico, ya que influye directamente en el movimiento relativo entre las fases sólida y fluida. Un aumento en el valor del coeficiente de arrastre (<span class="math notranslate nohighlight">\(C_{DG}\)</span>) produce menos movimiento relativo (y, por tanto, menos separación) entre las fases, ralentiza el movimiento general y frena el avance del frente. Esto se debe a que un frente de flujo con una mayor intensidad de arrastre se quedará rezagado con respecto a uno con menor intensidad. Por lo tanto, una modelización adecuada del arrastre es un requisito indispensable para simular adecuadamente los flujos de detritos bifásicos.</p>
 <p>Un modelo bifásico resuelve ecuaciones de conservación de masa y momento por separado para la fase sólida y para la fase fluida.
@@ -444,22 +488,108 @@ Lo primero es la existencia de velocidad relativa (<span class="math notranslate
 La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos real, esta diferencia es constante: el agua puede percolar a través de los sólidos, o los bloques en el frente pueden moverse más rápido que la matriz lodosa.</p>
 <p>La fuerza de arrastre es directamente proporcional a esta velocidad relativa. Si la velocidad relativa es cero, el arrastre es cero. Si es alta, el arrastre es una fuerza dominante. Esta fuerza es el mecanismo principal de transferencia de momento entre las fases. Es la forma en que el fluido “empuja” a los sólidos, y los sólidos “frenan” al fluido.</p>
 <p>Solo al considerar el arrastre se pueden simular fenómenos clave observados en la realidad, como: (i) Frentes ricos en bloques: Donde los sólidos más grandes, por inercia, se mueven más rápido que el fluido, y el fluido ejerce una fuerza de arrastre que los frena. (ii) Frentes fluidizados: Donde el agua a alta presión se mueve más rápido que los sólidos, los “arrastra” y reduce la fricción interna, aumentando la movilidad. (iii) Separación de fases: La diferencia de velocidades y el arrastre resultante son los que provocan que, con el tiempo, un flujo pueda desarrollar un frente más grueso y una cola más diluida.</p>
-<p>En conclusión, el efecto de arrastre no es una propiedad del material, sino un resultado de la interacción dinámica entre fases que se mueven a diferentes velocidades. Por lo tanto, es un fenómeno que, por su propia naturaleza física, solo puede ser capturado por un modelo que trate al menos dos fases (sólidos y fluido) de forma independiente, como lo hace el modelo bifásico de Pudasaini <span id="id12">[<a class="reference internal" href="02_Flujos.html#id142" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. Los modelos monofásicos, al promediar todo en un único “fluido equivalente”, pierden por completo esta física esencial.</p>
+<p>En conclusión, el efecto de arrastre no es una propiedad del material, sino un resultado de la interacción dinámica entre fases que se mueven a diferentes velocidades. Por lo tanto, es un fenómeno que, por su propia naturaleza física, solo puede ser capturado por un modelo que trate al menos dos fases (sólidos y fluido) de forma independiente, como lo hace el modelo bifásico de Pudasaini <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id97" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. Los modelos monofásicos, al promediar todo en un único “fluido equivalente”, pierden por completo esta física esencial.</p>
 </section>
 <section id="flotabilidad-buoyancy">
-<h3>Flotabilidad (<em>Buoyancy</em>)<a class="headerlink" href="#flotabilidad-buoyancy" title="Permalink to this heading">#</a></h3>
+<h3>Flotabilidad (<em>Buoyancy</em>)<a class="headerlink" href="#flotabilidad-buoyancy" title="Link to this heading">#</a></h3>
 <p>La flotabilidad es un aspecto crucial porque aumenta la movilidad del flujo al reducir la resistencia por fricción en la mezcla. Este efecto está presente siempre que haya un fluido en la mezcla. La flotabilidad reduce el esfuerzo normal de los sólidos, los esfuerzos normales laterales y el esfuerzo cortante basal (es decir, la resistencia por fricción) en un factor de <span class="math notranslate nohighlight">\((1 - \gamma)\)</span>, donde <span class="math notranslate nohighlight">\(\gamma\)</span> es la relación de densidades entre el fluido y el sólido. El efecto es sustancial cuando la relación de densidades es grande, como ocurre en los flujos de detritos naturales.</p>
-<p>En el caso extremo de que el flujo sea neutramente flotante <span id="id13">[<a class="reference internal" href="02_Flujos.html#id61" title="Ralph A. Bagnold. Experiments on a gravity-free dispersion of large solid spheres in a Newtonian fluid under shear. Proceedings of the Royal Society of London. Series A, 225(1160):49–63, 1954. doi:10.1098/rspa.1954.0186.">Bag54</a>]</span>, la masa de detritos se fluidiza y puede recorrer distancias mucho más largas. Un flujo neutramente flotante muestra un comportamiento completamente diferente a uno normalmente flotante: las fases sólida y fluida se mueven juntas, la masa de detritos se fluidiza, el frente avanza mucho más lejos, la cola se queda atrás y la altura general del flujo se reduce.</p>
+<p>En el caso extremo de que el flujo sea neutramente flotante <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id16" title="Ralph A. Bagnold. Experiments on a gravity-free dispersion of large solid spheres in a Newtonian fluid under shear. Proceedings of the Royal Society of London. Series A, 225(1160):49–63, 1954. doi:10.1098/rspa.1954.0186.">Bag54</a>]</span>, la masa de detritos se fluidiza y puede recorrer distancias mucho más largas. Un flujo neutramente flotante muestra un comportamiento completamente diferente a uno normalmente flotante: las fases sólida y fluida se mueven juntas, la masa de detritos se fluidiza, el frente avanza mucho más lejos, la cola se queda atrás y la altura general del flujo se reduce.</p>
 </section>
 <section id="masa-virtual-virtual-mass">
-<h3>Masa Virtual (<em>Virtual Mass</em>)<a class="headerlink" href="#masa-virtual-virtual-mass" title="Permalink to this heading">#</a></h3>
+<h3>Masa Virtual (<em>Virtual Mass</em>)<a class="headerlink" href="#masa-virtual-virtual-mass" title="Link to this heading">#</a></h3>
 <p>Mientras que la fuerza de arrastre considera la interacción de las fases en un campo de flujo uniforme, la masa virtual entra en juego cuando las partículas sólidas aceleran con respecto al fluido. Esta aceleración relativa obliga a que una parte del fluido circundante también se acelere, lo que induce una fuerza adicional llamada fuerza de masa virtual (que representa la energía cinética inducida en la fase fluida por las partículas sólidas).</p>
 <p>Debido a la fuerza de masa virtual, las partículas sólidas arrastran consigo más masa de fluido, y este es “bombeado” hacia el frente del flujo. Al observar el frente, se puede ver un flujo de agua (“agua lodosa”) seguido por el pulso principal de detritos. La masa sólida pierde algo de inercia y es, en cierto modo, empujada hacia atrás por el fluido. Este fenómeno de un frente liderado por un flujo de agua es observable en algunos flujos de detritos naturales. Los modelos de flujos de detritos anteriores no incluían el efecto de la masa virtual.</p>
 </section>
 <section id="esfuerzo-viscoso-newtoniano-newtonian-viscous-stress">
-<h3>Esfuerzo Viscoso Newtoniano (<em>Newtonian Viscous Stress</em>)<a class="headerlink" href="#esfuerzo-viscoso-newtoniano-newtonian-viscous-stress" title="Permalink to this heading">#</a></h3>
+<h3>Esfuerzo Viscoso Newtoniano (<em>Newtonian Viscous Stress</em>)<a class="headerlink" href="#esfuerzo-viscoso-newtoniano-newtonian-viscous-stress" title="Link to this heading">#</a></h3>
 <p>La viscosidad del fluido, que puede variar según la composición del flujo, afecta sustancialmente la dinámica. Un flujo con un fluido no viscoso (<span class="math notranslate nohighlight">\(\eta_f \approx 0\)</span>) se comporta de manera muy diferente a uno con un fluido viscoso (por ejemplo, con una viscosidad de 2 Pa·s, un valor típico para flujos de detritos).</p>
 <p>Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del frente del flujo y determina cómo la masa de detritos se alarga y deforma. La cantidad de fluido en la cola de un flujo es sustancialmente mayor cuando no hay esfuerzo viscoso en comparación con un flujo que sí lo experimenta. Incluso con una pequeña cantidad de fluido en la mezcla, el efecto del esfuerzo viscoso es importante, ya que reduce sustancialmente la deformación. Por lo tanto, el efecto de la resistencia viscosa debe tenerse en cuenta en la simulación de flujos de escombros. Los modelos anteriores no incluían sistemáticamente el efecto del esfuerzo viscoso (o la viscosidad del fluido) en la dinámica de los flujos bifásicos.</p>
+<div class="docutils container" id="id14">
+<div role="list" class="citation-list">
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">Bag54</a><span class="fn-bracket">]</span></span>
+<p>Ralph A. Bagnold. Experiments on a gravity-free dispersion of large solid spheres in a Newtonian fluid under shear. <em>Proceedings of the Royal Society of London. Series A</em>, 225(1160):49–63, 1954. <a class="reference external" href="https://doi.org/10.1098/rspa.1954.0186">doi:10.1098/rspa.1954.0186</a>.</p>
+</div>
+<div class="citation" id="id18" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">BMS11</a><span class="fn-bracket">]</span></span>
+<p>Christoph Berger, Brian W. McArdell, and Fritz Schlunegger. Sediment transfer patterns at the Illgraben catchment, Switzerland: Implications for the time scales of debris flow activities. <em>Geomorphology</em>, 125(3):421–432, 2011. <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2010.10.019">doi:10.1016/j.geomorph.2010.10.019</a>.</p>
+</div>
+<div class="citation" id="id146" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Cou94</a><span class="fn-bracket">]</span></span>
+<p>Philippe Coussot. Steady, laminar flow of concentrated mud suspensions in open channel. 1994.</p>
+</div>
+<div class="citation" id="id184" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">GE14</a><span class="fn-bracket">]</span></span>
+<p>John M. N. T. Gray and Andrew N. Edwards. A depth-averaged mu(i)-rheology for shallow granular free-surface flows. 2014.</p>
+</div>
+<div class="citation" id="id55" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Ive97<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>Richard M. Iverson. The physics of debris flows. <em>Reviews of Geophysics</em>, 35(3):245–296, 1997. <a class="reference external" href="https://doi.org/10.1029/97RG00426">doi:10.1029/97RG00426</a>.</p>
+</div>
+<div class="citation" id="id56" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Ive03</a><span class="fn-bracket">]</span></span>
+<p>Richard M. Iverson. The debris-flow rheology myth. In Dieter Rickenmann and Cheng-lung Chen, editors, <em>Debris-flow Hazards Mitigation: Mechanics, Prediction, and Assessment</em>, pages 303–314. Millpress, Rotterdam, 2003.</p>
+</div>
+<div class="citation" id="id58" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">ID01</a><span class="fn-bracket">]</span></span>
+<p>Richard M. Iverson and Roger P. Denlinger. Flow of variably fluidized granular masses across three-dimensional terrain: 1. Coulomb mixture theory. <em>Journal of Geophysical Research: Solid Earth</em>, 106(B1):537–552, 2001. <a class="reference external" href="https://doi.org/10.1029/2000JB900329">doi:10.1029/2000JB900329</a>.</p>
+</div>
+<div class="citation" id="id59" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">IG14</a><span class="fn-bracket">]</span></span>
+<p>Richard M. Iverson and David L. George. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. I. Physical basis. <em>Proceedings of the Royal Society A</em>, 470(2170):20130819, 2014. <a class="reference external" href="https://doi.org/10.1098/rspa.2013.0819">doi:10.1098/rspa.2013.0819</a>.</p>
+</div>
+<div class="citation" id="id60" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">IG16</a><span class="fn-bracket">]</span></span>
+<p>Richard M. Iverson and David L. George. Modelling landslide liquefaction, mobility bifurcation and the dynamics of the 2014 Oso disaster. <em>Géotechnique</em>, 66(3):175–187, 2016. <a class="reference external" href="https://doi.org/10.1680/jgeot.15.LM.004">doi:10.1680/jgeot.15.LM.004</a>.</p>
+</div>
+<div class="citation" id="id207" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Jul84</a><span class="fn-bracket">]</span></span>
+<p>Pierre Y. Julien. Sediment transport by debris flows and hyperconcentrated flows. 1984.</p>
+</div>
+<div class="citation" id="id67" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">KM13</a><span class="fn-bracket">]</span></span>
+<p>Julia Kowalski and Jim N. McElwaine. Shallow two-component gravity-driven flows with vertical variation. <em>Journal of Fluid Mechanics</em>, 714:434–462, 2013. <a class="reference external" href="https://doi.org/10.1017/jfm.2012.489">doi:10.1017/jfm.2012.489</a>.</p>
+</div>
+<div class="citation" id="id227" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">MP92</a><span class="fn-bracket">]</span></span>
+<p>Jon J. Major and Thomas C. Pierson. Debris-flow rheology: experimental analysis of fine-grained slurries. 1992.</p>
+</div>
+<div class="citation" id="id74" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">MH04a</a><span class="fn-bracket">]</span></span>
+<p>Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. <em>Canadian Geotechnical Journal</em>, 41(6):1084–1097, 2004. <a class="reference external" href="https://doi.org/10.1139/t04-052">doi:10.1139/t04-052</a>.</p>
+</div>
+<div class="citation" id="id238" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">MH04b</a><span class="fn-bracket">]</span></span>
+<p>Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. 2004.</p>
+</div>
+<div class="citation" id="id243" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">Mey09</a><span class="fn-bracket">]</span></span>
+<p>Guillaume et al. Meyrat. Two-layer models for debris avalanches and their interaction with obstacles. 2009.</p>
+</div>
+<div class="citation" id="id259" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">PD91</a><span class="fn-bracket">]</span></span>
+<p>Christopher J. Phillips and Tim R. H. Davies. Determining rheological parameters of debris-flow material. 1991.</p>
+</div>
+<div class="citation" id="id93" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">PL05</a><span class="fn-bracket">]</span></span>
+<p>E. Bruce Pitman and Long Le. A two-fluid model for avalanche and debris flows. <em>Philosophical Transactions of the Royal Society A</em>, 363(1832):1573–1601, 2005. <a class="reference external" href="https://doi.org/10.1098/rsta.2005.1596">doi:10.1098/rsta.2005.1596</a>.</p>
+</div>
+<div class="citation" id="id97" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Pud12<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id7">2</a>,<a role="doc-backlink" href="#id11">3</a>,<a role="doc-backlink" href="#id12">4</a>)</span>
+<p>Shiva P. Pudasaini. A general two-phase debris flow model. <em>Journal of Geophysical Research: Earth Surface</em>, 117(F3):F03010, 2012. <a class="reference external" href="https://doi.org/10.1029/2011JF002186">doi:10.1029/2011JF002186</a>.</p>
+</div>
+<div class="citation" id="id105" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">SH89</a><span class="fn-bracket">]</span></span>
+<p>Stuart B. Savage and Kolumban Hutter. The motion of a finite mass of granular material down a rough incline. <em>Journal of Fluid Mechanics</em>, 199:177–215, 1989. <a class="reference external" href="https://doi.org/10.1017/S0022112089000340">doi:10.1017/S0022112089000340</a>.</p>
+</div>
+<div class="citation" id="id116" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Vre94</a><span class="fn-bracket">]</span></span>
+<p>Cornelis B. Vreugdenhil. <em>Numerical Methods for Shallow-Water Flow</em>. Kluwer Academic Publishers, Dordrecht, 1994. <a class="reference external" href="https://doi.org/10.1007/978-94-015-8354-1">doi:10.1007/978-94-015-8354-1</a>.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -491,16 +621,16 @@ La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos 
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
-       href="04_Reologia.html"
+       href="04_ModelosReologicos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Regímenes reológicos</p>
+        <p class="prev-next-title">Modelos reológicos</p>
       </div>
     </a>
     <a class="right-next"
@@ -519,14 +649,17 @@ La diferencia entre estas dos es la velocidad relativa. En un flujo de detritos 
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fenomenos-fisicos-clave-en-flujos-bifasicos">Fenómenos físicos clave en flujos bifásicos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrastre-generalizado-generalized-drag">Arrastre generalizado (<em>Generalized Drag</em>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flotabilidad-buoyancy">Flotabilidad (<em>Buoyancy</em>)</a></li>
@@ -555,9 +688,10 @@ By Edier V. Aristizábal G.
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -581,8 +715,8 @@ By Edier V. Aristizábal G.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,109 +1,98 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis de Modelos Reológicos para la Modelación de Lahares con Iber-NNF &#8212; Avenidas Torrenciales</title>
+    <title>Iber-NNF &#8212; Avenidas Torrenciales</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '16_Iber_NNF';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Evaluacion del riesgo" href="20_Risk.html" />
     <link rel="prev" title="Grfin Tools" href="15_Grfin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -111,7 +100,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +107,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +182,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -155,24 +199,33 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
-    <script>document.write(`<img src="_static/logo_book.jpg" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Interaccion.html">Interacción atmosfera-ladera-cauce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_CambiClimatico.html">Cambio Climático</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Datacion.html">Técnicas de datación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Reologia.html">Regímenes reológicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_Routing.html">Modelos de propagacion</a></li>
 </ul>
@@ -186,16 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="13_GMP.html">Gravitational Process Path (GPP)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Análisis de Modelos Reológicos para la Modelación de Lahares con Iber-NNF</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Gestión del Riesgo</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="20_Risk.html">Evaluacion del riesgo</a></li>
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Iber-NNF</a></li>
 </ul>
 
     </div>
@@ -204,14 +248,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -220,14 +269,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -336,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -349,26 +398,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -379,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis de Modelos Reológicos para la Modelación de Lahares con Iber-NNF</h1>
+    <h1>Iber-NNF</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,20 +431,13 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulo-no-newtoniano-de-iber-iber-nnf">1. Módulo No Newtoniano de Iber (Iber-NNF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-conservacion">Ecuaciones de Conservación</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-e-implementacion">2. Modelos Reológicos e Implementación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modelo-de-manning">A. Modelo de Manning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-modelo-de-bingham-simplificado">B. Modelo de Bingham (Simplificado)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-modelo-de-voellmy">C. Modelo de Voellmy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-modelo-cuadratico-o-brien-y-julien">D. Modelo Cuadrático (O’Brien y Julien)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelo-de-herschel-bulkley">E. Modelo de Herschel-Bulkley</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">4. Referencias Bibliográficas</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-gobierno">Ecuaciones de gobierno</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-implementados">Modelos reológicos implementados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporacion-de-sedimento-entrainment">Incorporación de sedimento (entrainment)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-software">Arquitectura del software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">Caso de aplicación: lahar de 2001 del volcán Popocatépetl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-caso-de-estudio">Conclusiones del caso de estudio</a></li>
 </ul>
             </nav>
         </div>
@@ -411,93 +447,195 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-de-modelos-reologicos-para-la-modelacion-de-lahares-con-iber-nnf">
-<h1>Análisis de Modelos Reológicos para la Modelación de Lahares con Iber-NNF<a class="headerlink" href="#analisis-de-modelos-reologicos-para-la-modelacion-de-lahares-con-iber-nnf" title="Permalink to this heading">#</a></h1>
-<p>Este documento detalla la extracción técnica de los modelos y resultados presentados en el estudio de Sanz-Ramos <em>et al.</em> (2025) sobre el lahar del volcán Popocatépetl.</p>
-<hr class="docutils" />
-<section id="modulo-no-newtoniano-de-iber-iber-nnf">
-<h2>1. Módulo No Newtoniano de Iber (Iber-NNF)<a class="headerlink" href="#modulo-no-newtoniano-de-iber-iber-nnf" title="Permalink to this heading">#</a></h2>
-<p>El software <strong>Iber</strong> es una herramienta hidrodinámica bidimensional que originalmente resuelve las ecuaciones de aguas someras promediadas en profundidad (2D-SWE). El módulo <strong>Iber-NNF</strong> incorpora la física de fluidos no newtonianos utilizando modelos reológicos como términos friccionales.</p>
-<section id="ecuaciones-de-conservacion">
-<h3>Ecuaciones de Conservación<a class="headerlink" href="#ecuaciones-de-conservacion" title="Permalink to this heading">#</a></h3>
-<p>Iber-NNF resuelve las ecuaciones en un sistema de coordenadas cartesianas:</p>
-<p><strong>Ecuación de continuidad:</strong>
-$<span class="math notranslate nohighlight">\(\frac{\partial h}{\partial t}+\frac{\partial q_{x}}{\partial x}+\frac{\partial q_{y}}{\partial y}=0\)</span>$</p>
-<p><strong>Ecuaciones de cantidad de movimiento:</strong>
-$<span class="math notranslate nohighlight">\(\frac{\partial q_{x}}{\partial t}+\frac{\partial}{\partial x}(\frac{q_{x}^{2}}{h}+gk_{p}\frac{h^{2}}{2})+\frac{\partial}{\partial y}(\frac{q_{x}q_{y}}{h})=g^{\prime}h(S_{o,x}-S_{f,x})\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(\frac{\partial q_{y}}{\partial t}+\frac{\partial}{\partial x}(\frac{q_{x}q_{y}}{h})+\frac{\partial}{\partial y}(\frac{q_{y}^{2}}{h}+g^{\prime}k_{p}\frac{h^{2}}{2})=g^{\prime}h(S_{o,y}-S_{f,y})\)</span>$</p>
-<p>Donde:</p>
+  <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado y adaptado de Sanz-Ramos & Bladé {cite}`sanzramos_blade_2025a` (manual de referencia del módulo Iber-NNF) y de Sanz-Ramos et al. {cite}`sanzramos_iber_2025` (caso de aplicación al lahar de 2001 del volcán Popocatépetl).</em></p>
+<section class="tex2jax_ignore mathjax_ignore" id="iber-nnf">
+<h1>Iber-NNF<a class="headerlink" href="#iber-nnf" title="Link to this heading">#</a></h1>
+<p><strong>Iber</strong> es un modelo hidrodinámico bidimensional de código abierto, desarrollado originalmente para la simulación de flujo en lámina libre en ríos y estuarios <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id25" title="Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería, 30(1):1–10, 2014. doi:10.1016/j.rimni.2012.07.004.">BladeCC+14</a>]</span>. Desde su primera versión en 2010, su ámbito de aplicación se ha ampliado progresivamente hasta incluir procesos morfodinámicos, transporte de sedimentos y contaminantes, dinámica de madera flotante, erosión de suelos, drenaje urbano y ecohidráulica. A partir de la versión 3, Iber incorpora <strong>Iber-NNF</strong> (<em>Non-Newtonian Flows</em>), un módulo específico para la simulación de flujos someros no newtonianos: avalanchas de nieve densas, propagación de relaves mineros, lahares y flujos hiperconcentrados (por ejemplo, flujos cargados de madera) <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
+<p>A diferencia del capítulo anterior, centrado en los fundamentos de los modelos reológicos (véase <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">Modelos reológicos</span></a>), este capítulo describe <strong>cómo Iber-NNF implementa dicha física</strong> dentro de un esquema numérico de volúmenes finitos, y presenta su validación en un caso real: el lahar de 2001 del volcán Popocatépetl (México).</p>
+<section id="ecuaciones-de-gobierno">
+<h2>Ecuaciones de gobierno<a class="headerlink" href="#ecuaciones-de-gobierno" title="Link to this heading">#</a></h2>
+<p>Iber-NNF resuelve, al igual que Iber, las ecuaciones de aguas someras promediadas en profundidad (2D-SWE) en un sistema de coordenadas cartesianas, adaptadas para incorporar la física no newtoniana como términos de fricción y para permitir pendientes pronunciadas:</p>
+<p><strong>Ecuación de continuidad:</strong></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial h}{\partial t}+\frac{\partial q_{x}}{\partial x}+\frac{\partial q_{y}}{\partial y}=0\]</div>
+<p><strong>Ecuaciones de cantidad de movimiento:</strong></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial q_{x}}{\partial t}+\frac{\partial}{\partial x}\left(\frac{q_{x}^{2}}{h}+g'k_{p}\frac{h^{2}}{2}\right)+\frac{\partial}{\partial y}\left(\frac{q_{x}q_{y}}{h}\right)=g'h(S_{o,x}-S_{f,x})\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial q_{y}}{\partial t}+\frac{\partial}{\partial x}\left(\frac{q_{x}q_{y}}{h}\right)+\frac{\partial}{\partial y}\left(\frac{q_{y}^{2}}{h}+g'k_{p}\frac{h^{2}}{2}\right)=g'h(S_{o,y}-S_{f,y})\]</div>
+<p>donde <span class="math notranslate nohighlight">\(h\)</span> es la profundidad del flujo; <span class="math notranslate nohighlight">\(q_x\)</span>, <span class="math notranslate nohighlight">\(q_y\)</span> son las componentes del caudal específico; <span class="math notranslate nohighlight">\(g' = g\cos^2\theta\)</span> es la gravedad corregida por la pendiente del terreno (relevante en cauces y laderas empinadas); <span class="math notranslate nohighlight">\(k_p\)</span> es un factor de corrección de presión no hidrostática; <span class="math notranslate nohighlight">\(S_{o,x}\)</span>, <span class="math notranslate nohighlight">\(S_{o,y}\)</span> son las componentes de la pendiente del lecho; y <span class="math notranslate nohighlight">\(S_{f,x}\)</span>, <span class="math notranslate nohighlight">\(S_{f,y}\)</span> son las componentes de la pendiente de fricción, calculada según el modelo reológico seleccionado a partir de <span class="math notranslate nohighlight">\(\tau = \rho g h S_f\)</span>.</p>
+<p>Un desafío numérico central es garantizar el balance entre los términos de presión, la pendiente del lecho y la fricción, de forma que el flujo se detenga correctamente en pendientes pronunciadas y topografías complejas, sin generar movimientos artificiales. Para ello, Iber-NNF utiliza un esquema de discretización <em>upwind</em> que asegura este balance incluso en presencia de fricción no lineal y dependiente de la velocidad <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
+</section>
+<section id="modelos-reologicos-implementados">
+<h2>Modelos reológicos implementados<a class="headerlink" href="#modelos-reologicos-implementados" title="Link to this heading">#</a></h2>
+<p>La versión actual de Iber-NNF incorpora <strong>ocho modelos reológicos</strong>, todos ellos aplicables a la modelación de lahares excepto el modelo de Bartelt (concebido para avalanchas de nieve con fuerzas de cohesión):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Pendiente de fricción <span class="math notranslate nohighlight">\(S_f\)</span></p></th>
+<th class="head"><p>Parámetros de calibración</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Manning <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id29" title="Ven Te Chow. Open-Channel Hydraulics. McGraw-Hill, New York, 1959.">Cho59</a>]</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{n^2 v^2}{h^{4/3}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Viscoso</p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{n^2 v}{h^{3}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Dilatante</p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{n^2 v}{h^{2}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bingham simplificado <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id24" title="Eugene C. Bingham. An investigation of the laws of plastic flow. Bulletin of the Bureau of Standards, 13(2):309–353, 1916. doi:10.6028/bulletin.304.">Bin16</a>]</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{\rho g h}\left(\omega\tau_y+3\dfrac{\mu_B v}{h}\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu_B\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Voellmy <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id119">Voe55</a>]</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{v^2}{\xi h}+\mu\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\xi\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bartelt (avalanchas de nieve)</p></td>
+<td><p>—</p></td>
+<td><p>cohesión, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\xi\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>O’Brien y Julien (cuadrático) <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id90" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">OBrienJ88</a>]</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{\tau_y}{\rho g h}+\dfrac{K\mu_B v}{8\rho g h^2}+\dfrac{n^2 v^2}{h^{4/3}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu_B\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(K\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Herschel–Bulkley <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id48" title="Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. Kolloid-Zeitschrift, 39(4):291–300, 1926. doi:10.1007/BF01432034.">HB26</a>]</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\dfrac{1}{\rho g h}\left(\tau_y+k\left(\dfrac{v}{h}\right)^{\alpha}\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los parámetros de calibración de cada modelo son la densidad del flujo (<span class="math notranslate nohighlight">\(\rho\)</span>), el coeficiente de Manning (<span class="math notranslate nohighlight">\(n\)</span>), el esfuerzo de cedencia (<span class="math notranslate nohighlight">\(\tau_y\)</span>), la viscosidad dinámica (<span class="math notranslate nohighlight">\(\mu_B\)</span>), el coeficiente de fricción de Coulomb (<span class="math notranslate nohighlight">\(\mu\)</span>), el coeficiente de fricción turbulenta (<span class="math notranslate nohighlight">\(\xi\)</span>), un parámetro de resistencia (<span class="math notranslate nohighlight">\(K\)</span>), un parámetro de consistencia (<span class="math notranslate nohighlight">\(k\)</span>) y la potencia de corte (<span class="math notranslate nohighlight">\(\alpha\)</span>). El modelo de Coulomb puro, usado con frecuencia en la literatura de lahares, puede reproducirse dentro de Iber-NNF haciendo <span class="math notranslate nohighlight">\(\xi \to \infty\)</span> en el modelo de Voellmy, eliminando así el término viscoso-turbulento <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
+<p>Los fundamentos físicos, ventajas y limitaciones de cada uno de estos modelos se describen en detalle en el capítulo <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">Modelos reológicos</span></a>; este capítulo se centra en su implementación y desempeño dentro de Iber.</p>
+</section>
+<section id="incorporacion-de-sedimento-entrainment">
+<h2>Incorporación de sedimento (entrainment)<a class="headerlink" href="#incorporacion-de-sedimento-entrainment" title="Link to this heading">#</a></h2>
+<p>Iber-NNF incluye formulaciones de incorporación de material del lecho (<em>entrainment</em>), un proceso especialmente relevante para lahares y avalanchas de nieve densas, donde el volumen del flujo puede crecer sustancialmente a lo largo del recorrido <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(h\)</span>: profundidad del fluido.</p></li>
-<li><p><span class="math notranslate nohighlight">\(q_{x}, q_{y}\)</span>: componentes del caudal específico.</p></li>
-<li><p><span class="math notranslate nohighlight">\(g'\)</span>: gravedad corregida por la pendiente (<span class="math notranslate nohighlight">\(g \cos^{2}\theta\)</span>).</p></li>
-<li><p><span class="math notranslate nohighlight">\(S_{o}\)</span>: pendiente del fondo.</p></li>
-<li><p><span class="math notranslate nohighlight">\(S_{f}\)</span>: pendiente de fricción reológica.</p></li>
-<li><p><span class="math notranslate nohighlight">\(k_{p}\)</span>: factor de presión no hidrostática.</p></li>
+<li><p><strong>Modelo de velocidad:</strong> <span class="math notranslate nohighlight">\(E = K_u(u - u_{crit})\)</span> cuando <span class="math notranslate nohighlight">\(u &gt; u_{crit}\)</span>.</p></li>
+<li><p><strong>Modelo de altura:</strong> función de la profundidad de la cubierta de nieve o sedimento disponible, con límites superiores de incorporación.</p></li>
+<li><p><strong>Modelo de velocidad cuadrática:</strong> <span class="math notranslate nohighlight">\(E = K_u(u^2 - u_{crit}^2)\)</span>.</p></li>
+<li><p><strong>Modelo de esfuerzo cortante basal:</strong> <span class="math notranslate nohighlight">\(E = K_\tau(\tau - \tau_{crit})\)</span>.</p></li>
 </ul>
 </section>
+<section id="arquitectura-del-software">
+<h2>Arquitectura del software<a class="headerlink" href="#arquitectura-del-software" title="Link to this heading">#</a></h2>
+<p>Iber-NNF está completamente integrado en la interfaz gráfica de Iber y se activa como un complemento (<em>Iber tools &gt;&gt; Plug-ins</em>). En su versión actual funciona como un módulo independiente, sin acoplamiento directo con otros módulos de cálculo de Iber (sedimentos, calidad de agua, etc.). Además de las variables hidrodinámicas estándar (profundidad, velocidad, cota de la superficie libre), Iber-NNF calcula variables específicas para la evaluación de amenaza, como la pendiente del terreno, la presión de impacto dinámica y sus valores máximos durante la simulación <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>. Las futuras versiones del módulo contemplan la incorporación de cómputo paralelo en GPU, siguiendo el mismo enfoque ya utilizado en los módulos de transporte de sedimentos y hábitat de Iber, con aceleraciones reportadas de más de 100 veces <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
 </section>
-<hr class="docutils" />
-<section id="modelos-reologicos-e-implementacion">
-<h2>2. Modelos Reológicos e Implementación<a class="headerlink" href="#modelos-reologicos-e-implementacion" title="Permalink to this heading">#</a></h2>
-<p>La pendiente de fricción <span class="math notranslate nohighlight">\(S_{f}\)</span> se calcula según el modelo seleccionado. La versión actual de Iber implementa ocho modelos reológicos: Manning, Viscoso, Dilatante, Voellmy, Bartelt, Bingham (simplificado), O’Brien-Julien (cuadrático) y Herschel-Bulkley. Todos ellos pueden usarse para modelar lahares, excepto Bartelt (pensado primordialmente para avalanchas de nieve con fuerzas de cohesión). Los modelos se relacionan con el esfuerzo cortante mediante la expresión <span class="math notranslate nohighlight">\(\tau=\rho ghS_{f}\)</span>.</p>
-<section id="a-modelo-de-manning">
-<h3>A. Modelo de Manning<a class="headerlink" href="#a-modelo-de-manning" title="Permalink to this heading">#</a></h3>
-<p>Basado en la resistencia dependiente de la velocidad, comúnmente usado en hidráulica convencional:
-$<span class="math notranslate nohighlight">\(S_{f}=\frac{n^{2}v^{2}}{h^{4/3}}\)</span>$</p>
+<section id="caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">
+<h2>Caso de aplicación: lahar de 2001 del volcán Popocatépetl<a class="headerlink" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl" title="Link to this heading">#</a></h2>
+<p>Sanz-Ramos et al. <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span> utilizaron Iber-NNF para reconstruir el lahar de 2001 ocurrido en la quebrada de Huiloac, en el flanco norte del volcán Popocatépetl (México), un evento detonado por la fusión parcial del glaciar de la cumbre durante una fase eruptiva y que recorrió entre 12 y 13 km hasta su zona de depósito <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id27" title="Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. Journal of Volcanology and Geothermal Research, 131(3–4):351–369, 2004. doi:10.1016/S0377-0273(03)00413-X.">CPA04</a>]</span>.</p>
+<p><strong>Configuración del modelo:</strong></p>
 <ul class="simple">
-<li><p><strong>Parámetros:</strong> <span class="math notranslate nohighlight">\(n\)</span> (coeficiente de Manning ).</p></li>
+<li><p>Dominio de estudio de 1774 ha, con elevaciones entre 2500 y 3600 m s.n.m.</p></li>
+<li><p>Malla de aproximadamente 180 000 elementos triangulares, con un lado medio de 15 m, acorde con la resolución del modelo digital de terreno (DTM) del INEGI.</p></li>
+<li><p>Hidrograma de entrada con caudal pico de 335 m³/s y una duración de 3 h, derivado de registros de geófonos a lo largo de la quebrada <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id87" title="Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). Geomorphology, 92(1–2):91–99, 2007. doi:10.1016/j.geomorph.2007.02.011.">MunozSMPCRodriguez07</a>]</span>.</p></li>
+<li><p>Densidad del flujo de 1740 kg/m³.</p></li>
+<li><p>Parámetros de cada modelo reológico calibrados para reproducir la distancia de alcance observada por Capra et al. <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id27" title="Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. Journal of Volcanology and Geothermal Research, 131(3–4):351–369, 2004. doi:10.1016/S0377-0273(03)00413-X.">CPA04</a>]</span>.</p></li>
 </ul>
+<p><strong>Resultados principales:</strong></p>
+<p>Los modelos que solo incluyen un término de fricción dependiente de la velocidad (Manning, Viscoso, Dilatante) no lograron detener el flujo ni en pendientes suaves ni pronunciadas, generando una extensión de inundación mayor a 718 ha y velocidades de llegada muy rápidas (&lt; 30 min), en clara discrepancia con las observaciones de campo. Los modelos de Voellmy, Bingham, O’Brien-Julien y Herschel-Bulkley sí reprodujeron adecuadamente el cese del movimiento y la extensión observada:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Modelo</p></th>
+<th class="head"><p>Área inundada</p></th>
+<th class="head"><p>Profundidad máxima</p></th>
+<th class="head"><p>Tiempo de llegada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Manning</p></td>
+<td><p>&gt; 718 ha</p></td>
+<td><p>~5 m (aguas arriba)</p></td>
+<td><p>&lt; 0:30 h (no se detiene)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Voellmy</p></td>
+<td><p>149 ha</p></td>
+<td><p>&gt; 5 m (margen izquierda)</p></td>
+<td><p>3:40–3:50 h</p></td>
+</tr>
+<tr class="row-even"><td><p>Bingham</p></td>
+<td><p>65 ha</p></td>
+<td><p>~4 m</p></td>
+<td><p>3:40–3:50 h</p></td>
+</tr>
+<tr class="row-odd"><td><p>O’Brien–Julien</p></td>
+<td><p>74 ha</p></td>
+<td><p>4.0 m</p></td>
+<td><p>3:00–3:10 h</p></td>
+</tr>
+<tr class="row-even"><td><p>Herschel–Bulkley</p></td>
+<td><p>88 ha</p></td>
+<td><p>4.8 m</p></td>
+<td><p>2:50–3:00 h</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Las velocidades simuladas se compararon con las velocidades de campo estimadas por superelevación en nueve puntos de control por Muñoz-Salinas et al. <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id87" title="Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). Geomorphology, 92(1–2):91–99, 2007. doi:10.1016/j.geomorph.2007.02.011.">MunozSMPCRodriguez07</a>]</span>. El modelo de Manning subestimó sistemáticamente la velocidad porque el flujo se dispersó en un área excesivamente amplia en lugar de concentrarse en la quebrada; Voellmy sobreestimó la velocidad en todos los puntos; y Bingham fue el que mejor reprodujo las velocidades observadas.</p>
+<p>El tiempo de cómputo de cada simulación fue inferior a 10 minutos (malla de 15 m), aunque los autores señalan que una discretización más fina —necesaria en quebradas más estrechas o para una mejor resolución del frente— aumentaría considerablemente el costo computacional, lo que motiva el desarrollo de la versión con aceleración por GPU.</p>
+<p><strong>Sensibilidad a la resolución topográfica:</strong> los autores repitieron la simulación (modelo de Bingham) con DTM de 5, 15, 30, 60, 90 y 120 m. Los DTM más gruesos (90–120 m) suavizan excesivamente la geometría de la quebrada y no logran confinar el flujo; los DTM de 30–60 m reproducen mejor las ramificaciones observadas en la “zona de amenaza alta”; y el DTM de 5 m, sin la opción de relleno de depresiones (”<em>fill sinks</em>”) de Iber, generó sumideros numéricos que detuvieron artificialmente el flujo antes de lo observado.</p>
 </section>
-<section id="b-modelo-de-bingham-simplificado">
-<h3>B. Modelo de Bingham (Simplificado)<a class="headerlink" href="#b-modelo-de-bingham-simplificado" title="Permalink to this heading">#</a></h3>
-<p>Representa fluidos con un umbral de fluencia y viscosidad:
-$<span class="math notranslate nohighlight">\(S_{f}=\frac{1}{\rho gh}(\omega\tau_{y}+3\frac{\mu_{B}v}{h})\)</span>$</p>
-<ul class="simple">
-<li><p><strong>Parámetros:</strong> <span class="math notranslate nohighlight">\(\tau_{y}\)</span> (esfuerzo de fluencia), <span class="math notranslate nohighlight">\(\mu_{B}\)</span> (viscosidad dinámica).</p></li>
-<li><p><strong>Explicación:</strong> Incorpora tanto el esfuerzo de fluencia como el viscoso para simular comportamientos dinámicos y estáticos.</p></li>
-</ul>
-</section>
-<section id="c-modelo-de-voellmy">
-<h3>C. Modelo de Voellmy<a class="headerlink" href="#c-modelo-de-voellmy" title="Permalink to this heading">#</a></h3>
-<p>Suma la fricción turbulenta y la fricción seca de tipo Coulomb:
-$<span class="math notranslate nohighlight">\(S_{f}=\frac{v^{2}}{\xi h}+\mu\)</span>$</p>
-<ul class="simple">
-<li><p><strong>Parámetros:</strong> <span class="math notranslate nohighlight">\(\xi\)</span> (coeficiente de fricción turbulenta), <span class="math notranslate nohighlight">\(\mu\)</span> (coeficiente de fricción de Coulomb/basal).</p></li>
-</ul>
-</section>
-<section id="d-modelo-cuadratico-o-brien-y-julien">
-<h3>D. Modelo Cuadrático (O’Brien y Julien)<a class="headerlink" href="#d-modelo-cuadratico-o-brien-y-julien" title="Permalink to this heading">#</a></h3>
-<p>Combina términos de fluencia, viscosidad y turbulencia en una ecuación cuadrática:
-$<span class="math notranslate nohighlight">\(S_{f}=\frac{\tau_{y}}{\rho gh}+\frac{K\mu_{B}v}{8\rho gh^{2}}+\frac{n^{2}v^{2}}{h^{4/3}}\)</span>$</p>
-<ul class="simple">
-<li><p><strong>Parámetros:</strong> <span class="math notranslate nohighlight">\(\tau_{y}, \mu_{B}, n\)</span> y <span class="math notranslate nohighlight">\(K\)</span> (parámetro de resistencia).</p></li>
-</ul>
-</section>
-<section id="e-modelo-de-herschel-bulkley">
-<h3>E. Modelo de Herschel-Bulkley<a class="headerlink" href="#e-modelo-de-herschel-bulkley" title="Permalink to this heading">#</a></h3>
-<p>Captura comportamientos no lineales tras superar el esfuerzo de fluencia:
-$<span class="math notranslate nohighlight">\(S_{f}=\frac{1}{\rho gh}(\tau_{y}+k(\frac{v}{h})^{a})\)</span>$</p>
-<ul class="simple">
-<li><p><strong>Parámetros:</strong> <span class="math notranslate nohighlight">\(\tau_{y}, k\)</span> (consistencia) y <span class="math notranslate nohighlight">\(a\)</span> (potencia de corte o “shear power”).</p></li>
-</ul>
-</section>
-</section>
-<section id="referencias-bibliograficas">
-<h2>4. Referencias Bibliográficas<a class="headerlink" href="#referencias-bibliograficas" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Bingham, E. C. (1916).</strong> An investigation of the laws of plastic flow. <em>Bulletin of the Bureau of Standards</em>, 13(2), 309-353.</p></li>
-<li><p><strong>Bladé, E., Cea, L., Corestein, G., Escolano, E., Puertas, J., Vázquez-Cendón, E., Dolz, J., &amp; Coll, A. (2014a).</strong> Iber: herramienta de simulación numérica del flujo en ríos. <em>Revista Internacional de Métodos Numéricos Para Cálculo y Diseño En Ingeniería</em>, 30(1), 1-10.</p></li>
-<li><p><strong>Capra, L., Poblete, M. A., &amp; Alvarado, R. (2004).</strong> The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. <em>Journal of Volcanology and Geothermal Research</em>, 131(3-4), 351-369.</p></li>
-<li><p><strong>Chow, V. Te. (1959).</strong> <em>Open-Channel Hydraulics</em>. McGraw-Hill Book Company Inc..</p></li>
-<li><p><strong>Herschel, W. H., &amp; Bulkley, R. (1926).</strong> Konsistenzmessungen von Gummi-Benzollösungen. <em>Kolloid-Zeitschrift</em>, 39(4), 291-300.</p></li>
-<li><p><strong>Muñoz-Salinas, E., Manea, V. C., Palacios, D., &amp; Castillo-Rodriguez, M. (2007).</strong> Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). <em>Geomorphology</em>, 92(1-2), 91-99.</p></li>
-<li><p><strong>O’Brien, J. S., &amp; Julien, P. Y. (1988).</strong> Laboratory Analysis of Mudflow Properties. <em>Journal of Hydraulic Engineering</em>, 114(8), 877-887.</p></li>
-<li><p><strong>Sanz-Ramos, M., Bladé, E., Diez-Herrero, A., Vázquez-Tarrio, D., Garrote, J., Sánchez, N., &amp; Galindo, I. (2025).</strong> An analysis of rheological models for lahar modelling with Iber. <em>Revista Mexicana de Ciencias Geológicas</em>, 42(3), 160-169.</p></li>
-<li><p><strong>Voellmy, A. (1955).</strong> Über die Zerstörungskraft von Lawinen. <em>Schweizerische Bauzeitung</em>, 73, 15.</p></li>
-</ul>
+<section id="conclusiones-del-caso-de-estudio">
+<h2>Conclusiones del caso de estudio<a class="headerlink" href="#conclusiones-del-caso-de-estudio" title="Link to this heading">#</a></h2>
+<p>La reconstrucción del lahar de 2001 en el Popocatépetl confirma que <strong>la elección del modelo reológico es tan determinante como la calidad de la topografía</strong> para reproducir correctamente tanto la fase dinámica como la fase de depósito de un lahar. Los modelos puramente dependientes de la velocidad (tipo Manning) resultan inadecuados porque no pueden representar el cese del movimiento; los modelos con un término de cedencia explícito (Bingham, O’Brien-Julien, Herschel-Bulkley) o con fricción de Coulomb (Voellmy) sí lo logran, aunque combinaciones distintas de parámetros pueden producir resultados de alcance comparables, lo que subraya la importancia de una calibración cuidadosa y de la disponibilidad de datos de campo para restringir el rango de parámetros plausibles.</p>
+<div class="docutils container" id="id18">
+<div role="list" class="citation-list">
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Bin16</a><span class="fn-bracket">]</span></span>
+<p>Eugene C. Bingham. An investigation of the laws of plastic flow. <em>Bulletin of the Bureau of Standards</em>, 13(2):309–353, 1916. <a class="reference external" href="https://doi.org/10.6028/bulletin.304">doi:10.6028/bulletin.304</a>.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">BladeCC+14</a><span class="fn-bracket">]</span></span>
+<p>Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. <em>Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería</em>, 30(1):1–10, 2014. <a class="reference external" href="https://doi.org/10.1016/j.rimni.2012.07.004">doi:10.1016/j.rimni.2012.07.004</a>.</p>
+</div>
+<div class="citation" id="id27" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>CPA04<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id14">1</a>,<a role="doc-backlink" href="#id16">2</a>)</span>
+<p>Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. <em>Journal of Volcanology and Geothermal Research</em>, 131(3–4):351–369, 2004. <a class="reference external" href="https://doi.org/10.1016/S0377-0273(03)00413-X">doi:10.1016/S0377-0273(03)00413-X</a>.</p>
+</div>
+<div class="citation" id="id29" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Cho59</a><span class="fn-bracket">]</span></span>
+<p>Ven Te Chow. <em>Open-Channel Hydraulics</em>. McGraw-Hill, New York, 1959.</p>
+</div>
+<div class="citation" id="id48" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">HB26</a><span class="fn-bracket">]</span></span>
+<p>Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. <em>Kolloid-Zeitschrift</em>, 39(4):291–300, 1926. <a class="reference external" href="https://doi.org/10.1007/BF01432034">doi:10.1007/BF01432034</a>.</p>
+</div>
+<div class="citation" id="id87" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>MunozSMPCRodriguez07<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id15">1</a>,<a role="doc-backlink" href="#id17">2</a>)</span>
+<p>Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). <em>Geomorphology</em>, 92(1–2):91–99, 2007. <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2007.02.011">doi:10.1016/j.geomorph.2007.02.011</a>.</p>
+</div>
+<div class="citation" id="id90" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">OBrienJ88</a><span class="fn-bracket">]</span></span>
+<p>James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. <em>Journal of Hydraulic Engineering</em>, 114(8):877–887, 1988. <a class="reference external" href="https://doi.org/10.1061/(ASCE)0733-9429(1988)114:8(877)">doi:10.1061/(ASCE)0733-9429(1988)114:8(877)</a>.</p>
+</div>
+<div class="citation" id="id108" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRBlade25<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id10">3</a>,<a role="doc-backlink" href="#id11">4</a>)</span>
+<p>Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.</p>
+</div>
+<div class="citation" id="id107" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRBladeDiezH+25<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id12">2</a>,<a role="doc-backlink" href="#id13">3</a>)</span>
+<p>Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. <em>Revista Mexicana de Ciencias Geológicas</em>, 42(3):160–169, 2025. <a class="reference external" href="https://doi.org/10.22201/igc.20072902e.2025.3.1882">doi:10.22201/igc.20072902e.2025.3.1882</a>.</p>
+</div>
+<div class="citation" id="id119" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Voe55</a><span class="fn-bracket">]</span></span>
+<p><strong>missing publisher in voellmy_lawinen_1955</strong></p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -528,8 +666,8 @@ $<span class="math notranslate nohighlight">\(S_{f}=\frac{1}{\rho gh}(\tau_{y}+k
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="15_Grfin.html"
@@ -540,15 +678,6 @@ $<span class="math notranslate nohighlight">\(S_{f}=\frac{1}{\rho gh}(\tau_{y}+k
         <p class="prev-next-title">Grfin Tools</p>
       </div>
     </a>
-    <a class="right-next"
-       href="20_Risk.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Evaluacion del riesgo</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -556,27 +685,23 @@ $<span class="math notranslate nohighlight">\(S_{f}=\frac{1}{\rho gh}(\tau_{y}+k
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulo-no-newtoniano-de-iber-iber-nnf">1. Módulo No Newtoniano de Iber (Iber-NNF)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-conservacion">Ecuaciones de Conservación</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-e-implementacion">2. Modelos Reológicos e Implementación</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-modelo-de-manning">A. Modelo de Manning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-modelo-de-bingham-simplificado">B. Modelo de Bingham (Simplificado)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-modelo-de-voellmy">C. Modelo de Voellmy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-modelo-cuadratico-o-brien-y-julien">D. Modelo Cuadrático (O’Brien y Julien)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-modelo-de-herschel-bulkley">E. Modelo de Herschel-Bulkley</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias-bibliograficas">4. Referencias Bibliográficas</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-gobierno">Ecuaciones de gobierno</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-implementados">Modelos reológicos implementados</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporacion-de-sedimento-entrainment">Incorporación de sedimento (entrainment)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-software">Arquitectura del software</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">Caso de aplicación: lahar de 2001 del volcán Popocatépetl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-caso-de-estudio">Conclusiones del caso de estudio</a></li>
 </ul>
   </nav></div>
 
@@ -598,9 +723,10 @@ By Edier V. Aristizábal G.
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -624,8 +750,8 @@ By Edier V. Aristizábal G.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
