@@ -18,7 +18,9 @@ Es el método más simple y sigue la pendiente más pronunciada. El principal pr
 Huggel et al. {cite}`huggel_2019a` introdujeron una cierta capacidad de desviación del flujo en el enfoque D8, mediante una función que permite que el flujo se desvíe de la dirección de máxima pendiente hasta 45° a ambos lados, aplicando un factor de resistencia.
 
 :::{figure-md} D8
-<img src="https://i.pinimg.com/736x/4e/b3/c8/4eb3c89daa0238446c582a9c9df83b26.jpg" alt="Flow axonomy" width="200px">h
+<img src="https://i.pinimg.com/736x/4e/b3/c8/4eb3c89daa0238446c582a9c9df83b26.jpg" alt="Flow axonomy" width="200px">
+
+Esquema del algoritmo de dirección de flujo D8, que distribuye el flujo hacia una de ocho direcciones posibles según la máxima pendiente.
 :::
 ---
 
@@ -27,7 +29,9 @@ Huggel et al. {cite}`huggel_2019a` introdujeron una cierta capacidad de desviaci
 Este algoritmo distribuye el flujo hacia una o dos celdas vecinas, según el cálculo de los vectores de pendiente descendente en facetas triangulares planas. Aunque es popular en aplicaciones hidrológicas, no es comúnmente utilizado para la propagación de flujos de escombros.
 
 :::{figure-md} Dinfinity
-<img src="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg" width="200px">h
+<img src="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg" width="200px">
+
+Esquema del algoritmo D-infinity, que distribuye el flujo entre una o dos celdas vecinas según los vectores de pendiente descendente en facetas triangulares planas.
 :::
 
 ---
@@ -37,7 +41,9 @@ Este algoritmo distribuye el flujo hacia una o dos celdas vecinas, según el cá
 Este enfoque distribuye el flujo entre todas las celdas vecinas con menor elevación, proporcionalmente al gradiente de pendiente. Incluye un factor de ponderación geométrico para calcular la fracción de flujo que drena hacia las celdas vecinas. Aunque es más realista que el D8 para representar la dispersión lateral del agua, genera una divergencia considerada excesiva para procesos de flujo de escombros {cite}`huggel_2019a`. Algunas variantes {cite}`freeman_calculating_1991` reducen ligeramente esta dispersión, pero no de forma significativa.
 
 :::{figure-md} mfd
-<img src="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg" width="300px">h
+<img src="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg" width="300px">
+
+Esquema del algoritmo de dirección de flujo múltiple (MFD), que distribuye el flujo entre todas las celdas vecinas de menor elevación proporcionalmente al gradiente de pendiente.
 :::
 
 ---
@@ -151,7 +157,9 @@ $$
 donde:  $v_i$ es la velocidad en la celda actual $i$ [m/s],  $g$ es la aceleración de la gravedad [m/s²],  $h_v$ es la diferencia de altura entre la línea de energía y la celda $i$.
 
 :::{figure-md} linea de energia
-<img src="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg" width="500px">h
+<img src="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg" width="500px">
+
+Esquema del enfoque de línea de energía (ángulo de alcance o *Fahrböschung*) utilizado para estimar la distancia de recorrido de un flujo de escombros.
 :::
 
 El ángulo $\alpha$ presenta valores característicos según el tipo de movimiento gravitacional. Para flujos de escombros con alta proporción de sedimentos finos, el ángulo mínimo observado es de aproximadamente 4° ($\tan \alpha \approx 0.07$). Para flujos con material más grueso, el ángulo es de **10–11°** ($\tan \alpha \approx 0.19$) {cite}`rickenmann_runout_2005`.
@@ -169,12 +177,35 @@ El modelo ACS no requiere conocer el punto de inicio del flujo, que en muchos ca
 
 El método mostró buenos resultados, pero fue desarrollado y probado en un número limitado de casos de estudio,  por lo que su aplicabilidad puede depender de las condiciones locales de los sitios analizados. A pesar de estas limitaciones, el modelo ACS ha mostrado resultados prometedores al compararse con métodos tradicionales basados en el ángulo de alcance (*reach angle*).
 
+## Modelos empíricos basados en morfometría de cuenca
 
+Los modelos basados en física descritos en este capítulo requieren una cantidad considerable de parámetros de entrada. Como alternativa rápida y de bajo costo computacional para estimar la susceptibilidad y el tipo de proceso dominante esperado en el ápice de un abanico aluvial, se han desarrollado modelos empíricos basados en índices morfométricos calculados directamente a partir de un modelo digital de terreno (MDT).
 
+### El índice de Melton
 
+El **índice de Melton** ($M_r$), o relación de relieve de la cuenca, se define como:
 
+$$
+M_r = \frac{H}{\sqrt{A}}
+$$
 
+donde $H$ es el relieve total de la cuenca (diferencia de altura entre el punto más alto de la divisoria de aguas y el punto de salida) y $A$ es el área de la cuenca drenada. Este índice sirve para clasificar y discriminar la susceptibilidad de una cuenca a generar diferentes tipos de flujos torrenciales: cuencas pequeñas y de relieve muy pronunciado (índices de Melton altos) favorecen flujos de detritos, mientras que cuencas más extensas y de menor relieve relativo favorecen inundaciones ordinarias {cite}`ramos_avenidas_2021`.
 
+Wilford et al. {cite}`wilford_2004` propusieron una metodología que cruza el índice de Melton con la longitud del canal principal y la pendiente del cauce o del abanico aluvial para predecir el proceso dominante esperado en el punto de entrega de sedimentos:
+
+- **Cuencas propensas a flujo de detritos**: típicamente cuencas pequeñas, escarpadas y confinadas, con $M_r > 0{,}6$ y pendiente del canal o del abanico superior a 30 %.
+- **Cuencas propensas a inundación de escombros (*debris flood*)**: cuencas transicionales, con $M_r$ entre 0,3 y 0,6 y pendientes de abanico intermedias.
+- **Cuencas propensas a inundaciones ordinarias o crecientes súbitas**: cuencas de mayor tamaño y menor relieve relativo, con $M_r < 0{,}3$ y abanicos de pendiente muy suave.
+
+Para las cuencas de los Andes colombianos, Arango, Aristizábal y Gómez {cite}`arango_morphometrical_2021` realizaron un análisis morfométrico de cuencas propensas a avenidas torrenciales, aportando umbrales de referencia adaptados a las condiciones tropicales de alta montaña del país.
+
+### Limitaciones del enfoque morfométrico frente a eventos de alta magnitud
+
+Investigaciones geomorfológicas forenses recientes —como el estudio del impacto de la tormenta Vaia (2018) en los Dolomitas italianos— han identificado que los umbrales puramente morfométricos tienden a fallar y a subestimar la ocurrencia de inundaciones de escombros durante eventos hidrológicos de muy alta magnitud (períodos de retorno superiores a 200 años) {cite}`brenna_geomorphic_2023`. Bajo lluvias extremas, la inyección masiva de sedimento desde laderas inestables y la superación de umbrales de potencia de corriente unitaria del orden de 5000–5500 W/m² pueden forzar transiciones reológicas dinámicas incluso en tramos de pendiente suave que los índices puramente estáticos (calculados una sola vez a partir de la topografía) no logran anticipar. Esto sugiere que los modelos morfométricos son más confiables como herramienta de tamizaje regional (*screening*) que como predictor único de la amenaza ante eventos extremos, y deben complementarse con los modelos hidrológicos e hidráulico-reológicos presentados en los capítulos anteriores.
+
+## Herramientas comerciales de propagación: FLO-2D y HEC-RAS
+
+Además de las herramientas de código abierto descritas en los capítulos de esta parte, dos programas comerciales/gratuitos ampliamente usados en la práctica profesional para la propagación de avenidas torrenciales son **FLO-2D** y **HEC-RAS**, descritos en detalle en los capítulos [FLO-2D](17_FLO2D.md) y [HEC-RAS](18_HECRAS.md), que incluyen una comparación de su desempeño en varios casos de estudio recientes (rotura de presas de relaves, flujos de detritos y aluviones en Taiwán, California y Chile).
 
 ```{bibliography}
 :filter: docname in docnames

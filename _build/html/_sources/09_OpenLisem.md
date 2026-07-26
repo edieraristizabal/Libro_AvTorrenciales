@@ -69,3 +69,6 @@ Los resultados del modelo se comparan como dos clasificadores binarios, utilizan
 
 El segundo método más común de calibración utiliza series temporales de altura de flujo o caudal.
 Las observaciones de estas variables pueden compararse con la salida del modelo utilizando, por ejemplo, el Error Cuadrático Medio (RMSE) o las métricas de error de *Nash–Sutcliffe*.
+```{bibliography}
+:filter: docname in docnames
+```

@@ -59,3 +59,7 @@ Esa información incluye la longitud del alcance, la probabilidad de inundación
 
 *DebrisFlow Predictor* despliega agentes, programas subautónomos de 5 m por 5 m, sobre un modelo digital de elevación de la misma resolución. 
 Cada agente aplica un conjunto de reglas físicas y empíricamente derivadas que describen su comportamiento en cada paso de tiempo basado en los datos de entrada proporcionados por el DEM y el vecindario de agentes en cada ejecución del modelo.
+
+```{bibliography}
+:filter: docname in docnames
+```
