@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>OpenLISEM &#8212; Avenidas Torrenciales</title>
+    <title>HEC-RAS &#8212; Avenidas Torrenciales</title>
   
   
   
@@ -60,12 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '09_OpenLisem';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '18_HECRAS';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="r.randomwalk" href="10_RandomWalk.html" />
-    <link rel="prev" title="Flow-R" href="08_Flow-R.html" />
+    <link rel="prev" title="FLO-2D" href="17_FLO2D.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -231,7 +230,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte III: Modelos Numéricos</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_Flow-R.html">Flow-R</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">OpenLISEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_OpenLisem.html">OpenLISEM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_RandomWalk.html">r.randomwalk</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11_Predictor.html">DebrisFlow Predictor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_FlowPy.html">Flow-Py</a></li>
@@ -240,7 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">HEC-RAS</a></li>
 </ul>
 
     </div>
@@ -317,7 +316,7 @@
       
       
       
-      <li><a href="https://github.com/edieraristizabal/Libro_AvTorrenciales/issues/new?title=Issue%20on%20page%20%2F09_OpenLisem.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/edieraristizabal/Libro_AvTorrenciales/issues/new?title=Issue%20on%20page%20%2F18_HECRAS.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -347,7 +346,7 @@
       
       
       
-      <li><a href="_sources/09_OpenLisem.md" target="_blank"
+      <li><a href="_sources/18_HECRAS.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -423,7 +422,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>OpenLISEM</h1>
+    <h1>HEC-RAS</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,9 +432,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-del-modelo">Componentes del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Parámetros comunes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#necesidades-de-datos">Necesidades de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
 </ul>
             </nav>
@@ -448,145 +447,65 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="openlisem">
-<h1>OpenLISEM<a class="headerlink" href="#openlisem" title="Link to this heading">#</a></h1>
-<section id="componentes-del-modelo">
-<h2>Componentes del modelo<a class="headerlink" href="#componentes-del-modelo" title="Link to this heading">#</a></h2>
-<p>El software Limburg Soil Erosion Model (LISEM) es una herramienta de simulación físicamente basada para el análisis multi-amenaza que presenta amplias capacidades para la simulación, calibración y análisis de movimientos en masa como los flujos de detritos.</p>
-<p>Las funciones de propagación de flujo de detritos en el software LISEM son una adaptación de las ecuaciones generalizadas bifásicas de flujo de detritos de Pudasaini <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id90" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. Este conjunto de ecuaciones considera de manera distinta la conservación de la masa y del momento para los fluidos y los sólidos. Varias fuerzas actúan sobre estas fases durante el flujo, resultando en un flujo acoplado de manera realista. Las fuerzas implementadas originalmente son: gravedad, presión, flotabilidad, fricción de Mohr–Coulomb, viscosidad, viscosidad no newtoniana y masa virtual.</p>
-<p>Dentro de LISEM, el objetivo es simular una amplia gama de tipos de flujo, desde el flujo de agua clara hasta flujos de detritos, deslizamientos de tierra y avalanchas de rocas. Aunque las ecuaciones generalizadas bifásicas capturan de manera efectiva múltiples tipos de movimientos en masa, el flujo de agua clara carecía de una fuerza de fricción en la interfaz entre el flujo y el terreno. Esto resultaba en velocidades de flujo poco realistas en terrenos inclinados, un problema que ha sido abordado en softwares como r.avaflow por Pudasaini y Mergili <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id91" title="Shiva P. Pudasaini and Martin Mergili. A multi-phase mass flow model. Journal of Geophysical Research: Earth Surface, 124(12):2920–2942, 2019. doi:10.1029/2019JF005204.">PM19</a>]</span>. Dentro de LISEM, se utilizó el enfoque del campo hidrológico e hidráulico, donde la ley de fricción de Darcy-Weisbach, un estándar industrial para modelos de inundación <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id23" title="Olivier Delestre, Stéphane Cordier, Frédéric Darboux, Mingmin Du, François James, Christian Laguerre, Carine Lucas, and Olivier Planchon. FullSWOF: full Shallow-Water equations for Overland Flow. Journal of Open Source Software, 2(20):135, 2017. doi:10.21105/joss.00135.">DCD+17</a>]</span>, fue implementada proporcionalmente a la presencia de fluidos en el flujo <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id107" title="Bastian van den Bout, Luigi Lombardo, Cees van Westen, Annette Antonini, Arie C. Seijmonsbergen, and Henny Verstappen. Integration of two-phase solid-fluid equations in a catchment model for flashfloods, debris flows and shallow slope failures. Environmental Modelling &amp; Software, 105:1–16, 2018. doi:10.1016/j.envsoft.2018.03.017.">vdBLvW+18</a>]</span>.</p>
-<p>Como LISEM se enfoca fuertemente en la investigación multi-amenaza, las ecuaciones de flujo están integradas dentro de un modelo hidrológico a escala de cuenca que es capaz de simular infiltración, aguas subterráneas, estabilidad y falla de laderas, así como flujos en ríos, erosión, propagación de tsunamis, entre otros <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id107" title="Bastian van den Bout, Luigi Lombardo, Cees van Westen, Annette Antonini, Arie C. Seijmonsbergen, and Henny Verstappen. Integration of two-phase solid-fluid equations in a catchment model for flashfloods, debris flows and shallow slope failures. Environmental Modelling &amp; Software, 105:1–16, 2018. doi:10.1016/j.envsoft.2018.03.017.">vdBLvW+18</a>]</span>. Esto permite configuraciones más complejas que implican flujos de detritos impulsados por escorrentía a través de la erosión, o flujos de detritos que evolucionan a partir de deslizamientos, donde el material del deslizamiento se combina con el agua de escorrentía superficial. Debido a que se consideran detalles subpíxel para canales, edificaciones y carreteras, las simulaciones hidrológicas, de flujo y propagación pueden realizarse desde la escala de parcelas (espaciado de celdas de varios cm, con un área total de varios metros cuadrados) hasta la escala nacional (espaciado de celdas de 200 m, con un área total de decenas de miles de kilómetros cuadrados). Los resultados óptimos de las simulaciones de flujo de detritos suelen obtenerse con un espaciado de celdas de 10 m o menos, ya que los detalles relevantes en el modelo de elevación capturan la escala común de propagación de los flujos de detritos.</p>
-<p>Las soluciones numéricas a las ecuaciones se resuelven utilizando un esquema de diferencias finitas de segundo orden en una cuadrícula cuadrada. Para capturar las dinámicas de onda y mantener un mayor paso de tiempo, se utilizan limitadores de flujo en combinación con <em>solvers Riemann</em> adaptados <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id23" title="Olivier Delestre, Stéphane Cordier, Frédéric Darboux, Mingmin Du, François James, Christian Laguerre, Carine Lucas, and Olivier Planchon. FullSWOF: full Shallow-Water equations for Overland Flow. Journal of Open Source Software, 2(20):135, 2017. doi:10.21105/joss.00135.">DCD+17</a>]</span>. Los <em>solvers Riemann</em> proporcionan soluciones semi-analíticas a problemas de discontinuidad en las interfaces de las celdas de la cuadrícula. El flujo efectivo de masa y momento puede calcularse resolviendo dominios de influencia utilizando velocidades características.
-Mientras que las ecuaciones de Saint–Venant para el flujo de agua poco profunda permiten tal solución, las ecuaciones generalizadas de flujo de detritos no permiten la derivación de velocidades características. En su lugar, se emplea el <em>solver Riemann</em> de Harten-Lax-van Leer para el agua clara, mientras que un cálculo directo del flujo se activa con concentraciones más altas de sólidos. Todos los cálculos pueden realizarse en paralelo tanto en CPU como en GPU.</p>
+  <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo se apoya en el manual de usuario 2D de HEC-RAS del Cuerpo de Ingenieros del Ejército de EE. UU. {cite}`usace_hecras_2023`, en Gibson et al. {cite}`gibson_2008` (aplicación de reologías cuadrática y de Bingham en HEC-RAS) y en estudios comparativos recientes con FLO-2D {cite}`srk_tailings_2022,hinzmann_2023_stsophia,pacheco_2025_esteroalfonso`.</em></p>
+<section class="tex2jax_ignore mathjax_ignore" id="hec-ras">
+<h1>HEC-RAS<a class="headerlink" href="#hec-ras" title="Link to this heading">#</a></h1>
+<p><strong>HEC-RAS</strong> (<em>Hydrologic Engineering Center’s River Analysis System</em>) es un modelo hidráulico de código gratuito desarrollado por el Cuerpo de Ingenieros del Ejército de los Estados Unidos (USACE), originalmente concebido para el análisis unidimensional de flujo en ríos. Desde su versión 5, incorpora un módulo bidimensional de aguas someras (2D) que resuelve el flujo en llanuras de inundación, y desde versiones más recientes incluye un módulo de <strong>flujo no newtoniano (<em>Mud and Debris Flow</em>, HEC-RAS-MDF)</strong> que permite representar flujos de detritos, lodos y lahares mediante reologías viscoplásticas, en un desarrollo conceptualmente análogo al de Iber-NNF (véase el capítulo <a class="reference internal" href="16_Iber_NNF.html"><span class="std std-doc">Iber-NNF</span></a>).</p>
+<section id="componentes">
+<h2>Componentes<a class="headerlink" href="#componentes" title="Link to this heading">#</a></h2>
+<p>El módulo 2D de HEC-RAS trabaja sobre mallas computacionales <strong>estructuradas o no estructuradas</strong>, lo que permite el uso de líneas de ruptura (<em>break-lines</em>) para representar con precisión bermas, diques, canales de conducción y otras estructuras lineales del terreno, una ventaja frente a la malla estrictamente regular de FLO-2D <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id342" title="US Army Corps of Engineers, Hydrologic Engineering Center. HEC-RAS 2d user's manual. Technical Report, US Army Corps of Engineers, 2023.">USACoEngineersHECenter23</a>]</span>.</p>
+<p>Para la resolución de las ecuaciones de gobierno, HEC-RAS ofrece distintos esquemas numéricos que el usuario puede seleccionar según el balance deseado entre precisión física y costo computacional:</p>
+<ul class="simple">
+<li><p><strong>Onda difusiva 2D</strong>: análoga a la de FLO-2D, computacionalmente más económica pero con menor fidelidad física en frentes de flujo rápidos.</p></li>
+<li><p><strong>SWE-ELM</strong> (<em>Shallow Water Equations - Eulerian-Lagrangian Method</em>): un esquema híbrido que ofrece un compromiso entre estabilidad numérica y tiempo de cómputo.</p></li>
+<li><p><strong>SWE-EM</strong> (<em>Shallow Water Equations - Eulerian Method</em>): resuelve el conjunto completo de ecuaciones de conservación de masa y momento (aguas someras completas), siendo el esquema que mejor conserva físicamente la cantidad de movimiento, aunque requiere pasos de tiempo más pequeños y, por tanto, mayor tiempo de cómputo <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p></li>
+</ul>
+<p>El módulo <strong>MDF</strong> (no newtoniano) extiende estos solucionadores incorporando términos de fricción viscoplástica en la pendiente de fricción, siguiendo formulaciones cuadráticas y de Bingham análogas a las descritas en el capítulo de <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">modelos reológicos</span></a> <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id174" title="Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.">Gib08</a>]</span>. Esto permite representar tanto la fase dinámica del flujo como su cese y depositación, de forma similar a los modelos reológicos disponibles en Iber-NNF.</p>
 </section>
-<section id="parametros-comunes">
-<h2>Parámetros comunes<a class="headerlink" href="#parametros-comunes" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Componente del modelo</p></th>
-<th class="head"><p>Parámetro</p></th>
-<th class="head"><p>Unidad</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Flujo</p></td>
-<td><p>Rugosidad de Manning</p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Coeficiente de arrastre</p></td>
-<td><p>–</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Altura inicial de sólidos</p></td>
-<td><p>m</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Altura inicial de agua</p></td>
-<td><p>m</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Ángulo basal de fricción</p></td>
-<td><p>radianes</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Densidad del material</p></td>
-<td><p>kg/m³</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Tamaño de grano del material</p></td>
-<td><p>m</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hidrología</p></td>
-<td><p>Conductividad hidráulica saturada</p></td>
-<td><p>mm/h</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Porosidad</p></td>
-<td><p>m³/m³</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Contenido de humedad</p></td>
-<td><p>m³/m³</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Succión matricial</p></td>
-<td><p>kPa</p></td>
-</tr>
-<tr class="row-odd"><td><p>Estabilidad de laderas</p></td>
-<td><p>Profundidad del suelo</p></td>
-<td><p>m</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Cohesión del suelo</p></td>
-<td><p>kPa</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Ángulo de fricción interna</p></td>
-<td><p>radianes</p></td>
-</tr>
-<tr class="row-even"><td><p>Erosión</p></td>
-<td><p>Tamaño del grano</p></td>
-<td><p>m</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Cohesión del suelo</p></td>
-<td><p>kPa</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Coeficiente de entrainment</p></td>
-<td><p>–</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr class="docutils" />
+<section id="requisitos-de-datos">
+<h2>Requisitos de Datos<a class="headerlink" href="#requisitos-de-datos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Modelo digital de terreno (DEM), idealmente derivado de levantamientos LiDAR de alta resolución.</p></li>
+<li><p>Malla computacional, con líneas de ruptura opcionales para representar estructuras lineales relevantes (diques, bermas, canales).</p></li>
+<li><p>Coeficiente de rugosidad de Manning para el componente hidráulico convencional.</p></li>
+<li><p>Parámetros reológicos del módulo MDF: esfuerzo de fluencia, viscosidad plástica y, según el esquema, coeficientes adicionales de resistencia turbulenta.</p></li>
+<li><p>Condiciones de frontera: hidrograma de caudal de entrada y, para el módulo MDF, una concentración de sedimentos que —a diferencia de FLO-2D— generalmente debe especificarse como valor <strong>constante</strong> durante la simulación, en lugar de acoplarse dinámicamente a un hidrograma de sedimentos <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p></li>
+</ul>
 </section>
-<section id="necesidades-de-datos">
-<h2>Necesidades de datos<a class="headerlink" href="#necesidades-de-datos" title="Link to this heading">#</a></h2>
-<p>El requisito de datos central es el DEM, que determina en gran medida la calidad de las simulaciones. Para el modelado del flujo, deben estar disponibles las propiedades del material, a saber: densidad, tamaño de grano, ángulo basal de fricción del material, y las cantidades de fluidos y sólidos. Si los materiales iniciales se estiman mediante el modelado de la estabilidad de laderas, se requieren la densidad, el tamaño de grano y el ángulo de fricción interna del suelo, así como la profundidad del suelo.El contenido de agua del suelo puede predecirse mediante los componentes hidrológicos del software.
-Finalmente, el coeficiente de rugosidad superficial de Manning se utiliza para estimar la fuerza de fricción de la fase líquida.</p>
-<p>Dependiendo de los procesos adicionales que se simulen, se requieren datos adicionales sobre las propiedades superficiales (cobertura vegetal, cohesión de raíces, y presencia de edificaciones), condiciones de borde (caudal en ríos, condición de borde para altura o velocidad del flujo, precipitación o deshielo), o información sobre canales (red de canales, dimensiones del canal).
-13.6.4.3 Salidas</p>
-<p>El software puede generar una variedad de variables del modelo en formato GeoTIFF o en cualquier otro formato soportado por GDAL.</p>
-<p>Las posibles salidas para cada paso temporal (dinámicas) incluyen: alturas de flujo, velocidades, alturas de fase, velocidades de fase, fallas de laderas, contenidos de agua, cantidades de infiltración, factores de seguridad, y muchas más, dependiendo de los procesos que estén activados.</p>
-<p>Para toda la simulación, se pueden proporcionar: altura máxima del flujo, velocidades máximas, y factores de seguridad mínimos.</p>
-<p>Dado que toda la funcionalidad del software LISEM está disponible desde el entorno de scripting relacionado, el usuario tiene acceso completo a todos los parámetros internos del modelo y puede especificar salidas personalizadas.
-Un ejemplo de una salida típica se muestra en la Fig. 13.12.</p>
+<section id="salidas">
+<h2>Salidas<a class="headerlink" href="#salidas" title="Link to this heading">#</a></h2>
+<p>Los resultados de HEC-RAS se visualizan mediante el módulo <strong>RAS Mapper</strong>, que permite comparar múltiples escenarios o planes de simulación de forma simultánea y exportarlos directamente como shapefiles o rásteres georreferenciados, una ventaja operativa relevante frente al visor de plano único de FLO-2D. Las variables de salida incluyen profundidad, velocidad, elevación de la superficie libre, y —en el módulo MDF— variables adicionales asociadas a la reología no newtoniana, como el esfuerzo cortante y la extensión del depósito final.</p>
 </section>
 <section id="calibracion-y-evaluacion">
 <h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Link to this heading">#</a></h2>
-<p>El software LISEM puede calibrarse de manera similar a muchos otros métodos de modelación físicamente basada.
-Siempre que se disponga de datos de observación sobre algunos parámetros, el usuario puede especificar una métrica de error de simulación personalizada y ejecutar una secuencia de calibración automática.
-LISEM implementa tanto métodos de fuerza bruta (<em>brute-force</em>) como métodos de descenso por gradiente.</p>
-<p>El enfoque de fuerza bruta varía los parámetros de entrada de forma regular para intentar cubrir todos los valores de entrada posibles y encontrar el mejor rendimiento del modelo.
-Aunque este método es fiable, puede aumentar exponencialmente los costos computacionales a medida que crece el número de parámetros.</p>
-<p>El método de descenso por gradiente intenta avanzar hacia un menor error del modelo determinando repetidamente el gradiente de la función de error del modelo (dependiendo de los valores de los parámetros) y ajustando los parámetros para obtener menores errores.
-LISEM utiliza el método <em>Armijo-backtracking</em> para determinar los tamaños de paso, garantizando una búsqueda estable de los mínimos errores del modelo.</p>
-<p>El enfoque más común es la calibración utilizando un inventario de las extensiones de los flujos de detritos.
-Aquí, los contornos de los flujos de detritos se mapean a partir de imágenes satelitales o aéreas.
-Los resultados del modelo se comparan como dos clasificadores binarios, utilizando una métrica como <em>Kappa de Cohen</em> o <em>Precisión-Recall</em>.</p>
-<p>El segundo método más común de calibración utiliza series temporales de altura de flujo o caudal.
-Las observaciones de estas variables pueden compararse con la salida del modelo utilizando, por ejemplo, el Error Cuadrático Medio (RMSE) o las métricas de error de <em>Nash–Sutcliffe</em>.</p>
-<div class="docutils container" id="id7">
+<ul class="simple">
+<li><p><strong>Rotura de presas de relaves</strong>: SRK Consulting <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span> comparó los tres esquemas numéricos de HEC-RAS con FLO-2D para una falla hipotética por sobrevertimiento en una presa de relaves, encontrando tiempos de cómputo de 4,58 h (onda difusiva), 1,15 h (SWE-ELM) y 1,85 h (SWE-EM) para un escenario de 24 h, frente a 0,33 h de FLO-2D; el esquema de onda difusiva de HEC-RAS proyectó además un área de inundación considerablemente más extensa y dispersa que los esquemas de conservación de momento.</p></li>
+<li><p><strong>Flujo de detritos de St. Sophia, California (2003)</strong>: Hinzmann <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id339">Hin23</a>]</span> encontró que el módulo HEC-RAS-MDF produjo calados (3,0–5,0 m) y velocidades (≈3,6 m/s) consistentes con el mapeo geomorfológico post-evento y los testimonios de testigos, en clara ventaja frente a la sobreestimación de profundidades y velocidades obtenida con FLO-2D para el mismo evento.</p></li>
+<li><p><strong>Aluvión del Estero San Alfonso, Chile (2017)</strong>: Pacheco, Martínez y Cuevas <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id340">PVMartinezCCV25</a>]</span> encontraron velocidades consistentes entre HEC-RAS 2D y FLO-2D (diferencias menores al 10 %), aunque HEC-RAS proyectó sistemáticamente áreas de inundación más extensas que FLO-2D.</p></li>
+</ul>
+<p>En síntesis, HEC-RAS ofrece mayor flexibilidad de malla, mayor rigor físico en sus esquemas de conservación completa de momento y herramientas de comparación de escenarios más versátiles, a cambio de mayores tiempos de cómputo y de una configuración del módulo MDF algo menos flexible que la de FLO-2D en cuanto a la variación temporal de la concentración de sedimentos. Al ser de código gratuito y contar con soporte técnico continuo del USACE, se ha convertido en una alternativa cada vez más utilizada frente a FLO-2D en la práctica profesional reciente.</p>
+<div class="docutils container" id="id8">
 <div role="list" class="citation-list">
-<div class="citation" id="id23" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>DCD+17<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
-<p>Olivier Delestre, Stéphane Cordier, Frédéric Darboux, Mingmin Du, François James, Christian Laguerre, Carine Lucas, and Olivier Planchon. FullSWOF: full Shallow-Water equations for Overland Flow. <em>Journal of Open Source Software</em>, 2(20):135, 2017. <a class="reference external" href="https://doi.org/10.21105/joss.00135">doi:10.21105/joss.00135</a>.</p>
+<div class="citation" id="id174" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Gib08</a><span class="fn-bracket">]</span></span>
+<p>Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.</p>
 </div>
-<div class="citation" id="id90" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Pud12</a><span class="fn-bracket">]</span></span>
-<p>Shiva P. Pudasaini. A general two-phase debris flow model. <em>Journal of Geophysical Research: Earth Surface</em>, 117(F3):F03010, 2012. <a class="reference external" href="https://doi.org/10.1029/2011JF002186">doi:10.1029/2011JF002186</a>.</p>
+<div class="citation" id="id339" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Hin23</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in hinzmann_2023_stsophia</strong></p>
 </div>
-<div class="citation" id="id91" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">PM19</a><span class="fn-bracket">]</span></span>
-<p>Shiva P. Pudasaini and Martin Mergili. A multi-phase mass flow model. <em>Journal of Geophysical Research: Earth Surface</em>, 124(12):2920–2942, 2019. <a class="reference external" href="https://doi.org/10.1029/2019JF005204">doi:10.1029/2019JF005204</a>.</p>
+<div class="citation" id="id340" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">PVMartinezCCV25</a><span class="fn-bracket">]</span></span>
+<p><strong>missing journal in pacheco_2025_esteroalfonso</strong></p>
 </div>
-<div class="citation" id="id107" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>vdBLvW+18<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
-<p>Bastian van den Bout, Luigi Lombardo, Cees van Westen, Annette Antonini, Arie C. Seijmonsbergen, and Henny Verstappen. Integration of two-phase solid-fluid equations in a catchment model for flashfloods, debris flows and shallow slope failures. <em>Environmental Modelling &amp; Software</em>, 105:1–16, 2018. <a class="reference external" href="https://doi.org/10.1016/j.envsoft.2018.03.017">doi:10.1016/j.envsoft.2018.03.017</a>.</p>
+<div class="citation" id="id338" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SRKConsulting22<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
+<p>SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.</p>
+</div>
+<div class="citation" id="id342" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">USACoEngineersHECenter23</a><span class="fn-bracket">]</span></span>
+<p>US Army Corps of Engineers, Hydrologic Engineering Center. HEC-RAS 2d user's manual. Technical Report, US Army Corps of Engineers, 2023.</p>
 </div>
 </div>
 </div>
@@ -624,22 +543,13 @@ Las observaciones de estas variables pueden compararse con la salida del modelo 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="08_Flow-R.html"
+       href="17_FLO2D.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Flow-R</p>
+        <p class="prev-next-title">FLO-2D</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="10_RandomWalk.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">r.randomwalk</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -659,9 +569,9 @@ Las observaciones de estas variables pueden compararse con la salida del modelo 
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes-del-modelo">Componentes del modelo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-comunes">Parámetros comunes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#necesidades-de-datos">Necesidades de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de Datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibracion-y-evaluacion">Calibración y Evaluación</a></li>
 </ul>
   </nav></div>

@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,6 +66,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FLO-2D" href="17_FLO2D.html" />
     <link rel="prev" title="Grfin Tools" href="15_Grfin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -217,7 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
@@ -240,6 +241,8 @@
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
 
     </div>
@@ -436,8 +439,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-implementados">Modelos reológicos implementados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporacion-de-sedimento-entrainment">Incorporación de sedimento (entrainment)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-software">Arquitectura del software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">Caso de aplicación: lahar de 2001 del volcán Popocatépetl</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-caso-de-estudio">Conclusiones del caso de estudio</a></li>
 </ul>
             </nav>
         </div>
@@ -449,11 +450,11 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado y adaptado de Sanz-Ramos & Bladé {cite}`sanzramos_blade_2025a` (manual de referencia del módulo Iber-NNF) y de Sanz-Ramos et al. {cite}`sanzramos_iber_2025` (caso de aplicación al lahar de 2001 del volcán Popocatépetl).</em></p>
+  <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado y adaptado de Sanz-Ramos & Bladé {cite}`sanzramos_blade_2025a` (manual de referencia del módulo Iber-NNF) y de Sanz-Ramos et al. {cite}`sanzramos_iber_2025`.</em></p>
 <section class="tex2jax_ignore mathjax_ignore" id="iber-nnf">
 <h1>Iber-NNF<a class="headerlink" href="#iber-nnf" title="Link to this heading">#</a></h1>
-<p><strong>Iber</strong> es un modelo hidrodinámico bidimensional de código abierto, desarrollado originalmente para la simulación de flujo en lámina libre en ríos y estuarios <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id25" title="Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería, 30(1):1–10, 2014. doi:10.1016/j.rimni.2012.07.004.">BladeCC+14</a>]</span>. Desde su primera versión en 2010, su ámbito de aplicación se ha ampliado progresivamente hasta incluir procesos morfodinámicos, transporte de sedimentos y contaminantes, dinámica de madera flotante, erosión de suelos, drenaje urbano y ecohidráulica. A partir de la versión 3, Iber incorpora <strong>Iber-NNF</strong> (<em>Non-Newtonian Flows</em>), un módulo específico para la simulación de flujos someros no newtonianos: avalanchas de nieve densas, propagación de relaves mineros, lahares y flujos hiperconcentrados (por ejemplo, flujos cargados de madera) <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
-<p>A diferencia del capítulo anterior, centrado en los fundamentos de los modelos reológicos (véase <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">Modelos reológicos</span></a>), este capítulo describe <strong>cómo Iber-NNF implementa dicha física</strong> dentro de un esquema numérico de volúmenes finitos, y presenta su validación en un caso real: el lahar de 2001 del volcán Popocatépetl (México).</p>
+<p><strong>Iber</strong> es un modelo hidrodinámico bidimensional de código abierto, desarrollado originalmente para la simulación de flujo en lámina libre en ríos y estuarios <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id20" title="Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería, 30(1):1–10, 2014. doi:10.1016/j.rimni.2012.07.004.">BladeCC+14</a>]</span>. Desde su primera versión en 2010, su ámbito de aplicación se ha ampliado progresivamente hasta incluir procesos morfodinámicos, transporte de sedimentos y contaminantes, dinámica de madera flotante, erosión de suelos, drenaje urbano y ecohidráulica. A partir de la versión 3, Iber incorpora <strong>Iber-NNF</strong> (<em>Non-Newtonian Flows</em>), un módulo específico para la simulación de flujos someros no newtonianos: avalanchas de nieve densas, propagación de relaves mineros, lahares y flujos hiperconcentrados (por ejemplo, flujos cargados de madera) <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id103" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
+<p>A diferencia del capítulo anterior, centrado en los fundamentos de los modelos reológicos (véase <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">Modelos reológicos</span></a>), este capítulo describe <strong>cómo Iber-NNF implementa dicha física</strong> dentro de un esquema numérico de volúmenes finitos.</p>
 <section id="ecuaciones-de-gobierno">
 <h2>Ecuaciones de gobierno<a class="headerlink" href="#ecuaciones-de-gobierno" title="Link to this heading">#</a></h2>
 <p>Iber-NNF resuelve, al igual que Iber, las ecuaciones de aguas someras promediadas en profundidad (2D-SWE) en un sistema de coordenadas cartesianas, adaptadas para incorporar la física no newtoniana como términos de fricción y para permitir pendientes pronunciadas:</p>
@@ -466,7 +467,7 @@
 <div class="math notranslate nohighlight">
 \[\frac{\partial q_{y}}{\partial t}+\frac{\partial}{\partial x}\left(\frac{q_{x}q_{y}}{h}\right)+\frac{\partial}{\partial y}\left(\frac{q_{y}^{2}}{h}+g'k_{p}\frac{h^{2}}{2}\right)=g'h(S_{o,y}-S_{f,y})\]</div>
 <p>donde <span class="math notranslate nohighlight">\(h\)</span> es la profundidad del flujo; <span class="math notranslate nohighlight">\(q_x\)</span>, <span class="math notranslate nohighlight">\(q_y\)</span> son las componentes del caudal específico; <span class="math notranslate nohighlight">\(g' = g\cos^2\theta\)</span> es la gravedad corregida por la pendiente del terreno (relevante en cauces y laderas empinadas); <span class="math notranslate nohighlight">\(k_p\)</span> es un factor de corrección de presión no hidrostática; <span class="math notranslate nohighlight">\(S_{o,x}\)</span>, <span class="math notranslate nohighlight">\(S_{o,y}\)</span> son las componentes de la pendiente del lecho; y <span class="math notranslate nohighlight">\(S_{f,x}\)</span>, <span class="math notranslate nohighlight">\(S_{f,y}\)</span> son las componentes de la pendiente de fricción, calculada según el modelo reológico seleccionado a partir de <span class="math notranslate nohighlight">\(\tau = \rho g h S_f\)</span>.</p>
-<p>Un desafío numérico central es garantizar el balance entre los términos de presión, la pendiente del lecho y la fricción, de forma que el flujo se detenga correctamente en pendientes pronunciadas y topografías complejas, sin generar movimientos artificiales. Para ello, Iber-NNF utiliza un esquema de discretización <em>upwind</em> que asegura este balance incluso en presencia de fricción no lineal y dependiente de la velocidad <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
+<p>Un desafío numérico central es garantizar el balance entre los términos de presión, la pendiente del lecho y la fricción, de forma que el flujo se detenga correctamente en pendientes pronunciadas y topografías complejas, sin generar movimientos artificiales. Para ello, Iber-NNF utiliza un esquema de discretización <em>upwind</em> que asegura este balance incluso en presencia de fricción no lineal y dependiente de la velocidad <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id103" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>.</p>
 </section>
 <section id="modelos-reologicos-implementados">
 <h2>Modelos reológicos implementados<a class="headerlink" href="#modelos-reologicos-implementados" title="Link to this heading">#</a></h2>
@@ -479,7 +480,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Manning <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id29" title="Ven Te Chow. Open-Channel Hydraulics. McGraw-Hill, New York, 1959.">Cho59</a>]</span></p></td>
+<tr class="row-even"><td><p>Manning <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id24" title="Ven Te Chow. Open-Channel Hydraulics. McGraw-Hill, New York, 1959.">Cho59</a>]</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\dfrac{n^2 v^2}{h^{4/3}}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
 </tr>
@@ -491,11 +492,11 @@
 <td><p><span class="math notranslate nohighlight">\(\dfrac{n^2 v}{h^{2}}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Bingham simplificado <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id24" title="Eugene C. Bingham. An investigation of the laws of plastic flow. Bulletin of the Bureau of Standards, 13(2):309–353, 1916. doi:10.6028/bulletin.304.">Bin16</a>]</span></p></td>
+<tr class="row-odd"><td><p>Bingham simplificado <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id19" title="Eugene C. Bingham. An investigation of the laws of plastic flow. Bulletin of the Bureau of Standards, 13(2):309–353, 1916. doi:10.6028/bulletin.304.">Bin16</a>]</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\dfrac{1}{\rho g h}\left(\omega\tau_y+3\dfrac{\mu_B v}{h}\right)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu_B\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Voellmy <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id119">Voe55</a>]</span></p></td>
+<tr class="row-even"><td><p>Voellmy <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id114">Voe55</a>]</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\dfrac{v^2}{\xi h}+\mu\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\xi\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span></p></td>
 </tr>
@@ -503,23 +504,23 @@
 <td><p>—</p></td>
 <td><p>cohesión, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\xi\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>O’Brien y Julien (cuadrático) <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id90" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">OBrienJ88</a>]</span></p></td>
+<tr class="row-even"><td><p>O’Brien y Julien (cuadrático) <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id85" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">OBrienJ88</a>]</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\dfrac{\tau_y}{\rho g h}+\dfrac{K\mu_B v}{8\rho g h^2}+\dfrac{n^2 v^2}{h^{4/3}}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(\mu_B\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(K\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Herschel–Bulkley <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id48" title="Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. Kolloid-Zeitschrift, 39(4):291–300, 1926. doi:10.1007/BF01432034.">HB26</a>]</span></p></td>
+<tr class="row-odd"><td><p>Herschel–Bulkley <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id43" title="Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. Kolloid-Zeitschrift, 39(4):291–300, 1926. doi:10.1007/BF01432034.">HB26</a>]</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\dfrac{1}{\rho g h}\left(\tau_y+k\left(\dfrac{v}{h}\right)^{\alpha}\right)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\tau_y\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Los parámetros de calibración de cada modelo son la densidad del flujo (<span class="math notranslate nohighlight">\(\rho\)</span>), el coeficiente de Manning (<span class="math notranslate nohighlight">\(n\)</span>), el esfuerzo de cedencia (<span class="math notranslate nohighlight">\(\tau_y\)</span>), la viscosidad dinámica (<span class="math notranslate nohighlight">\(\mu_B\)</span>), el coeficiente de fricción de Coulomb (<span class="math notranslate nohighlight">\(\mu\)</span>), el coeficiente de fricción turbulenta (<span class="math notranslate nohighlight">\(\xi\)</span>), un parámetro de resistencia (<span class="math notranslate nohighlight">\(K\)</span>), un parámetro de consistencia (<span class="math notranslate nohighlight">\(k\)</span>) y la potencia de corte (<span class="math notranslate nohighlight">\(\alpha\)</span>). El modelo de Coulomb puro, usado con frecuencia en la literatura de lahares, puede reproducirse dentro de Iber-NNF haciendo <span class="math notranslate nohighlight">\(\xi \to \infty\)</span> en el modelo de Voellmy, eliminando así el término viscoso-turbulento <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
+<p>Los parámetros de calibración de cada modelo son la densidad del flujo (<span class="math notranslate nohighlight">\(\rho\)</span>), el coeficiente de Manning (<span class="math notranslate nohighlight">\(n\)</span>), el esfuerzo de cedencia (<span class="math notranslate nohighlight">\(\tau_y\)</span>), la viscosidad dinámica (<span class="math notranslate nohighlight">\(\mu_B\)</span>), el coeficiente de fricción de Coulomb (<span class="math notranslate nohighlight">\(\mu\)</span>), el coeficiente de fricción turbulenta (<span class="math notranslate nohighlight">\(\xi\)</span>), un parámetro de resistencia (<span class="math notranslate nohighlight">\(K\)</span>), un parámetro de consistencia (<span class="math notranslate nohighlight">\(k\)</span>) y la potencia de corte (<span class="math notranslate nohighlight">\(\alpha\)</span>). El modelo de Coulomb puro, usado con frecuencia en la literatura de lahares, puede reproducirse dentro de Iber-NNF haciendo <span class="math notranslate nohighlight">\(\xi \to \infty\)</span> en el modelo de Voellmy, eliminando así el término viscoso-turbulento <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id102" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
 <p>Los fundamentos físicos, ventajas y limitaciones de cada uno de estos modelos se describen en detalle en el capítulo <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">Modelos reológicos</span></a>; este capítulo se centra en su implementación y desempeño dentro de Iber.</p>
 </section>
 <section id="incorporacion-de-sedimento-entrainment">
 <h2>Incorporación de sedimento (entrainment)<a class="headerlink" href="#incorporacion-de-sedimento-entrainment" title="Link to this heading">#</a></h2>
-<p>Iber-NNF incluye formulaciones de incorporación de material del lecho (<em>entrainment</em>), un proceso especialmente relevante para lahares y avalanchas de nieve densas, donde el volumen del flujo puede crecer sustancialmente a lo largo del recorrido <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>:</p>
+<p>Iber-NNF incluye formulaciones de incorporación de material del lecho (<em>entrainment</em>), un proceso especialmente relevante para lahares y avalanchas de nieve densas, donde el volumen del flujo puede crecer sustancialmente a lo largo del recorrido <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id103" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>:</p>
 <ul class="simple">
 <li><p><strong>Modelo de velocidad:</strong> <span class="math notranslate nohighlight">\(E = K_u(u - u_{crit})\)</span> cuando <span class="math notranslate nohighlight">\(u &gt; u_{crit}\)</span>.</p></li>
 <li><p><strong>Modelo de altura:</strong> función de la profundidad de la cubierta de nieve o sedimento disponible, con límites superiores de incorporación.</p></li>
@@ -529,108 +530,40 @@
 </section>
 <section id="arquitectura-del-software">
 <h2>Arquitectura del software<a class="headerlink" href="#arquitectura-del-software" title="Link to this heading">#</a></h2>
-<p>Iber-NNF está completamente integrado en la interfaz gráfica de Iber y se activa como un complemento (<em>Iber tools &gt;&gt; Plug-ins</em>). En su versión actual funciona como un módulo independiente, sin acoplamiento directo con otros módulos de cálculo de Iber (sedimentos, calidad de agua, etc.). Además de las variables hidrodinámicas estándar (profundidad, velocidad, cota de la superficie libre), Iber-NNF calcula variables específicas para la evaluación de amenaza, como la pendiente del terreno, la presión de impacto dinámica y sus valores máximos durante la simulación <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id108" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>. Las futuras versiones del módulo contemplan la incorporación de cómputo paralelo en GPU, siguiendo el mismo enfoque ya utilizado en los módulos de transporte de sedimentos y hábitat de Iber, con aceleraciones reportadas de más de 100 veces <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
-</section>
-<section id="caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">
-<h2>Caso de aplicación: lahar de 2001 del volcán Popocatépetl<a class="headerlink" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl" title="Link to this heading">#</a></h2>
-<p>Sanz-Ramos et al. <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id107" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span> utilizaron Iber-NNF para reconstruir el lahar de 2001 ocurrido en la quebrada de Huiloac, en el flanco norte del volcán Popocatépetl (México), un evento detonado por la fusión parcial del glaciar de la cumbre durante una fase eruptiva y que recorrió entre 12 y 13 km hasta su zona de depósito <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id27" title="Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. Journal of Volcanology and Geothermal Research, 131(3–4):351–369, 2004. doi:10.1016/S0377-0273(03)00413-X.">CPA04</a>]</span>.</p>
-<p><strong>Configuración del modelo:</strong></p>
-<ul class="simple">
-<li><p>Dominio de estudio de 1774 ha, con elevaciones entre 2500 y 3600 m s.n.m.</p></li>
-<li><p>Malla de aproximadamente 180 000 elementos triangulares, con un lado medio de 15 m, acorde con la resolución del modelo digital de terreno (DTM) del INEGI.</p></li>
-<li><p>Hidrograma de entrada con caudal pico de 335 m³/s y una duración de 3 h, derivado de registros de geófonos a lo largo de la quebrada <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id87" title="Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). Geomorphology, 92(1–2):91–99, 2007. doi:10.1016/j.geomorph.2007.02.011.">MunozSMPCRodriguez07</a>]</span>.</p></li>
-<li><p>Densidad del flujo de 1740 kg/m³.</p></li>
-<li><p>Parámetros de cada modelo reológico calibrados para reproducir la distancia de alcance observada por Capra et al. <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id27" title="Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. Journal of Volcanology and Geothermal Research, 131(3–4):351–369, 2004. doi:10.1016/S0377-0273(03)00413-X.">CPA04</a>]</span>.</p></li>
-</ul>
-<p><strong>Resultados principales:</strong></p>
-<p>Los modelos que solo incluyen un término de fricción dependiente de la velocidad (Manning, Viscoso, Dilatante) no lograron detener el flujo ni en pendientes suaves ni pronunciadas, generando una extensión de inundación mayor a 718 ha y velocidades de llegada muy rápidas (&lt; 30 min), en clara discrepancia con las observaciones de campo. Los modelos de Voellmy, Bingham, O’Brien-Julien y Herschel-Bulkley sí reprodujeron adecuadamente el cese del movimiento y la extensión observada:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Modelo</p></th>
-<th class="head"><p>Área inundada</p></th>
-<th class="head"><p>Profundidad máxima</p></th>
-<th class="head"><p>Tiempo de llegada</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Manning</p></td>
-<td><p>&gt; 718 ha</p></td>
-<td><p>~5 m (aguas arriba)</p></td>
-<td><p>&lt; 0:30 h (no se detiene)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Voellmy</p></td>
-<td><p>149 ha</p></td>
-<td><p>&gt; 5 m (margen izquierda)</p></td>
-<td><p>3:40–3:50 h</p></td>
-</tr>
-<tr class="row-even"><td><p>Bingham</p></td>
-<td><p>65 ha</p></td>
-<td><p>~4 m</p></td>
-<td><p>3:40–3:50 h</p></td>
-</tr>
-<tr class="row-odd"><td><p>O’Brien–Julien</p></td>
-<td><p>74 ha</p></td>
-<td><p>4.0 m</p></td>
-<td><p>3:00–3:10 h</p></td>
-</tr>
-<tr class="row-even"><td><p>Herschel–Bulkley</p></td>
-<td><p>88 ha</p></td>
-<td><p>4.8 m</p></td>
-<td><p>2:50–3:00 h</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Las velocidades simuladas se compararon con las velocidades de campo estimadas por superelevación en nueve puntos de control por Muñoz-Salinas et al. <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id87" title="Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). Geomorphology, 92(1–2):91–99, 2007. doi:10.1016/j.geomorph.2007.02.011.">MunozSMPCRodriguez07</a>]</span>. El modelo de Manning subestimó sistemáticamente la velocidad porque el flujo se dispersó en un área excesivamente amplia en lugar de concentrarse en la quebrada; Voellmy sobreestimó la velocidad en todos los puntos; y Bingham fue el que mejor reprodujo las velocidades observadas.</p>
-<p>El tiempo de cómputo de cada simulación fue inferior a 10 minutos (malla de 15 m), aunque los autores señalan que una discretización más fina —necesaria en quebradas más estrechas o para una mejor resolución del frente— aumentaría considerablemente el costo computacional, lo que motiva el desarrollo de la versión con aceleración por GPU.</p>
-<p><strong>Sensibilidad a la resolución topográfica:</strong> los autores repitieron la simulación (modelo de Bingham) con DTM de 5, 15, 30, 60, 90 y 120 m. Los DTM más gruesos (90–120 m) suavizan excesivamente la geometría de la quebrada y no logran confinar el flujo; los DTM de 30–60 m reproducen mejor las ramificaciones observadas en la “zona de amenaza alta”; y el DTM de 5 m, sin la opción de relleno de depresiones (”<em>fill sinks</em>”) de Iber, generó sumideros numéricos que detuvieron artificialmente el flujo antes de lo observado.</p>
-</section>
-<section id="conclusiones-del-caso-de-estudio">
-<h2>Conclusiones del caso de estudio<a class="headerlink" href="#conclusiones-del-caso-de-estudio" title="Link to this heading">#</a></h2>
-<p>La reconstrucción del lahar de 2001 en el Popocatépetl confirma que <strong>la elección del modelo reológico es tan determinante como la calidad de la topografía</strong> para reproducir correctamente tanto la fase dinámica como la fase de depósito de un lahar. Los modelos puramente dependientes de la velocidad (tipo Manning) resultan inadecuados porque no pueden representar el cese del movimiento; los modelos con un término de cedencia explícito (Bingham, O’Brien-Julien, Herschel-Bulkley) o con fricción de Coulomb (Voellmy) sí lo logran, aunque combinaciones distintas de parámetros pueden producir resultados de alcance comparables, lo que subraya la importancia de una calibración cuidadosa y de la disponibilidad de datos de campo para restringir el rango de parámetros plausibles.</p>
-<div class="docutils container" id="id18">
+<p>Iber-NNF está completamente integrado en la interfaz gráfica de Iber y se activa como un complemento (<em>Iber tools &gt;&gt; Plug-ins</em>). En su versión actual funciona como un módulo independiente, sin acoplamiento directo con otros módulos de cálculo de Iber (sedimentos, calidad de agua, etc.). Además de las variables hidrodinámicas estándar (profundidad, velocidad, cota de la superficie libre), Iber-NNF calcula variables específicas para la evaluación de amenaza, como la pendiente del terreno, la presión de impacto dinámica y sus valores máximos durante la simulación <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id103" title="Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.">SRBlade25</a>]</span>. Las futuras versiones del módulo contemplan la incorporación de cómputo paralelo en GPU, siguiendo el mismo enfoque ya utilizado en los módulos de transporte de sedimentos y hábitat de Iber, con aceleraciones reportadas de más de 100 veces <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id102" title="Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. Revista Mexicana de Ciencias Geológicas, 42(3):160–169, 2025. doi:10.22201/igc.20072902e.2025.3.1882.">SRBladeDiezH+25</a>]</span>.</p>
+<div class="docutils container" id="id13">
 <div role="list" class="citation-list">
-<div class="citation" id="id24" role="doc-biblioentry">
+<div class="citation" id="id19" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Bin16</a><span class="fn-bracket">]</span></span>
 <p>Eugene C. Bingham. An investigation of the laws of plastic flow. <em>Bulletin of the Bureau of Standards</em>, 13(2):309–353, 1916. <a class="reference external" href="https://doi.org/10.6028/bulletin.304">doi:10.6028/bulletin.304</a>.</p>
 </div>
-<div class="citation" id="id25" role="doc-biblioentry">
+<div class="citation" id="id20" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">BladeCC+14</a><span class="fn-bracket">]</span></span>
 <p>Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. <em>Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería</em>, 30(1):1–10, 2014. <a class="reference external" href="https://doi.org/10.1016/j.rimni.2012.07.004">doi:10.1016/j.rimni.2012.07.004</a>.</p>
 </div>
-<div class="citation" id="id27" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>CPA04<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id14">1</a>,<a role="doc-backlink" href="#id16">2</a>)</span>
-<p>Lucia Capra, Miguel A. Poblete, and Roberto Alvarado. The 1997 and 2001 lahars of Popocatépetl volcano (Central Mexico): textural and sedimentological constraints on their origin and hazards. <em>Journal of Volcanology and Geothermal Research</em>, 131(3–4):351–369, 2004. <a class="reference external" href="https://doi.org/10.1016/S0377-0273(03)00413-X">doi:10.1016/S0377-0273(03)00413-X</a>.</p>
-</div>
-<div class="citation" id="id29" role="doc-biblioentry">
+<div class="citation" id="id24" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Cho59</a><span class="fn-bracket">]</span></span>
 <p>Ven Te Chow. <em>Open-Channel Hydraulics</em>. McGraw-Hill, New York, 1959.</p>
 </div>
-<div class="citation" id="id48" role="doc-biblioentry">
+<div class="citation" id="id43" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">HB26</a><span class="fn-bracket">]</span></span>
 <p>Winslow H. Herschel and Ronald Bulkley. Konsistenzmessungen von Gummi-Benzollösungen. <em>Kolloid-Zeitschrift</em>, 39(4):291–300, 1926. <a class="reference external" href="https://doi.org/10.1007/BF01432034">doi:10.1007/BF01432034</a>.</p>
 </div>
-<div class="citation" id="id87" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>MunozSMPCRodriguez07<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id15">1</a>,<a role="doc-backlink" href="#id17">2</a>)</span>
-<p>Esperanza Muñoz-Salinas, Vlad C. Manea, David Palacios, and Marta Castillo-Rodríguez. Estimation of lahar flow velocity on Popocatépetl volcano (Mexico). <em>Geomorphology</em>, 92(1–2):91–99, 2007. <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2007.02.011">doi:10.1016/j.geomorph.2007.02.011</a>.</p>
-</div>
-<div class="citation" id="id90" role="doc-biblioentry">
+<div class="citation" id="id85" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">OBrienJ88</a><span class="fn-bracket">]</span></span>
 <p>James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. <em>Journal of Hydraulic Engineering</em>, 114(8):877–887, 1988. <a class="reference external" href="https://doi.org/10.1061/(ASCE)0733-9429(1988)114:8(877)">doi:10.1061/(ASCE)0733-9429(1988)114:8(877)</a>.</p>
 </div>
-<div class="citation" id="id108" role="doc-biblioentry">
+<div class="citation" id="id103" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>SRBlade25<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id10">3</a>,<a role="doc-backlink" href="#id11">4</a>)</span>
 <p>Marcos Sanz-Ramos and Ernest Bladé. Iber-nnf: non-newtonian shallow-flow module reference manual. 2025. Scipedia, DOI: 10.23967/iber.2025.02.</p>
 </div>
-<div class="citation" id="id107" role="doc-biblioentry">
+<div class="citation" id="id102" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>SRBladeDiezH+25<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id12">2</a>,<a role="doc-backlink" href="#id13">3</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id12">2</a>)</span>
 <p>Marcos Sanz-Ramos, Ernest Bladé, Andrés Díez-Herrero, Daniel Vázquez-Tarrío, Julio Garrote, Nieves Sánchez, and Inés Galindo. An analysis of rheological models for lahar modelling with Iber. <em>Revista Mexicana de Ciencias Geológicas</em>, 42(3):160–169, 2025. <a class="reference external" href="https://doi.org/10.22201/igc.20072902e.2025.3.1882">doi:10.22201/igc.20072902e.2025.3.1882</a>.</p>
 </div>
-<div class="citation" id="id119" role="doc-biblioentry">
+<div class="citation" id="id114" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Voe55</a><span class="fn-bracket">]</span></span>
 <p><strong>missing publisher in voellmy_lawinen_1955</strong></p>
 </div>
@@ -678,6 +611,15 @@
         <p class="prev-next-title">Grfin Tools</p>
       </div>
     </a>
+    <a class="right-next"
+       href="17_FLO2D.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">FLO-2D</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -700,8 +642,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-reologicos-implementados">Modelos reológicos implementados</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporacion-de-sedimento-entrainment">Incorporación de sedimento (entrainment)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arquitectura-del-software">Arquitectura del software</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-de-aplicacion-lahar-de-2001-del-volcan-popocatepetl">Caso de aplicación: lahar de 2001 del volcán Popocatépetl</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones-del-caso-de-estudio">Conclusiones del caso de estudio</a></li>
 </ul>
   </nav></div>
 

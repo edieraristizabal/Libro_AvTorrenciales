@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Componente hidrometeorológico en la ocurrencia de avenidas torrenciales" href="02_Hidrometeorologia.html" />
+    <link rel="next" title="La Lluvia como factor detonante" href="02_Hidrometeorologia.html" />
     <link rel="prev" title="Avenidas torrenciales: clasificación y origen" href="02_Flujos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -153,6 +153,10 @@
   
 
   
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
 
     </header>
@@ -212,7 +216,7 @@
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Incorporación de sedimentos (Entrainment)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
@@ -235,6 +239,8 @@
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
 
     </div>
@@ -404,7 +410,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -420,6 +428,18 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escala-de-amplificacion-de-volumen-bulking">Escala de amplificación de volumen (<em>bulking</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismos-fisicos-de-incorporacion">Mecanismos físicos de incorporación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoques-de-modelacion-matematica-del-entrainment">Enfoques de modelación matemática del entrainment</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -432,69 +452,113 @@
   <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Kaitna et al. {cite}`kaitna_causes_2024`* Causes and triggers y Kang et al. {cite}`kang_sediment_2024` Sediment entrainment and deposition. y Ballesteros et al. {cite}`unknown_2024a_ballesteros` Debris flow dating and magnitude reconstruction en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
 <section class="tex2jax_ignore mathjax_ignore" id="incorporacion-de-sedimentos-entrainment">
 <h1>Incorporación de sedimentos (Entrainment)<a class="headerlink" href="#incorporacion-de-sedimentos-entrainment" title="Link to this heading">#</a></h1>
-<p>Un segundo desafío destacado, que está relacionado con el primero, implica tener en cuenta los efectos de la incorporación o deposición de escombros a lo largo de las trayectorias del flujo. Un gran conjunto de evidencia indica que la incorporación puede aumentar enormemente los volúmenes de los flujos de escombros y el alcance de los peligros aguas abajo <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id199" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>, <a class="reference internal" href="#id49" title="Matthias Jakob and Oldrich Hungr, editors. Debris-flow Hazards and Related Phenomena. Springer, Berlin, 2005. doi:10.1007/b138657.">JH05</a>, <a class="reference internal" href="#id241" title="Martin et al. Mergili. Process-based entrainment and deposition modelling in gravitational mass flows. 2016.">Mer16a</a>]</span>. La inclusión de términos de incorporación en los modelos promediados en profundidad de flujos de escombros es trivial, aunque las formas apropiadas de los términos deben cumplir con las restricciones de conservación de masa y momento identificadas por Iverson y Ouyang <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id199" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>]</span>.</p>
-<p>Por otro lado, cualquier término de incorporación incluye necesariamente al menos un parámetro que no puede ser restringido por las leyes de conservación, y por lo tanto, el cálculo preciso de las tasas de incorporación que evolucionan en el tiempo y el espacio sigue siendo un problema fronterizo. Los experimentos a gran escala han revelado algunas características clave del proceso de incorporación <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id316" title="Mark E. Reid, Scott W. McCoy, and others. Large flume experiments on debris-flow entrainment mechanisms. 2016.">RM+16</a>, <a class="reference internal" href="#id312" title="Vitalii et al. Zaginaev. Reconstruction of glacial lake outburst floods and debris flows triggered by natural dam failure. 2019.">Zag19</a>]</span>, y varios modelos del proceso han sido propuestos (Han et al., 2015), pero hasta donde sabemos, ninguno ha sido probado suficientemente como para utilizarse con gran confianza en la evaluación de amenazas.</p>
+<p>Un segundo desafío destacado, que está relacionado con el primero, implica tener en cuenta los efectos de la incorporación o deposición de escombros a lo largo de las trayectorias del flujo. Un gran conjunto de evidencia indica que la incorporación puede aumentar enormemente los volúmenes de los flujos de escombros y el alcance de los peligros aguas abajo <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id207" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>, <a class="reference internal" href="#id57" title="Matthias Jakob and Oldrich Hungr, editors. Debris-flow Hazards and Related Phenomena. Springer, Berlin, 2005. doi:10.1007/b138657.">JH05</a>, <a class="reference internal" href="#id249" title="Martin et al. Mergili. Process-based entrainment and deposition modelling in gravitational mass flows. 2016.">Mer16a</a>]</span>. La inclusión de términos de incorporación en los modelos promediados en profundidad de flujos de escombros es trivial, aunque las formas apropiadas de los términos deben cumplir con las restricciones de conservación de masa y momento identificadas por Iverson y Ouyang <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id207" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>]</span>.</p>
+<p>Por otro lado, cualquier término de incorporación incluye necesariamente al menos un parámetro que no puede ser restringido por las leyes de conservación, y por lo tanto, el cálculo preciso de las tasas de incorporación que evolucionan en el tiempo y el espacio sigue siendo un problema fronterizo. Los experimentos a gran escala han revelado algunas características clave del proceso de incorporación <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id324" title="Mark E. Reid, Scott W. McCoy, and others. Large flume experiments on debris-flow entrainment mechanisms. 2016.">RM+16</a>, <a class="reference internal" href="#id320" title="Vitalii et al. Zaginaev. Reconstruction of glacial lake outburst floods and debris flows triggered by natural dam failure. 2019.">Zag19</a>]</span>, y varios modelos del proceso han sido propuestos (Han et al., 2015), pero hasta donde sabemos, ninguno ha sido probado suficientemente como para utilizarse con gran confianza en la evaluación de amenazas.</p>
 <p>En la práctica, siempre se adopta el mapeo de campo para estimar la diferencia en el volumen del flujo de escombros antes y después del evento, lo cual generalmente se considera como volumen erosionado si la cola del flujo de escombros se mueve fuera del área fuente al final del evento. Sin embargo, en el análisis retrospectivo de un flujo de escombros real, la tasa de incorporación (<em>entrainment</em>) en cada paso de tiempo debe calcularse utilizando modelos de incorporación, ya que la tasa de erosión es un parámetro de entrada en el análisis del alcance (<em>runout</em>). Puede ser cierto que un modelo de incorporación no pueda describir el proceso de erosión de todos los tipos de suelo. Sin embargo, con el avance en la comprensión del mecanismo de incorporación, la selección del modelo de incorporación puede mejorarse considerando el mecanismo de erosión dominante así como los tipos de suelo.</p>
-<p>Para calcular la incorporación en un flujo de escombros real, se puede utilizar un modelo de alcance (<em>runout</em>) <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id96" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. En los modelos de alcance, el comportamiento reológico de los materiales suele calcularse de acuerdo con modelos friccionales, viscosos y Voellmy. Algunos de los modelos incorporan la tasa de erosión a través de un enfoque empírico, como <em>DAN3D</em> <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id236" title="Scott McDougall and Oldrich Hungr. Dynamic modelling of entrainment in rapid landslides (dan3d). 2006.">MH06</a>]</span> y <em>avaflow</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id76" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span>. Sin embargo, como se discute en Mergili et al. <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id76" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span> y Han et al. <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id303" title="Zheng et al. Han. Entrainment mechanisms in mass-flow modelling: a review. 2021.">Han21</a>]</span>, los modelos mecánicos de erosión basados en procesos <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id239" title="Martin et al. Mergili. Process-based erosion and entrainment modelling for gravitational mass flows. 2016.">Mer16b</a>]</span> son mejores para describir el proceso de erosión y transporte. Por lo tanto, otros modelos de alcance han incluido la tasa de erosión mediante un enfoque analítico, como <em>FLATModel</em> <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id75" title="Vicente Medina, Marcel Hürlimann, and Allen Bateman. Application of FLATmodel, a 2D finite volume code, to debris flows in the northeastern part of the Iberian Peninsula. Landslides, 5(1):127–142, 2008. doi:10.1007/s10346-007-0102-3.">MHB08</a>]</span> y <em>Massflow</em> (Ouyang et al., 2015).</p>
-<p>En el análisis de alcance con incorporación, el modelo de alcance con incorporación generalmente se calibra con base en las observaciones disponibles, como la distancia de alcance, el volumen final estimado y las velocidades máximas del flujo en ubicaciones específicas, calculadas a partir de sobrelevación (<em>runup</em>) o super-elevación <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id155" title="Tim R. H. Davies. Runup and superelevation in debris-flow runout back-analysis. 1999.">Dav99</a>, <a class="reference internal" href="#id199" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>, <a class="reference internal" href="#id76" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span>. Sin embargo, el proceso de calibración siempre es desafiante debido a las mediciones limitadas en campo. Por lo tanto, los parámetros en los modelos de incorporación se determinan empíricamente o con base en investigaciones previas. Las características cinemáticas, como la velocidad y la altura del flujo, y las características de la erosión, como la tasa de erosión y la profundidad de erosión, se calculan posteriormente (Kang &amp; Chan, 2018a). Además, generalmente se reportan la velocidad media y la variación del volumen total, y rara vez se describen tasas locales de erosión, excepto en Kang y Chan <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id212" title="Changjun Kang and Darwin Chan. Local entrainment rates in debris-flow runout modelling. 2022.">KC22</a>]</span>.</p>
-<div class="docutils container" id="id13">
+<p>Para calcular la incorporación en un flujo de escombros real, se puede utilizar un modelo de alcance (<em>runout</em>) <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id104" title="Shiva P. Pudasaini. A general two-phase debris flow model. Journal of Geophysical Research: Earth Surface, 117(F3):F03010, 2012. doi:10.1029/2011JF002186.">Pud12</a>]</span>. En los modelos de alcance, el comportamiento reológico de los materiales suele calcularse de acuerdo con modelos friccionales, viscosos y Voellmy. Algunos de los modelos incorporan la tasa de erosión a través de un enfoque empírico, como <em>DAN3D</em> <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id244" title="Scott McDougall and Oldrich Hungr. Dynamic modelling of entrainment in rapid landslides (dan3d). 2006.">MH06</a>]</span> y <em>avaflow</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id84" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span>. Sin embargo, como se discute en Mergili et al. <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id84" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span> y Han et al. <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id311" title="Zheng et al. Han. Entrainment mechanisms in mass-flow modelling: a review. 2021.">Han21</a>]</span>, los modelos mecánicos de erosión basados en procesos <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id247" title="Martin et al. Mergili. Process-based erosion and entrainment modelling for gravitational mass flows. 2016.">Mer16b</a>]</span> son mejores para describir el proceso de erosión y transporte. Por lo tanto, otros modelos de alcance han incluido la tasa de erosión mediante un enfoque analítico, como <em>FLATModel</em> <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id83" title="Vicente Medina, Marcel Hürlimann, and Allen Bateman. Application of FLATmodel, a 2D finite volume code, to debris flows in the northeastern part of the Iberian Peninsula. Landslides, 5(1):127–142, 2008. doi:10.1007/s10346-007-0102-3.">MHB08</a>]</span> y <em>Massflow</em> (Ouyang et al., 2015).</p>
+<p>En el análisis de alcance con incorporación, el modelo de alcance con incorporación generalmente se calibra con base en las observaciones disponibles, como la distancia de alcance, el volumen final estimado y las velocidades máximas del flujo en ubicaciones específicas, calculadas a partir de sobrelevación (<em>runup</em>) o super-elevación <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id163" title="Tim R. H. Davies. Runup and superelevation in debris-flow runout back-analysis. 1999.">Dav99</a>, <a class="reference internal" href="#id207" title="Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.">IO15</a>, <a class="reference internal" href="#id84" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">MFKP17</a>]</span>. Sin embargo, el proceso de calibración siempre es desafiante debido a las mediciones limitadas en campo. Por lo tanto, los parámetros en los modelos de incorporación se determinan empíricamente o con base en investigaciones previas. Las características cinemáticas, como la velocidad y la altura del flujo, y las características de la erosión, como la tasa de erosión y la profundidad de erosión, se calculan posteriormente (Kang &amp; Chan, 2018a). Además, generalmente se reportan la velocidad media y la variación del volumen total, y rara vez se describen tasas locales de erosión, excepto en Kang y Chan <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id220" title="Changjun Kang and Darwin Chan. Local entrainment rates in debris-flow runout modelling. 2022.">KC22</a>]</span>.</p>
+<section id="escala-de-amplificacion-de-volumen-bulking">
+<h2>Escala de amplificación de volumen (<em>bulking</em>)<a class="headerlink" href="#escala-de-amplificacion-de-volumen-bulking" title="Link to this heading">#</a></h2>
+<p>La incorporación de sedimento a lo largo del recorrido puede modificar drásticamente el volumen y el comportamiento reológico del flujo; el volumen final depositado puede superar en varios órdenes de magnitud al volumen movilizado inicialmente en la zona de falla <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id361" title="María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. Earth-Science Reviews, 2022.">TVRCanonEVGT22</a>]</span>. Algunos ejemplos documentados de esta amplificación son:</p>
+<ul class="simple">
+<li><p><strong>Lahar del Nevado del Ruiz, Colombia (1985)</strong>: incrementó su volumen inicial entre 2 y 4 veces por la incorporación de material glaciar, depósitos volcánicos y sedimentos fluviales saturados a lo largo de los cauces del Lagunillas y del Chinchiná.</p></li>
+<li><p><strong>Flujo de detritos de Mocoa, Colombia (2017)</strong>: experimentó un factor de amplificación de volumen de aproximadamente 7,5 veces respecto a la masa deslizada inicialmente en las cabeceras de las quebradas Taruca y Mulato <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id361" title="María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. Earth-Science Reviews, 2022.">TVRCanonEVGT22</a>]</span>.</p></li>
+<li><p><strong>Dolomitas, Italia (1997)</strong>: un flujo de detritos iniciado con un volumen menor acumuló por arrastre en el canal un volumen final en el que el material incorporado representó cerca del 90 % del depósito total <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id362" title="Chuan Kang and others. Flume modeling of debris flows. In Matthias Jakob, Scott McDougall, and Paul Santi, editors, Advances in Debris-flow Science and Practice. 2024.">K+24</a>]</span>.</p></li>
+</ul>
+<section id="mecanismos-fisicos-de-incorporacion">
+<h3>Mecanismos físicos de incorporación<a class="headerlink" href="#mecanismos-fisicos-de-incorporacion" title="Link to this heading">#</a></h3>
+<p>La incorporación de sedimento ocurre principalmente a través de dos mecanismos complementarios <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id361" title="María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. Earth-Science Reviews, 2022.">TVRCanonEVGT22</a>]</span>:</p>
+<ol class="arabic simple">
+<li><p><strong>Desestabilización e incisión del lecho</strong>: ocurre por las fuerzas de arrastre cortante que el flujo aplica sobre la superficie erodible, asistida por la pérdida súbita de resistencia del lecho saturado debido a la carga no drenada (<em>undrained loading</em>), las presiones de impacto y la licuefacción del material preexistente <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id363" title="Scott McDougall. 2014 Canadian Geotechnical Colloquium: landslide runout analysis — current practice and challenges. Canadian Geotechnical Journal, 2017.">McD17</a>]</span>.</p></li>
+<li><p><strong>Socavación lateral de bancas (<em>bank undercutting</em>)</strong>: la incisión y el descenso vertical del fondo del canal socavan el pie de los taludes marginales, que suelen encontrarse en equilibrio límite, provocando su colapso progresivo hacia el flujo.</p></li>
+</ol>
+</section>
+<section id="enfoques-de-modelacion-matematica-del-entrainment">
+<h3>Enfoques de modelación matemática del entrainment<a class="headerlink" href="#enfoques-de-modelacion-matematica-del-entrainment" title="Link to this heading">#</a></h3>
+<p>Para representar este fenómeno en los modelos de propagación se han propuesto tres aproximaciones de complejidad creciente <span class="bibtex-citation" id="id18">[<a class="reference internal" href="#id361" title="María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. Earth-Science Reviews, 2022.">TVRCanonEVGT22</a>]</span>:</p>
+<ul class="simple">
+<li><p><strong>Modelos empíricos/heurísticos</strong>: prescriben una tasa de crecimiento volumétrico constante o una tasa de erosión específica definida a priori por el usuario, con base en observaciones de campo de eventos similares <span class="bibtex-citation" id="id19">[<a class="reference internal" href="#id363" title="Scott McDougall. 2014 Canadian Geotechnical Colloquium: landslide runout analysis — current practice and challenges. Canadian Geotechnical Journal, 2017.">McD17</a>]</span>.</p></li>
+<li><p><strong>Modelos basados en procesos físicos (balance de fuerzas límite)</strong>: calculan la profundidad o tasa de erosión instantánea a partir del balance entre el esfuerzo cortante basal aplicado por el flujo y la resistencia límite al corte del lecho erodible, asumiendo que el material erosionado se acelera instantáneamente hasta alcanzar la velocidad media del flujo.</p></li>
+<li><p><strong>Formulaciones consistentes de conservación de momentum</strong>: exigen que las ecuaciones incorporen no solo el balance de masa, sino también un término de producción de cantidad de movimiento inducido por la masa recién erosionada; de lo contrario, el modelo resulta físicamente inconsistente y subestima la disipación de energía del sistema. Un desarrollo reciente en esta línea es el número adimensional de <em>mobility scaling</em>, propuesto por Pudasaini y Krautblatter <span class="bibtex-citation" id="id20">[<a class="reference internal" href="#id346" title="Shiva P. Pudasaini and Michael Krautblatter. The mechanics of landslide mobility with erosion. 2021.">PK21</a>]</span>, que permite anticipar analíticamente el efecto del entrainment sobre la movilidad final del flujo.</p></li>
+</ul>
+<div class="docutils container" id="id21">
 <div role="list" class="citation-list">
-<div class="citation" id="id155" role="doc-biblioentry">
+<div class="citation" id="id163" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">Dav99</a><span class="fn-bracket">]</span></span>
 <p>Tim R. H. Davies. Runup and superelevation in debris-flow runout back-analysis. 1999.</p>
 </div>
-<div class="citation" id="id303" role="doc-biblioentry">
+<div class="citation" id="id311" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Han21</a><span class="fn-bracket">]</span></span>
 <p>Zheng et al. Han. Entrainment mechanisms in mass-flow modelling: a review. 2021.</p>
 </div>
-<div class="citation" id="id199" role="doc-biblioentry">
+<div class="citation" id="id207" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>IO15<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id11">3</a>)</span>
 <p>Richard M. Iverson and Chaojun Ouyang. Entrainment of bed material by earth-surface mass flows: review and reformulation of depth-integrated theory. 2015.</p>
 </div>
-<div class="citation" id="id49" role="doc-biblioentry">
+<div class="citation" id="id57" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">JH05</a><span class="fn-bracket">]</span></span>
 <p>Matthias Jakob and Oldrich Hungr, editors. <em>Debris-flow Hazards and Related Phenomena</em>. Springer, Berlin, 2005. <a class="reference external" href="https://doi.org/10.1007/b138657">doi:10.1007/b138657</a>.</p>
 </div>
-<div class="citation" id="id212" role="doc-biblioentry">
+<div class="citation" id="id220" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">KC22</a><span class="fn-bracket">]</span></span>
 <p>Changjun Kang and Darwin Chan. Local entrainment rates in debris-flow runout modelling. 2022.</p>
 </div>
-<div class="citation" id="id236" role="doc-biblioentry">
+<div class="citation" id="id362" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">K+24</a><span class="fn-bracket">]</span></span>
+<p>Chuan Kang and others. Flume modeling of debris flows. In Matthias Jakob, Scott McDougall, and Paul Santi, editors, <em>Advances in Debris-flow Science and Practice</em>. 2024.</p>
+</div>
+<div class="citation" id="id363" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>McD17<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id17">1</a>,<a role="doc-backlink" href="#id19">2</a>)</span>
+<p>Scott McDougall. 2014 Canadian Geotechnical Colloquium: landslide runout analysis — current practice and challenges. <em>Canadian Geotechnical Journal</em>, 2017.</p>
+</div>
+<div class="citation" id="id244" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">MH06</a><span class="fn-bracket">]</span></span>
 <p>Scott McDougall and Oldrich Hungr. Dynamic modelling of entrainment in rapid landslides (dan3d). 2006.</p>
 </div>
-<div class="citation" id="id75" role="doc-biblioentry">
+<div class="citation" id="id83" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">MHB08</a><span class="fn-bracket">]</span></span>
 <p>Vicente Medina, Marcel Hürlimann, and Allen Bateman. Application of FLATmodel, a 2D finite volume code, to debris flows in the northeastern part of the Iberian Peninsula. <em>Landslides</em>, 5(1):127–142, 2008. <a class="reference external" href="https://doi.org/10.1007/s10346-007-0102-3">doi:10.1007/s10346-007-0102-3</a>.</p>
 </div>
-<div class="citation" id="id76" role="doc-biblioentry">
+<div class="citation" id="id84" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>MFKP17<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id7">2</a>,<a role="doc-backlink" href="#id11">3</a>)</span>
 <p>Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. <em>Geoscientific Model Development</em>, 10(2):553–569, 2017. <a class="reference external" href="https://doi.org/10.5194/gmd-10-553-2017">doi:10.5194/gmd-10-553-2017</a>.</p>
 </div>
-<div class="citation" id="id241" role="doc-biblioentry">
+<div class="citation" id="id249" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Mer16a</a><span class="fn-bracket">]</span></span>
 <p>Martin et al. Mergili. Process-based entrainment and deposition modelling in gravitational mass flows. 2016.</p>
 </div>
-<div class="citation" id="id239" role="doc-biblioentry">
+<div class="citation" id="id247" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">Mer16b</a><span class="fn-bracket">]</span></span>
 <p>Martin et al. Mergili. Process-based erosion and entrainment modelling for gravitational mass flows. 2016.</p>
 </div>
-<div class="citation" id="id96" role="doc-biblioentry">
+<div class="citation" id="id104" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Pud12</a><span class="fn-bracket">]</span></span>
 <p>Shiva P. Pudasaini. A general two-phase debris flow model. <em>Journal of Geophysical Research: Earth Surface</em>, 117(F3):F03010, 2012. <a class="reference external" href="https://doi.org/10.1029/2011JF002186">doi:10.1029/2011JF002186</a>.</p>
 </div>
-<div class="citation" id="id316" role="doc-biblioentry">
+<div class="citation" id="id346" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">PK21</a><span class="fn-bracket">]</span></span>
+<p>Shiva P. Pudasaini and Michael Krautblatter. The mechanics of landslide mobility with erosion. 2021.</p>
+</div>
+<div class="citation" id="id324" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">RM+16</a><span class="fn-bracket">]</span></span>
 <p>Mark E. Reid, Scott W. McCoy, and others. Large flume experiments on debris-flow entrainment mechanisms. 2016.</p>
 </div>
-<div class="citation" id="id312" role="doc-biblioentry">
+<div class="citation" id="id361" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>TVRCanonEVGT22<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id14">2</a>,<a role="doc-backlink" href="#id16">3</a>,<a role="doc-backlink" href="#id18">4</a>)</span>
+<p>María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. <em>Earth-Science Reviews</em>, 2022.</p>
+</div>
+<div class="citation" id="id320" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Zag19</a><span class="fn-bracket">]</span></span>
 <p>Vitalii et al. Zaginaev. Reconstruction of glacial lake outburst floods and debris flows triggered by natural dam failure. 2019.</p>
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -541,7 +605,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</p>
+        <p class="prev-next-title">La Lluvia como factor detonante</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -551,6 +615,27 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escala-de-amplificacion-de-volumen-bulking">Escala de amplificación de volumen (<em>bulking</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismos-fisicos-de-incorporacion">Mecanismos físicos de incorporación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoques-de-modelacion-matematica-del-entrainment">Enfoques de modelación matemática del entrainment</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

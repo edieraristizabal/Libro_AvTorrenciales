@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -218,7 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
@@ -241,6 +241,8 @@
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
 
     </div>
@@ -468,7 +470,7 @@ Existen fluidos que se desvían de estas suposiciones, incluyendo una intersecci
 <a class="reference internal image-reference" href="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg"><img alt="Flow axonomy" src="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg" style="width: 700px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Modelos reológicos utilizados para simular (a) agua limpia y (b, c) flujos de lodos y flujos de escombros. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#flow-taxonomy" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Modelos reológicos utilizados para simular (a) agua limpia y (b, c) flujos de lodos y flujos de escombros. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#flow-taxonomy" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La propiedad reológica de un flujo conformado por aguas y sedimentos depende de una variedad de factores, tales como la concentración de sólidos en suspensión, la cohesión, la distribución del tamaño de las partículas (granulometría), la forma de las partículas, la fricción entre granos y la presión de poros. En general, a medida que la concentración aumenta y el tamaño de grano se vuelve más grueso, la mezcla de fluido y sedimento pasa a través de cinco clasificaciones: (1) Flujo Newtoniano (agua clara o transporte de sedimento aluvial), (2) flujo hiperconcentrado, (3) flujo de lodo, (4) flujo de detritos y (5) flujo clástico. Sin embargo, estos tipos de flujo son continuos y se solapan entre sí.</p>

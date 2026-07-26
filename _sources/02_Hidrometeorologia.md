@@ -1,6 +1,6 @@
 <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Kaitna et al. {cite}`kaitna_causes_2024`* Causes and triggers y Kang et al. {cite}`kang_sediment_2024` Sediment entrainment and deposition. y Ballesteros et al. {cite}`unknown_2024a_ballesteros` Debris flow dating and magnitude reconstruction en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
 
-# Componente hidrometeorológico en la ocurrencia de avenidas torrenciales
+# La Lluvia como factor detonante
 
 Las avenidas torrenciales son, ante todo, fenómenos hidrometeorológicos: se originan cuando la atmósfera entrega agua a una cuenca de montaña a una tasa e intensidad capaces de movilizar el sedimento disponible en laderas y cauces. Por esta razón, entender los mecanismos que generan lluvias intensas de corta duración —tormentas convectivas, realce orográfico y ríos atmosféricos— es tan determinante para la amenaza como la disponibilidad de sedimento o la pendiente del terreno. El cambio climático no introduce un mecanismo nuevo, sino que modula la frecuencia, intensidad y distribución espacial de estos procesos hidrometeorológicos, por lo que se aborda aquí como parte integral del componente hidrometeorológico y no como un capítulo aparte.
 
@@ -19,6 +19,17 @@ Existen evidencias emergentes a nivel global del aumento de la precipitación co
 - una mayor capacidad de la atmósfera para retener vapor de agua a temperaturas más altas;  
 - cambios en la dinámica de las células convectivas impulsados por la temperatura, que redistribuyen la humedad hacia el núcleo de las células, aumentando su intensidad máxima pero reduciendo su extensión espacial;  
 - y cambios en la circulación global, que pueden modificar la frecuencia de los sistemas meteorológicos asociados a la generación de flujos de detritos {cite}`armon_2022`.
+
+## Cascadas de amenaza ladera-cauce en montañas tropicales
+
+En las cuencas de montaña tropical, los umbrales de lluvia que detonan avenidas torrenciales no dependen únicamente de la intensidad y duración de la precipitación, sino que están condicionados por la interacción entre la atmósfera, la ladera y el cauce a escala de cuenca —lo que se ha denominado *cascadas de amenaza ladera-cauce* (*hillslope-torrential hazard cascades*, HTC) {cite}`arango_cascades_2025`. Estas cascadas describen cómo la lluvia detona primero movimientos en masa superficiales en las laderas, que posteriormente se movilizan hacia los cauces y evolucionan en flujos torrenciales, de forma similar al mecanismo de enjambre (MORLE) descrito en el capítulo de [tipos de flujos](02_Flujos.md).
+
+Dos factores condicionan de forma importante los umbrales de esta cascada en ambientes tropicales:
+
+- **Pendiente de las laderas**: en cuencas con laderas de pendientes más suaves se requieren precipitaciones acumuladas considerablemente mayores para iniciar la cascada, mientras que en cuencas de pendientes pronunciadas los flujos de escombros pueden iniciarse bajo tormentas de menor magnitud acumulada {cite}`arango_cascades_2025`.
+- **Predisposición litológica**: las cuencas con sustrato de rocas graníticas meteorizadas (por ejemplo, monzogranitos) muestran una mayor propensión a generar flujos de escombros, ya que el intemperismo esferoidal característico de estas rocas produce abundantes bloques de tamaño métrico que son fácilmente incorporados al flujo una vez se inicia el movimiento en masa {cite}`arango_cascades_2025`.
+
+Este enfoque de cascada es particularmente relevante para los Andes colombianos, donde la combinación de pendientes escarpadas, meteorización profunda de rocas ígneas y metamórficas, y regímenes de lluvia convectiva de alta intensidad reproduce muchas de las condiciones descritas para otras cadenas montañosas tropicales.
 
 ## Modulación por el cambio climático
 
@@ -40,18 +51,6 @@ En concordancia con Prein et al. {cite}`prein_2016`, Cannon e Innocenti {cite}`c
 
 En contraste, para California, Huang et al. {cite}`huang_2020` utilizaron simulaciones de modelos climáticos globales desagregadas sobre la Sierra Nevada de California, considerando ríos atmosféricos intensos, y encontraron intensidades horarias de precipitación que escalan ~6 a 16% más que lo esperado por la relación de Clausius-Clapeyron.
 
-### Desafíos persistentes
-Numerosos desafíos persisten en la evaluación de tendencias y proyecciones de lluvias intensas de corta duración. 
-Las limitaciones en los registros históricos subdiarios representan un obstáculo importante {cite}`fowler_2017_convective`. 
-La influencia del terreno y las características variables de las tormentas, tanto a escala local como global, dificultan la generalización de la intensificación de las precipitaciones {cite}`oskan_2022`.
-
-Gran parte de la investigación se ha centrado en convección de temporada cálida, que puede no aplicarse a extremos de lluvia subhoraria en temporada fría, como los que pueden desencadenar flujos de escombros post-incendio en el oeste de América del Norte {cite}`oakley_2021`. 
-Además, sigue siendo difícil evaluar estos cambios de manera efectiva en el oeste de América del Norte debido a la falta de conjuntos de datos con suficiente resolución espacial y temporal {cite}`prein_2017`.
-
-Para evaluar los peligros por flujos de escombros se requiere salida de modelos con escalas espaciales y temporales suficientemente altas (por ejemplo, unos pocos km y ≤1 h) {cite}`oakley_2021`. 
-Sin embargo, con los avances en la capacidad computacional, recientemente han surgido varios conjuntos de datos con suficiente resolución que consideran tanto los cambios en la circulación como en la termodinámica, lo que permite a la comunidad científica comenzar a abordar los cambios en las precipitaciones que impulsan los peligros por flujos de escombros {cite}`rolan_datasets_2014`.
-
-
 ### Efectos del Cambio Climático en los Ríos Atmosféricos
 Los ríos atmosféricos (*Atmospheric Rivers, AR*) son corredores largos y estrechos de alto transporte de vapor de agua en la atmósfera y constituyen uno de los principales impulsores de la redistribución de humedad desde los trópicos hacia las latitudes medias {cite}`ralph_1995`. En algunos casos, los AR que tocan tierra provocan grandes eventos de inundación en el oeste de América del Norte {cite}`corringham_2019,sharma_2020` y Europa {cite}`mazzoglio_2022,vaughan_graham_2021`. Los AR también se han asociado con eventos de deslizamientos y flujos de escombros en el oeste de América del Norte {cite}`termine_2023,jakob_2021_ar,grabias_2017` y Europa occidental (Ramos et al., 2015).
 
@@ -67,18 +66,6 @@ En contraste, O’Brien et al. {cite}`obrien_ar_2018` señalan un aumento proyec
 La mayoría de los algoritmos de detección muestran un aumento de aproximadamente dos AR en las proyecciones futuras (2070–2099), con variaciones según el algoritmo de detección o el modelo climático evaluado. 
 Es importante considerar que los resultados sobre las características de los AR evaluadas en las proyecciones climáticas son sensibles tanto al algoritmo de detección utilizado como al modelo climático evaluado, por lo que los resultados pueden variar entre estudios {cite}`gershunov_ivt_2019`.
 
-### Cambios regionales proyectados
-Las regiones de latitudes medias donde los AR son comunes se proyecta que experimenten un aumento en el número de días secos (sin precipitación) para mediados y finales de siglo (Polade et al., 2014). 
-Mientras que algunas de estas regiones se espera que se vuelvan más secas (por ejemplo, el Mediterráneo), en otras donde ocurren AR se espera un aumento de la precipitación (por ejemplo, el noroeste del Pacífico y el norte de Europa) o pocos cambios (por ejemplo, California; Polade et al., 2014).
-
-En el oeste de EE.UU., se proyecta que los AR contribuyan en mayor medida a los totales anuales de precipitación, con incrementos del 10–25%, junto con una disminución de la precipitación proveniente de otros tipos de tormentas. 
-También se proyecta un aumento de las precipitaciones extremas asociadas con AR en el oeste de EE.UU. (Gershunov et al., 2019).
-
-Aunque existe alta confianza en que la respuesta termodinámica de los AR conlleva un aumento en el IVT, hay incertidumbre sobre cómo esto se traducirá en cambios de precipitación debido a los cambios en los procesos dinámicos atmosféricos. 
-Los cambios en la circulación y en la eficiencia de precipitación podrían afectar cuánto del IVT realmente se convierte en precipitación {cite}`gershunov_ivt_2019`.
-
-No obstante, el aumento proyectado en la intensidad y tamaño de los AR sugiere un incremento en los impactos por inundaciones y flujos de escombros en las áreas donde ocurren AR {cite}`jakob_datasets_2014,obrien_ar_2018,jakob_2021_ar`.
-
 ### Tipos de cuencas y su respuesta al clima
 
 En cuencas limitadas por el suministro de sedimentos en el canal, un aumento de la temperatura y la lluvia probablemente incrementará las tasas de meteorización y, por lo tanto, la recarga de sedimentos en el canal. 
@@ -93,6 +80,7 @@ Además, un incendio forestal que destruya la vegetación protectora puede conve
 
 En cuencas completamente ilimitadas en suministro, los flujos ocurren cada vez que se supera un umbral hidroclimático, y su magnitud depende únicamente de la intensidad y duración del evento meteorológico. 
 En estas cuencas, el cambio climático se manifestará en un aumento tanto en la magnitud como en la frecuencia de los flujos de escombros.
+
 
 
 ```{bibliography}

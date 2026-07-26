@@ -199,26 +199,32 @@ Sin embargo, los movimientos en masa tipo avalancha de escombros se presentan co
 Flujo de escombros canalizado de Piedra Gorda en el municipio de Itagui {cite}`orjuela_2022`.
 :::
 
+### Criterios sedimentológicos para diferenciar el continuo de flujos
+
+Estudios sedimentológicos recientes basados en depósitos de campo han permitido cuantificar, más allá de la descripción cualitativa anterior, los criterios que distinguen cada punto del continuo hidro-sedimentario según la concentración volumétrica de sedimentos ($C_v$) y la fábrica de los depósitos {cite}`brenna_imbrication_2024`:
+
+- **Inundación súbita (*clearwater flood*)**: $C_v$ menor al 4 %. Fluido netamente newtoniano regido por la turbulencia del agua clara, con transporte por suspensión y carga de fondo traccional. Los clastos presentan un ángulo de imbricación bajo y sus ejes largos se orientan perpendiculares a la dirección del flujo por rodamiento hidráulico; el contenido de materia orgánica es bajo (1,5–3,0 %) y las facies típicas corresponden a barras de grava bien estratificadas y bien seleccionadas.
+- **Inundación de escombros (*debris flood*)**: $C_v$ entre 4 % y 20 %. Flujo de transición dominado por un tapete de tracción (*traction carpet*) basal donde la alta concentración colisional suprime la turbulencia. Es capaz de generar un ensanchamiento extraordinario del cauce por erosión de bancas: para un mismo nivel de potencia de corriente unitaria, las secciones afectadas por inundaciones de escombros se ensanchan de 2 a 3 veces más que las afectadas por flujos de agua ordinarios, umbral que suele superarse por encima de 5000–5500 W/m² {cite}`brenna_sediment_2021`. Presenta imbricación intermedia, orientación bimodal de clastos y facies masivas a rudimentariamente estratificadas, mal seleccionadas.
+- **Flujo hiperconcentrado**: $C_v$ transicional, entre 20 % y 50 % (los límites varían entre 5 % y 60 % según los autores). Transición entre comportamiento newtoniano y no newtoniano plástico; la fase sólida gruesa tiende a separarse verticalmente de la mezcla y presenta un esfuerzo de fluencia medible aunque conserva apariencia líquida {cite}`du_classification_2023`. Facies típicas: depósitos de manto (*sheet-floods*) muy mal seleccionados.
+- **Flujo de detritos (*debris flow*, sentido estricto)**: $C_v$ alta, entre 50 % y 90 %. Fluido no newtoniano viscoplástico y cohesivo en el que dominan las interacciones friccionales y colisionales entre partículas; los clastos gruesos son soportados por flotabilidad y por la resistencia de la matriz fina. Presenta el ángulo de imbricación más alto del continuo, con los ejes largos de los clastos alineados paralelos a la dirección del flujo por cizalladura interna, alto contenido de materia orgánica (2,5–5,5 %, por incorporación de detritos vegetales de ladera) y facies de soporte de matriz sin selección, con lóbulos terminales y diques laterales característicos.
+
+Estos criterios de campo —ángulo y orientación de la imbricación de clastos, contenido de materia orgánica y tipo de facies— resultan particularmente útiles para la reconstrucción de eventos históricos y la clasificación genética de depósitos antiguos o no instrumentados, complementando los criterios morfométricos e hidrológicos descritos en las secciones anteriores.
+
 ## Mecanismos de iniciación
 
 Los flujos de escombros pueden iniciarse mediante tres mecanismos:  
-- Ocurrencia de movimientos en masa sobre laderas que evolucionan a flujos de escombros, 
-- Flujos de escombros en cauces de primer orden desencadenados por erosión
-- Fallas de presas naturales o artificiales y ruptura súbita de lagos glaciares (GLOFs) {cite}`oconnor_2011,costa_1986,cornely_2013`.
+
+### Ocurrencia de movimientos en masa sobre laderas que evolucionan a flujos de escombros
 
 Los movimientos en masa que evolucionan directamente en flujos de escombros generalmente ocurren durante o inmediatamente después de eventos de lluvias intensas, ya que los sedimentos del deslizamiento deben contener suficiente agua para su movilización {cite}`iverson_physics_1997,takahashi_debrisflow_2014`.
 
+### Flujos de escombros en cauces de primer orden desencadenados por erosión
+
 Los aumentos en el caudal de la escorrentía superficial durante lluvias intensas desencadenan flujos de escombros, los cuales se clasifican dentro del segundo mecanismo. La escorrentía superficial se convierte en un flujo de escombros debido a la erosión de depósitos del canal y coluviones {cite}`brayshaw_2009,jakob_hungr_2005`. La tasa de recarga de sedimentos y la cantidad de sedimentos inestables en los canales y sus alrededores controlan la recurrencia y el volumen de los flujos de escombros desencadenados por escorrentía superficial {cite}`bovis_1999,jakob_hungr_2005`. Los incendios forestales, que aumentan el caudal de la escorrentía superficial y la tasa de aporte de sedimentos, incrementan significativamente la frecuencia de flujos de escombros desencadenados por escorrentía superficial {cite}`santi_2021,kean_2011`.
 
+### Fallas de presas naturales o artificiales y ruptura súbita de lagos glaciares (GLOFs)
+
 El tercer mecanismo, la falla de presas naturales o artificiales, ocurre tanto durante como después de eventos de lluvia intensa {cite}`zaginaev_2019`. El represamiento de ríos montañosos por sedimentos de deslizamientos es la causa común de este tipo de flujo de escombros {cite}`costa_1986,zaginaev_2019`. El vaciado súbito de lagos glaciares (por ejemplo, la falla de presas morrénicas) genera flujos de escombros en regiones frías {cite}`zaginaev_2019`.
-
-A escala de cuenca, las características típicas que indican la ocurrencia de flujos de escombros son:
-
-**Laderas:**  Las pendientes pronunciadas son típicamente la fuente principal de sedimentos movilizados durante eventos de lluvias extremas, o aumentos de temperatura en el caso de formas del relieve relacionadas con la criosfera. Los deslizamientos, formas erosivas y cambios geomorfológicos (por ejemplo, glaciares rocosos) pueden rastrearse mediante mapas históricos, fotografías aéreas y productos satelitales recientes. Estos datos ofrecen información sobre el volumen inicial de sedimentos entregados al canal, el cual dependerá finalmente de la conectividad pendiente-canal {cite}`steger_2019,lancaster_2007`.
-
-**Canal:**  Los sedimentos movilizados son típicamente transportados a lo largo de canales de fuerte pendiente. La energía del flujo erosiona las orillas y el lecho del canal, contribuyendo a la incorporación de sedimentos, lo que puede dejar líneas de erosión en los diques preexistentes o en las márgenes del canal, que pueden servir como indicadores de niveles máximos anteriores {cite}`dehaas_erosion_2018`. Cuando el valle se ensancha localmente, los eventos intensos de flujo de escombros pueden desbordar las márgenes del canal, dando lugar a formas sedimentarias como lóbulos o canales secundarios. Mapear estas formas permite determinar la extensión máxima de las áreas afectadas, así como identificar secciones transversales débiles en la topografía donde podrían desarrollarse procesos adicionales de avulsión (de Haas et al., 2018a, b). En el canal, el análisis del material del lecho generalmente proporciona datos cuantitativos sobre la capacidad de transporte de sedimentos de los arroyos (Nagl et al., 2020).
-
-**Abanicos o conos de flujo de escombros:**  Las deposiciones de sedimentos transportados forman abanicos de flujo de escombros en las desembocaduras de los torrentes, donde la energía del flujo se reduce significativamente. Los abanicos son formas de relieve semi-cónicas con una pendiente superficial relativamente baja, aunque depende de la reología del conjunto de sedimentos involucrados (de Haas et al., 2015, 2016). A nivel del abanico, las principales características geomorfológicas están relacionadas con mezclas mal seleccionadas de sedimentos que varían en tamaño desde micras hasta metros {cite}`calhoun_2018`, y formas del terreno como diques, lóbulos o frentes (*snouts*) (de Haas et al., este volumen). Los abanicos suelen estar atravesados por el canal principal activo, aunque también se reconocen con frecuencia huellas abandonadas por erosión o paleocanales, a veces parcialmente rellenos.
 
 ```{bibliography}
 :filter: docname in docnames

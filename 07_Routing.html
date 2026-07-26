@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -218,7 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">Componente hidrometeorológico en la ocurrencia de avenidas torrenciales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
@@ -241,6 +241,8 @@
 <li class="toctree-l1"><a class="reference internal" href="14_ravaflow.html">r.avaflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="15_Grfin.html">Grfin Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
 
     </div>
@@ -438,6 +440,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoques-de-linea-de-energia-energy-line-approaches">Enfoques de Línea de Energía (<em>Energy Line Approaches</em>)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-empiricos-basados-en-morfometria-de-cuenca">Modelos empíricos basados en morfometría de cuenca</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-indice-de-melton">El índice de Melton</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-del-enfoque-morfometrico-frente-a-eventos-de-alta-magnitud">Limitaciones del enfoque morfométrico frente a eventos de alta magnitud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-comerciales-de-propagacion-flo-2d-y-hec-ras">Herramientas comerciales de propagación: FLO-2D y HEC-RAS</a></li>
 </ul>
             </nav>
         </div>
@@ -460,23 +468,44 @@
 <p>Los algoritmos de dirección del flujo provienen de aplicaciones hidrológicas y determinan cómo se distribuye el flujo desde una celda determinada del modelo digital de elevación (<strong>DEM</strong>) hacia sus celdas vecinas, mientras se encauza a través del terreno de píxel en píxel. Estos algoritmos se basan en el gradiente de pendiente y siguen diferentes reglas, las cuales se describen a continuación para los métodos más populares.</p>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>D8 (ocho posibles direcciones de flujo), máxima pendiente o flujo unidireccional</strong> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id272" title="John F. O'Callaghan and David M. Mark. The extraction of drainage networks from digital elevation data. 1984.">OCallaghanM84</a>]</span></p></li>
+<li><p><strong>D8 (ocho posibles direcciones de flujo), máxima pendiente o flujo unidireccional</strong> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id276" title="John F. O'Callaghan and David M. Mark. The extraction of drainage networks from digital elevation data. 1984.">OCallaghanM84</a>]</span></p></li>
 </ul>
-<p>Es el método más simple y sigue la pendiente más pronunciada. El principal problema de este enfoque es que no permite divergencia del flujo, forzándolo a seguir direcciones con pasos de 45° (cardinales y diagonales), lo cual produce patrones poco realistas en laderas con diferentes orientaciones. Además, no puede desviarse de la dirección de máxima pendiente, incluso en áreas menos inclinadas, por lo que no representa con precisión los procesos de flujo de escombros <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id213" title="Christian et al. Huggel. Limitations of d8 flow routing for debris-flow path prediction. 2019.">Hug19b</a>]</span>. Por lo tanto, tiene un potencial limitado para aplicaciones realistas, pero puede usarse en análisis rápidos <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>, <a class="reference internal" href="#id138" title="Volker Wichmann. The Gravitational Process Path (GPP) model (v1.0) – a GIS-based simulation framework for gravitational processes. Geoscientific Model Development, 10(9):3309–3327, 2017. doi:10.5194/gmd-10-3309-2017.">Wic17</a>]</span>.</p>
-<p>Huggel et al. <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id214" title="Christian et al. Huggel. Flow-deviation capability added to the d8 routing algorithm. 2019.">Hug19a</a>]</span> introdujeron una cierta capacidad de desviación del flujo en el enfoque D8, mediante una función que permite que el flujo se desvíe de la dirección de máxima pendiente hasta 45° a ambos lados, aplicando un factor de resistencia.</p>
+<p>Es el método más simple y sigue la pendiente más pronunciada. El principal problema de este enfoque es que no permite divergencia del flujo, forzándolo a seguir direcciones con pasos de 45° (cardinales y diagonales), lo cual produce patrones poco realistas en laderas con diferentes orientaciones. Además, no puede desviarse de la dirección de máxima pendiente, incluso en áreas menos inclinadas, por lo que no representa con precisión los procesos de flujo de escombros <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id217" title="Christian et al. Huggel. Limitations of d8 flow routing for debris-flow path prediction. 2019.">Hug19b</a>]</span>. Por lo tanto, tiene un potencial limitado para aplicaciones realistas, pero puede usarse en análisis rápidos <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>, <a class="reference internal" href="#id142" title="Volker Wichmann. The Gravitational Process Path (GPP) model (v1.0) – a GIS-based simulation framework for gravitational processes. Geoscientific Model Development, 10(9):3309–3327, 2017. doi:10.5194/gmd-10-3309-2017.">Wic17</a>]</span>.</p>
+<p>Huggel et al. <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id218" title="Christian et al. Huggel. Flow-deviation capability added to the d8 routing algorithm. 2019.">Hug19a</a>]</span> introdujeron una cierta capacidad de desviación del flujo en el enfoque D8, mediante una función que permite que el flujo se desvíe de la dirección de máxima pendiente hasta 45° a ambos lados, aplicando un factor de resistencia.</p>
+<figure class="align-default" id="d8">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/4e/b3/c8/4eb3c89daa0238446c582a9c9df83b26.jpg"><img alt="Flow axonomy" src="https://i.pinimg.com/736x/4e/b3/c8/4eb3c89daa0238446c582a9c9df83b26.jpg" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Esquema del algoritmo de dirección de flujo D8, que distribuye el flujo hacia una de ocho direcciones posibles según la máxima pendiente.</span><a class="headerlink" href="#d8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>D-infinity</strong> <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id316" title="David G. Tarboton. A new method for the determination of flow directions and upslope areas in grid dems (d-infinity). 1997.">Tar97</a>]</span></p></li>
+<li><p><strong>D-infinity</strong> <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id320" title="David G. Tarboton. A new method for the determination of flow directions and upslope areas in grid dems (d-infinity). 1997.">Tar97</a>]</span></p></li>
 </ul>
 <p>Este algoritmo distribuye el flujo hacia una o dos celdas vecinas, según el cálculo de los vectores de pendiente descendente en facetas triangulares planas. Aunque es popular en aplicaciones hidrológicas, no es comúnmente utilizado para la propagación de flujos de escombros.</p>
+<figure class="align-default" id="dinfinity">
+<a class="reference internal image-reference" href="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg"><img alt="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg" src="https://i.pinimg.com/1200x/ff/22/a4/ff22a4cb258c8a3a0ad5e56b35503a06.jpg" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Esquema del algoritmo D-infinity, que distribuye el flujo entre una o dos celdas vecinas según los vectores de pendiente descendente en facetas triangulares planas.</span><a class="headerlink" href="#dinfinity" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Dirección de flujo múltiple (MFD)</strong> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id119" title="Paul Quinn, Keith Beven, Philippe Chevallier, and Olivier Planchon. The prediction of hillslope flow paths for distributed hydrological modelling using digital terrain models. Hydrological Processes, 5(1):59–79, 1991. doi:10.1002/hyp.3360050106.">QBCP91</a>]</span></p></li>
+<li><p><strong>Dirección de flujo múltiple (MFD)</strong> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id123" title="Paul Quinn, Keith Beven, Philippe Chevallier, and Olivier Planchon. The prediction of hillslope flow paths for distributed hydrological modelling using digital terrain models. Hydrological Processes, 5(1):59–79, 1991. doi:10.1002/hyp.3360050106.">QBCP91</a>]</span></p></li>
 </ul>
-<p>Este enfoque distribuye el flujo entre todas las celdas vecinas con menor elevación, proporcionalmente al gradiente de pendiente. Incluye un factor de ponderación geométrico para calcular la fracción de flujo que drena hacia las celdas vecinas. Aunque es más realista que el D8 para representar la dispersión lateral del agua, genera una divergencia considerada excesiva para procesos de flujo de escombros <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id214" title="Christian et al. Huggel. Flow-deviation capability added to the d8 routing algorithm. 2019.">Hug19a</a>]</span>. Algunas variantes <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id55" title="T. Gregory Freeman. Calculating catchment area with divergent flow based on a regular grid. Computers &amp; Geosciences, 17(3):413–422, 1991. doi:10.1016/0098-3004(91)90048-I.">Fre91</a>]</span> reducen ligeramente esta dispersión, pero no de forma significativa.</p>
+<p>Este enfoque distribuye el flujo entre todas las celdas vecinas con menor elevación, proporcionalmente al gradiente de pendiente. Incluye un factor de ponderación geométrico para calcular la fracción de flujo que drena hacia las celdas vecinas. Aunque es más realista que el D8 para representar la dispersión lateral del agua, genera una divergencia considerada excesiva para procesos de flujo de escombros <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id218" title="Christian et al. Huggel. Flow-deviation capability added to the d8 routing algorithm. 2019.">Hug19a</a>]</span>. Algunas variantes <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id59" title="T. Gregory Freeman. Calculating catchment area with divergent flow based on a regular grid. Computers &amp; Geosciences, 17(3):413–422, 1991. doi:10.1016/0098-3004(91)90048-I.">Fre91</a>]</span> reducen ligeramente esta dispersión, pero no de forma significativa.</p>
+<figure class="align-default" id="mfd">
+<a class="reference internal image-reference" href="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg"><img alt="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg" src="https://i.pinimg.com/736x/ea/70/e5/ea70e5dd786316ba7ef632470bd84480.jpg" style="width: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Esquema del algoritmo de dirección de flujo múltiple (MFD), que distribuye el flujo entre todas las celdas vecinas de menor elevación proporcionalmente al gradiente de pendiente.</span><a class="headerlink" href="#mfd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Dirección de flujo múltiple ajustable</strong> <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id65" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Hol94</a>]</span></p></li>
+<li><p><strong>Dirección de flujo múltiple ajustable</strong> <span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id69" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Hol94</a>]</span></p></li>
 </ul>
 <p>Holmgren introdujo un exponente ajustable en el algoritmo MFD para controlar la convergencia/divergencia del flujo:</p>
 <div class="math notranslate nohighlight">
@@ -484,13 +513,13 @@
 f_i = \frac{(\tan \beta_i)^x}{\sum_{j=1}^{8} (\tan \beta_j)^x} \quad \text{para todos } \beta &gt; 0
 \]</div>
 <p>donde: <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>: direcciones del flujo (1 a 8), <span class="math notranslate nohighlight">\(f_i\)</span>: proporción del flujo (entre 0 y 1) en la dirección <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(\tan \beta_i\)</span>: pendiente entre la celda fuente y la celda vecina en la dirección <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(x\)</span>: exponente de control de la divergencia. Valores más altos de <span class="math notranslate nohighlight">\(x\)</span> producen patrones de flujo más estrechos y convergentes. Este algoritmo puede reproducir otros algoritmos: Con <span class="math notranslate nohighlight">\(x = 1\)</span>, el patrón es similar al MFD clásico. Con <span class="math notranslate nohighlight">\(x \to \infty\)</span>, se reproduce el comportamiento del D8.</p>
-<p>Horton et al. <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> extendieron este algoritmo incorporando un ajuste a la celda fuente mediante un factor <span class="math notranslate nohighlight">\(dh\)</span>, que permite ignorar irregularidades menores del DEM y simular un cierto espesor del flujo de escombros.</p>
+<p>Horton et al. <span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> extendieron este algoritmo incorporando un ajuste a la celda fuente mediante un factor <span class="math notranslate nohighlight">\(dh\)</span>, que permite ignorar irregularidades menores del DEM y simular un cierto espesor del flujo de escombros.</p>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Dirección de flujo múltiple para flujos de escombros <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span></strong></p></li>
+<li><p><strong>Dirección de flujo múltiple para flujos de escombros <span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span></strong></p></li>
 </ul>
 <p>Desarrollado específicamente para la simulación de flujos de escombros, generalmente implementado como un modelo de caminata aleatoria (<em>random walk</em>). Mientras que los algoritmos hidrológicos simulan la dispersión lateral sobre todas las pendientes, los flujos de escombros siguen predominantemente la línea de máxima pendiente.</p>
-<p>Gamma <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> introdujo un umbral de pendiente (<span class="math notranslate nohighlight">\(\beta_{\text{thres}}\)</span>) que controla cuándo comienza la dispersión lateral. En secciones muy empinadas, el flujo solo sigue celdas con pendientes pronunciadas. En pendientes moderadas, se permiten celdas vecinas más suaves. En zonas planas, se permiten todas las celdas vecinas más bajas. El valor <span class="math notranslate nohighlight">\(\gamma_i\)</span> para cada celda vecina se calcula como:</p>
+<p>Gamma <span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> introdujo un umbral de pendiente (<span class="math notranslate nohighlight">\(\beta_{\text{thres}}\)</span>) que controla cuándo comienza la dispersión lateral. En secciones muy empinadas, el flujo solo sigue celdas con pendientes pronunciadas. En pendientes moderadas, se permiten celdas vecinas más suaves. En zonas planas, se permiten todas las celdas vecinas más bajas. El valor <span class="math notranslate nohighlight">\(\gamma_i\)</span> para cada celda vecina se calcula como:</p>
 <div class="math notranslate nohighlight">
 \[
 \gamma_i = \frac{\tan \beta_i}{\tan \beta_{\text{thres}}}
@@ -517,24 +546,24 @@ N = \{i \mid \gamma_i = \gamma_{\text{max}}\}
 \text{prob}_i = \frac{f_i \cdot \tan \beta_i}{\sum_j f_j \cdot \tan \beta_j}
 \]</div>
 <p>donde <em>i</em> es la celda vecina que se está procesando actualmente (1–8), <em>j</em> representa todas las celdas vecinas en el conjunto <em>N</em>, y <em>f</em> es un factor de ponderación. Este último puede dar un peso mayor a la dirección de flujo previa. Debido al componente estocástico, un alto número de ejecuciones del modelo (simulación de Monte Carlo) desde la misma celda de inicio resultará en trayectorias de flujo (ligeramente) diferentes en cada iteración. Al agregar todas las ejecuciones del modelo, se reproduce la extensión completa del área del proceso. El ráster final del área del proceso almacena la frecuencia de transición para cada celda, es decir, el número de veces que cada celda fue seleccionada como parte de la trayectoria del proceso.</p>
-<p>Las trayectorias de flujo resultantes de procedimientos de caminata aleatoria generalmente no representan líneas suaves, sino que pueden mostrar oscilaciones a pequeña escala, que a menudo son invisibles al visualizar la superposición de múltiples trayectorias de caminata aleatoria. Sin embargo, estas oscilaciones tienen un impacto en el cálculo de la distancia recorrida: por ejemplo, cuando se utilizan enfoques de línea de energía (ángulos de alcance), una trayectoria de flujo oscilante implicaría una mayor distancia recorrida y, por lo tanto, un ángulo de alcance menor, en comparación con una trayectoria de flujo suave. Por lo tanto, los criterios de detención se aplicarían demasiado pronto en el procedimiento de enrutamiento, y la distancia recorrida se subestimaría. Deben aplicarse funciones de suavizado para contrarrestar este problema <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id102" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">MKC15</a>]</span>.</p>
+<p>Las trayectorias de flujo resultantes de procedimientos de caminata aleatoria generalmente no representan líneas suaves, sino que pueden mostrar oscilaciones a pequeña escala, que a menudo son invisibles al visualizar la superposición de múltiples trayectorias de caminata aleatoria. Sin embargo, estas oscilaciones tienen un impacto en el cálculo de la distancia recorrida: por ejemplo, cuando se utilizan enfoques de línea de energía (ángulos de alcance), una trayectoria de flujo oscilante implicaría una mayor distancia recorrida y, por lo tanto, un ángulo de alcance menor, en comparación con una trayectoria de flujo suave. Por lo tanto, los criterios de detención se aplicarían demasiado pronto en el procedimiento de enrutamiento, y la distancia recorrida se subestimaría. Deben aplicarse funciones de suavizado para contrarrestar este problema <span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id106" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">MKC15</a>]</span>.</p>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Funciones de persistencia</strong></p></li>
 </ul>
-<p>Gamma <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> introdujo el concepto de persistencia para representar la inercia del flujo.  Esta persistencia consiste en un peso aplicado según el cambio en la dirección del flujo, de forma que el flujo tiende a mantener su dirección previa:</p>
+<p>Gamma <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> introdujo el concepto de persistencia para representar la inercia del flujo.  Esta persistencia consiste en un peso aplicado según el cambio en la dirección del flujo, de forma que el flujo tiende a mantener su dirección previa:</p>
 <div class="math notranslate nohighlight">
 \[
 p_i = w_{\alpha(i)}
 \]</div>
 <p>donde:  <span class="math notranslate nohighlight">\(p_i\)</span> es la persistencia en la dirección <span class="math notranslate nohighlight">\(i\)</span>,  <span class="math notranslate nohighlight">\(\alpha(i)\)</span> es el ángulo entre la dirección previa y la dirección desde la celda fuente hacia la celda <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>Un aspecto clave es definir el peso <span class="math notranslate nohighlight">\(w_{\alpha(i)}\)</span> para cada dirección. En los flujos de escombros, es poco probable que el flujo cambie abruptamente de dirección, por lo que tiende a mantener su trayectoria. El esquema de pesos propuesto por Gamma <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> asigna un 50% más de peso en la misma dirección previa. Horton et al. <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> propusieron esquemas alternativos de ponderación, resumidos en la siguiente tabla.</p>
+<p>Un aspecto clave es definir el peso <span class="math notranslate nohighlight">\(w_{\alpha(i)}\)</span> para cada dirección. En los flujos de escombros, es poco probable que el flujo cambie abruptamente de dirección, por lo que tiende a mantener su trayectoria. El esquema de pesos propuesto por Gamma <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> asigna un 50% más de peso en la misma dirección previa. Horton et al. <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> propusieron esquemas alternativos de ponderación, resumidos en la siguiente tabla.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Cambio en la dirección</p></th>
-<th class="head"><p>Gamma <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span></p></th>
-<th class="head"><p>Horton et al. <span class="bibtex-citation" id="id18">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> - Proporcional</p></th>
-<th class="head"><p>Horton et al. <span class="bibtex-citation" id="id19">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> - Coseno</p></th>
+<th class="head"><p>Gamma <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span></p></th>
+<th class="head"><p>Horton et al. <span class="bibtex-citation" id="id18">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> - Proporcional</p></th>
+<th class="head"><p>Horton et al. <span class="bibtex-citation" id="id19">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span> - Coseno</p></th>
 <th class="head"><p>Han et al. (2017) &lt;10º</p></th>
 <th class="head"><p>Han et al. (2017) 10º–17º</p></th>
 <th class="head"><p>Han et al. (2017) 17º–23º</p></th>
@@ -591,145 +620,196 @@ p_i = w_{\alpha(i)}
 </table>
 </div>
 <p>Este factor de persistencia se combina con el algoritmo de dirección del flujo para generar una distribución de flujo modificada (o de susceptibilidad).</p>
-<p>La variación de los esquemas de ponderación puede estar relacionada con la topografía local, que controla la velocidad del flujo. Han et al. (2017), mediante experimentos en canales, propusieron esquemas basados en el ángulo de la pendiente, demostrando que cuando el ángulo de la pendiente en la dirección previa es mayor a 10°, el esquema se asemeja al esquema de coseno de Horton et al. <span class="bibtex-citation" id="id20">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span>. Cuando la pendiente es menor a 10°, el comportamiento es más similar a los esquemas proporcionales de Gamma <span class="bibtex-citation" id="id21">[<a class="reference internal" href="#id56" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> y Horton et al. <span class="bibtex-citation" id="id22">[<a class="reference internal" href="#id66" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span>.</p>
-<p>Aunque estas oscilaciones locales suelen ser invisibles al visualizar la superposición de múltiples trayectorias de caminata aleatoria, sí tienen un impacto importante en el cálculo de la distancia recorrida. Por ejemplo, al utilizar enfoques basados en líneas de energía (o ángulos de alcance), una trayectoria oscilante implica una distancia recorrida mayor, lo que a su vez genera un ángulo de alcance menor, en comparación con una trayectoria suave. Como consecuencia, los criterios de detención del flujo se aplicarían prematuramente en el procedimiento de encauzamiento (routing), lo que conduciría a una subestimación de la distancia recorrida por el flujo. Para corregir este problema, se deben aplicar funciones de suavizado, tal como lo proponen Mergili et al. <span class="bibtex-citation" id="id23">[<a class="reference internal" href="#id102" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">MKC15</a>]</span>.</p>
+<p>La variación de los esquemas de ponderación puede estar relacionada con la topografía local, que controla la velocidad del flujo. Han et al. (2017), mediante experimentos en canales, propusieron esquemas basados en el ángulo de la pendiente, demostrando que cuando el ángulo de la pendiente en la dirección previa es mayor a 10°, el esquema se asemeja al esquema de coseno de Horton et al. <span class="bibtex-citation" id="id20">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span>. Cuando la pendiente es menor a 10°, el comportamiento es más similar a los esquemas proporcionales de Gamma <span class="bibtex-citation" id="id21">[<a class="reference internal" href="#id60" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> y Horton et al. <span class="bibtex-citation" id="id22">[<a class="reference internal" href="#id70" title="Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. Natural Hazards and Earth System Sciences, 13(4):869–885, 2013. doi:10.5194/nhess-13-869-2013.">HJRZ13</a>]</span>.</p>
+<p>Aunque estas oscilaciones locales suelen ser invisibles al visualizar la superposición de múltiples trayectorias de caminata aleatoria, sí tienen un impacto importante en el cálculo de la distancia recorrida. Por ejemplo, al utilizar enfoques basados en líneas de energía (o ángulos de alcance), una trayectoria oscilante implica una distancia recorrida mayor, lo que a su vez genera un ángulo de alcance menor, en comparación con una trayectoria suave. Como consecuencia, los criterios de detención del flujo se aplicarían prematuramente en el procedimiento de encauzamiento (routing), lo que conduciría a una subestimación de la distancia recorrida por el flujo. Para corregir este problema, se deben aplicar funciones de suavizado, tal como lo proponen Mergili et al. <span class="bibtex-citation" id="id23">[<a class="reference internal" href="#id106" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">MKC15</a>]</span>.</p>
 <ul class="simple">
 <li><p><strong>Enfoques Basados en Agentes (<em>Agent-Based Approaches</em>)</strong></p></li>
 </ul>
-<p>Los modelos basados en agentes (ABM) fueron concebidos hace varias décadas <span class="bibtex-citation" id="id24">[<a class="reference internal" href="#id299" title="Thomas C. Schelling. Dynamic models of segregation (early cellular-automata concepts). 1971.">Sch71</a>, <a class="reference internal" href="#id331" title="Stephen Wolfram. Cellular automata as models of complexity. 1984.">Wol84</a>]</span>, pero su uso en el modelamiento regional de deslizamientos ha sido limitado <span class="bibtex-citation" id="id25">[<a class="reference internal" href="#id61" title="Richard H. Guthrie and Kevin M. Befus. The Predictor: a semi-empirical model for evaluating debris flow mobility. Landslides, 18(11):3555–3568, 2021. doi:10.1007/s10346-021-01745-w.">GB21</a>, <a class="reference internal" href="#id62" title="Richard H. Guthrie, Peter J. Deadman, Andrea R. Cabrera, and Stephen G. Evans. Exploring the magnitude-frequency distribution: a cellular automata model for landslides. Landslides, 5(1):151–159, 2008. doi:10.1007/s10346-007-0100-5.">GDCE08</a>, <a class="reference internal" href="#id321" title="Robert et al. Turcotte. Agent-based hydrological modelling of headwater catchments. 2002.">Tur02</a>]</span>. No existe una definición universal del término <em>agente</em> <span class="bibtex-citation" id="id26">[<a class="reference internal" href="#id245" title="Charles M. Macal and Michael J. North. Tutorial on agent-based modelling and simulation. 2009.">MN09</a>]</span>. Bonabeau (2002) describe los ABM de la siguiente manera:</p>
+<p>Los modelos basados en agentes (ABM) fueron concebidos hace varias décadas <span class="bibtex-citation" id="id24">[<a class="reference internal" href="#id303" title="Thomas C. Schelling. Dynamic models of segregation (early cellular-automata concepts). 1971.">Sch71</a>, <a class="reference internal" href="#id335" title="Stephen Wolfram. Cellular automata as models of complexity. 1984.">Wol84</a>]</span>, pero su uso en el modelamiento regional de deslizamientos ha sido limitado <span class="bibtex-citation" id="id25">[<a class="reference internal" href="#id65" title="Richard H. Guthrie and Kevin M. Befus. The Predictor: a semi-empirical model for evaluating debris flow mobility. Landslides, 18(11):3555–3568, 2021. doi:10.1007/s10346-021-01745-w.">GB21</a>, <a class="reference internal" href="#id66" title="Richard H. Guthrie, Peter J. Deadman, Andrea R. Cabrera, and Stephen G. Evans. Exploring the magnitude-frequency distribution: a cellular automata model for landslides. Landslides, 5(1):151–159, 2008. doi:10.1007/s10346-007-0100-5.">GDCE08</a>, <a class="reference internal" href="#id325" title="Robert et al. Turcotte. Agent-based hydrological modelling of headwater catchments. 2002.">Tur02</a>]</span>. No existe una definición universal del término <em>agente</em> <span class="bibtex-citation" id="id26">[<a class="reference internal" href="#id249" title="Charles M. Macal and Michael J. North. Tutorial on agent-based modelling and simulation. 2009.">MN09</a>]</span>. Bonabeau (2002) describe los ABM de la siguiente manera:</p>
 <blockquote>
 <div><p>“En la modelación basada en agentes, un sistema se modela como un conjunto de entidades autónomas que toman decisiones, llamadas agentes. Cada agente evalúa individualmente su situación y toma decisiones basadas en un conjunto de reglas.”</p>
 </div></blockquote>
 <p>Los agentes (o subrutinas autónomas) evolucionan a través de una serie de pasos de tiempo, considerando los valores de sus agentes vecinos (que también están evolucionando) y del medio a través del cual se desplazan (por ejemplo, un modelo digital de elevación - DEM).  Cada evolución del agente está determinada por:  un conjunto de reglas, y  el comportamiento del entorno local.</p>
-<p>Los modelos basados en agentes pueden incorporar cualquiera de los enfoques descritos anteriormente para definir la trayectoria y la dispersión del flujo, incluyendo:  algoritmos simples de dirección del flujo,  funciones de persistencia,  caminatas aleatorias,  e incluso enfoques basados en líneas de energía. Un enfoque habitual para seleccionar rutas consiste en redistribuir la masa del deslizamiento contenida en cada agente hacia nuevas celdas, creando nuevos agentes. Esta redistribución se basa en una función de densidad de probabilidad, cuya media está centrada en la dirección de desplazamiento del agente y cuya desviación estándar determina la dispersión <span class="bibtex-citation" id="id27">[<a class="reference internal" href="#id61" title="Richard H. Guthrie and Kevin M. Befus. The Predictor: a semi-empirical model for evaluating debris flow mobility. Landslides, 18(11):3555–3568, 2021. doi:10.1007/s10346-021-01745-w.">GB21</a>]</span>.</p>
+<p>Los modelos basados en agentes pueden incorporar cualquiera de los enfoques descritos anteriormente para definir la trayectoria y la dispersión del flujo, incluyendo:  algoritmos simples de dirección del flujo,  funciones de persistencia,  caminatas aleatorias,  e incluso enfoques basados en líneas de energía. Un enfoque habitual para seleccionar rutas consiste en redistribuir la masa del deslizamiento contenida en cada agente hacia nuevas celdas, creando nuevos agentes. Esta redistribución se basa en una función de densidad de probabilidad, cuya media está centrada en la dirección de desplazamiento del agente y cuya desviación estándar determina la dispersión <span class="bibtex-citation" id="id27">[<a class="reference internal" href="#id65" title="Richard H. Guthrie and Kevin M. Befus. The Predictor: a semi-empirical model for evaluating debris flow mobility. Landslides, 18(11):3555–3568, 2021. doi:10.1007/s10346-021-01745-w.">GB21</a>]</span>.</p>
 <p>La incorporación de probabilidades en la dispersión de agentes produce trayectorias más realistas y reduce la convergencia forzada del flujo.
 Sin embargo, algunos problemas de selección de trayectoria observados en el modelo D8 pueden persistir, especialmente en laderas empinadas.</p>
 </section>
 <section id="enfoques-de-linea-de-energia-energy-line-approaches">
 <h3>Enfoques de Línea de Energía (<em>Energy Line Approaches</em>)<a class="headerlink" href="#enfoques-de-linea-de-energia-energy-line-approaches" title="Link to this heading">#</a></h3>
-<p>Los enfoques basados en la línea de energía son populares por su simplicidad y su capacidad de vincularse con datos de campo.   Se basan en las distancias vertical y horizontal entre el área fuente y el punto más distante alcanzado por el flujo de escombros. La versión más común para flujos de escombros es el ángulo de recorrido, también conocido como <em>Fahrböschung</em> <span class="bibtex-citation" id="id28">[<a class="reference internal" href="#id63" title="Albert Heim. Bergsturz und Menschenleben. Fretz &amp; Wasmuth, Zürich, 1932.">Hei32</a>]</span>,  ángulo de alcance <span class="bibtex-citation" id="id29">[<a class="reference internal" href="#id47" title="Jordi Corominas. The angle of reach as a mobility index for small and large landslides. Canadian Geotechnical Journal, 33(2):260–271, 1996. doi:10.1139/t96-030.">Cor96</a>]</span> o línea α, donde la distancia horizontal se mide a lo largo del recorrido del flujo (no en línea recta). Este ángulo se calcula como:</p>
+<p>Los enfoques basados en la línea de energía son populares por su simplicidad y su capacidad de vincularse con datos de campo.   Se basan en las distancias vertical y horizontal entre el área fuente y el punto más distante alcanzado por el flujo de escombros. La versión más común para flujos de escombros es el ángulo de recorrido, también conocido como <em>Fahrböschung</em> <span class="bibtex-citation" id="id28">[<a class="reference internal" href="#id67" title="Albert Heim. Bergsturz und Menschenleben. Fretz &amp; Wasmuth, Zürich, 1932.">Hei32</a>]</span>,  ángulo de alcance <span class="bibtex-citation" id="id29">[<a class="reference internal" href="#id51" title="Jordi Corominas. The angle of reach as a mobility index for small and large landslides. Canadian Geotechnical Journal, 33(2):260–271, 1996. doi:10.1139/t96-030.">Cor96</a>]</span> o línea α, donde la distancia horizontal se mide a lo largo del recorrido del flujo (no en línea recta). Este ángulo se calcula como:</p>
 <div class="math notranslate nohighlight">
 \[
 \tan \alpha = \frac{d_v}{d_h}
 \]</div>
-<p>donde: <span class="math notranslate nohighlight">\(\alpha\)</span> es el ángulo respecto a la horizontal, <span class="math notranslate nohighlight">\(d_v\)</span> es el desplazamiento vertical, <span class="math notranslate nohighlight">\(d_h\)</span> es el desplazamiento horizontal. A lo largo de una línea de energía recta desde el inicio hasta la posición final, la velocidad <span class="math notranslate nohighlight">\(v_i\)</span> puede calcularse como <span class="bibtex-citation" id="id30">[<a class="reference internal" href="#id236" title="Hans J. Koerner. Reichweite und geschwindigkeit von bergsturzen. 1980.">Koe80</a>]</span>:</p>
+<p>donde: <span class="math notranslate nohighlight">\(\alpha\)</span> es el ángulo respecto a la horizontal, <span class="math notranslate nohighlight">\(d_v\)</span> es el desplazamiento vertical, <span class="math notranslate nohighlight">\(d_h\)</span> es el desplazamiento horizontal. A lo largo de una línea de energía recta desde el inicio hasta la posición final, la velocidad <span class="math notranslate nohighlight">\(v_i\)</span> puede calcularse como <span class="bibtex-citation" id="id30">[<a class="reference internal" href="#id240" title="Hans J. Koerner. Reichweite und geschwindigkeit von bergsturzen. 1980.">Koe80</a>]</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 v_i = \sqrt{2 g h_v}
 \]</div>
 <p>donde:  <span class="math notranslate nohighlight">\(v_i\)</span> es la velocidad en la celda actual <span class="math notranslate nohighlight">\(i\)</span> [m/s],  <span class="math notranslate nohighlight">\(g\)</span> es la aceleración de la gravedad [m/s²],  <span class="math notranslate nohighlight">\(h_v\)</span> es la diferencia de altura entre la línea de energía y la celda <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> presenta valores característicos según el tipo de movimiento gravitacional. Para flujos de escombros con alta proporción de sedimentos finos, el ángulo mínimo observado es de aproximadamente 4° (<span class="math notranslate nohighlight">\(\tan \alpha \approx 0.07\)</span>). Para flujos con material más grueso, el ángulo es de <strong>10–11°</strong> (<span class="math notranslate nohighlight">\(\tan \alpha \approx 0.19\)</span>) <span class="bibtex-citation" id="id31">[<a class="reference internal" href="#id121" title="Dieter Rickenmann. Runout prediction methods. In Matthias Jakob and Oldrich Hungr, editors, Debris-flow Hazards and Related Phenomena, pages 305–324. Springer, Berlin, 2005. doi:10.1007/3-540-27129-5_13.">Ric05</a>]</span>.</p>
-<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> también puede expresarse como función del volumen del flujo o del área de la cuenca de aporte. Con base en datos de campo, Zimmermann et al. <span class="bibtex-citation" id="id32">[<a class="reference internal" href="#id335" title="Markus et al. Zimmermann. Calibration of the voellmy-salm model for debris flows in the swiss alps. 2020.">Zim20</a>]</span> propusieron la siguiente relación para el límite inferior del ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> en función del área de cuenca <span class="math notranslate nohighlight">\(A\)</span> [km²]:</p>
+<figure class="align-default" id="linea-de-energia">
+<a class="reference internal image-reference" href="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg"><img alt="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg" src="https://i.pinimg.com/1200x/03/5a/59/035a59d6cf09315ff4c40183f1967ee4.jpg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Esquema del enfoque de línea de energía (ángulo de alcance o <em>Fahrböschung</em>) utilizado para estimar la distancia de recorrido de un flujo de escombros.</span><a class="headerlink" href="#linea-de-energia" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> presenta valores característicos según el tipo de movimiento gravitacional. Para flujos de escombros con alta proporción de sedimentos finos, el ángulo mínimo observado es de aproximadamente 4° (<span class="math notranslate nohighlight">\(\tan \alpha \approx 0.07\)</span>). Para flujos con material más grueso, el ángulo es de <strong>10–11°</strong> (<span class="math notranslate nohighlight">\(\tan \alpha \approx 0.19\)</span>) <span class="bibtex-citation" id="id31">[<a class="reference internal" href="#id125" title="Dieter Rickenmann. Runout prediction methods. In Matthias Jakob and Oldrich Hungr, editors, Debris-flow Hazards and Related Phenomena, pages 305–324. Springer, Berlin, 2005. doi:10.1007/3-540-27129-5_13.">Ric05</a>]</span>.</p>
+<p>El ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> también puede expresarse como función del volumen del flujo o del área de la cuenca de aporte. Con base en datos de campo, Zimmermann et al. <span class="bibtex-citation" id="id32">[<a class="reference internal" href="#id339" title="Markus et al. Zimmermann. Calibration of the voellmy-salm model for debris flows in the swiss alps. 2020.">Zim20</a>]</span> propusieron la siguiente relación para el límite inferior del ángulo <span class="math notranslate nohighlight">\(\alpha\)</span> en función del área de cuenca <span class="math notranslate nohighlight">\(A\)</span> [km²]:</p>
 <div class="math notranslate nohighlight">
 \[
 \tan \alpha_{\text{min}} = 0.20 A^{-0.26}
 \]</div>
-<p>El modelo ACS (<em>Average Channel Slope Model</em>) propuesto por Prochaska et al. <span class="bibtex-citation" id="id33">[<a class="reference internal" href="#id116" title="Andrew B. Prochaska, Paul M. Santi, Jerry D. Higgins, and Susan H. Cannon. A study of methods to estimate debris flow velocity. Landslides, 5(4):431–444, 2008. doi:10.1007/s10346-008-0137-0.">PSHC08</a>]</span> fue desarrollado para flujos de escombros de tamaño moderado.
+<p>El modelo ACS (<em>Average Channel Slope Model</em>) propuesto por Prochaska et al. <span class="bibtex-citation" id="id33">[<a class="reference internal" href="#id120" title="Andrew B. Prochaska, Paul M. Santi, Jerry D. Higgins, and Susan H. Cannon. A study of methods to estimate debris flow velocity. Landslides, 5(4):431–444, 2008. doi:10.1007/s10346-008-0137-0.">PSHC08</a>]</span> fue desarrollado para flujos de escombros de tamaño moderado.
 Este modelo se basa en el cálculo del ángulo entre la elevación media del canal de drenaje y el final de la zona de alcance del flujo. Dicho ángulo puede estimarse a partir de otra relación angular: la que existe entre la elevación media del canal y el inicio del abanico aluvial (<em>fanhead</em>).</p>
 <p>El modelo ACS no requiere conocer el punto de inicio del flujo, que en muchos casos es desconocido o difícil de determinar con precisión. El punto de referencia (elevación media del canal) es objetivo y reproducible, lo que facilita su aplicación en diferentes estudios.</p>
 <p>El método mostró buenos resultados, pero fue desarrollado y probado en un número limitado de casos de estudio,  por lo que su aplicabilidad puede depender de las condiciones locales de los sitios analizados. A pesar de estas limitaciones, el modelo ACS ha mostrado resultados prometedores al compararse con métodos tradicionales basados en el ángulo de alcance (<em>reach angle</em>).</p>
-<div class="docutils container" id="id34">
+</section>
+</section>
+<section id="modelos-empiricos-basados-en-morfometria-de-cuenca">
+<h2>Modelos empíricos basados en morfometría de cuenca<a class="headerlink" href="#modelos-empiricos-basados-en-morfometria-de-cuenca" title="Link to this heading">#</a></h2>
+<p>Los modelos basados en física descritos en este capítulo requieren una cantidad considerable de parámetros de entrada. Como alternativa rápida y de bajo costo computacional para estimar la susceptibilidad y el tipo de proceso dominante esperado en el ápice de un abanico aluvial, se han desarrollado modelos empíricos basados en índices morfométricos calculados directamente a partir de un modelo digital de terreno (MDT).</p>
+<section id="el-indice-de-melton">
+<h3>El índice de Melton<a class="headerlink" href="#el-indice-de-melton" title="Link to this heading">#</a></h3>
+<p>El <strong>índice de Melton</strong> (<span class="math notranslate nohighlight">\(M_r\)</span>), o relación de relieve de la cuenca, se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+M_r = \frac{H}{\sqrt{A}}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(H\)</span> es el relieve total de la cuenca (diferencia de altura entre el punto más alto de la divisoria de aguas y el punto de salida) y <span class="math notranslate nohighlight">\(A\)</span> es el área de la cuenca drenada. Este índice sirve para clasificar y discriminar la susceptibilidad de una cuenca a generar diferentes tipos de flujos torrenciales: cuencas pequeñas y de relieve muy pronunciado (índices de Melton altos) favorecen flujos de detritos, mientras que cuencas más extensas y de menor relieve relativo favorecen inundaciones ordinarias <span class="bibtex-citation" id="id34">[<a class="reference internal" href="#id373" title="Ana M. Ramos, Andrés Reyes, and others. Guía metodológica para zonificación de amenaza por avenidas torrenciales. Technical Report, Servicio Geológico Colombiano y Pontificia Universidad Javeriana, Bogotá, Colombia, 2021.">RR+21</a>]</span>.</p>
+<p>Wilford et al. <span class="bibtex-citation" id="id35">[<a class="reference internal" href="#id365" title="D. J. Wilford, M. E. Sakals, J. L. Innes, R. C. Sidle, and W. A. Bergerud. Recognition of debris flow, debris flood and flood hazard through watershed morphometrics. Landslides, 2004.">WSI+04</a>]</span> propusieron una metodología que cruza el índice de Melton con la longitud del canal principal y la pendiente del cauce o del abanico aluvial para predecir el proceso dominante esperado en el punto de entrega de sedimentos:</p>
+<ul class="simple">
+<li><p><strong>Cuencas propensas a flujo de detritos</strong>: típicamente cuencas pequeñas, escarpadas y confinadas, con <span class="math notranslate nohighlight">\(M_r &gt; 0{,}6\)</span> y pendiente del canal o del abanico superior a 30 %.</p></li>
+<li><p><strong>Cuencas propensas a inundación de escombros (<em>debris flood</em>)</strong>: cuencas transicionales, con <span class="math notranslate nohighlight">\(M_r\)</span> entre 0,3 y 0,6 y pendientes de abanico intermedias.</p></li>
+<li><p><strong>Cuencas propensas a inundaciones ordinarias o crecientes súbitas</strong>: cuencas de mayor tamaño y menor relieve relativo, con <span class="math notranslate nohighlight">\(M_r &lt; 0{,}3\)</span> y abanicos de pendiente muy suave.</p></li>
+</ul>
+<p>Para las cuencas de los Andes colombianos, Arango, Aristizábal y Gómez <span class="bibtex-citation" id="id36">[<a class="reference internal" href="#id367" title="María Isabel Arango, Edier Aristizábal, and Freddy Gómez. Morphometrical analysis of torrential flows-prone catchments. Environmental Earth Sciences, 2021.">AAristizabalGomez21</a>]</span> realizaron un análisis morfométrico de cuencas propensas a avenidas torrenciales, aportando umbrales de referencia adaptados a las condiciones tropicales de alta montaña del país.</p>
+</section>
+<section id="limitaciones-del-enfoque-morfometrico-frente-a-eventos-de-alta-magnitud">
+<h3>Limitaciones del enfoque morfométrico frente a eventos de alta magnitud<a class="headerlink" href="#limitaciones-del-enfoque-morfometrico-frente-a-eventos-de-alta-magnitud" title="Link to this heading">#</a></h3>
+<p>Investigaciones geomorfológicas forenses recientes —como el estudio del impacto de la tormenta Vaia (2018) en los Dolomitas italianos— han identificado que los umbrales puramente morfométricos tienden a fallar y a subestimar la ocurrencia de inundaciones de escombros durante eventos hidrológicos de muy alta magnitud (períodos de retorno superiores a 200 años) <span class="bibtex-citation" id="id37">[<a class="reference internal" href="#id366" title="Andrea Brenna and others. An overview of geomorphic responses to high-magnitude floods: insights into river dynamics and implications. Earth-Science Reviews, 2023.">B+23</a>]</span>. Bajo lluvias extremas, la inyección masiva de sedimento desde laderas inestables y la superación de umbrales de potencia de corriente unitaria del orden de 5000–5500 W/m² pueden forzar transiciones reológicas dinámicas incluso en tramos de pendiente suave que los índices puramente estáticos (calculados una sola vez a partir de la topografía) no logran anticipar. Esto sugiere que los modelos morfométricos son más confiables como herramienta de tamizaje regional (<em>screening</em>) que como predictor único de la amenaza ante eventos extremos, y deben complementarse con los modelos hidrológicos e hidráulico-reológicos presentados en los capítulos anteriores.</p>
+</section>
+</section>
+<section id="herramientas-comerciales-de-propagacion-flo-2d-y-hec-ras">
+<h2>Herramientas comerciales de propagación: FLO-2D y HEC-RAS<a class="headerlink" href="#herramientas-comerciales-de-propagacion-flo-2d-y-hec-ras" title="Link to this heading">#</a></h2>
+<p>Además de las herramientas de código abierto descritas en los capítulos de esta parte, dos programas comerciales/gratuitos ampliamente usados en la práctica profesional para la propagación de avenidas torrenciales son <strong>FLO-2D</strong> y <strong>HEC-RAS</strong>, descritos en detalle en los capítulos <a class="reference internal" href="17_FLO2D.html"><span class="std std-doc">FLO-2D</span></a> y <a class="reference internal" href="18_HECRAS.html"><span class="std std-doc">HEC-RAS</span></a>, que incluyen una comparación de su desempeño en varios casos de estudio recientes (rotura de presas de relaves, flujos de detritos y aluviones en Taiwán, California y Chile).</p>
+<div class="docutils container" id="id38">
 <div role="list" class="citation-list">
-<div class="citation" id="id47" role="doc-biblioentry">
+<div class="citation" id="id367" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id36">AAristizabalGomez21</a><span class="fn-bracket">]</span></span>
+<p>María Isabel Arango, Edier Aristizábal, and Freddy Gómez. Morphometrical analysis of torrential flows-prone catchments. <em>Environmental Earth Sciences</em>, 2021.</p>
+</div>
+<div class="citation" id="id366" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id37">B+23</a><span class="fn-bracket">]</span></span>
+<p>Andrea Brenna and others. An overview of geomorphic responses to high-magnitude floods: insights into river dynamics and implications. <em>Earth-Science Reviews</em>, 2023.</p>
+</div>
+<div class="citation" id="id51" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id29">Cor96</a><span class="fn-bracket">]</span></span>
 <p>Jordi Corominas. The angle of reach as a mobility index for small and large landslides. <em>Canadian Geotechnical Journal</em>, 33(2):260–271, 1996. <a class="reference external" href="https://doi.org/10.1139/t96-030">doi:10.1139/t96-030</a>.</p>
 </div>
-<div class="citation" id="id55" role="doc-biblioentry">
+<div class="citation" id="id59" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Fre91</a><span class="fn-bracket">]</span></span>
 <p>T. Gregory Freeman. Calculating catchment area with divergent flow based on a regular grid. <em>Computers &amp; Geosciences</em>, 17(3):413–422, 1991. <a class="reference external" href="https://doi.org/10.1016/0098-3004(91)90048-I">doi:10.1016/0098-3004(91)90048-I</a>.</p>
 </div>
-<div class="citation" id="id56" role="doc-biblioentry">
+<div class="citation" id="id60" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>Gam00<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id11">1</a>,<a role="doc-backlink" href="#id12">2</a>,<a role="doc-backlink" href="#id14">3</a>,<a role="doc-backlink" href="#id15">4</a>,<a role="doc-backlink" href="#id17">5</a>,<a role="doc-backlink" href="#id21">6</a>)</span>
 <p>Paul Gamma. <em>dFlow – Murgang-Disposition durch ein stochastisches Modell</em>. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.</p>
 </div>
-<div class="citation" id="id61" role="doc-biblioentry">
+<div class="citation" id="id65" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>GB21<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id25">1</a>,<a role="doc-backlink" href="#id27">2</a>)</span>
 <p>Richard H. Guthrie and Kevin M. Befus. The Predictor: a semi-empirical model for evaluating debris flow mobility. <em>Landslides</em>, 18(11):3555–3568, 2021. <a class="reference external" href="https://doi.org/10.1007/s10346-021-01745-w">doi:10.1007/s10346-021-01745-w</a>.</p>
 </div>
-<div class="citation" id="id62" role="doc-biblioentry">
+<div class="citation" id="id66" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id25">GDCE08</a><span class="fn-bracket">]</span></span>
 <p>Richard H. Guthrie, Peter J. Deadman, Andrea R. Cabrera, and Stephen G. Evans. Exploring the magnitude-frequency distribution: a cellular automata model for landslides. <em>Landslides</em>, 5(1):151–159, 2008. <a class="reference external" href="https://doi.org/10.1007/s10346-007-0100-5">doi:10.1007/s10346-007-0100-5</a>.</p>
 </div>
-<div class="citation" id="id63" role="doc-biblioentry">
+<div class="citation" id="id67" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id28">Hei32</a><span class="fn-bracket">]</span></span>
 <p>Albert Heim. <em>Bergsturz und Menschenleben</em>. Fretz &amp; Wasmuth, Zürich, 1932.</p>
 </div>
-<div class="citation" id="id65" role="doc-biblioentry">
+<div class="citation" id="id69" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">Hol94</a><span class="fn-bracket">]</span></span>
 <p>Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. <em>Hydrological Processes</em>, 8(4):327–334, 1994. <a class="reference external" href="https://doi.org/10.1002/hyp.3360080405">doi:10.1002/hyp.3360080405</a>.</p>
 </div>
-<div class="citation" id="id66" role="doc-biblioentry">
+<div class="citation" id="id70" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>HJRZ13<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id10">2</a>,<a role="doc-backlink" href="#id16">3</a>,<a role="doc-backlink" href="#id18">4</a>,<a role="doc-backlink" href="#id19">5</a>,<a role="doc-backlink" href="#id20">6</a>,<a role="doc-backlink" href="#id22">7</a>)</span>
 <p>Pascal Horton, Michel Jaboyedoff, Benjamin Rudaz, and Markus Zimmermann. Flow-R, a model for susceptibility mapping of debris flows and other gravitational hazards at a regional scale. <em>Natural Hazards and Earth System Sciences</em>, 13(4):869–885, 2013. <a class="reference external" href="https://doi.org/10.5194/nhess-13-869-2013">doi:10.5194/nhess-13-869-2013</a>.</p>
 </div>
-<div class="citation" id="id214" role="doc-biblioentry">
+<div class="citation" id="id218" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>Hug19a<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
 <p>Christian et al. Huggel. Flow-deviation capability added to the d8 routing algorithm. 2019.</p>
 </div>
-<div class="citation" id="id213" role="doc-biblioentry">
+<div class="citation" id="id217" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Hug19b</a><span class="fn-bracket">]</span></span>
 <p>Christian et al. Huggel. Limitations of d8 flow routing for debris-flow path prediction. 2019.</p>
 </div>
-<div class="citation" id="id236" role="doc-biblioentry">
+<div class="citation" id="id240" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id30">Koe80</a><span class="fn-bracket">]</span></span>
 <p>Hans J. Koerner. Reichweite und geschwindigkeit von bergsturzen. 1980.</p>
 </div>
-<div class="citation" id="id245" role="doc-biblioentry">
+<div class="citation" id="id249" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id26">MN09</a><span class="fn-bracket">]</span></span>
 <p>Charles M. Macal and Michael J. North. Tutorial on agent-based modelling and simulation. 2009.</p>
 </div>
-<div class="citation" id="id102" role="doc-biblioentry">
+<div class="citation" id="id106" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>MKC15<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id23">2</a>)</span>
 <p>Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. <em>Geoscientific Model Development</em>, 8(12):4027–4043, 2015. <a class="reference external" href="https://doi.org/10.5194/gmd-8-4027-2015">doi:10.5194/gmd-8-4027-2015</a>.</p>
 </div>
-<div class="citation" id="id272" role="doc-biblioentry">
+<div class="citation" id="id276" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">OCallaghanM84</a><span class="fn-bracket">]</span></span>
 <p>John F. O'Callaghan and David M. Mark. The extraction of drainage networks from digital elevation data. 1984.</p>
 </div>
-<div class="citation" id="id116" role="doc-biblioentry">
+<div class="citation" id="id120" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id33">PSHC08</a><span class="fn-bracket">]</span></span>
 <p>Andrew B. Prochaska, Paul M. Santi, Jerry D. Higgins, and Susan H. Cannon. A study of methods to estimate debris flow velocity. <em>Landslides</em>, 5(4):431–444, 2008. <a class="reference external" href="https://doi.org/10.1007/s10346-008-0137-0">doi:10.1007/s10346-008-0137-0</a>.</p>
 </div>
-<div class="citation" id="id119" role="doc-biblioentry">
+<div class="citation" id="id123" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">QBCP91</a><span class="fn-bracket">]</span></span>
 <p>Paul Quinn, Keith Beven, Philippe Chevallier, and Olivier Planchon. The prediction of hillslope flow paths for distributed hydrological modelling using digital terrain models. <em>Hydrological Processes</em>, 5(1):59–79, 1991. <a class="reference external" href="https://doi.org/10.1002/hyp.3360050106">doi:10.1002/hyp.3360050106</a>.</p>
 </div>
-<div class="citation" id="id121" role="doc-biblioentry">
+<div class="citation" id="id373" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id34">RR+21</a><span class="fn-bracket">]</span></span>
+<p>Ana M. Ramos, Andrés Reyes, and others. Guía metodológica para zonificación de amenaza por avenidas torrenciales. Technical Report, Servicio Geológico Colombiano y Pontificia Universidad Javeriana, Bogotá, Colombia, 2021.</p>
+</div>
+<div class="citation" id="id125" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id31">Ric05</a><span class="fn-bracket">]</span></span>
 <p>Dieter Rickenmann. Runout prediction methods. In Matthias Jakob and Oldrich Hungr, editors, <em>Debris-flow Hazards and Related Phenomena</em>, pages 305–324. Springer, Berlin, 2005. <a class="reference external" href="https://doi.org/10.1007/3-540-27129-5_13">doi:10.1007/3-540-27129-5_13</a>.</p>
 </div>
-<div class="citation" id="id299" role="doc-biblioentry">
+<div class="citation" id="id303" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">Sch71</a><span class="fn-bracket">]</span></span>
 <p>Thomas C. Schelling. Dynamic models of segregation (early cellular-automata concepts). 1971.</p>
 </div>
-<div class="citation" id="id316" role="doc-biblioentry">
+<div class="citation" id="id320" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Tar97</a><span class="fn-bracket">]</span></span>
 <p>David G. Tarboton. A new method for the determination of flow directions and upslope areas in grid dems (d-infinity). 1997.</p>
 </div>
-<div class="citation" id="id321" role="doc-biblioentry">
+<div class="citation" id="id325" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id25">Tur02</a><span class="fn-bracket">]</span></span>
 <p>Robert et al. Turcotte. Agent-based hydrological modelling of headwater catchments. 2002.</p>
 </div>
-<div class="citation" id="id138" role="doc-biblioentry">
+<div class="citation" id="id142" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Wic17</a><span class="fn-bracket">]</span></span>
 <p>Volker Wichmann. The Gravitational Process Path (GPP) model (v1.0) – a GIS-based simulation framework for gravitational processes. <em>Geoscientific Model Development</em>, 10(9):3309–3327, 2017. <a class="reference external" href="https://doi.org/10.5194/gmd-10-3309-2017">doi:10.5194/gmd-10-3309-2017</a>.</p>
 </div>
-<div class="citation" id="id331" role="doc-biblioentry">
+<div class="citation" id="id365" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id35">WSI+04</a><span class="fn-bracket">]</span></span>
+<p>D. J. Wilford, M. E. Sakals, J. L. Innes, R. C. Sidle, and W. A. Bergerud. Recognition of debris flow, debris flood and flood hazard through watershed morphometrics. <em>Landslides</em>, 2004.</p>
+</div>
+<div class="citation" id="id335" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">Wol84</a><span class="fn-bracket">]</span></span>
 <p>Stephen Wolfram. Cellular automata as models of complexity. 1984.</p>
 </div>
-<div class="citation" id="id335" role="doc-biblioentry">
+<div class="citation" id="id339" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id32">Zim20</a><span class="fn-bracket">]</span></span>
 <p>Markus et al. Zimmermann. Calibration of the voellmy-salm model for debris flows in the swiss alps. 2020.</p>
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -804,6 +884,12 @@ Este modelo se basa en el cálculo del ángulo entre la elevación media del can
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoques-de-linea-de-energia-energy-line-approaches">Enfoques de Línea de Energía (<em>Energy Line Approaches</em>)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-empiricos-basados-en-morfometria-de-cuenca">Modelos empíricos basados en morfometría de cuenca</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-indice-de-melton">El índice de Melton</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-del-enfoque-morfometrico-frente-a-eventos-de-alta-magnitud">Limitaciones del enfoque morfométrico frente a eventos de alta magnitud</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-comerciales-de-propagacion-flo-2d-y-hec-ras">Herramientas comerciales de propagación: FLO-2D y HEC-RAS</a></li>
 </ul>
   </nav></div>
 

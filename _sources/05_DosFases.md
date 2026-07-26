@@ -69,8 +69,26 @@ La viscosidad del fluido, que puede variar según la composición del flujo, afe
 
 Las simulaciones demuestran que el esfuerzo viscoso controla la propagación del frente del flujo y determina cómo la masa de detritos se alarga y deforma. La cantidad de fluido en la cola de un flujo es sustancialmente mayor cuando no hay esfuerzo viscoso en comparación con un flujo que sí lo experimenta. Incluso con una pequeña cantidad de fluido en la mezcla, el efecto del esfuerzo viscoso es importante, ya que reduce sustancialmente la deformación. Por lo tanto, el efecto de la resistencia viscosa debe tenerse en cuenta en la simulación de flujos de escombros. Los modelos anteriores no incluían sistemáticamente el efecto del esfuerzo viscoso (o la viscosidad del fluido) en la dinámica de los flujos bifásicos.
 
+## De dos a tres fases: el modelo de Pudasaini y Mergili (2019)
 
+La generalización más reciente de los modelos de mezcla de Coulomb es el marco **trifásico**, que separa explícitamente la fase sólida gruesa, la fase sólida fina y el fluido intersticial, en lugar de agrupar sólidos finos y agua en una única fase "fluida" como hacen los modelos bifásicos clásicos {cite}`pudasaini_mergili_2019`. Este marco promedia en profundidad un sistema de **nueve ecuaciones diferenciales parciales** (tres de continuidad, una por fase, y seis de momentum, dos componentes por fase) y constituye la base física del módulo de dos fases de *r.avaflow 2.0* {cite}`trujillo_vela_2022`.
 
+Para cerrar este sistema de ecuaciones, el modelo asigna una relación constitutiva de resistencia distinta a cada fase:
+
+- **Fase líquida (fluido intersticial)**: se modela mediante un comportamiento de **Bingham plástico**, complementado con la reología de **Ishii**, que parametriza la viscosidad y movilidad del fluido en función del gradiente espacial de la fracción de sólidos.
+- **Fase sólida fina**: se le asigna un modelo de **Coulomb viscoso o visco-plástico**, que captura la resistencia cohesiva y friccional de la matriz de lodo.
+- **Fase sólida gruesa**: dominada por la fricción seca de contacto entre clastos, se representa mediante **Coulomb plástico** o criterios de fluencia de **Mohr-Coulomb** y **Drucker-Prager**.
+
+Adicionalmente, mientras que las aproximaciones tradicionales aplican leyes de fricción hidráulica de tipo Manning o Darcy-Weisbach de forma uniforme, el marco trifásico incorpora en la fase fluida la **conductividad hidráulica de Darcy** y la permeabilidad intrínseca del lecho poroso, lo que permite simular de forma acoplada la evolución de la presión de poros junto con las fuerzas de arrastre no lineal y de masa virtual entre las tres fases {cite}`trujillo_vela_2022`.
+
+## Modelo mecánico de erosión (entrainment) en marcos multifásicos
+
+A diferencia de los códigos que tratan el lecho como un límite rígido no erodible o que usan tasas de erosión puramente empíricas, herramientas como *r.avaflow* integran un **modelo de erosión mecánico**, basado en principios de conservación, formulado por Pudasaini y Fischer {cite}`pudasaini_fischer_2020`. Sus principios físicos centrales son:
+
+- **Balance de masa y momentum**: el modelo resuelve de forma acoplada la tasa de erosión del lecho y la producción de cantidad de movimiento que experimenta la mezcla al incorporar sedimento del lecho, inicialmente en reposo, a la velocidad del flujo suprayacente.
+- **Evolución dinámica de la topografía**: la cota del lecho se actualiza en cada paso de tiempo como una variable dependiente de la tasa de erosión local, en lugar de asumirse fija.
+- **Separación de fases y *bulking***: el modelo simula cómo la entrada de material erosionado altera la concentración local de sólidos, favoreciendo la separación de fases (frente rico en bloques gruesos y secos por empuje friccional, seguido de una cola más líquida) y el aumento (*bulking*) del volumen del flujo durante su tránsito por el cauce.
+- **Escalamiento de movilidad (*mobility scaling*)**: Pudasaini y Krautblatter {cite}`pudasaini_krautblatter_2021` proponen un número adimensional que permite anticipar analíticamente bajo qué condiciones la incorporación de sedimento aumenta o, por el contrario, reduce la movilidad final del flujo —contrario a la intuición de que "más volumen implica siempre mayor alcance"—.
 
 
 ```{bibliography}
