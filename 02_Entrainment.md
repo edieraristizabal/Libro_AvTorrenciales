@@ -12,6 +12,29 @@ Para calcular la incorporación en un flujo de escombros real, se puede utilizar
 
 En el análisis de alcance con incorporación, el modelo de alcance con incorporación generalmente se calibra con base en las observaciones disponibles, como la distancia de alcance, el volumen final estimado y las velocidades máximas del flujo en ubicaciones específicas, calculadas a partir de sobrelevación (*runup*) o super-elevación {cite}`davies_1999,iverson_ouyang_2015,mergili_ravaflow_2017`. Sin embargo, el proceso de calibración siempre es desafiante debido a las mediciones limitadas en campo. Por lo tanto, los parámetros en los modelos de incorporación se determinan empíricamente o con base en investigaciones previas. Las características cinemáticas, como la velocidad y la altura del flujo, y las características de la erosión, como la tasa de erosión y la profundidad de erosión, se calculan posteriormente (Kang & Chan, 2018a). Además, generalmente se reportan la velocidad media y la variación del volumen total, y rara vez se describen tasas locales de erosión, excepto en Kang y Chan {cite}`kang_2022`.
 
+## Escala de amplificación de volumen (*bulking*)
+
+La incorporación de sedimento a lo largo del recorrido puede modificar drásticamente el volumen y el comportamiento reológico del flujo; el volumen final depositado puede superar en varios órdenes de magnitud al volumen movilizado inicialmente en la zona de falla {cite}`trujillo_vela_2022`. Algunos ejemplos documentados de esta amplificación son:
+
+- **Lahar del Nevado del Ruiz, Colombia (1985)**: incrementó su volumen inicial entre 2 y 4 veces por la incorporación de material glaciar, depósitos volcánicos y sedimentos fluviales saturados a lo largo de los cauces del Lagunillas y del Chinchiná.
+- **Flujo de detritos de Mocoa, Colombia (2017)**: experimentó un factor de amplificación de volumen de aproximadamente 7,5 veces respecto a la masa deslizada inicialmente en las cabeceras de las quebradas Taruca y Mulato {cite}`trujillo_vela_2022`.
+- **Dolomitas, Italia (1997)**: un flujo de detritos iniciado con un volumen menor acumuló por arrastre en el canal un volumen final en el que el material incorporado representó cerca del 90 % del depósito total {cite}`kang_flume_2024`.
+
+### Mecanismos físicos de incorporación
+
+La incorporación de sedimento ocurre principalmente a través de dos mecanismos complementarios {cite}`trujillo_vela_2022`:
+
+1. **Desestabilización e incisión del lecho**: ocurre por las fuerzas de arrastre cortante que el flujo aplica sobre la superficie erodible, asistida por la pérdida súbita de resistencia del lecho saturado debido a la carga no drenada (*undrained loading*), las presiones de impacto y la licuefacción del material preexistente {cite}`mcdougall_2017_colloquium`.
+2. **Socavación lateral de bancas (*bank undercutting*)**: la incisión y el descenso vertical del fondo del canal socavan el pie de los taludes marginales, que suelen encontrarse en equilibrio límite, provocando su colapso progresivo hacia el flujo.
+
+### Enfoques de modelación matemática del entrainment
+
+Para representar este fenómeno en los modelos de propagación se han propuesto tres aproximaciones de complejidad creciente {cite}`trujillo_vela_2022`:
+
+- **Modelos empíricos/heurísticos**: prescriben una tasa de crecimiento volumétrico constante o una tasa de erosión específica definida a priori por el usuario, con base en observaciones de campo de eventos similares {cite}`mcdougall_2017_colloquium`.
+- **Modelos basados en procesos físicos (balance de fuerzas límite)**: calculan la profundidad o tasa de erosión instantánea a partir del balance entre el esfuerzo cortante basal aplicado por el flujo y la resistencia límite al corte del lecho erodible, asumiendo que el material erosionado se acelera instantáneamente hasta alcanzar la velocidad media del flujo.
+- **Formulaciones consistentes de conservación de momentum**: exigen que las ecuaciones incorporen no solo el balance de masa, sino también un término de producción de cantidad de movimiento inducido por la masa recién erosionada; de lo contrario, el modelo resulta físicamente inconsistente y subestima la disipación de energía del sistema. Un desarrollo reciente en esta línea es el número adimensional de *mobility scaling*, propuesto por Pudasaini y Krautblatter {cite}`pudasaini_krautblatter_2021`, que permite anticipar analíticamente el efecto del entrainment sobre la movilidad final del flujo.
+
 ```{bibliography}
 :filter: docname in docnames
 ```

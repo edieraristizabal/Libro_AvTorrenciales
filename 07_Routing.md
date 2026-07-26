@@ -169,12 +169,35 @@ El modelo ACS no requiere conocer el punto de inicio del flujo, que en muchos ca
 
 El método mostró buenos resultados, pero fue desarrollado y probado en un número limitado de casos de estudio,  por lo que su aplicabilidad puede depender de las condiciones locales de los sitios analizados. A pesar de estas limitaciones, el modelo ACS ha mostrado resultados prometedores al compararse con métodos tradicionales basados en el ángulo de alcance (*reach angle*).
 
+## Modelos empíricos basados en morfometría de cuenca
 
+Los modelos basados en física descritos en este capítulo requieren una cantidad considerable de parámetros de entrada. Como alternativa rápida y de bajo costo computacional para estimar la susceptibilidad y el tipo de proceso dominante esperado en el ápice de un abanico aluvial, se han desarrollado modelos empíricos basados en índices morfométricos calculados directamente a partir de un modelo digital de terreno (MDT).
 
+### El índice de Melton
 
+El **índice de Melton** ($M_r$), o relación de relieve de la cuenca, se define como:
 
+$$
+M_r = \frac{H}{\sqrt{A}}
+$$
 
+donde $H$ es el relieve total de la cuenca (diferencia de altura entre el punto más alto de la divisoria de aguas y el punto de salida) y $A$ es el área de la cuenca drenada. Este índice sirve para clasificar y discriminar la susceptibilidad de una cuenca a generar diferentes tipos de flujos torrenciales: cuencas pequeñas y de relieve muy pronunciado (índices de Melton altos) favorecen flujos de detritos, mientras que cuencas más extensas y de menor relieve relativo favorecen inundaciones ordinarias {cite}`ramos_avenidas_2021`.
 
+Wilford et al. {cite}`wilford_2004` propusieron una metodología que cruza el índice de Melton con la longitud del canal principal y la pendiente del cauce o del abanico aluvial para predecir el proceso dominante esperado en el punto de entrega de sedimentos:
+
+- **Cuencas propensas a flujo de detritos**: típicamente cuencas pequeñas, escarpadas y confinadas, con $M_r > 0{,}6$ y pendiente del canal o del abanico superior a 30 %.
+- **Cuencas propensas a inundación de escombros (*debris flood*)**: cuencas transicionales, con $M_r$ entre 0,3 y 0,6 y pendientes de abanico intermedias.
+- **Cuencas propensas a inundaciones ordinarias o crecientes súbitas**: cuencas de mayor tamaño y menor relieve relativo, con $M_r < 0{,}3$ y abanicos de pendiente muy suave.
+
+Para las cuencas de los Andes colombianos, Arango, Aristizábal y Gómez {cite}`arango_morphometrical_2021` realizaron un análisis morfométrico de cuencas propensas a avenidas torrenciales, aportando umbrales de referencia adaptados a las condiciones tropicales de alta montaña del país.
+
+### Limitaciones del enfoque morfométrico frente a eventos de alta magnitud
+
+Investigaciones geomorfológicas forenses recientes —como el estudio del impacto de la tormenta Vaia (2018) en los Dolomitas italianos— han identificado que los umbrales puramente morfométricos tienden a fallar y a subestimar la ocurrencia de inundaciones de escombros durante eventos hidrológicos de muy alta magnitud (períodos de retorno superiores a 200 años) {cite}`brenna_geomorphic_2023`. Bajo lluvias extremas, la inyección masiva de sedimento desde laderas inestables y la superación de umbrales de potencia de corriente unitaria del orden de 5000–5500 W/m² pueden forzar transiciones reológicas dinámicas incluso en tramos de pendiente suave que los índices puramente estáticos (calculados una sola vez a partir de la topografía) no logran anticipar. Esto sugiere que los modelos morfométricos son más confiables como herramienta de tamizaje regional (*screening*) que como predictor único de la amenaza ante eventos extremos, y deben complementarse con los modelos hidrológicos e hidráulico-reológicos presentados en los capítulos anteriores.
+
+## Herramientas comerciales de propagación: FLO-2D y HEC-RAS
+
+Además de las herramientas de código abierto descritas en los capítulos de esta parte, dos programas comerciales/gratuitos ampliamente usados en la práctica profesional para la propagación de avenidas torrenciales son **FLO-2D** y **HEC-RAS**, descritos en detalle en los capítulos [FLO-2D](17_FLO2D.md) y [HEC-RAS](18_HECRAS.md), que incluyen una comparación de su desempeño en varios casos de estudio recientes (rotura de presas de relaves, flujos de detritos y aluviones en Taiwán, California y Chile).
 
 ```{bibliography}
 :filter: docname in docnames

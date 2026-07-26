@@ -199,6 +199,17 @@ Sin embargo, los movimientos en masa tipo avalancha de escombros se presentan co
 Flujo de escombros canalizado de Piedra Gorda en el municipio de Itagui {cite}`orjuela_2022`.
 :::
 
+### Criterios sedimentológicos para diferenciar el continuo de flujos
+
+Estudios sedimentológicos recientes basados en depósitos de campo han permitido cuantificar, más allá de la descripción cualitativa anterior, los criterios que distinguen cada punto del continuo hidro-sedimentario según la concentración volumétrica de sedimentos ($C_v$) y la fábrica de los depósitos {cite}`brenna_imbrication_2024`:
+
+- **Inundación súbita (*clearwater flood*)**: $C_v$ menor al 4 %. Fluido netamente newtoniano regido por la turbulencia del agua clara, con transporte por suspensión y carga de fondo traccional. Los clastos presentan un ángulo de imbricación bajo y sus ejes largos se orientan perpendiculares a la dirección del flujo por rodamiento hidráulico; el contenido de materia orgánica es bajo (1,5–3,0 %) y las facies típicas corresponden a barras de grava bien estratificadas y bien seleccionadas.
+- **Inundación de escombros (*debris flood*)**: $C_v$ entre 4 % y 20 %. Flujo de transición dominado por un tapete de tracción (*traction carpet*) basal donde la alta concentración colisional suprime la turbulencia. Es capaz de generar un ensanchamiento extraordinario del cauce por erosión de bancas: para un mismo nivel de potencia de corriente unitaria, las secciones afectadas por inundaciones de escombros se ensanchan de 2 a 3 veces más que las afectadas por flujos de agua ordinarios, umbral que suele superarse por encima de 5000–5500 W/m² {cite}`brenna_sediment_2021`. Presenta imbricación intermedia, orientación bimodal de clastos y facies masivas a rudimentariamente estratificadas, mal seleccionadas.
+- **Flujo hiperconcentrado**: $C_v$ transicional, entre 20 % y 50 % (los límites varían entre 5 % y 60 % según los autores). Transición entre comportamiento newtoniano y no newtoniano plástico; la fase sólida gruesa tiende a separarse verticalmente de la mezcla y presenta un esfuerzo de fluencia medible aunque conserva apariencia líquida {cite}`du_classification_2023`. Facies típicas: depósitos de manto (*sheet-floods*) muy mal seleccionados.
+- **Flujo de detritos (*debris flow*, sentido estricto)**: $C_v$ alta, entre 50 % y 90 %. Fluido no newtoniano viscoplástico y cohesivo en el que dominan las interacciones friccionales y colisionales entre partículas; los clastos gruesos son soportados por flotabilidad y por la resistencia de la matriz fina. Presenta el ángulo de imbricación más alto del continuo, con los ejes largos de los clastos alineados paralelos a la dirección del flujo por cizalladura interna, alto contenido de materia orgánica (2,5–5,5 %, por incorporación de detritos vegetales de ladera) y facies de soporte de matriz sin selección, con lóbulos terminales y diques laterales característicos.
+
+Estos criterios de campo —ángulo y orientación de la imbricación de clastos, contenido de materia orgánica y tipo de facies— resultan particularmente útiles para la reconstrucción de eventos históricos y la clasificación genética de depósitos antiguos o no instrumentados, complementando los criterios morfométricos e hidrológicos descritos en las secciones anteriores.
+
 ## Mecanismos de iniciación
 
 Los flujos de escombros pueden iniciarse mediante tres mecanismos:  

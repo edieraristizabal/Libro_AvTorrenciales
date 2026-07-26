@@ -261,6 +261,29 @@ A continuación se comparan los modelos presentados, enfatizando sus supuestos f
 
 **Validez de la aproximación continua**: Todos los modelos mencionados tratan al flujo de escombros como un continuo. Esto es razonable cuando la mezcla es muy heterogénea pero persistentemente mezclada (caso típico de flujos con matriz fluida abundante). Sin embargo, para avalanchas de rocas o flujos de detritos con gran proporción de bloques enormes, el supuesto de continuo puede fallar a escala local (bloques rodando individualmente). En tales casos, modelos discretos (DEM) o bifásicos pueden ser más apropiados.
 
+### Rangos de parámetros reológicos para flujos de detritos (debris flow)
+
+A partir de la revisión de literatura realizada por Sanz-Ramos et al. {cite}`sanzramos_iber_2025`, la Tabla siguiente recoge los valores mínimos y máximos reportados para los parámetros de calibración de cada modelo reológico específicamente en la modelación de **flujos de detritos** (*debris flow*):
+
+| Modelo | Parámetro | Mínimo | Máximo |
+|---|---|---|---|
+| Manning | $n$ (s/m$^{1/3}$) | 0.1 | 1 |
+| Voellmy | $\xi$ (m/s$^2$) | 10 | 600 |
+| Voellmy | $\mu$ (-) | 0.1 | 0.55 |
+| Bingham | $\tau_y$ (Pa) | 750 | 3500 |
+| Bingham | $\mu_B$ (Pa·s) | 0.4 | 3200 |
+| O'Brien-Julien | $\tau_y$ (Pa) | 700 | 1500 |
+| O'Brien-Julien | $\mu_B$ (Pa·s) | 5 | 35 |
+| O'Brien-Julien | $K$ (-) | 24 | 2000 |
+| O'Brien-Julien | $n$ (s/m$^{1/3}$) | 0.05 | 0.20 |
+| O'Brien-Julien | $C_v$ (-) | 0.3 | 0.6 |
+| O'Brien-Julien | $Fr_{max}$ (-) | 0.5 | 2 |
+| Herschel–Bulkley | $\tau_y$ (Pa)* | 0.0239 | 0.0239 |
+| Herschel–Bulkley | $k$ (Pa·s$^\alpha$)* | 2.76 | 2.76 |
+| Herschel–Bulkley | $\alpha$ (-)* | 0.5 | 0.5 |
+
+*Para el modelo de Herschel–Bulkley, los valores provienen de un único dato reportado sin unidades por Satria et al. (2024), citado en Sanz-Ramos et al. {cite}`sanzramos_iber_2025`, por lo que el mínimo y el máximo coinciden.
+
 Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de deslizamientos (adaptado de Kang y Chan {cite}`kang_2018`).
 
 | Modelo          | Reología                                                  | Incorpora arrastre | Referencias seleccionadas                                                 |

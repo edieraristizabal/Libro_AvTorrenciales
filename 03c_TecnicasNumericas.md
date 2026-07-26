@@ -90,6 +90,18 @@ Otro enfoque para abordar la dificultad de modelar con precisión flujos poco pr
 | **Flow-R** | Euleriano | Opera sobre una grilla ráster fija, calculando trayectorias de flujo desde cada celda. |
 | **Box models** | Lagrangiano | Trata el deslizamiento como un único objeto (un "bloque") y sigue su centro de masa. |
 | **RMB** | Lagrangiano | Realiza un balance de energía sobre la masa total a medida que se desplaza, siguiendo al objeto. |
+| **Iber-NNF** | Euleriano | Volúmenes finitos (FVM) con solucionador de Riemann tipo Roe. |
+
+### El método de volúmenes finitos y los esquemas de captura de choques
+
+Dentro de los esquemas Eulerianos, el **método de volúmenes finitos (FVM)** se ha convertido en el estándar para conservar estrictamente la masa y la cantidad de movimiento en flujos de montaña con discontinuidades (frentes secos, resaltos hidráulicos). Tanto *Iber* como *r.avaflow* emplean FVM {cite}`blade_iber_2014,mergili_ravaflow_2017`. En particular, *Iber-NNF* utiliza un solucionador de Riemann de tipo **Roe** (*upwind*), acoplado con reconstructores lineales **MUSCL** de segundo orden espacial y limitadores de flujo de variación total decreciente (**TVD**, como Minmod, Superbee o Van Leer) para propagar el flujo sobre lechos secos e irregulares de forma numéricamente estable y sin oscilaciones espurias. No obstante, estos esquemas de diferencias/volúmenes finitos siguen sujetos a cierta difusividad numérica en los frentes de flujo muy pronunciados.
+
+### Esquemas híbridos recientes: acoplamiento SPH-DEM y MPM
+
+Más allá de la dicotomía estricta Euleriano/Lagrangiano, algunas herramientas recientes combinan ambos marcos para representar mejor la heterogeneidad de los flujos de detritos naturales:
+
+- **Acoplamiento SPH-DEM**: combina la hidrodinámica de partículas suavizadas (SPH), eficiente para representar grandes deformaciones de la matriz fluidizada, con el método de elementos discretos (DEM), que resuelve el movimiento de bloques rocosos individuales (*boulders*) como cuerpos rígidos que interactúan por colisión dentro de la matriz. Este esquema acoplado permite representar simultáneamente el comportamiento continuo del lodo y el comportamiento granular discreto de los bloques más gruesos {cite}`trujillo_vela_sphdem_2020`.
+- **Método del punto material (MPM) / FEM-MPM**: utilizado en herramientas avanzadas de dos fases como *OpenLISEM 2.0a*, discretiza el continuo del flujo en puntos materiales que se desplazan sobre una malla de fondo auxiliar, combinando la robustez del cálculo en malla (FEM) con la capacidad del enfoque Lagrangiano para manejar grandes deformaciones sin distorsión de la malla {cite}`trujillo_vela_2022`.
 
 ```{bibliography}
 :filter: docname in docnames
