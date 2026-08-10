@@ -220,9 +220,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -241,6 +240,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -452,7 +455,7 @@
   <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024), {cite}`mergili_2015b`[https://www.landslidemodels.org/r.randomwalk/manual.php].</em></p>
 <section class="tex2jax_ignore mathjax_ignore" id="r-randomwalk">
 <h1>r.randomwalk<a class="headerlink" href="#r-randomwalk" title="Link to this heading">#</a></h1>
-<p><em>r.randomwalk</em> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id229" title="Martin Mergili. R.randomwalk manual. 2022.">Mer22</a>, <a class="reference internal" href="#id70" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">MKC15</a>]</span> representa una herramienta multifuncional para el enrutamiento de procesos de movimientos en masa. Puede utilizarse como una extensión del software de código abierto <em>GRASS GIS</em>. La arquitectura de la herramienta consiste en un núcleo programado en <em>C</em>, con un script en <em>Python</em> envolviéndolo para el pre- y postprocesamiento de los datos. Los procedimientos estadísticos automáticos, visualización y funcionalidades de evaluación están incluidos a través de scripts en <em>R</em>, que son llamados directamente desde el script en Python.</p>
+<p><em>r.randomwalk</em> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id228" title="Martin Mergili. R.randomwalk manual. 2022.">Mergili, 2022</a>, <a class="reference internal" href="19_Referencias.html#id69" title="Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. Geoscientific Model Development, 8(12):4027–4043, 2015. doi:10.5194/gmd-8-4027-2015.">Mergili <em>et al.</em>, 2015</a>]</span> representa una herramienta multifuncional para el enrutamiento de procesos de movimientos en masa. Puede utilizarse como una extensión del software de código abierto <em>GRASS GIS</em>. La arquitectura de la herramienta consiste en un núcleo programado en <em>C</em>, con un script en <em>Python</em> envolviéndolo para el pre- y postprocesamiento de los datos. Los procedimientos estadísticos automáticos, visualización y funcionalidades de evaluación están incluidos a través de scripts en <em>R</em>, que son llamados directamente desde el script en Python.</p>
 <section id="componentes">
 <h2>Componentes<a class="headerlink" href="#componentes" title="Link to this heading">#</a></h2>
 <p>El núcleo de <em>r.randomwalk</em> es un algoritmo de enrutamiento de caminata aleatoria restringida acoplado a una selección de criterios de detención, incluyendo valores simples y funciones de ángulos de recorrido, así como un modelo físicamente basado simple (modelo de fricción de 2 parámetros). Las caminatas aleatorias pueden iniciarse desde un número arbitrario de puntos individuales o áreas de liberación de deslizamientos, o desde un mapa de susceptibilidad de liberación de deslizamientos, y se enrutan a través del terreno hasta que se cumplen todos los criterios de detención aplicados. Puede utilizarse un número arbitrario de diferentes criterios de detención de diferentes tipos para derivar medidas de probabilidad de que un píxel objetivo sea alcanzado (puntaje del indicador de impacto).</p>
@@ -492,18 +495,6 @@
 </pre></div>
 </div>
 <p>Los resultados del cálculo se guardan en el directorio <code class="docutils literal notranslate"><span class="pre">projects/test</span></code>.</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id229" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Mer22</a><span class="fn-bracket">]</span></span>
-<p>Martin Mergili. R.randomwalk manual. 2022.</p>
-</div>
-<div class="citation" id="id70" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">MKC15</a><span class="fn-bracket">]</span></span>
-<p>Martin Mergili, Julia Krenn, and Hone-Jay Chu. R.randomwalk v1, a multi-functional conceptual tool for mass flow propagation and risk assessment. <em>Geoscientific Model Development</em>, 8(12):4027–4043, 2015. <a class="reference external" href="https://doi.org/10.5194/gmd-8-4027-2015">doi:10.5194/gmd-8-4027-2015</a>.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 

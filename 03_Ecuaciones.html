@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ecuaciones de Saint-Venant &#8212; Avenidas Torrenciales</title>
+    <title>Ecuaciones de Saint-Venant y técnicas numéricas de solución &#8212; Avenidas Torrenciales</title>
   
   
   
@@ -66,8 +66,8 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Evolución histórica de los modelos de flujos" href="03b_EvolucionModelos.html" />
-    <link rel="prev" title="La Lluvia como factor detonante" href="02_Hidrometeorologia.html" />
+    <link rel="next" title="Tipos de flujos" href="04_TiposFlujos.html" />
+    <link rel="prev" title="Evolución histórica de los modelos de flujos" href="03b_EvolucionModelos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -222,9 +222,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -243,6 +242,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -425,7 +428,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ecuaciones de Saint-Venant</h1>
+    <h1>Ecuaciones de Saint-Venant y técnicas numéricas de solución</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,9 +438,19 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">1. Ecuación de conservación de masa (Continuidad)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">2. Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-saint-venant">Ecuaciones de Saint-Venant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">1. Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">2. Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-numericas-de-solucion">Técnicas numéricas de solución</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marco-euleriano-o-lagrangiano">Marco Euleriano o Lagrangiano</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marcos-de-referencia-en-modelos-eulerianos">Marcos de referencia en modelos eulerianos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-de-volumenes-finitos-y-los-esquemas-de-captura-de-choques">El método de volúmenes finitos y los esquemas de captura de choques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquemas-hibridos-recientes-acoplamiento-sph-dem-y-mpm">Esquemas híbridos recientes: acoplamiento SPH-DEM y MPM</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -450,8 +463,10 @@
                 <article class="bd-article">
                   
   <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Iverson & George {cite}`iverson_george_2024` en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
-<section class="tex2jax_ignore mathjax_ignore" id="ecuaciones-de-saint-venant">
-<h1>Ecuaciones de Saint-Venant<a class="headerlink" href="#ecuaciones-de-saint-venant" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="ecuaciones-de-saint-venant-y-tecnicas-numericas-de-solucion">
+<h1>Ecuaciones de Saint-Venant y técnicas numéricas de solución<a class="headerlink" href="#ecuaciones-de-saint-venant-y-tecnicas-numericas-de-solucion" title="Link to this heading">#</a></h1>
+<section id="ecuaciones-de-saint-venant">
+<h2>Ecuaciones de Saint-Venant<a class="headerlink" href="#ecuaciones-de-saint-venant" title="Link to this heading">#</a></h2>
 <p>Para modelar flujos de escombros (<em>debris flows</em>) y otros flujos, se emplean un conjunto de ecuaciones de conservación que derivan de la mecánica de fluidos y medios continuos. Las ecuaciones de Saint-Venant son una forma simplificada y promediada en profundidad de las ecuaciones de Navier–Stokes. Se utilizan para modelar flujos superficiales como ríos, avalanchas, lahares y <em>debris flows</em>. Estas ecuaciones resuelven la dinámica del flujo considerando solo las variaciones en el plano horizontal (x,y), y promediando las variables a lo largo de la vertical (z), lo que simplifica mucho el problema sin perder lo esencial. Las ecuaciones de flujo de aguas someras (o de aguas poco profundas) resuelven simultáneamente las ecuaciones de conservación de masa y de momento para calcular la cota del agua y la velocidad.</p>
 <p>Las fuerzas de fricción entre el fluido y el contorno sólido son las principales fuerzas de resistencia en las ecuaciones hidráulicas estándar para agua clara newtoniana. Comparado con aguas limpias, los flujos de lodo y detritos generan fuerzas resistentes adicionales. El aumento del contenido de sólidos incrementa la viscosidad de los flujos no newtonianos, generando fuerzas resistentes internas dentro del fluido. A concentraciones más altas, particularmente con partículas gruesas, la colisión y fricción entre partículas introducen fuerzas resistentes internas adicionales. La mayoría de las modificaciones teóricas y numéricas implican la integración de las nuevas fuerzas internas del fluido en la ecuación de momento.</p>
 <p>La aplicación del transporte no newtoniano en un modelo de aguas someras (o de aguas poco profundas) requiere calcular las pérdidas internas añadiendo un término de pendiente a la pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) en la ecuación de momento y aumentando el flujo para tener en cuenta el volumen de los sólidos. La pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>) del modelo de aguas someras representa las fuerzas que actúan contra el flujo en el contorno del fluido (por ejemplo, el canal), mientras que la pendiente de lodo y detritos (<span class="math notranslate nohighlight">\(S_{MD}\)</span>) representa las pérdidas internas debidas a la viscosidad, la turbulencia y/o la dispersión dentro del fluido.</p>
@@ -482,7 +497,7 @@
 <p>Generalmente los modelos entonces calculan un esfuerzo cortante no newtoniano basándose en la clasificación del flujo (p. ej., flujo de lodo, flujo de detritos, etc.) y el enfoque reológico apropiado (es decir, el modelo de esfuerzo-deformación). Luego, se integra el cortante viscoso, turbulento y de dispersión del modelo de esfuerzo-deformación en la ecuación de momento, convirtiendo el esfuerzo cortante en una pendiente (<span class="math notranslate nohighlight">\(𝑆_{𝑀D}\)</span>) y sumando esta pendiente a la pendiente de fricción (<span class="math notranslate nohighlight">\(S_f\)</span>). Adicionalmente, debido a que estos flujos pueden contener entre un 5% y un 70% de sólidos por volumen, un modelo de lecho fijo debe aumentar el volumen del flujo para tener en cuenta el impacto del sedimento en la masa y la profundidad del flujo.</p>
 <p>En este sentido, los modelos numéricos para flujos de ladera suelen usar las ecuaciones de Saint-Venant adaptadas a flujos no newtonianos, en forma de conservación de masa y momento en 1D o 2D. A continuación, se detalla su estructura para flujo de detritos.</p>
 <section id="ecuacion-de-conservacion-de-masa-continuidad">
-<h2>1. Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Link to this heading">#</a></h2>
+<h3>1. Ecuación de conservación de masa (Continuidad)<a class="headerlink" href="#ecuacion-de-conservacion-de-masa-continuidad" title="Link to this heading">#</a></h3>
 <p>Esta ecuación garantiza que la materia no se crea ni se destruye; solo se desplaza o cambia de volumen (“abultamiento” o <em>bulking</em>). En la modelización de procesos de ladera, describe cómo cambian el espesor (o nivel) y la masa de la mezcla a medida que desciende por un canal o ladera.</p>
 <p>Para un flujo en una dimensión horizontal (1D), la ecuación de continuidad se puede presentar de esta forma (asumiendo ancho unitario):</p>
 <div class="math notranslate nohighlight">
@@ -495,7 +510,7 @@
 </ul>
 </section>
 <section id="ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">
-<h2>2. Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Link to this heading">#</a></h2>
+<h3>2. Ecuación de conservación de cantidad de movimiento (momento lineal)<a class="headerlink" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal" title="Link to this heading">#</a></h3>
 <p>Es el derivado de la Segunda Ley de Newton para un fluido superficial. Relaciona las aceleraciones tridimensionales del evento con las fuerzas que lo impulsan (como el plano de gravedad) contra las que lo frenan (el esfuerzo material y las reologías).</p>
 <p>En 1D, su presentación analítica se formula como:</p>
 <div class="math notranslate nohighlight">
@@ -525,7 +540,7 @@ donde \)</span>\rho_m<span class="math notranslate nohighlight">\( es la densida
 <p>Por esto, la simulacion computacional integral que permita comprender frentes bifásicos con engrosamiento y <em>bulking</em> o el flujo transversal adaptativo a los conos y los cambios abanicos del aluvión (que prevengan cuellos de botella no previstos), exigen modelos de cálculo con integradores sobre ambas ecuaciones conjuntas acopladas de masa y momento de Saint-Venant en alta iteración temporal.</p>
 </section>
 <section id="modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">
-<h2>Modelos numéricos de flujos de escombros: conservación de masa, momento y reología<a class="headerlink" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia" title="Link to this heading">#</a></h2>
+<h3>Modelos numéricos de flujos de escombros: conservación de masa, momento y reología<a class="headerlink" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Modelo</p></th>
@@ -567,7 +582,7 @@ donde \)</span>\rho_m<span class="math notranslate nohighlight">\( es la densida
 </tr>
 <tr class="row-even"><td><p><strong>r.avaflow</strong></p></td>
 <td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\partial h}{\partial t} + \nabla \cdot (h \vec{u}) = S_m\)</span></p></td>
-<td><p>Ecuaciones de mezcla bifásica <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id251" title="Shiva P. Pudasaini and Kolumban Hutter. Avalanche dynamics: dynamics of rapid flows of dense granular avalanches. 2007.">PH07</a>]</span></p></td>
+<td><p>Ecuaciones de mezcla bifásica <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id250" title="Shiva P. Pudasaini and Kolumban Hutter. Avalanche dynamics: dynamics of rapid flows of dense granular avalanches. 2007.">Pudasaini and Hutter, 2007</a>]</span></p></td>
 <td><p>Mezcla sólido-líquido no newtoniana</p></td>
 <td><p>2D (raster)</p></td>
 <td><p>Modelo acoplado sólido-fluido, erosión dinámica</p></td>
@@ -596,14 +611,139 @@ donde \)</span>\rho_m<span class="math notranslate nohighlight">\( es la densida
 </tbody>
 </table>
 </div>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id251" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">PH07</a><span class="fn-bracket">]</span></span>
-<p>Shiva P. Pudasaini and Kolumban Hutter. Avalanche dynamics: dynamics of rapid flows of dense granular avalanches. 2007.</p>
+</section>
+</section>
+<section id="tecnicas-numericas-de-solucion">
+<h2>Técnicas numéricas de solución<a class="headerlink" href="#tecnicas-numericas-de-solucion" title="Link to this heading">#</a></h2>
+<p>El núcleo matemático de casi todos los modelos prácticos de flujo de escombros basados en física consiste en ecuaciones diferenciales parciales que representan leyes de conservación de masa y momento, promediadas en profundidad, de la mecánica del continuo para flujos que son poco profundos <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id46" title="Richard M. Iverson and David L. George. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. I. Physical basis. Proceedings of the Royal Society A, 470(2170):20130819, 2014. doi:10.1098/rspa.2013.0819.">Iverson and George, 2014</a>]</span>.</p>
+<p>Mientras que los modelos 3-D calculan flujos de momento en evolución en tres direcciones coordenadas, la mayoría de los modelos promediados en profundidad asumen que los flujos de momento normales al lecho pueden ser despreciados, lo que implica que las tensiones normales basales equilibran el peso estático del material suprayacente.
+Iverson <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id186" title="Richard M. Iverson. Debris-flow mechanics and the depth-averaged momentum-flux assumption. 2005.">Iverson, 2005</a>]</span> proporcionó una evaluación cuantitativa de esta suposición y de las formas en que puede relajarse.
+Aunque la suposición de una tensión basal normal estática podría parecer muy restrictiva, la experiencia con modelos promediados en profundidad de diversos fenómenos, que van desde tsunamis e inundaciones hasta avalanchas granulares, ha mostrado que estos modelos comúnmente producen predicciones prácticas adecuadas incluso para flujos en los que la suposición se viola local o transitoriamente <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id25" title="David L. George. Adaptive finite volume methods with well-balanced Riemann solvers for modeling floods in rugged terrain: application to the Malpasset dam-break flood (France, 1959). International Journal for Numerical Methods in Fluids, 66(8):1000–1018, 2011. doi:10.1002/fld.2298.">George, 2011</a>, <a class="reference internal" href="19_Referencias.html#id172" title="John M. N. T. Gray and Yih-Chin Tai. Particle-size segregation and diffusive remixing in shallow granular avalanches. 2003.">Gray and Tai, 2003</a>, <a class="reference internal" href="19_Referencias.html#id57" title="Randall J. LeVeque, David L. George, and Marsha J. Berger. GeoClaw software for depth-averaged flows with adaptive refinement. In Advances in Numerical Methods for Hyperbolic Conservation Laws. Springer, 2011.">LeVeque <em>et al.</em>, 2011</a>]</span>.</p>
+<p>Los modelos de flujo de escombros promediados en profundidad también asumen generalmente que las variaciones dependientes de la profundidad en el momento aguas abajo son despreciables.
+La idea central del promediado en profundidad es simplificar la realidad 3D a un problema 2D. En lugar de calcular la velocidad y la densidad en cada punto de la columna de flujo, el modelo calcula un único valor promedio para la velocidad y la densidad en cada celda del mapa.
+sin embargo, el momento de un flujo (su “cantidad de movimiento”) es una propiedad clave para saber cuán lejos llegará y con qué fuerza impactará. El momento no depende de la velocidad (v), sino del flujo de momento, que es proporcional a la velocidad al cuadrado (<span class="math notranslate nohighlight">\(v^2\)</span>).
+El problema matemático es que el promedio de los cuadrados no es igual al cuadrado del promedio.
+Esto significa que al tomar la velocidad promedio que calcula el modelo y la elevamos al cuadrado para estimar el flujo de momento se subestima su valor.
+Como en los modelos de flujo de agua poco profunda, se pueden hacer correcciones para los efectos de estas variaciones introduciendo coeficientes de distribución del momento <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id103" title="Cornelis B. Vreugdenhil. Numerical Methods for Shallow-Water Flow. Kluwer Academic Publishers, Dordrecht, 1994. doi:10.1007/978-94-015-8354-1.">Vreugdenhil, 1994</a>]</span>.
+Sin embargo, los valores de los coeficientes de distribución dependen de la forma de los perfiles de velocidad y densidad del flujo, que están poco restringidos para los flujos de escombros.
+Como consecuencia, la mayoría de los modelos de flujo de escombros promediados en profundidad excluyen los coeficientes por considerarlos una complicación injustificada.
+En su lugar, asumen que el momento del flujo de escombros aguas abajo puede aproximarse como uniforme a todas las profundidades.</p>
+<p>Las ecuaciones de conservación promediadas en profundidad se derivan integrando las ecuaciones de conservación 3-D a través del espesor del flujo de escombros en la dirección coordenada que denotamos como z <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id186" title="Richard M. Iverson. Debris-flow mechanics and the depth-averaged momentum-flux assumption. 2005.">Iverson, 2005</a>]</span>.
+Sin embargo, la dirección de z no es la misma en todos los modelos.
+Las coordenadas curvilíneas adaptadas al terreno, con z rotado de modo que sea normal al lecho en todas partes, son las más rigurosas desde el punto de vista matemático y facilitan la consideración del efecto de las aceleraciones centrípetas sobre las tensiones basales <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id18" title="Roger P. Denlinger and Richard M. Iverson. Granular avalanches across irregular three-dimensional terrain: 1. Theory and computation. Journal of Geophysical Research: Earth Surface, 109(F1):F01014, 2004. doi:10.1029/2003JF000085.">Denlinger and Iverson, 2004</a>, <a class="reference internal" href="19_Referencias.html#id27" title="J. M. N. T. Gray, M. Wieland, and K. Hutter. Gravity-driven free surface flow of granular avalanches over complex basal topography. Proceedings of the Royal Society of London. Series A, 455(1985):1841–1874, 1999. doi:10.1098/rspa.1999.0383.">Gray <em>et al.</em>, 1999</a>, <a class="reference internal" href="19_Referencias.html#id263" title="Stuart B. Savage and Kolumban Hutter. The dynamics of avalanches of granular materials (curvilinear coordinates). 1991.">Savage and Hutter, 1991</a>]</span>.
+Sin embargo, las coordenadas curvilíneas pueden ser difíciles de emplear en simulaciones numéricas de flujo sobre terrenos tridimensionales accidentados, en parte porque las celdas computacionales adyacentes pueden tener diferencias bruscas en las direcciones z normales al lecho, lo que podría generar definiciones conflictivas de las profundidades del flujo.
+Además, si la geometría del lecho cambia significativamente debido a erosión o deposición, las coordenadas curvilíneas adaptadas al terreno original pierden al menos parte de su relevancia.
+El uso de coordenadas cartesianas centradas en la Tierra, con z vertical de manera uniforme, es más simple, pero requiere cuidado en el cálculo de flujos de momento y tensiones basales, porque la orientación de los lechos inclinados no es normal a una coordenada z vertical <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id18" title="Roger P. Denlinger and Richard M. Iverson. Granular avalanches across irregular three-dimensional terrain: 1. Theory and computation. Journal of Geophysical Research: Earth Surface, 109(F1):F01014, 2004. doi:10.1029/2003JF000085.">Denlinger and Iverson, 2004</a>, <a class="reference internal" href="19_Referencias.html#id186" title="Richard M. Iverson. Debris-flow mechanics and the depth-averaged momentum-flux assumption. 2005.">Iverson, 2005</a>, <a class="reference internal" href="19_Referencias.html#id286" title="Denis A. et al. Torres-Luquis. Cartesian vs terrain-following coordinates in debris-flow modelling. 2019.">Torres-Luquis, 2019</a>]</span>.</p>
+<section id="marco-euleriano-o-lagrangiano">
+<h3>Marco Euleriano o Lagrangiano<a class="headerlink" href="#marco-euleriano-o-lagrangiano" title="Link to this heading">#</a></h3>
+<p>Los métodos numéricos estándar, como los métodos clásicos de diferencias finitas, son poco adecuados para estos problemas porque pueden producir soluciones físicamente espurias, dispersión numérica o inestabilidades numéricas.
+Estas deficiencias han motivado el desarrollo de clases especializadas de técnicas numéricas de solución, incluyendo los métodos de volúmenes finitos con captura de choques proporcionados por el proyecto de software de código abierto <em>Clawpack</em> <span class="bibtex-citation" id="id9">[<a class="reference internal" href="19_Referencias.html#id56" title="Randall J. LeVeque. Finite Volume Methods for Hyperbolic Problems. Cambridge University Press, Cambridge, 2002. doi:10.1017/CBO9780511791253.">LeVeque, 2002</a>]</span>.</p>
+<p>Los flujos de escombros son fenómenos multiescala. El cuerpo principal del flujo puede tener cientos de metros de largo y moverse de forma relativamente uniforme.
+Pero el frente del flujo es una zona muy dinámica, con un borde muy definido, altas velocidades y gradientes de altura muy pronunciados.
+También puede haber ondas de choque o pulsos dentro del flujo. Si quisiéramos simular esto con precisión, necesitaríamos una resolución muy alta (celdas de menos de un metro) para capturar el frente, pero usar esa misma resolución para toda la cuenca sería computacionalmente carísimo, incluso imposible.</p>
+<p>El Refinamiento de Malla Adaptativo (AMR) <span class="bibtex-citation" id="id10">[<a class="reference internal" href="19_Referencias.html#id6" title="Marsha J. Berger and Joseph Oliger. Adaptive mesh refinement for hyperbolic partial differential equations. Journal of Computational Physics, 53(3):484–512, 1984. doi:10.1016/0021-9991(84)90073-1.">Berger and Oliger, 1984</a>]</span> es una estrategia numérica diseñada precisamente para resolver este problema.
+En lugar de usar una única malla computacional con un tamaño de celda fijo para todo el dominio, AMR utiliza una jerarquía de mallas anidadas.
+Se empieza con una malla base gruesa que cubre toda el área. Luego, durante la simulación, el software identifica automáticamente las zonas “interesantes” (donde hay altos gradientes, como el frente del flujo) y coloca sobre ellas “parches” de mallas más finas. Estos parches se mueven y cambian de tamaño dinámicamente, siguiendo al flujo.
+Existen diversas implementaciones de AMR, pero el objetivo de todas las técnicas AMR es proporcionar resoluciones de malla óptimas para lograr precisión numérica y eficiencia computacional durante toda la simulación.</p>
+<p>Las técnicas estándar de AMR desarrolladas para ecuaciones generales de conservación hiperbólica no son adecuadas para modelar flujos poco profundos promediados en profundidad que se mueven sobre topografía variable, porque estas técnicas no pueden preservar simultáneamente estados estacionarios balanceados (como estados estáticos) y conservar masa, momento y energía.
+Se desarrollaron técnicas AMR especializadas para superar este problema en el contexto de la modelación de tsunamis <span class="bibtex-citation" id="id11">[<a class="reference internal" href="19_Referencias.html#id24" title="David L. George and Randall J. LeVeque. Finite volume methods and adaptive refinement for global tsunami propagation and local inundation. Science of Tsunami Hazards, 24(5):319–328, 2006.">George and LeVeque, 2006</a>, <a class="reference internal" href="19_Referencias.html#id57" title="Randall J. LeVeque, David L. George, and Marsha J. Berger. GeoClaw software for depth-averaged flows with adaptive refinement. In Advances in Numerical Methods for Hyperbolic Conservation Laws. Springer, 2011.">LeVeque <em>et al.</em>, 2011</a>]</span>.
+Posteriormente, estas técnicas se extendieron a la modelación de flujos promediados en profundidad sobre topografía, como inundaciones superficiales <span class="bibtex-citation" id="id12">[<a class="reference internal" href="19_Referencias.html#id5" title="Christoph Berger, Brian W. McArdell, and Fritz Schlunegger. Sediment transfer patterns at the Illgraben catchment, Switzerland: Implications for the time scales of debris flow activities. Geomorphology, 125(3):421–432, 2011. doi:10.1016/j.geomorph.2010.10.019.">Berger <em>et al.</em>, 2011</a>, <a class="reference internal" href="19_Referencias.html#id25" title="David L. George. Adaptive finite volume methods with well-balanced Riemann solvers for modeling floods in rugged terrain: application to the Malpasset dam-break flood (France, 1959). International Journal for Numerical Methods in Fluids, 66(8):1000–1018, 2011. doi:10.1002/fld.2298.">George, 2011</a>]</span> y flujos de escombros <span class="bibtex-citation" id="id13">[<a class="reference internal" href="19_Referencias.html#id26" title="David L. George and Richard M. Iverson. A depth-averaged debris-flow model that includes the effects of evolving dilatancy. II. Numerical predictions and experimental tests. Proceedings of the Royal Society A, 470(2170):20130820, 2014. doi:10.1098/rspa.2013.0820.">George and Iverson, 2014</a>]</span>.</p>
+<p>En el enfoque Euleriano (malla fija) el sistema de coordenadas o la malla computacional está fija en el espacio. El material (el flujo de escombros) se mueve a través de las celdas de esta malla fija. Es como una red de estaciones meteorológicas fijas en un mapa. Miden el viento y la lluvia a medida que las tormentas pasan por encima de ellas. Las estaciones no se mueven. El enfoque Euleriano es el que necesita AMR. Como la malla es fija, la única manera de tener alta resolución en unas zonas y baja en otras es refinando adaptativamente la malla. D-Claw es el ejemplo perfecto que da el texto: usa AMR para poner celdas de alta resolución solo en el frente del flujo, permitiéndole usar MDEs de muy alta calidad sin que el costo computacional sea prohibitivo. r.avaflow, por otro lado, usa un enfoque Euleriano pero con una malla uniforme (sin AMR), lo que lo hace computacionalmente más intensivo si se requiere alta resolución en todo el dominio.
+Sin embargo, utiliza esquemas numéricos de solución de diferencias centrales no oscilatorias con disminución de la variación total (<em>TVD-NOC</em>, por sus siglas en inglés) <span class="bibtex-citation" id="id14">[<a class="reference internal" href="19_Referencias.html#id71" title="Haim Nessyahu and Eitan Tadmor. Non-oscillatory central differencing for hyperbolic conservation laws. Journal of Computational Physics, 87(2):408–463, 1990. doi:10.1016/0021-9991(90)90260-8.">Nessyahu and Tadmor, 1990</a>]</span>, que se han aplicado con éxito a problemas de flujos de masa en general <span class="bibtex-citation" id="id15">[<a class="reference internal" href="19_Referencias.html#id64" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">Mergili <em>et al.</em>, 2017</a>]</span>.</p>
+<p>Un método más distintivo para resolver el sistema hiperbólico de EDP en modelos promediados en profundidad de flujos de escombros es el enfoque lagrangiano sin malla conocido como hidrodinámica de partículas suavizadas (SPH, por sus siglas en inglés) <span class="bibtex-citation" id="id16">[<a class="reference internal" href="19_Referencias.html#id61" title="Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. Canadian Geotechnical Journal, 41(6):1084–1097, 2004. doi:10.1139/t04-052.">McDougall and Hungr, 2004</a>]</span>.
+En el enfoque Lagrangiano (partículas móviles) no hay una malla fija. En su lugar, el modelo sigue a un conjunto de “partículas” o puntos computacionales que se mueven junto con el material. Es como soltar miles de boyas en un río. Para saber cómo se mueve el agua, sigues la trayectoria de cada boya. Las boyas se mueven con el flujo.
+El enfoque Lagrangiano es inherentemente adaptativo.
+La resolución espacial no la da una malla fija, sino la densidad de las partículas.
+Donde el flujo se concentra o comprime, las partículas se juntan, y la resolución aumenta automáticamente.
+Donde el flujo se expande, las partículas se separan, y la resolución disminuye.
+Por esta razón, los métodos lagrangianos no necesitan AMR de la misma manera que los eulerianos. Su “malla” es el conjunto de partículas y ya es, por naturaleza, adaptativa.
+A diferencia de los métodos eulerianos, los métodos lagrangianos formulan las EDP del modelo en un marco de referencia móvil que se traslada con el flujo.
+En las aplicaciones de SPH a flujos de escombros, la representación mecánica continua del material del flujo de escombros se reemplaza efectivamente por un conjunto de “partículas” columnares que interactúan y que abarcan el espesor del flujo a medida que se mueven aguas abajo <span class="bibtex-citation" id="id17">[<a class="reference internal" href="19_Referencias.html#id61" title="Scott McDougall and Oldrich Hungr. A model for the analysis of rapid landslide motion across three-dimensional terrain. Canadian Geotechnical Journal, 41(6):1084–1097, 2004. doi:10.1139/t04-052.">McDougall and Hungr, 2004</a>]</span>.
+Además, SPH elimina los efectos de las discontinuidades en las soluciones de las EDP que gobiernan mediante el uso de una fórmula de suavizado para promediar la mecánica de interacción entre partículas vecinas.</p>
+<figure class="align-default" id="euleriano-o-lagrangiano">
+<a class="reference internal image-reference" href="https://i.pinimg.com/1200x/e2/38/d6/e238d69b696c047d37561b24f912ae79.jpg"><img alt="https://i.pinimg.com/1200x/e2/38/d6/e238d69b696c047d37561b24f912ae79.jpg" src="https://i.pinimg.com/1200x/e2/38/d6/e238d69b696c047d37561b24f912ae79.jpg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Comparación esquemática entre los enfoques Euleriano (malla fija) y Lagrangiano (partículas móviles) para la simulación de flujos de escombros.</span><a class="headerlink" href="#euleriano-o-lagrangiano" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="marcos-de-referencia-en-modelos-eulerianos">
+<h3>Marcos de referencia en modelos eulerianos<a class="headerlink" href="#marcos-de-referencia-en-modelos-eulerianos" title="Link to this heading">#</a></h3>
+<p>Los modelos Eulerianos (r.avaflow, D-Claw, SHALTOP, TITAN2D, RAMMS) operan sobre una malla o grilla fija y observan cómo el material del flujo pasa a través de ella. La gran diferencia entre ellos radica en el sistema de coordenadas que usan para resolver las ecuaciones de la física.</p>
+<p><em>r.avaflow</em> resuelve las ecuaciones en coordenadas locales adaptadas al terreno.
+El modelo, en cada celda de la malla, “se para” sobre la pendiente y alinea su propio sistema de coordenadas con la topografía local.
+Su eje x siempre apunta en la dirección de máxima pendiente, su eje y es horizontal (a lo largo de la curva de nivel) y su eje z es perpendicular (normal) a la superficie del terreno.
+Esto confiere ventajas en términos de fidelidad física.
+Porque la fuerza de la gravedad se descompone de forma natural y directa en dos componentes.
+Pero puede presentar desafíos prácticos para modelar flujos sobre topografías complejas del mundo real.
+En general, es necesaria una transformación de las variables calculadas en coordenadas adaptadas al terreno a coordenadas cartesianas uniformes de MDE, y dicha transformación debe ser aproximada <span class="bibtex-citation" id="id18">[<a class="reference internal" href="19_Referencias.html#id64" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">Mergili <em>et al.</em>, 2017</a>]</span>.
+Esta transformación puede introducir pequeñas imprecisiones numéricas.</p>
+<p>El Enfoque de Coordenadas Cartesianas Globales utilizado por D-Claw, SHALTOP, TITAN2D, RAMMS, trabaja directamente en el mismo sistema de coordenadas que el MDE (X, Y, Z). La malla computacional está fija y alineada, por ejemplo, con los ejes Norte-Sur y Este-Oeste.
+Perto la física se vuelve más complicada de formular.
+La fuerza de la gravedad ahora debe descomponerse en componentes X, Y y Z, lo cual no es tan intuitivo para un flujo que se mueve sobre una superficie inclinada.
+Estos esquemas deben ser bien balanceados para entender que en una ladera inclinada pero sin flujo (un lago en reposo, por ejemplo), la fuerza de la gravedad debe ser perfectamente balanceada por el gradiente de presión del agua, para que no se genere un movimiento artificial. D-Claw y SHALTOP han desarrollado esquemas numéricos muy avanzados para lograr este balance adecuado.</p>
+<p>Otro enfoque para abordar la dificultad de modelar con precisión flujos poco profundos sobre topografía accidentada está implementado en el modelo <em>SHALTOP</em> <span class="bibtex-citation" id="id19">[<a class="reference internal" href="19_Referencias.html#id9" title="François Bouchut, Anne Mangeney-Castelnau, Benoît Perthame, and Jean-Pierre Vilotte. A new model of Saint Venant and Savage–Hutter type for gravity driven shallow water flows over uneven topography. Comptes Rendus Mathématique, 336(6):531–536, 2003. doi:10.1016/S1631-073X(03)00117-1.">Bouchut <em>et al.</em>, 2003</a>, <a class="reference internal" href="19_Referencias.html#id150" title="Enrique D. et al. Fernandez-Nieto. A new savage-hutter type model for submarine avalanches and generated tsunami (shaltop). 2008.">Fernandez-Nieto, 2008</a>]</span>, que resuelve las ecuaciones del modelo en coordenadas cartesianas globales pero corrige las ecuaciones para satisfacer el supuesto de flujo poco profundo aplicado en la dirección normal al lecho local. Este enfoque puede capturar aceleraciones normales al lecho debidas a la curvatura del terreno <span class="bibtex-citation" id="id20">[<a class="reference internal" href="19_Referencias.html#id78" title="Marc Peruzzetto, Anne Mangeney, François Bouchut, Gilles Grandjean, Clara Levy, Yannick Thiery, and Antoine Lucas. Simplified simulation of rock avalanches and subsequent debris flows with a single thin-layer model. Engineering Geology, 296:106471, 2022. doi:10.1016/j.enggeo.2021.106471.">Peruzzetto <em>et al.</em>, 2022</a>]</span>, pero aún requiere que las variables normales al lecho se transformen a un sistema de referencia cartesiano representado por un MDE estándar. Al igual que D-Claw, <em>SHALTOP</em> utiliza esquemas numéricos de volúmenes finitos bien balanceados para resolver sistemas hiperbólicos de ecuaciones diferenciales <span class="bibtex-citation" id="id21">[<a class="reference internal" href="19_Referencias.html#id117" title="Francois Bouchut. Nonlinear stability of finite volume methods for hyperbolic conservation laws. 2004.">Bouchut, 2004</a>]</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Modelo</p></th>
+<th class="head text-left"><p>Marco Numérico</p></th>
+<th class="head text-left"><p>Característica Clave</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>HEC-RAS</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Resuelve las ecuaciones sobre una malla o grilla fija.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>RAMMS::DF</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Resuelve las ecuaciones sobre una malla fija (el DEM).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>FLO-2D</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Resuelve las ecuaciones sobre una malla fija.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>DAN3D</strong></p></td>
+<td class="text-left"><p>Lagrangiano</p></td>
+<td class="text-left"><p>Generalmente implementado con SPH (Smoothed Particle Hydrodynamics), sigue partículas que se mueven con el flujo.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>r.avaflow</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Resuelve las ecuaciones sobre una grilla ráster fija.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Flow-R</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Opera sobre una grilla ráster fija, calculando trayectorias de flujo desde cada celda.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Box models</strong></p></td>
+<td class="text-left"><p>Lagrangiano</p></td>
+<td class="text-left"><p>Trata el deslizamiento como un único objeto (un “bloque”) y sigue su centro de masa.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>RMB</strong></p></td>
+<td class="text-left"><p>Lagrangiano</p></td>
+<td class="text-left"><p>Realiza un balance de energía sobre la masa total a medida que se desplaza, siguiendo al objeto.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Iber-NNF</strong></p></td>
+<td class="text-left"><p>Euleriano</p></td>
+<td class="text-left"><p>Volúmenes finitos (FVM) con solucionador de Riemann tipo Roe.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-</div>
+</section>
+<section id="el-metodo-de-volumenes-finitos-y-los-esquemas-de-captura-de-choques">
+<h3>El método de volúmenes finitos y los esquemas de captura de choques<a class="headerlink" href="#el-metodo-de-volumenes-finitos-y-los-esquemas-de-captura-de-choques" title="Link to this heading">#</a></h3>
+<p>Dentro de los esquemas Eulerianos, el <strong>método de volúmenes finitos (FVM)</strong> se ha convertido en el estándar para conservar estrictamente la masa y la cantidad de movimiento en flujos de montaña con discontinuidades (frentes secos, resaltos hidráulicos). Tanto <em>Iber</em> como <em>r.avaflow</em> emplean FVM <span class="bibtex-citation" id="id22">[<a class="reference internal" href="19_Referencias.html#id8" title="Ernest Bladé, Luis Cea, Gonzalo Corestein, Eduardo Escolano, Jerónimo Puertas, Elena Vázquez-Cendón, José Dolz, and Albert Coll. Iber: herramienta de simulación numérica del flujo en ríos. Revista Internacional de Métodos Numéricos para Cálculo y Diseño en Ingeniería, 30(1):1–10, 2014. doi:10.1016/j.rimni.2012.07.004.">Bladé <em>et al.</em>, 2014</a>, <a class="reference internal" href="19_Referencias.html#id64" title="Martin Mergili, Jan-Thomas Fischer, Julia Krenn, and Shiva P. Pudasaini. R.avaflow v1, an actor-orientated model for the propagation and interaction of two mixture-type mass flows. Geoscientific Model Development, 10(2):553–569, 2017. doi:10.5194/gmd-10-553-2017.">Mergili <em>et al.</em>, 2017</a>]</span>. En particular, <em>Iber-NNF</em> utiliza un solucionador de Riemann de tipo <strong>Roe</strong> (<em>upwind</em>), acoplado con reconstructores lineales <strong>MUSCL</strong> de segundo orden espacial y limitadores de flujo de variación total decreciente (<strong>TVD</strong>, como Minmod, Superbee o Van Leer) para propagar el flujo sobre lechos secos e irregulares de forma numéricamente estable y sin oscilaciones espurias. No obstante, estos esquemas de diferencias/volúmenes finitos siguen sujetos a cierta difusividad numérica en los frentes de flujo muy pronunciados.</p>
+</section>
+<section id="esquemas-hibridos-recientes-acoplamiento-sph-dem-y-mpm">
+<h3>Esquemas híbridos recientes: acoplamiento SPH-DEM y MPM<a class="headerlink" href="#esquemas-hibridos-recientes-acoplamiento-sph-dem-y-mpm" title="Link to this heading">#</a></h3>
+<p>Más allá de la dicotomía estricta Euleriano/Lagrangiano, algunas herramientas recientes combinan ambos marcos para representar mejor la heterogeneidad de los flujos de detritos naturales:</p>
+<ul class="simple">
+<li><p><strong>Acoplamiento SPH-DEM</strong>: combina la hidrodinámica de partículas suavizadas (SPH), eficiente para representar grandes deformaciones de la matriz fluidizada, con el método de elementos discretos (DEM), que resuelve el movimiento de bloques rocosos individuales (<em>boulders</em>) como cuerpos rígidos que interactúan por colisión dentro de la matriz. Este esquema acoplado permite representar simultáneamente el comportamiento continuo del lodo y el comportamiento granular discreto de los bloques más gruesos <span class="bibtex-citation" id="id23">[<a class="reference internal" href="19_Referencias.html#id327" title="María G. Trujillo-Vela and others. Smooth particle hydrodynamics and discrete element method coupling scheme for the simulation of debris flows. Computers and Geotechnics, 2020.">Trujillo-Vela and others, 2020</a>]</span>.</p></li>
+<li><p><strong>Método del punto material (MPM) / FEM-MPM</strong>: utilizado en herramientas avanzadas de dos fases como <em>OpenLISEM 2.0a</em>, discretiza el continuo del flujo en puntos materiales que se desplazan sobre una malla de fondo auxiliar, combinando la robustez del cálculo en malla (FEM) con la capacidad del enfoque Lagrangiano para manejar grandes deformaciones sin distorsión de la malla <span class="bibtex-citation" id="id24">[<a class="reference internal" href="19_Referencias.html#id341" title="María G. Trujillo-Vela, Ana M. Ramos-Cañón, Jorge A. Escobar-Vargas, and Sergio A. Galindo-Torres. An overview of debris-flow mathematical modelling. Earth-Science Reviews, 2022.">Trujillo-Vela <em>et al.</em>, 2022</a>]</span>.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -638,20 +778,20 @@ donde \)</span>\rho_m<span class="math notranslate nohighlight">\( es la densida
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="02_Hidrometeorologia.html"
+       href="03b_EvolucionModelos.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">La Lluvia como factor detonante</p>
+        <p class="prev-next-title">Evolución histórica de los modelos de flujos</p>
       </div>
     </a>
     <a class="right-next"
-       href="03b_EvolucionModelos.html"
+       href="04_TiposFlujos.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Evolución histórica de los modelos de flujos</p>
+        <p class="prev-next-title">Tipos de flujos</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -673,9 +813,19 @@ donde \)</span>\rho_m<span class="math notranslate nohighlight">\( es la densida
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">1. Ecuación de conservación de masa (Continuidad)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">2. Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-de-saint-venant">Ecuaciones de Saint-Venant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-masa-continuidad">1. Ecuación de conservación de masa (Continuidad)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuacion-de-conservacion-de-cantidad-de-movimiento-momento-lineal">2. Ecuación de conservación de cantidad de movimiento (momento lineal)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-numericos-de-flujos-de-escombros-conservacion-de-masa-momento-y-reologia">Modelos numéricos de flujos de escombros: conservación de masa, momento y reología</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-numericas-de-solucion">Técnicas numéricas de solución</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marco-euleriano-o-lagrangiano">Marco Euleriano o Lagrangiano</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marcos-de-referencia-en-modelos-eulerianos">Marcos de referencia en modelos eulerianos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-metodo-de-volumenes-finitos-y-los-esquemas-de-captura-de-choques">El método de volúmenes finitos y los esquemas de captura de choques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esquemas-hibridos-recientes-acoplamiento-sph-dem-y-mpm">Esquemas híbridos recientes: acoplamiento SPH-DEM y MPM</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

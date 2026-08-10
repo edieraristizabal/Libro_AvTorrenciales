@@ -225,8 +225,3 @@ Los aumentos en el caudal de la escorrentía superficial durante lluvias intensa
 ### Fallas de presas naturales o artificiales y ruptura súbita de lagos glaciares (GLOFs)
 
 El tercer mecanismo, la falla de presas naturales o artificiales, ocurre tanto durante como después de eventos de lluvia intensa {cite}`zaginaev_2019`. El represamiento de ríos montañosos por sedimentos de deslizamientos es la causa común de este tipo de flujo de escombros {cite}`costa_1986,zaginaev_2019`. El vaciado súbito de lagos glaciares (por ejemplo, la falla de presas morrénicas) genera flujos de escombros en regiones frías {cite}`zaginaev_2019`.
-
-```{bibliography}
-:filter: docname in docnames
-```
-

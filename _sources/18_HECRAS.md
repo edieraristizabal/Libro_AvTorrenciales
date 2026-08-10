@@ -35,7 +35,3 @@ Los resultados de HEC-RAS se visualizan mediante el módulo **RAS Mapper**, que 
 - **Aluvión del Estero San Alfonso, Chile (2017)**: Pacheco, Martínez y Cuevas {cite}`pacheco_2025_esteroalfonso` encontraron velocidades consistentes entre HEC-RAS 2D y FLO-2D (diferencias menores al 10 %), aunque HEC-RAS proyectó sistemáticamente áreas de inundación más extensas que FLO-2D.
 
 En síntesis, HEC-RAS ofrece mayor flexibilidad de malla, mayor rigor físico en sus esquemas de conservación completa de momento y herramientas de comparación de escenarios más versátiles, a cambio de mayores tiempos de cómputo y de una configuración del módulo MDF algo menos flexible que la de FLO-2D en cuanto a la variación temporal de la concentración de sedimentos. Al ser de código gratuito y contar con soporte técnico continuo del USACE, se ha convertido en una alternativa cada vez más utilizada frente a FLO-2D en la práctica profesional reciente.
-
-```{bibliography}
-:filter: docname in docnames
-```

@@ -33,8 +33,3 @@ Solo se requieren dos conjuntos de datos para realizar los cálculos de alcance:
 - Suma de las alturas de energía residual detectadas localmente de todos - los flujos de masa que pasan por una celda.
 - Conteo de celdas que representa el número de trayectorias que enrutan flujo a través de una ubicación, donde una trayectoria es producida por una - liberación (una celda raster de inicio) en las zonas de inicio.
 - Ángulo máximo de recorrido del trayecto del flujo detectado en una celda, producido por todas las trayectorias de flujo que pasan por esa celda. Este valor proporciona la distribución espacial de las alturas máximas de energía residual.
-
-
-```{bibliography}
-:filter: docname in docnames
-```

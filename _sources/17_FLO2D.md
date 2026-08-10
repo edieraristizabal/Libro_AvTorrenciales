@@ -34,7 +34,3 @@ La calibración de FLO-2D se realiza típicamente ajustando los parámetros reol
 - **Aluvión del Estero San Alfonso, Chile (2017)**: Pacheco, Martínez y Cuevas {cite}`pacheco_2025_esteroalfonso` reconstruyeron este evento con FLO-2D y HEC-RAS 2D, obteniendo velocidades consistentes entre ambos modelos (diferencias menores al 10 %), aunque FLO-2D estimó profundidades de flujo menores que HEC-RAS, especialmente en la sección de salida aguas abajo.
 
 En conjunto, estos casos sugieren que FLO-2D ofrece un buen equilibrio entre costo computacional y desempeño para flujos de detritos moderadamente rápidos con buena disponibilidad de datos de calibración de laboratorio, pero puede requerir una validación cuidadosa cuando se aplica fuera del rango de condiciones para el que fue calibrado su modelo reológico cuadrático.
-
-```{bibliography}
-:filter: docname in docnames
-```

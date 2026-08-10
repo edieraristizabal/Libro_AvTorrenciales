@@ -67,7 +67,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Modelos reológicos" href="04_ModelosReologicos.html" />
-    <link rel="prev" title="Técnicas numéricas de solución" href="03c_TecnicasNumericas.html" />
+    <link rel="prev" title="Ecuaciones de Saint-Venant y técnicas numéricas de solución" href="03_Ecuaciones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -222,9 +222,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -243,6 +242,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -488,19 +491,19 @@ Existen fluidos que se desvían de estas suposiciones, incluyendo una intersecci
 </section>
 <section id="caracteristicas-hidraulicas">
 <h2>Características hidráulicas<a class="headerlink" href="#caracteristicas-hidraulicas" title="Link to this heading">#</a></h2>
-<p><strong>Velocidad (u, en m/s):</strong> La velocidad del flujo se puede descomponer en tres componentes <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id153" title="Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.">Doy19b</a>]</span>:</p>
+<p><strong>Velocidad (u, en m/s):</strong> La velocidad del flujo se puede descomponer en tres componentes <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id147" title="Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.">Doyle, 2019</a>]</span>:</p>
 <ul class="simple">
 <li><p>Velocidad superficial (<em>usurf</em>): calculada a partir de grabaciones de video.</p></li>
 <li><p>Velocidad de desplazamiento (<em>ur</em>): velocidad total del flujo.</p></li>
 <li><p>Velocidad del cuerpo (<em>ub</em>): velocidad media en profundidad para una ubicación dada.</p></li>
 </ul>
-<p>La velocidad del cuerpo <em>ub</em> se considera proporcional a la velocidad superficial mediante un factor de corrección <em>k</em>, que varía entre 0,7 y 0,9 <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id141" title="Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.">Cre18</a>]</span> y está definido por una distribución vertical de velocidades <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id142" title="Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.">Cro99</a>]</span>. La velocidad del frente del flujo se usa frecuentemente en ecuaciones, ya que la cabeza del flujo, rica en bloques, juega un papel crucial en la intensidad inicial del impacto sobre estructuras <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id212" title="Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.">LT04</a>, <a class="reference internal" href="#id291" title="Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.">Tho07</a>]</span>.</p>
+<p>La velocidad del cuerpo <em>ub</em> se considera proporcional a la velocidad superficial mediante un factor de corrección <em>k</em>, que varía entre 0,7 y 0,9 <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id135" title="Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.">Creutin, 2018</a>]</span> y está definido por una distribución vertical de velocidades <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id136" title="Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.">Cronin, 1999</a>]</span>. La velocidad del frente del flujo se usa frecuentemente en ecuaciones, ya que la cabeza del flujo, rica en bloques, juega un papel crucial en la intensidad inicial del impacto sobre estructuras <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id206" title="Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.">Lavigne and Thouret, 2004</a>, <a class="reference internal" href="19_Referencias.html#id285" title="Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.">Thouret, 2007</a>]</span>.</p>
 <p><strong>Caudal (Q, en m³/s):</strong> Es función de la velocidad media del flujo, su capacidad de erosionar y cargar material del lecho y las orillas del canal, y la geometría del canal. La descarga se expresa mediante:</p>
 <div class="math notranslate nohighlight">
 \[
 Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 \]</div>
-<p>donde <em>A</em> es el área mojada, <em>ub</em> la velocidad del cuerpo y <em>i</em> representa las mediciones individuales en intervalos Δt = ti+1 - ti <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id154" title="Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.">Doy19a</a>]</span>. La tasa de descarga varía en el tiempo y el espacio debido a los ciclos de carga (<em>bulking</em>) y descarga (<em>debulking</em>) de sedimentos.</p>
+<p>donde <em>A</em> es el área mojada, <em>ub</em> la velocidad del cuerpo y <em>i</em> representa las mediciones individuales en intervalos Δt = ti+1 - ti <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id148" title="Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.">Doyle, 2019</a>]</span>. La tasa de descarga varía en el tiempo y el espacio debido a los ciclos de carga (<em>bulking</em>) y descarga (<em>debulking</em>) de sedimentos.</p>
 <p><strong>Profundidad del flujo (H, en m):</strong> Puede ser de 4 a 5 veces el espesor del depósito. A mayor profundidad, mayor área expuesta y mayor altura alcanzada en las estructuras.</p>
 <p><strong>Movilidad del flujo:</strong> La velocidad, el caudal, la profundidad y la relación ancho/profundidad del canal influyen en la movilidad del flujo y determinan la distancia de recorrido.</p>
 </section>
@@ -696,7 +699,7 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 <tr class="row-odd"><td><p><strong>Número inercial</strong></p></td>
 <td><p>I = √(γ δ ̇P / ρ₀)</p></td>
 <td><p>Relación entre el esfuerzo inercial y el esfuerzo de confinamiento</p></td>
-<td><p>1 × 10⁻⁵ – 1 × 10⁻¹ <em>(rango típico en flujos de detritos naturales)</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id198" title="Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.">JD19</a>]</span></p></td>
+<td><p>1 × 10⁻⁵ – 1 × 10⁻¹ <em>(rango típico en flujos de detritos naturales)</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id192" title="Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.">Jerolmack and Daniels, 2019</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Número de Savage</strong></p></td>
 <td><p>NS = (ρs – ρf) / ρs</p></td>
@@ -715,38 +718,6 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 </tr>
 </tbody>
 </table>
-</div>
-<div class="docutils container" id="id7">
-<div role="list" class="citation-list">
-<div class="citation" id="id141" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cre18</a><span class="fn-bracket">]</span></span>
-<p>Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.</p>
-</div>
-<div class="citation" id="id142" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Cro99</a><span class="fn-bracket">]</span></span>
-<p>Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.</p>
-</div>
-<div class="citation" id="id154" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Doy19a</a><span class="fn-bracket">]</span></span>
-<p>Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.</p>
-</div>
-<div class="citation" id="id153" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Doy19b</a><span class="fn-bracket">]</span></span>
-<p>Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.</p>
-</div>
-<div class="citation" id="id198" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">JD19</a><span class="fn-bracket">]</span></span>
-<p>Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.</p>
-</div>
-<div class="citation" id="id212" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">LT04</a><span class="fn-bracket">]</span></span>
-<p>Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.</p>
-</div>
-<div class="citation" id="id291" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Tho07</a><span class="fn-bracket">]</span></span>
-<p>Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.</p>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -782,12 +753,12 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03c_TecnicasNumericas.html"
+       href="03_Ecuaciones.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Técnicas numéricas de solución</p>
+        <p class="prev-next-title">Ecuaciones de Saint-Venant y técnicas numéricas de solución</p>
       </div>
     </a>
     <a class="right-next"

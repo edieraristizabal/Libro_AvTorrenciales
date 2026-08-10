@@ -64,6 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Referencias" href="19_Referencias.html" />
     <link rel="prev" title="FLO-2D" href="17_FLO2D.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,9 +220,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -240,6 +240,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -453,14 +457,14 @@
 <p><strong>HEC-RAS</strong> (<em>Hydrologic Engineering Center’s River Analysis System</em>) es un modelo hidráulico de código gratuito desarrollado por el Cuerpo de Ingenieros del Ejército de los Estados Unidos (USACE), originalmente concebido para el análisis unidimensional de flujo en ríos. Desde su versión 5, incorpora un módulo bidimensional de aguas someras (2D) que resuelve el flujo en llanuras de inundación, y desde versiones más recientes incluye un módulo de <strong>flujo no newtoniano (<em>Mud and Debris Flow</em>, HEC-RAS-MDF)</strong> que permite representar flujos de detritos, lodos y lahares mediante reologías viscoplásticas, en un desarrollo conceptualmente análogo al de Iber-NNF (véase el capítulo <a class="reference internal" href="16_Iber_NNF.html"><span class="std std-doc">Iber-NNF</span></a>).</p>
 <section id="componentes">
 <h2>Componentes<a class="headerlink" href="#componentes" title="Link to this heading">#</a></h2>
-<p>El módulo 2D de HEC-RAS trabaja sobre mallas computacionales <strong>estructuradas o no estructuradas</strong>, lo que permite el uso de líneas de ruptura (<em>break-lines</em>) para representar con precisión bermas, diques, canales de conducción y otras estructuras lineales del terreno, una ventaja frente a la malla estrictamente regular de FLO-2D <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id342" title="US Army Corps of Engineers, Hydrologic Engineering Center. HEC-RAS 2d user's manual. Technical Report, US Army Corps of Engineers, 2023.">USACoEngineersHECenter23</a>]</span>.</p>
+<p>El módulo 2D de HEC-RAS trabaja sobre mallas computacionales <strong>estructuradas o no estructuradas</strong>, lo que permite el uso de líneas de ruptura (<em>break-lines</em>) para representar con precisión bermas, diques, canales de conducción y otras estructuras lineales del terreno, una ventaja frente a la malla estrictamente regular de FLO-2D <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id335" title="US Army Corps of Engineers, Hydrologic Engineering Center. HEC-RAS 2d user's manual. Technical Report, US Army Corps of Engineers, 2023.">US Army Corps of Engineers, Hydrologic Engineering Center, 2023</a>]</span>.</p>
 <p>Para la resolución de las ecuaciones de gobierno, HEC-RAS ofrece distintos esquemas numéricos que el usuario puede seleccionar según el balance deseado entre precisión física y costo computacional:</p>
 <ul class="simple">
 <li><p><strong>Onda difusiva 2D</strong>: análoga a la de FLO-2D, computacionalmente más económica pero con menor fidelidad física en frentes de flujo rápidos.</p></li>
 <li><p><strong>SWE-ELM</strong> (<em>Shallow Water Equations - Eulerian-Lagrangian Method</em>): un esquema híbrido que ofrece un compromiso entre estabilidad numérica y tiempo de cómputo.</p></li>
-<li><p><strong>SWE-EM</strong> (<em>Shallow Water Equations - Eulerian Method</em>): resuelve el conjunto completo de ecuaciones de conservación de masa y momento (aguas someras completas), siendo el esquema que mejor conserva físicamente la cantidad de movimiento, aunque requiere pasos de tiempo más pequeños y, por tanto, mayor tiempo de cómputo <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p></li>
+<li><p><strong>SWE-EM</strong> (<em>Shallow Water Equations - Eulerian Method</em>): resuelve el conjunto completo de ecuaciones de conservación de masa y momento (aguas someras completas), siendo el esquema que mejor conserva físicamente la cantidad de movimiento, aunque requiere pasos de tiempo más pequeños y, por tanto, mayor tiempo de cómputo <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span>.</p></li>
 </ul>
-<p>El módulo <strong>MDF</strong> (no newtoniano) extiende estos solucionadores incorporando términos de fricción viscoplástica en la pendiente de fricción, siguiendo formulaciones cuadráticas y de Bingham análogas a las descritas en el capítulo de <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">modelos reológicos</span></a> <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id174" title="Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.">Gib08</a>]</span>. Esto permite representar tanto la fase dinámica del flujo como su cese y depositación, de forma similar a los modelos reológicos disponibles en Iber-NNF.</p>
+<p>El módulo <strong>MDF</strong> (no newtoniano) extiende estos solucionadores incorporando términos de fricción viscoplástica en la pendiente de fricción, siguiendo formulaciones cuadráticas y de Bingham análogas a las descritas en el capítulo de <a class="reference internal" href="04_ModelosReologicos.html"><span class="std std-doc">modelos reológicos</span></a> <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id167" title="Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.">Gibson, 2008</a>]</span>. Esto permite representar tanto la fase dinámica del flujo como su cese y depositación, de forma similar a los modelos reológicos disponibles en Iber-NNF.</p>
 </section>
 <section id="requisitos-de-datos">
 <h2>Requisitos de Datos<a class="headerlink" href="#requisitos-de-datos" title="Link to this heading">#</a></h2>
@@ -469,7 +473,7 @@
 <li><p>Malla computacional, con líneas de ruptura opcionales para representar estructuras lineales relevantes (diques, bermas, canales).</p></li>
 <li><p>Coeficiente de rugosidad de Manning para el componente hidráulico convencional.</p></li>
 <li><p>Parámetros reológicos del módulo MDF: esfuerzo de fluencia, viscosidad plástica y, según el esquema, coeficientes adicionales de resistencia turbulenta.</p></li>
-<li><p>Condiciones de frontera: hidrograma de caudal de entrada y, para el módulo MDF, una concentración de sedimentos que —a diferencia de FLO-2D— generalmente debe especificarse como valor <strong>constante</strong> durante la simulación, en lugar de acoplarse dinámicamente a un hidrograma de sedimentos <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p></li>
+<li><p>Condiciones de frontera: hidrograma de caudal de entrada y, para el módulo MDF, una concentración de sedimentos que —a diferencia de FLO-2D— generalmente debe especificarse como valor <strong>constante</strong> durante la simulación, en lugar de acoplarse dinámicamente a un hidrograma de sedimentos <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span>.</p></li>
 </ul>
 </section>
 <section id="salidas">
@@ -479,36 +483,11 @@
 <section id="calibracion-y-evaluacion">
 <h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Rotura de presas de relaves</strong>: SRK Consulting <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id338" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span> comparó los tres esquemas numéricos de HEC-RAS con FLO-2D para una falla hipotética por sobrevertimiento en una presa de relaves, encontrando tiempos de cómputo de 4,58 h (onda difusiva), 1,15 h (SWE-ELM) y 1,85 h (SWE-EM) para un escenario de 24 h, frente a 0,33 h de FLO-2D; el esquema de onda difusiva de HEC-RAS proyectó además un área de inundación considerablemente más extensa y dispersa que los esquemas de conservación de momento.</p></li>
-<li><p><strong>Flujo de detritos de St. Sophia, California (2003)</strong>: Hinzmann <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id339">Hin23</a>]</span> encontró que el módulo HEC-RAS-MDF produjo calados (3,0–5,0 m) y velocidades (≈3,6 m/s) consistentes con el mapeo geomorfológico post-evento y los testimonios de testigos, en clara ventaja frente a la sobreestimación de profundidades y velocidades obtenida con FLO-2D para el mismo evento.</p></li>
-<li><p><strong>Aluvión del Estero San Alfonso, Chile (2017)</strong>: Pacheco, Martínez y Cuevas <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id340">PVMartinezCCV25</a>]</span> encontraron velocidades consistentes entre HEC-RAS 2D y FLO-2D (diferencias menores al 10 %), aunque HEC-RAS proyectó sistemáticamente áreas de inundación más extensas que FLO-2D.</p></li>
+<li><p><strong>Rotura de presas de relaves</strong>: SRK Consulting <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span> comparó los tres esquemas numéricos de HEC-RAS con FLO-2D para una falla hipotética por sobrevertimiento en una presa de relaves, encontrando tiempos de cómputo de 4,58 h (onda difusiva), 1,15 h (SWE-ELM) y 1,85 h (SWE-EM) para un escenario de 24 h, frente a 0,33 h de FLO-2D; el esquema de onda difusiva de HEC-RAS proyectó además un área de inundación considerablemente más extensa y dispersa que los esquemas de conservación de momento.</p></li>
+<li><p><strong>Flujo de detritos de St. Sophia, California (2003)</strong>: Hinzmann <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id332">Hinzmann, 2023</a>]</span> encontró que el módulo HEC-RAS-MDF produjo calados (3,0–5,0 m) y velocidades (≈3,6 m/s) consistentes con el mapeo geomorfológico post-evento y los testimonios de testigos, en clara ventaja frente a la sobreestimación de profundidades y velocidades obtenida con FLO-2D para el mismo evento.</p></li>
+<li><p><strong>Aluvión del Estero San Alfonso, Chile (2017)</strong>: Pacheco, Martínez y Cuevas <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id333">Pacheco V. <em>et al.</em>, 2025</a>]</span> encontraron velocidades consistentes entre HEC-RAS 2D y FLO-2D (diferencias menores al 10 %), aunque HEC-RAS proyectó sistemáticamente áreas de inundación más extensas que FLO-2D.</p></li>
 </ul>
 <p>En síntesis, HEC-RAS ofrece mayor flexibilidad de malla, mayor rigor físico en sus esquemas de conservación completa de momento y herramientas de comparación de escenarios más versátiles, a cambio de mayores tiempos de cómputo y de una configuración del módulo MDF algo menos flexible que la de FLO-2D en cuanto a la variación temporal de la concentración de sedimentos. Al ser de código gratuito y contar con soporte técnico continuo del USACE, se ha convertido en una alternativa cada vez más utilizada frente a FLO-2D en la práctica profesional reciente.</p>
-<div class="docutils container" id="id8">
-<div role="list" class="citation-list">
-<div class="citation" id="id174" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Gib08</a><span class="fn-bracket">]</span></span>
-<p>Stanford et al. Gibson. Application of quadratic and bingham rheologies in one-dimensional mudflow simulation (hec-ras). 2008.</p>
-</div>
-<div class="citation" id="id339" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">Hin23</a><span class="fn-bracket">]</span></span>
-<p><strong>missing journal in hinzmann_2023_stsophia</strong></p>
-</div>
-<div class="citation" id="id340" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">PVMartinezCCV25</a><span class="fn-bracket">]</span></span>
-<p><strong>missing journal in pacheco_2025_esteroalfonso</strong></p>
-</div>
-<div class="citation" id="id338" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>SRKConsulting22<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
-<p>SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.</p>
-</div>
-<div class="citation" id="id342" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">USACoEngineersHECenter23</a><span class="fn-bracket">]</span></span>
-<p>US Army Corps of Engineers, Hydrologic Engineering Center. HEC-RAS 2d user's manual. Technical Report, US Army Corps of Engineers, 2023.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 
@@ -550,6 +529,15 @@
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">FLO-2D</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="19_Referencias.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Referencias</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

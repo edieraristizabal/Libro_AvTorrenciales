@@ -103,6 +103,3 @@ La calibración de los parámetros es un desafío significativo, especialmente p
 Este proceso manual es intensivo y se enfrenta al problema de la equifinalidad, un concepto bien conocido en modelización ambiental donde diferentes combinaciones de parámetros pueden producir resultados finales muy similares. Esto hace que sea difícil identificar un único conjunto de parámetros "correctos" sin una cantidad suficiente de datos de campo de alta calidad para la validación.
 
 Ya desde la versión 1, r.avaflow incluyó herramientas para facilitar este proceso, como la capacidad de ejecutar múltiples simulaciones en paralelo variando los parámetros de forma controlada. Esto permite realizar análisis de sensibilidad y optimización de manera más sistemática. La v1 también introdujo métricas de validación incorporadas, como el Índice de Éxito Crítico (CSI) y el Área Bajo la Curva ROC (AUROC), para comparar cuantitativamente los resultados simulados con las áreas de impacto observadas. Aunque el proceso sigue siendo un desafío, estas herramientas proporcionan un marco robusto para la evaluación del modelo.
-```{bibliography}
-:filter: docname in docnames
-```

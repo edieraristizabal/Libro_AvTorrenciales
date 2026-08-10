@@ -206,7 +206,3 @@ Investigaciones geomorfológicas forenses recientes —como el estudio del impac
 ## Herramientas comerciales de propagación: FLO-2D y HEC-RAS
 
 Además de las herramientas de código abierto descritas en los capítulos de esta parte, dos programas comerciales/gratuitos ampliamente usados en la práctica profesional para la propagación de avenidas torrenciales son **FLO-2D** y **HEC-RAS**, descritos en detalle en los capítulos [FLO-2D](17_FLO2D.md) y [HEC-RAS](18_HECRAS.md), que incluyen una comparación de su desempeño en varios casos de estudio recientes (rotura de presas de relaves, flujos de detritos y aluviones en Taiwán, California y Chile).
-
-```{bibliography}
-:filter: docname in docnames
-```

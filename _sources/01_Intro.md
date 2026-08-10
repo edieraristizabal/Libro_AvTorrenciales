@@ -19,8 +19,3 @@ La distribución temporal de los años con mayor número de desastres asociados 
 - **Salgar, Antioquia (18 de mayo de 2015)**: 93 muertos, 11 desaparecidos y 309 viviendas afectadas o destruidas.
 
 Estas cifras evidencian que, más allá de las diferencias conceptuales entre las miradas institucionales presentadas anteriormente, las avenidas torrenciales constituyen una amenaza recurrente y de alto impacto humano y económico en la región Andina, lo que justifica el desarrollo de herramientas de análisis y modelación como las que se presentan a lo largo de este libro.
-
-
-```{bibliography}
-:filter: docname in docnames
-```

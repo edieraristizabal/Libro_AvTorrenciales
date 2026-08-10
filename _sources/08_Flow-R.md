@@ -37,8 +37,3 @@ Los parámetros que controlan la propagación y los que gobiernan la distancia d
 | Áreas fuente                  | Generadas por el modelo               | Preparadas en SIG externo              |
 | Capas adicionales             | Opcionales: uso del suelo, geología   | Opcionales: uso del suelo, geología    |
 | Ángulo de recorrido variable  | No                                    | Opcional (raster adicional)            |
-
-
-```{bibliography}
-:filter: docname in docnames
-```

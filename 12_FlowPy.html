@@ -220,9 +220,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -241,6 +240,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -451,19 +454,19 @@
 <h1>Flow-Py<a class="headerlink" href="#flow-py" title="Link to this heading">#</a></h1>
 <p><em>Flow-Py</em> es una herramienta de modelado que proporciona estimaciones numéricas del alcance de flujos gravitacionales sobre la topografía.
 Fue desarrollada en el Centro Austríaco de Investigación Forestal y la Universidad de Innsbruck, y publicada en 2022.
-El software se clasifica como un modelo empírico basado en la topografía, utilizando el enfoque de la línea α <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id66" title="Ketil Lied and Stig Bakkeøi. Empirical calculations of snow-avalanche run-out distance based on topographic parameters. Journal of Glaciology, 26(94):165–177, 1980. doi:10.3189/S0022143000010704.">LBakkeoi80</a>]</span>, el criterio de flujo mínimo para la propagación máxima del flujo, el algoritmo de Holmgren <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id40" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Hol94</a>]</span> para el enrutamiento de trayectorias y el enfoque de persistencia de Gamma <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id31" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span>.
+El software se clasifica como un modelo empírico basado en la topografía, utilizando el enfoque de la línea α <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id58" title="Ketil Lied and Stig Bakkeøi. Empirical calculations of snow-avalanche run-out distance based on topographic parameters. Journal of Glaciology, 26(94):165–177, 1980. doi:10.3189/S0022143000010704.">Lied and Bakkeøi, 1980</a>]</span>, el criterio de flujo mínimo para la propagación máxima del flujo, el algoritmo de Holmgren <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id32" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Holmgren, 1994</a>]</span> para el enrutamiento de trayectorias y el enfoque de persistencia de Gamma <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id23" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gamma, 2000</a>]</span>.
 La filosofía general del modelado se basa en el concepto de línea de energía, donde la línea de energía conecta la zona de inicio con el extremo del flujo, derivada del principio de conservación de la energía.
 Sin embargo, la derivación del contenido energético local del flujo solo produciría resultados plausibles para superficies de escorrentía perfectamente uniformes con parámetros de fricción distribuidos de manera homogénea.</p>
-<p>El software fue codificado en Python y su código fuente está disponible de forma gratuita <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id219" title="Luigi et al. Lombardo. Flow-py: an open-source tool for gravitational mass-flow susceptibility. 2022.">Lom22</a>]</span>.
+<p>El software fue codificado en Python y su código fuente está disponible de forma gratuita <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id211" title="Luigi et al. Lombardo. Flow-py: an open-source tool for gravitational mass-flow susceptibility. 2022.">Lombardo, 2022</a>]</span>.
 Ha sido aplicado a avalanchas, caídas de rocas y deslizamientos superficiales para la identificación de peligros a escala regional e indicativa.
 Los autores sugieren que los flujos de detritos y las avalanchas húmedas también podrían evaluarse basándose en la experiencia con herramientas de modelado similares.</p>
 <section id="componentes">
 <h2>Componentes<a class="headerlink" href="#componentes" title="Link to this heading">#</a></h2>
-<p>Se utilizan tres enfoques para calcular la propagación del flujo, considerando el principio de conservación de la masa, la identificación del trayecto asociado a la topografía <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id40" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Hol94</a>]</span> y la consideración del momento de los elementos de masa <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id31" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span>.
+<p>Se utilizan tres enfoques para calcular la propagación del flujo, considerando el principio de conservación de la masa, la identificación del trayecto asociado a la topografía <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id32" title="Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. Hydrological Processes, 8(4):327–334, 1994. doi:10.1002/hyp.3360080405.">Holmgren, 1994</a>]</span> y la consideración del momento de los elementos de masa <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id23" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gamma, 2000</a>]</span>.
 La conservación de la masa se satisface equilibrando los volúmenes que se detienen en las celdas según los criterios de detención y el flujo de volumen en cada celda que experimenta contacto con el flujo de masa.</p>
-<p>Las pruebas preliminares confirman que el enfoque de persistencia seleccionado <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id31" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gam00</a>]</span> proporciona una solución alternativa para representar el principio de conservación del momento.</p>
+<p>Las pruebas preliminares confirman que el enfoque de persistencia seleccionado <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id23" title="Paul Gamma. dFlow – Murgang-Disposition durch ein stochastisches Modell. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.">Gamma, 2000</a>]</span> proporciona una solución alternativa para representar el principio de conservación del momento.</p>
 <p>Se utilizan dos criterios de detención.
-Primero, para limitar la propagación máxima del flujo, el software utiliza una aproximación de la disipación de energía del flujo de masa, representada por la línea α <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id22" title="Jordi Corominas. The angle of reach as a mobility index for small and large landslides. Canadian Geotechnical Journal, 33(2):260–271, 1996. doi:10.1139/t96-030.">Cor96</a>, <a class="reference internal" href="#id38" title="Albert Heim. Bergsturz und Menschenleben. Fretz &amp; Wasmuth, Zürich, 1932.">Hei32</a>, <a class="reference internal" href="#id66" title="Ketil Lied and Stig Bakkeøi. Empirical calculations of snow-avalanche run-out distance based on topographic parameters. Journal of Glaciology, 26(94):165–177, 1980. doi:10.3189/S0022143000010704.">LBakkeoi80</a>]</span>.
+Primero, para limitar la propagación máxima del flujo, el software utiliza una aproximación de la disipación de energía del flujo de masa, representada por la línea α <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id14" title="Jordi Corominas. The angle of reach as a mobility index for small and large landslides. Canadian Geotechnical Journal, 33(2):260–271, 1996. doi:10.1139/t96-030.">Corominas, 1996</a>, <a class="reference internal" href="19_Referencias.html#id30" title="Albert Heim. Bergsturz und Menschenleben. Fretz &amp; Wasmuth, Zürich, 1932.">Heim, 1932</a>, <a class="reference internal" href="19_Referencias.html#id58" title="Ketil Lied and Stig Bakkeøi. Empirical calculations of snow-avalanche run-out distance based on topographic parameters. Journal of Glaciology, 26(94):165–177, 1980. doi:10.3189/S0022143000010704.">Lied and Bakkeøi, 1980</a>]</span>.
 Segundo, se utiliza un criterio de flujo mínimo para considerar un contenido energético mínimo requerido del flujo que permita la propagación adicional.</p>
 </section>
 <section id="requisitos-de-datos">
@@ -480,37 +483,6 @@ Segundo, se utiliza un criterio de flujo mínimo para considerar un contenido en
 <li><p>Conteo de celdas que representa el número de trayectorias que enrutan flujo a través de una ubicación, donde una trayectoria es producida por una - liberación (una celda raster de inicio) en las zonas de inicio.</p></li>
 <li><p>Ángulo máximo de recorrido del trayecto del flujo detectado en una celda, producido por todas las trayectorias de flujo que pasan por esa celda. Este valor proporciona la distribución espacial de las alturas máximas de energía residual.</p></li>
 </ul>
-<div class="docutils container" id="id9">
-<div role="list" class="citation-list">
-<div class="citation" id="id22" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Cor96</a><span class="fn-bracket">]</span></span>
-<p>Jordi Corominas. The angle of reach as a mobility index for small and large landslides. <em>Canadian Geotechnical Journal</em>, 33(2):260–271, 1996. <a class="reference external" href="https://doi.org/10.1139/t96-030">doi:10.1139/t96-030</a>.</p>
-</div>
-<div class="citation" id="id31" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>Gam00<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id7">3</a>)</span>
-<p>Paul Gamma. <em>dFlow – Murgang-Disposition durch ein stochastisches Modell</em>. PhD thesis, Geographisches Institut, Universität Bern, Bern, Switzerland, 2000.</p>
-</div>
-<div class="citation" id="id38" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">Hei32</a><span class="fn-bracket">]</span></span>
-<p>Albert Heim. <em>Bergsturz und Menschenleben</em>. Fretz &amp; Wasmuth, Zürich, 1932.</p>
-</div>
-<div class="citation" id="id40" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>Hol94<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
-<p>Peter Holmgren. Multiple flow direction algorithms for runoff modelling in grid based elevation models: an empirical evaluation. <em>Hydrological Processes</em>, 8(4):327–334, 1994. <a class="reference external" href="https://doi.org/10.1002/hyp.3360080405">doi:10.1002/hyp.3360080405</a>.</p>
-</div>
-<div class="citation" id="id66" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>LBakkeoi80<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id8">2</a>)</span>
-<p>Ketil Lied and Stig Bakkeøi. Empirical calculations of snow-avalanche run-out distance based on topographic parameters. <em>Journal of Glaciology</em>, 26(94):165–177, 1980. <a class="reference external" href="https://doi.org/10.3189/S0022143000010704">doi:10.3189/S0022143000010704</a>.</p>
-</div>
-<div class="citation" id="id219" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Lom22</a><span class="fn-bracket">]</span></span>
-<p>Luigi et al. Lombardo. Flow-py: an open-source tool for gravitational mass-flow susceptibility. 2022.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 

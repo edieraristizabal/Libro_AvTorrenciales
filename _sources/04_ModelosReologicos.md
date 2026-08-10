@@ -312,9 +312,3 @@ Tabla Lista de modelos numéricos seleccionados para el cálculo del alcance de 
 | VolcFlow        | Friccional y Voellmy                                       | Sí                 | Kelfoun y Druitt {cite}`kelfoun_druitt_2005`                                                 |
 | Wang            | Friccional                                                 | No                 | Wang et al. {cite}`wang_runout_2003`; Kang y Chan {cite}`kang_2018`                                |
 | Massflow        | Friccional                                                 | Sí                 | Ouyang et al. (2015)                                                    |
-
-
-
-```{bibliography}
-:filter: docname in docnames
-```

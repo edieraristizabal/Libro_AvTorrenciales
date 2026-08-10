@@ -222,9 +222,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -243,6 +242,10 @@
 <li class="toctree-l1"><a class="reference internal" href="16_Iber_NNF.html">Iber-NNF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -637,7 +640,7 @@ Este ángulo se define como el ángulo de la línea que une el punto más alto d
 </section>
 <section id="modelo-vinculado-de-movilidad-topografica">
 <h2>Modelo Vinculado de Movilidad Topográfica<a class="headerlink" href="#modelo-vinculado-de-movilidad-topografica" title="Link to this heading">#</a></h2>
-<p>El “Modelo Vinculado” (<em>Linked-Model Approach</em>) descrito por Brien et al. <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id314" title="James S. et al. O'Brien. Linked-model approach for lahar and debris-flow hazard assessment. 2003.">OBrien03</a>]</span> no es un software independiente, sino un marco conceptual y metodológico que se implementa utilizando el paquete de herramientas Grfin Tools. Su principal innovación es que permite que la topografía local controle de forma automática qué tipo de modelo de alcance (<em>runout</em>) se aplica, diferenciando explícitamente entre el recorrido de un deslizamiento en una ladera abierta y su transformación en un flujo de detritos canalizado.</p>
+<p>El “Modelo Vinculado” (<em>Linked-Model Approach</em>) descrito por Brien et al. <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id309" title="James S. et al. O'Brien. Linked-model approach for lahar and debris-flow hazard assessment. 2003.">O'Brien, 2003</a>]</span> no es un software independiente, sino un marco conceptual y metodológico que se implementa utilizando el paquete de herramientas Grfin Tools. Su principal innovación es que permite que la topografía local controle de forma automática qué tipo de modelo de alcance (<em>runout</em>) se aplica, diferenciando explícitamente entre el recorrido de un deslizamiento en una ladera abierta y su transformación en un flujo de detritos canalizado.</p>
 <p>El marco se basa en la definición de tres <strong>“zonas de movilidad”</strong> distintas dentro del paisaje:</p>
 <ol class="arabic simple">
 <li><p><strong>Zonas Fuente (<em>Source Zones</em>):</strong> Áreas donde se inician los deslizamientos. A diferencia de un análisis simple, este enfoque utiliza mapas de susceptibilidad detallados (por ejemplo, basados en el Factor de Seguridad de modelos como TRIGRS o Slabs3D) como dato de entrada principal.</p></li>
@@ -750,22 +753,13 @@ $<span class="math notranslate nohighlight">\(V = c_1 \cdot A_{src}\)</span><spa
 </section>
 <section id="id4">
 <h3>Calibración y Evaluación<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>La calibración de este modelo es un proceso multifacético que busca ajustar los parámetros empíricos para que los resultados coincidan con los datos de eventos observados. El estudio de Brien et al. <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id314" title="James S. et al. O'Brien. Linked-model approach for lahar and debris-flow hazard assessment. 2003.">OBrien03</a>]</span> detalla este proceso:</p>
+<p>La calibración de este modelo es un proceso multifacético que busca ajustar los parámetros empíricos para que los resultados coincidan con los datos de eventos observados. El estudio de Brien et al. <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id309" title="James S. et al. O'Brien. Linked-model approach for lahar and debris-flow hazard assessment. 2003.">O'Brien, 2003</a>]</span> detalla este proceso:</p>
 <ol class="arabic simple">
 <li><p><strong>Análisis de los eventos observados:</strong> Se utiliza un inventario de deslizamientos (como el del Huracán María) para extraer las características de los flujos más móviles y así definir rangos plausibles para los parámetros de las zonas de crecimiento (pendiente, orden del cauce, etc.).</p></li>
 <li><p><strong>Definición de escenarios:</strong> Se crean múltiples escenarios de simulación variando sistemáticamente los parámetros más influyentes, como los umbrales para las zonas de crecimiento, el factor de crecimiento <span class="math notranslate nohighlight">\(c_1\)</span> y el volumen máximo <span class="math notranslate nohighlight">\(V_{max}\)</span>.</p></li>
 <li><p><strong>Evaluación cuantitativa (análisis ROC):</strong> Cada escenario se evalúa cuantitativamente comparando el área de inundación simulada con las áreas observadas de los flujos más móviles. Se utilizan métricas de tablas de contingencia como la Tasa de Verdaderos Positivos (TPR) y la Tasa de Falsos Positivos (FPR).</p></li>
 <li><p><strong>Selección de sscenarios finales:</strong> Se seleccionan los escenarios que ofrecen el mejor compromiso entre predecir correctamente los flujos observados (alto TPR) y no sobreestimar en exceso el peligro (bajo FPR). A menudo, se eligen dos escenarios para los mapas finales: uno “más probable” (con un buen balance TPR/FPR) y uno “más peligroso” o de “peor caso” (con un TPR más alto, aceptando un mayor FPR).</p></li>
 </ol>
-<div class="docutils container" id="id6">
-<div role="list" class="citation-list">
-<div class="citation" id="id314" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>OBrien03<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id5">2</a>)</span>
-<p>James S. et al. O'Brien. Linked-model approach for lahar and debris-flow hazard assessment. 2003.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 </section>
