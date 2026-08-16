@@ -31,6 +31,9 @@ parts:
     - file: 16_Iber_NNF
     - file: 17_FLO2D
     - file: 18_HECRAS
+  - caption: "Parte IV: Aplicación normativa en Colombia"
+    chapters:
+    - file: 21_GuiaSGC
   - caption: "Referencias"
     chapters:
     - file: 19_Referencias
