@@ -36,7 +36,3 @@ Si se va a modelar deposición, se requiere un ráster con el material disponibl
 **Calibración y evaluación**. Una configuración típica para cartografía regional de susceptibilidad utiliza el *random walk* para la trayectoria y el modelo PCM para el cálculo de distancia de runout.
 
 Los parámetros se calibran probando diferentes valores dentro de un rango determinado. El resultado de cada combinación de parámetros se compara con eventos mapeados de flujos de escombros, y se elige el conjunto que muestra mejor ajuste con las áreas mapeadas. Un procedimiento automático de optimización y validación de parámetros para GPP fue desarrollado por Goetz et al. {cite}`goetz_2015`.
-
-```{bibliography}
-:filter: docname in docnames
-```

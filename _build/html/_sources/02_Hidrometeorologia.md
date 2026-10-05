@@ -80,9 +80,3 @@ Además, un incendio forestal que destruya la vegetación protectora puede conve
 
 En cuencas completamente ilimitadas en suministro, los flujos ocurren cada vez que se supera un umbral hidroclimático, y su magnitud depende únicamente de la intensidad y duración del evento meteorológico. 
 En estas cuencas, el cambio climático se manifestará en un aumento tanto en la magnitud como en la frecuencia de los flujos de escombros.
-
-
-
-```{bibliography}
-:filter: docname in docnames
-```

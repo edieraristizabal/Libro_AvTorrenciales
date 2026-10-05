@@ -20,6 +20,14 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
+# Pass-through Sphinx settings
+sphinx:
+  config:
+    # In-text citations render as (Primer apellido, Año)
+    bibtex_reference_style: author_year
+    # Bibliography list sorted alphabetically by author-year
+    bibtex_default_style: alpha
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/edieraristizabal/Libro_AvTorrenciales

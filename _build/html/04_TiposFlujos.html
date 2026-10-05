@@ -16,37 +16,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -60,40 +63,37 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04_TiposFlujos';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Modelos reológicos" href="04_ModelosReologicos.html" />
-    <link rel="prev" title="Técnicas numéricas de solución" href="03c_TecnicasNumericas.html" />
+    <link rel="prev" title="Ecuaciones de Saint-Venant y técnicas numéricas de solución" href="03_Ecuaciones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +101,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,15 +108,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -126,7 +169,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,35 +200,30 @@
     
     
     <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
-    <script>document.write(`<img src="_static/logo_book.jpg" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Intro.html">Introducción</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Avenidas torrenciales: clasificación y origen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Flujos.html">Qué son las Avenidas torrenciales?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Entrainment.html">Incorporación de sedimentos (Entrainment)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Hidrometeorologia.html">La Lluvia como factor detonante</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -204,6 +243,14 @@
 <li class="toctree-l1"><a class="reference internal" href="17_FLO2D.html">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte IV: Aplicación normativa en Colombia</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_GuiaSGC.html">Metodología del Servicio Geológico Colombiano</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -211,9 +258,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -343,7 +395,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -357,25 +409,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -397,7 +441,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-fisicas-y-reologicas">Propiedades físicas y reológicas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-hidraulicas">Características hidráulicas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismos-de-disipacion-de-energia-en-flujos">Mecanismos de disipación de energía en flujos</a><ul class="nav section-nav flex-column">
@@ -433,7 +477,7 @@ Existen fluidos que se desvían de estas suposiciones, incluyendo una intersecci
 <a class="reference internal image-reference" href="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg"><img alt="Flow axonomy" src="https://i.pinimg.com/736x/a9/95/92/a99592e92c06eb073c1c7d7699c5785e.jpg" style="width: 700px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Modelos reológicos utilizados para simular (a) agua limpia y (b, c) flujos de lodos y flujos de escombros. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#flow-taxonomy" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Modelos reológicos utilizados para simular (a) agua limpia y (b, c) flujos de lodos y flujos de escombros. Tomado de <a class="reference external" href="https://www.hec.usace.army.mil/confluence/rasdocs/rasmuddebris/non-newtonian-user-s-manual/introduction-taxonomy-and-rheology-of-debris-flows">HEC RAS Non-Newtonian User’s Manual</a>.</span><a class="headerlink" href="#flow-taxonomy" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>La propiedad reológica de un flujo conformado por aguas y sedimentos depende de una variedad de factores, tales como la concentración de sólidos en suspensión, la cohesión, la distribución del tamaño de las partículas (granulometría), la forma de las partículas, la fricción entre granos y la presión de poros. En general, a medida que la concentración aumenta y el tamaño de grano se vuelve más grueso, la mezcla de fluido y sedimento pasa a través de cinco clasificaciones: (1) Flujo Newtoniano (agua clara o transporte de sedimento aluvial), (2) flujo hiperconcentrado, (3) flujo de lodo, (4) flujo de detritos y (5) flujo clástico. Sin embargo, estos tipos de flujo son continuos y se solapan entre sí.</p>
@@ -451,19 +495,19 @@ Existen fluidos que se desvían de estas suposiciones, incluyendo una intersecci
 </section>
 <section id="caracteristicas-hidraulicas">
 <h2>Características hidráulicas<a class="headerlink" href="#caracteristicas-hidraulicas" title="Link to this heading">#</a></h2>
-<p><strong>Velocidad (u, en m/s):</strong> La velocidad del flujo se puede descomponer en tres componentes <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id153" title="Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.">Doy19b</a>]</span>:</p>
+<p><strong>Velocidad (u, en m/s):</strong> La velocidad del flujo se puede descomponer en tres componentes <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id147" title="Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.">Doyle, 2019</a>]</span>:</p>
 <ul class="simple">
 <li><p>Velocidad superficial (<em>usurf</em>): calculada a partir de grabaciones de video.</p></li>
 <li><p>Velocidad de desplazamiento (<em>ur</em>): velocidad total del flujo.</p></li>
 <li><p>Velocidad del cuerpo (<em>ub</em>): velocidad media en profundidad para una ubicación dada.</p></li>
 </ul>
-<p>La velocidad del cuerpo <em>ub</em> se considera proporcional a la velocidad superficial mediante un factor de corrección <em>k</em>, que varía entre 0,7 y 0,9 <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id141" title="Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.">Cre18</a>]</span> y está definido por una distribución vertical de velocidades <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id142" title="Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.">Cro99</a>]</span>. La velocidad del frente del flujo se usa frecuentemente en ecuaciones, ya que la cabeza del flujo, rica en bloques, juega un papel crucial en la intensidad inicial del impacto sobre estructuras <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id212" title="Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.">LT04</a>, <a class="reference internal" href="#id291" title="Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.">Tho07</a>]</span>.</p>
+<p>La velocidad del cuerpo <em>ub</em> se considera proporcional a la velocidad superficial mediante un factor de corrección <em>k</em>, que varía entre 0,7 y 0,9 <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id135" title="Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.">Creutin, 2018</a>]</span> y está definido por una distribución vertical de velocidades <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id136" title="Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.">Cronin, 1999</a>]</span>. La velocidad del frente del flujo se usa frecuentemente en ecuaciones, ya que la cabeza del flujo, rica en bloques, juega un papel crucial en la intensidad inicial del impacto sobre estructuras <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id206" title="Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.">Lavigne and Thouret, 2004</a>, <a class="reference internal" href="19_Referencias.html#id285" title="Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.">Thouret, 2007</a>]</span>.</p>
 <p><strong>Caudal (Q, en m³/s):</strong> Es función de la velocidad media del flujo, su capacidad de erosionar y cargar material del lecho y las orillas del canal, y la geometría del canal. La descarga se expresa mediante:</p>
 <div class="math notranslate nohighlight">
 \[
 Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 \]</div>
-<p>donde <em>A</em> es el área mojada, <em>ub</em> la velocidad del cuerpo y <em>i</em> representa las mediciones individuales en intervalos Δt = ti+1 - ti <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id154" title="Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.">Doy19a</a>]</span>. La tasa de descarga varía en el tiempo y el espacio debido a los ciclos de carga (<em>bulking</em>) y descarga (<em>debulking</em>) de sedimentos.</p>
+<p>donde <em>A</em> es el área mojada, <em>ub</em> la velocidad del cuerpo y <em>i</em> representa las mediciones individuales en intervalos Δt = ti+1 - ti <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id148" title="Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.">Doyle, 2019</a>]</span>. La tasa de descarga varía en el tiempo y el espacio debido a los ciclos de carga (<em>bulking</em>) y descarga (<em>debulking</em>) de sedimentos.</p>
 <p><strong>Profundidad del flujo (H, en m):</strong> Puede ser de 4 a 5 veces el espesor del depósito. A mayor profundidad, mayor área expuesta y mayor altura alcanzada en las estructuras.</p>
 <p><strong>Movilidad del flujo:</strong> La velocidad, el caudal, la profundidad y la relación ancho/profundidad del canal influyen en la movilidad del flujo y determinan la distancia de recorrido.</p>
 </section>
@@ -659,7 +703,7 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 <tr class="row-odd"><td><p><strong>Número inercial</strong></p></td>
 <td><p>I = √(γ δ ̇P / ρ₀)</p></td>
 <td><p>Relación entre el esfuerzo inercial y el esfuerzo de confinamiento</p></td>
-<td><p>1 × 10⁻⁵ – 1 × 10⁻¹ <em>(rango típico en flujos de detritos naturales)</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id198" title="Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.">JD19</a>]</span></p></td>
+<td><p>1 × 10⁻⁵ – 1 × 10⁻¹ <em>(rango típico en flujos de detritos naturales)</em> <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id192" title="Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.">Jerolmack and Daniels, 2019</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Número de Savage</strong></p></td>
 <td><p>NS = (ρs – ρf) / ρs</p></td>
@@ -678,38 +722,6 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
 </tr>
 </tbody>
 </table>
-</div>
-<div class="docutils container" id="id7">
-<div role="list" class="citation-list">
-<div class="citation" id="id141" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">Cre18</a><span class="fn-bracket">]</span></span>
-<p>Jean-Dominique et al. Creutin. Debris-flow surface-to-bulk velocity correction factors. 2018.</p>
-</div>
-<div class="citation" id="id142" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">Cro99</a><span class="fn-bracket">]</span></span>
-<p>Shane J. et al. Cronin. Surface and vertical velocity distribution in lahars. 1999.</p>
-</div>
-<div class="citation" id="id154" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">Doy19a</a><span class="fn-bracket">]</span></span>
-<p>Emma E. et al. Doyle. Discharge estimation methods for debris flows from field measurements. 2019.</p>
-</div>
-<div class="citation" id="id153" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">Doy19b</a><span class="fn-bracket">]</span></span>
-<p>Emma E. et al. Doyle. Velocity structure and estimation methods in debris flows. 2019.</p>
-</div>
-<div class="citation" id="id198" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">JD19</a><span class="fn-bracket">]</span></span>
-<p>Douglas J. Jerolmack and Karen E. Daniels. Viewing earth-surface processes through the lens of granular physics. 2019.</p>
-</div>
-<div class="citation" id="id212" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">LT04</a><span class="fn-bracket">]</span></span>
-<p>Franck Lavigne and Jean-Claude Thouret. Sediment transportation and deposition by rain-triggered lahars. 2004.</p>
-</div>
-<div class="citation" id="id291" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">Tho07</a><span class="fn-bracket">]</span></span>
-<p>Jean-Claude et al. Thouret. Numerical simulation of the impact of lahar flow fronts on structures. 2007.</p>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -745,12 +757,12 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03c_TecnicasNumericas.html"
+       href="03_Ecuaciones.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Técnicas numéricas de solución</p>
+        <p class="prev-next-title">Ecuaciones de Saint-Venant y técnicas numéricas de solución</p>
       </div>
     </a>
     <a class="right-next"
@@ -769,15 +781,17 @@ Q(ti + 1 - ti) = ½ (Ai * ubi + Ai+1 * ubi+1)
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-fisicas-y-reologicas">Propiedades físicas y reológicas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-hidraulicas">Características hidráulicas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mecanismos-de-disipacion-de-energia-en-flujos">Mecanismos de disipación de energía en flujos</a><ul class="nav section-nav flex-column">
@@ -838,8 +852,8 @@ By Edier V. Aristizábal G.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

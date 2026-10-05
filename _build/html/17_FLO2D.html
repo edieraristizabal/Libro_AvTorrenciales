@@ -16,37 +16,40 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -60,40 +63,37 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '17_FLO2D';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="HEC-RAS" href="18_HECRAS.html" />
     <link rel="prev" title="Iber-NNF" href="16_Iber_NNF.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -101,7 +101,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,15 +108,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -126,7 +169,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +200,17 @@
     
     
     <img src="_static/logo_book.jpg" class="logo__image only-light" alt="Avenidas Torrenciales - Home"/>
-    <script>document.write(`<img src="_static/logo_book.jpg" class="logo__image only-dark" alt="Avenidas Torrenciales - Home"/>`);</script>
+    <img src="_static/logo_book.jpg" class="logo__image only-dark pst-js-only" alt="Avenidas Torrenciales - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte I: Caracterización de las avenidas torrenciales</span></p>
@@ -182,9 +222,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Parte II: Reología y Dinámica</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03b_EvolucionModelos.html">Evolución histórica de los modelos de flujos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03c_TecnicasNumericas.html">Técnicas numéricas de solución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Ecuaciones.html">Ecuaciones de Saint-Venant y técnicas numéricas de solución</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_TiposFlujos.html">Tipos de flujos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_ModelosReologicos.html">Modelos reológicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_DosFases.html">Modelos de dos fases (granular-fluido):</a></li>
@@ -204,6 +243,10 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">FLO-2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="18_HECRAS.html">HEC-RAS</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referencias</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="19_Referencias.html">Referencias</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -211,9 +254,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -343,7 +391,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -357,25 +405,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -397,7 +437,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de Datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
@@ -416,11 +456,11 @@ document.write(`
   <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo se apoya en el manual de usuario de O'Brien {cite}`obrien_flo2d_2006` y en estudios comparativos recientes de aplicación de FLO-2D a flujos de detritos y avenidas torrenciales {cite}`srk_tailings_2022,hinzmann_2023_stsophia,pacheco_2025_esteroalfonso,lin_2011_songher`.</em></p>
 <section class="tex2jax_ignore mathjax_ignore" id="flo-2d">
 <h1>FLO-2D<a class="headerlink" href="#flo-2d" title="Link to this heading">#</a></h1>
-<p><strong>FLO-2D</strong> es un modelo hidrodinámico de conservación de volumen, de código propietario, desarrollado originalmente para el tránsito de crecientes en llanuras de inundación y abanicos aluviales, y posteriormente extendido para la simulación de flujos hiperconcentrados, flujos de lodo y flujos de detritos mediante su componente de <strong>flujo de detritos y lodo</strong> (<em>Mudflow/Debris Flow component</em>, basado en el modelo reológico cuadrático de O’Brien y Julien <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id81" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">OBrienJ88</a>]</span>). Es una de las herramientas comerciales más utilizadas en la práctica profesional de ingeniería para la delimitación de amenaza por avenidas torrenciales, en buena parte gracias a su interfaz gráfica GDS (<em>Grid Developer System</em>) y a la amplia disponibilidad de literatura técnica y casos de calibración publicados.</p>
+<p><strong>FLO-2D</strong> es un modelo hidrodinámico de conservación de volumen, de código propietario, desarrollado originalmente para el tránsito de crecientes en llanuras de inundación y abanicos aluviales, y posteriormente extendido para la simulación de flujos hiperconcentrados, flujos de lodo y flujos de detritos mediante su componente de <strong>flujo de detritos y lodo</strong> (<em>Mudflow/Debris Flow component</em>, basado en el modelo reológico cuadrático de O’Brien y Julien <span class="bibtex-citation" id="id1">[<a class="reference internal" href="19_Referencias.html#id73" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">O'Brien and Julien, 1988</a>]</span>). Es una de las herramientas comerciales más utilizadas en la práctica profesional de ingeniería para la delimitación de amenaza por avenidas torrenciales, en buena parte gracias a su interfaz gráfica GDS (<em>Grid Developer System</em>) y a la amplia disponibilidad de literatura técnica y casos de calibración publicados.</p>
 <section id="componentes">
 <h2>Componentes<a class="headerlink" href="#componentes" title="Link to this heading">#</a></h2>
 <p>FLO-2D resuelve las ecuaciones de aguas someras en su forma de <strong>onda difusiva bidimensional</strong> sobre una malla estructurada de celdas cuadradas, mediante un esquema de diferencias finitas centradas de ocho direcciones. A diferencia de un esquema de conservación completa de cantidad de movimiento, la componente de onda difusiva desprecia los términos de aceleración local y convectiva, lo que simplifica el cálculo pero limita su capacidad para representar apropiadamente los frentes de flujo muy rápidos o los resaltos hidráulicos pronunciados.</p>
-<p>Para flujos hiperconcentrados y de detritos, FLO-2D incorpora el <strong>modelo reológico cuadrático</strong> de O’Brien y Julien <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id81" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">OBrienJ88</a>]</span>, que expresa el esfuerzo cortante total como la suma de un esfuerzo de fluencia (<em>yield stress</em>), un término viscoso lineal y un término turbulento-inercial cuadrático dependiente de la velocidad. Los coeficientes de fluencia y viscosidad se relacionan empíricamente con la concentración volumétrica de sedimentos (<span class="math notranslate nohighlight">\(C_v\)</span>) mediante ecuaciones exponenciales calibradas en laboratorio, lo que permite a FLO-2D <strong>variar dinámicamente la concentración de sedimentos en el tiempo</strong>, acoplada al hidrograma de entrada, una ventaja operativa exclusiva frente a otras herramientas que requieren una concentración constante durante toda la simulación <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id339" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p>
+<p>Para flujos hiperconcentrados y de detritos, FLO-2D incorpora el <strong>modelo reológico cuadrático</strong> de O’Brien y Julien <span class="bibtex-citation" id="id2">[<a class="reference internal" href="19_Referencias.html#id73" title="James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. Journal of Hydraulic Engineering, 114(8):877–887, 1988. doi:10.1061/(ASCE)0733-9429(1988)114:8(877).">O'Brien and Julien, 1988</a>]</span>, que expresa el esfuerzo cortante total como la suma de un esfuerzo de fluencia (<em>yield stress</em>), un término viscoso lineal y un término turbulento-inercial cuadrático dependiente de la velocidad. Los coeficientes de fluencia y viscosidad se relacionan empíricamente con la concentración volumétrica de sedimentos (<span class="math notranslate nohighlight">\(C_v\)</span>) mediante ecuaciones exponenciales calibradas en laboratorio, lo que permite a FLO-2D <strong>variar dinámicamente la concentración de sedimentos en el tiempo</strong>, acoplada al hidrograma de entrada, una ventaja operativa exclusiva frente a otras herramientas que requieren una concentración constante durante toda la simulación <span class="bibtex-citation" id="id3">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span>.</p>
 <p>El módulo de canal (<em>channel routing</em>) permite combinar el tránsito en el cauce principal con el desbordamiento hacia la llanura de inundación, y dispone de componentes adicionales para simulación de rotura de presas y diques, y para obstrucción de puentes y alcantarillas.</p>
 </section>
 <section id="requisitos-de-datos">
@@ -435,44 +475,18 @@ document.write(`
 </section>
 <section id="salidas">
 <h2>Salidas<a class="headerlink" href="#salidas" title="Link to this heading">#</a></h2>
-<p>FLO-2D exporta como resultado principal rásteres o grillas de profundidad máxima de flujo, velocidad máxima y tiempo de llegada del frente para cada celda del dominio. También permite generar secciones transversales del canal e hidrogramas de salida en puntos de control. La visualización de resultados se realiza mediante el módulo <strong>Mapper</strong>, que, a diferencia de RAS Mapper de HEC-RAS, restringe la visualización a un único plano de simulación a la vez, dificultando la comparación directa entre distintos escenarios <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id339" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span>.</p>
+<p>FLO-2D exporta como resultado principal rásteres o grillas de profundidad máxima de flujo, velocidad máxima y tiempo de llegada del frente para cada celda del dominio. También permite generar secciones transversales del canal e hidrogramas de salida en puntos de control. La visualización de resultados se realiza mediante el módulo <strong>Mapper</strong>, que, a diferencia de RAS Mapper de HEC-RAS, restringe la visualización a un único plano de simulación a la vez, dificultando la comparación directa entre distintos escenarios <span class="bibtex-citation" id="id4">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span>.</p>
 </section>
 <section id="calibracion-y-evaluacion">
 <h2>Calibración y Evaluación<a class="headerlink" href="#calibracion-y-evaluacion" title="Link to this heading">#</a></h2>
 <p>La calibración de FLO-2D se realiza típicamente ajustando los parámetros reológicos y el coeficiente de Manning para reproducir la extensión, profundidad y volumen de depósito observados en campo. Estudios recientes documentan su desempeño en distintos contextos:</p>
 <ul class="simple">
-<li><p><strong>Cuenca de Song-Her, Taiwán</strong>: Lin, Lee y Chang <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id342">LLC11</a>]</span> calibraron FLO-2D para un flujo de detritos real con un esfuerzo de fluencia de 2500 Pa, viscosidad plástica de 10 Pa·s y coeficiente de Manning de 0,0312, logrando reproducir el espesor máximo de depósito, el área de deposición y el volumen final con diferencias inferiores al 6 % respecto a las mediciones de campo.</p></li>
-<li><p><strong>Rotura de presas de relaves</strong>: SRK Consulting <span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id339" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRKConsulting22</a>]</span> encontró que, al estar restringido a la ecuación de onda difusiva, FLO-2D completa simulaciones considerablemente más rápido que HEC-RAS (0,33 h frente a 1,15–4,58 h en un escenario de 24 h de tránsito), aunque a costa de una malla estructurada menos flexible para representar bermas y diques con precisión.</p></li>
-<li><p><strong>Flujo de detritos de St. Sophia, California (2003)</strong>: Hinzmann <span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id340">Hin23</a>]</span> encontró que FLO-2D sobreestimó marcadamente las profundidades y velocidades de flujo frente a la evidencia de campo en este evento particular, en contraste con HEC-RAS-MDF (véase el capítulo de <a class="reference internal" href="18_HECRAS.html"><span class="std std-doc">HEC-RAS</span></a>).</p></li>
-<li><p><strong>Aluvión del Estero San Alfonso, Chile (2017)</strong>: Pacheco, Martínez y Cuevas <span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id341">PVMartinezCCV25</a>]</span> reconstruyeron este evento con FLO-2D y HEC-RAS 2D, obteniendo velocidades consistentes entre ambos modelos (diferencias menores al 10 %), aunque FLO-2D estimó profundidades de flujo menores que HEC-RAS, especialmente en la sección de salida aguas abajo.</p></li>
+<li><p><strong>Cuenca de Song-Her, Taiwán</strong>: Lin, Lee y Chang <span class="bibtex-citation" id="id5">[<a class="reference internal" href="19_Referencias.html#id334">Lin <em>et al.</em>, 2011</a>]</span> calibraron FLO-2D para un flujo de detritos real con un esfuerzo de fluencia de 2500 Pa, viscosidad plástica de 10 Pa·s y coeficiente de Manning de 0,0312, logrando reproducir el espesor máximo de depósito, el área de deposición y el volumen final con diferencias inferiores al 6 % respecto a las mediciones de campo.</p></li>
+<li><p><strong>Rotura de presas de relaves</strong>: SRK Consulting <span class="bibtex-citation" id="id6">[<a class="reference internal" href="19_Referencias.html#id331" title="SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.">SRK Consulting, 2022</a>]</span> encontró que, al estar restringido a la ecuación de onda difusiva, FLO-2D completa simulaciones considerablemente más rápido que HEC-RAS (0,33 h frente a 1,15–4,58 h en un escenario de 24 h de tránsito), aunque a costa de una malla estructurada menos flexible para representar bermas y diques con precisión.</p></li>
+<li><p><strong>Flujo de detritos de St. Sophia, California (2003)</strong>: Hinzmann <span class="bibtex-citation" id="id7">[<a class="reference internal" href="19_Referencias.html#id332">Hinzmann, 2023</a>]</span> encontró que FLO-2D sobreestimó marcadamente las profundidades y velocidades de flujo frente a la evidencia de campo en este evento particular, en contraste con HEC-RAS-MDF (véase el capítulo de <a class="reference internal" href="18_HECRAS.html"><span class="std std-doc">HEC-RAS</span></a>).</p></li>
+<li><p><strong>Aluvión del Estero San Alfonso, Chile (2017)</strong>: Pacheco, Martínez y Cuevas <span class="bibtex-citation" id="id8">[<a class="reference internal" href="19_Referencias.html#id333">Pacheco V. <em>et al.</em>, 2025</a>]</span> reconstruyeron este evento con FLO-2D y HEC-RAS 2D, obteniendo velocidades consistentes entre ambos modelos (diferencias menores al 10 %), aunque FLO-2D estimó profundidades de flujo menores que HEC-RAS, especialmente en la sección de salida aguas abajo.</p></li>
 </ul>
 <p>En conjunto, estos casos sugieren que FLO-2D ofrece un buen equilibrio entre costo computacional y desempeño para flujos de detritos moderadamente rápidos con buena disponibilidad de datos de calibración de laboratorio, pero puede requerir una validación cuidadosa cuando se aplica fuera del rango de condiciones para el que fue calibrado su modelo reológico cuadrático.</p>
-<div class="docutils container" id="id9">
-<div role="list" class="citation-list">
-<div class="citation" id="id340" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">Hin23</a><span class="fn-bracket">]</span></span>
-<p><strong>missing journal in hinzmann_2023_stsophia</strong></p>
-</div>
-<div class="citation" id="id342" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">LLC11</a><span class="fn-bracket">]</span></span>
-<p><strong>missing journal in lin_2011_songher</strong></p>
-</div>
-<div class="citation" id="id81" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>OBrienJ88<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
-<p>James S. O'Brien and Pierre Y. Julien. Laboratory analysis of mudflow properties. <em>Journal of Hydraulic Engineering</em>, 114(8):877–887, 1988. <a class="reference external" href="https://doi.org/10.1061/(ASCE)0733-9429(1988)114:8(877)">doi:10.1061/(ASCE)0733-9429(1988)114:8(877)</a>.</p>
-</div>
-<div class="citation" id="id341" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">PVMartinezCCV25</a><span class="fn-bracket">]</span></span>
-<p><strong>missing journal in pacheco_2025_esteroalfonso</strong></p>
-</div>
-<div class="citation" id="id339" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>SRKConsulting22<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id3">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id6">3</a>)</span>
-<p>SRK Consulting. A comparison between HEC-RAS 6.0 and FLO-2D as tools used in tailings dam breach analyses. Technical Report, SRK Consulting, 2022.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 
@@ -531,15 +545,17 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#componentes">Componentes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requisitos-de-datos">Requisitos de Datos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#salidas">Salidas</a></li>
@@ -592,8 +608,8 @@ By Edier V. Aristizábal G.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

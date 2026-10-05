@@ -89,8 +89,3 @@ A diferencia de los códigos que tratan el lecho como un límite rígido no erod
 - **Evolución dinámica de la topografía**: la cota del lecho se actualiza en cada paso de tiempo como una variable dependiente de la tasa de erosión local, en lugar de asumirse fija.
 - **Separación de fases y *bulking***: el modelo simula cómo la entrada de material erosionado altera la concentración local de sólidos, favoreciendo la separación de fases (frente rico en bloques gruesos y secos por empuje friccional, seguido de una cola más líquida) y el aumento (*bulking*) del volumen del flujo durante su tránsito por el cauce.
 - **Escalamiento de movilidad (*mobility scaling*)**: Pudasaini y Krautblatter {cite}`pudasaini_krautblatter_2021` proponen un número adimensional que permite anticipar analíticamente bajo qué condiciones la incorporación de sedimento aumenta o, por el contrario, reduce la movilidad final del flujo —contrario a la intuición de que "más volumen implica siempre mayor alcance"—.
-
-
-```{bibliography}
-:filter: docname in docnames
-```

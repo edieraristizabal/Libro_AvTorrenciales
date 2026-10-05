@@ -34,7 +34,3 @@ Para representar este fenómeno en los modelos de propagación se han propuesto 
 - **Modelos empíricos/heurísticos**: prescriben una tasa de crecimiento volumétrico constante o una tasa de erosión específica definida a priori por el usuario, con base en observaciones de campo de eventos similares {cite}`mcdougall_2017_colloquium`.
 - **Modelos basados en procesos físicos (balance de fuerzas límite)**: calculan la profundidad o tasa de erosión instantánea a partir del balance entre el esfuerzo cortante basal aplicado por el flujo y la resistencia límite al corte del lecho erodible, asumiendo que el material erosionado se acelera instantáneamente hasta alcanzar la velocidad media del flujo.
 - **Formulaciones consistentes de conservación de momentum**: exigen que las ecuaciones incorporen no solo el balance de masa, sino también un término de producción de cantidad de movimiento inducido por la masa recién erosionada; de lo contrario, el modelo resulta físicamente inconsistente y subestima la disipación de energía del sistema. Un desarrollo reciente en esta línea es el número adimensional de *mobility scaling*, propuesto por Pudasaini y Krautblatter {cite}`pudasaini_krautblatter_2021`, que permite anticipar analíticamente el efecto del entrainment sobre la movilidad final del flujo.
-
-```{bibliography}
-:filter: docname in docnames
-```

@@ -184,7 +184,3 @@ $St=\frac{𝜌𝑠⋅𝑑^2⋅\dot{\gamma}}{𝜇}$
 | **Número de Savage**                       | NS = (ρs – ρf) / ρs                                  | Relación entre el esfuerzo colisional y el esfuerzo por fricción                                                | <0.1: domina el esfuerzo por fricción<br>>0.1: domina el esfuerzo colisional |
 | **Número de Bagnold**                      | NB = (1 – vs) / vs                                    | Relación entre el esfuerzo colisional y el esfuerzo viscoso                                                     | <40: domina el esfuerzo viscoso<br>>450: domina el esfuerzo colisional |
 | **Número de fricción**                     | Nfric = (1 – vs) / vs · (ρs γ δ²) / µf               | Relación entre el esfuerzo por fricción y el esfuerzo viscoso                                                   | <100: domina el esfuerzo viscoso<br>>100: domina el esfuerzo por fricción |
-
-```{bibliography}
-:filter: docname in docnames
-```

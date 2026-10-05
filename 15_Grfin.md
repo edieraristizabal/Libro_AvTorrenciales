@@ -177,6 +177,3 @@ La calibración de este modelo es un proceso multifacético que busca ajustar lo
 2.  **Definición de escenarios:** Se crean múltiples escenarios de simulación variando sistemáticamente los parámetros más influyentes, como los umbrales para las zonas de crecimiento, el factor de crecimiento $c_1$ y el volumen máximo $V_{max}$.
 3.  **Evaluación cuantitativa (análisis ROC):** Cada escenario se evalúa cuantitativamente comparando el área de inundación simulada con las áreas observadas de los flujos más móviles. Se utilizan métricas de tablas de contingencia como la Tasa de Verdaderos Positivos (TPR) y la Tasa de Falsos Positivos (FPR).
 4.  **Selección de sscenarios finales:** Se seleccionan los escenarios que ofrecen el mejor compromiso entre predecir correctamente los flujos observados (alto TPR) y no sobreestimar en exceso el peligro (bajo FPR). A menudo, se eligen dos escenarios para los mapas finales: uno "más probable" (con un buen balance TPR/FPR) y uno "más peligroso" o de "peor caso" (con un TPR más alto, aceptando un mayor FPR).
-```{bibliography}
-:filter: docname in docnames
-```

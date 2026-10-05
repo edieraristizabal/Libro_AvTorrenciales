@@ -55,7 +55,3 @@ Iber-NNF incluye formulaciones de incorporación de material del lecho (*entrain
 ## Arquitectura del software
 
 Iber-NNF está completamente integrado en la interfaz gráfica de Iber y se activa como un complemento (*Iber tools >> Plug-ins*). En su versión actual funciona como un módulo independiente, sin acoplamiento directo con otros módulos de cálculo de Iber (sedimentos, calidad de agua, etc.). Además de las variables hidrodinámicas estándar (profundidad, velocidad, cota de la superficie libre), Iber-NNF calcula variables específicas para la evaluación de amenaza, como la pendiente del terreno, la presión de impacto dinámica y sus valores máximos durante la simulación {cite}`sanzramos_blade_2025a`. Las futuras versiones del módulo contemplan la incorporación de cómputo paralelo en GPU, siguiendo el mismo enfoque ya utilizado en los módulos de transporte de sedimentos y hábitat de Iber, con aceleraciones reportadas de más de 100 veces {cite}`sanzramos_iber_2025`.
-
-```{bibliography}
-:filter: docname in docnames
-```

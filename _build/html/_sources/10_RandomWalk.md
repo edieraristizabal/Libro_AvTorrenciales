@@ -51,6 +51,3 @@ Para la creación del *script*, inicialmente se recomienda crear una carpeta par
 sh test.randomwalk.start.sh
 ```
 Los resultados del cálculo se guardan en el directorio `projects/test`.
-```{bibliography}
-:filter: docname in docnames
-```

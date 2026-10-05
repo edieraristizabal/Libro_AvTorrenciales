@@ -17,7 +17,3 @@ Paralelamente, la comunidad científica reconoció la importancia de procesos co
 Desde el punto de vista numérico, se han utilizado diversos esquemas para resolver las ecuaciones de los modelos de flujo {cite}`nessyahu_tadmor_1990,tai_kurganov_2002`. Un desafío persistente ha sido la aplicación matemáticamente consistente de estos modelos, a menudo formulados en coordenadas que siguen la topografía, a las topografías arbitrarias y complejas del mundo real, que se representan en coordenadas cartesianas globales en los SIG. A pesar de estos desafíos, varios de los modelos mencionados se han implementado en herramientas computacionales ampliamente utilizadas para la cartografía de amenazas, como *DAN* {cite}`hungr_model_1995`, *TITAN2D* (Pitman et al., 2003b) o *RAMMS* {cite}`christen_ramms_2010`.
 
 Sin embargo, una limitación común de muchas de estas herramientas es su capacidad limitada para simular explícitamente la detención y depositación, y, sobre todo, para manejar cadenas de procesos complejas. Es en este contexto de necesidades no cubiertas donde surgieron modelos de nueva generación como `r.avaflow`, buscando integrar la física bifásica avanzada con la capacidad de simular estas complejas interacciones de procesos.
-
-```{bibliography}
-:filter: docname in docnames
-```
