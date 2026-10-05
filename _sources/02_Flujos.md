@@ -1,6 +1,6 @@
 <p style="font-size:11px;"><em><strong>Créditos</strong>: El contenido de este capítulo ha sido tomado de varias fuentes, pero especialmente de Iverson & George {cite}`iverson_george_2024` en Advances in Debris-flow science and practice Eds. Matias Jakob, Scott McDougall, Paul Santi. (2024).</em></p>
 
-# Avenidas torrenciales: clasificación y origen
+# Qué son las Avenidas torrenciales?
 
 Las diferencias entre fenómenos puramente hidrológicos y movimientos en masa están bien establecidas físicamente {cite}`coussot_recognition_1996,julien_1985_gen,pierson_costa_1987,takahashi_1981`; sin embargo, no existe unanimidad sobre definiciones específicas para flujos torrenciales que contienen una mezcla de agua y sedimentos en proporciones variables. De forma general, los flujos se definen como un fenómeno de transporte de sedimentos compuesto por una mezcla de material fino y grueso con una cantidad variable de agua, donde tanto las fuerzas sólidas como las fluidas influyen fuertemente {cite}`iverson_physics_1997,costa_1986`. Según el tipo de proceso dominante y relación sedimentos-agua, esta mezcla es considerada desde procesos gravitacionales tipo flujo {cite}`cruden_varnes_1996b` hasta procesos hidrológicos tipo inundaciones súbitas {cite}`gee_2005`, donde en muchos casos el término flujo hiperconcentrado es utilizado para describir flujos intermedios entre estos dos fenómenos. 
 
@@ -41,6 +41,12 @@ Iverson {cite}`iverson_physics_1997` incluye dentro de la categoría de flujos d
 
 Pierson & Costa {cite}`pierson_costa_1987` proponen una clasificación de mezclas sedimento - agua basada en la concentración de sedimentos y la velocidad media del flujo, y dividen los flujos en dos tipos diferentes: (i) Flujos líquidos aparentes: caracterizados por tener pequeñas concentraciones de sedimentos, divididos a su vez en flujos de corriente, para flujos donde el agua es la fase continua, y flujos de corrientes hiperconcentrados, para flujos donde la mezcla de agua y sedimentos presenta un límite elástico medible, pero aún parece fluir como un líquido. (ii) Fluidos plásticos: donde hay una mayor concentración de sedimentos, divididos en flujos de lodo y flujos granulares de acuerdo con el tamaño de los sedimentos. 
 
+:::{figure-md} pierson-costa
+<img src="https://i.pinimg.com/736x/df/03/71/df03715fe1bbda3fb50a6d77e906a084.jpg" width="700px">
+
+Continuo de flujos torrenciales según la pendiente y la concentración de sedimentos y agua, desde crecidas (*floods*) e inundaciones de escombros hasta flujos hiperconcentrados, flujos de escombros y avalanchas de escombros, modificado de Pierson & Costa {cite}`pierson_costa_1987`.
+:::
+
 Hungr et al. {cite}`hungr_review_2001` y Oldrich Hungr, Leroueil, & Picarelli {cite}`hungr_varnes_2014b` proponen una clasificación de movimientos en masa tipo flujo donde incluyen el término inundación súbita como sinónimo de inundación de escombros, y lo definen como un flujo de agua muy rápido, fuertemente cargado con detritos en un canal de alta pendiente, y un caudal pico comparable a las inundaciones. En estos tipos de flujos el lecho de los cauces puede ser desestabilizado con el transporte masivo de sedimentos que excede el movimiento de fondo normal a través de la suspensión y saltación, pero que aún depende de las fuerzas de tracción del agua. Estos autores diferencian los eventos tipo inundación súbita de fenómenos tipo flujo de escombros, ya que estos últimos están limitados en canales o drenajes de primer y segundo orden de fuerte pendiente con áreas que alcanzan solo unos pocos kilómetros cuadrados y el volumen principal se da por el arranque y arrastre a lo largo de su recorrido, mientras que los eventos tipo inundación súbita, debido al arrastre del agua, pueden ocurrir en cuencas mucho más grandes y los depósitos se extienden sobre distancias mayores y áreas de menores pendientes. Como parte de eventos tipo inundación súbita incluyen los flujos generado por la ruptura repentina de lagos glaciales, denominados GLOFs (Glacial Lake Outburst Floods).
 
 Otras clasificaciones de mezclas de sedimentos y agua usan el término inundación súbita en un sentido general, para denominar flujos de alta descarga en corrientes que drenan cuencas hidrográficas pequeñas y de fuerte pendiente. El Servicio Geológico de los Estados Unidos (USGS por sus siglas en ingles), basado en Crosta et al. {cite}`crosta_classif_2003` y Jakob & Hungr {cite}`jakob_hungr_2005`, dividen las inundaciones súbitas en tres tipos de flujos: flujos de agua, flujos hiperconcentrados y flujos de escombros. En los flujos de agua, la cantidad de sedimento suspendido es insuficiente para afectar el comportamiento del agua, mientras que en los flujos hiperconcentrados la cantidad de sedimentos cambia significativamente las propiedades del fluido y los mecanismos de transporte, y los flujos de escombros se consideran cuando la mezcla de agua y sedimentos se convierte en una mezcla capaz de soportar partículas de tamaño grava en suspensión incluso a baja velocidad o estático. Gaume et al. {cite}`gaume_2004` utilizan la misma clasificación del USGS para clasificar las inundaciones súbitas que ocurren en Europa, pero proponen usar el término inundación de escombros en lugar de flujos hiperconcentrados.
@@ -71,7 +77,7 @@ Consideran que los factores que afectan la generación de inundaciones súbitas 
 Borga et al. (2014) define las inundaciones súbitas como fenómenos creados por precipitaciones cortas de alta intensidad de origen convectivo, espacialmente confinado, que se producen en cuencas de pocos cientos de kilómetros cuadrados o menos, donde el proceso de transferencia de escorrentía predominante es superficial, con altas pendientes como característica morfológica distintiva. 
 Estos mismos autores consideran las inundaciones súbitas y los flujos deescombros como fenómenos separados pero muy relacionados por el factor detonante lluvia, que a menudo ocurren en un mismo evento en diferentes escalas espaciales o temporales.
 
-## Definicion y origen
+## Definición a escala de cuenca
 
 Como se aprecia en las clasificaciones descritas anteriormente, existe una gran cantidad
 de términos para describir fenómenos de flujos torrenciales formados por la mezcla
@@ -86,9 +92,9 @@ Aristizabal et al {cite}`aristizabal_debris_2019` proponen el uso del término a
 
 La formación de un flujo de escombros es el resultado de una combinación crítica de tres elementos: 
 
-(1) suficiente sedimento,  
-(2) terreno empinado, y  
-(3) agua {cite}`rickenmann_2016b`.  
+(1) sedimentos disponibles,  
+(2)cauces con pendientes fuertes, y  
+(3) agua.  
 
 En las regiones montañosas, estas condiciones se cumplen regularmente en cabeceras de cuencas escarpadas, cuando el sedimento suelto es movilizado rápidamente durante un evento de lluvia.  
 
@@ -96,7 +102,23 @@ Las fuentes de sedimento incluyen depósitos glaciares, periglaciares y fluviale
 
 Además de la precipitación, el agua puede provenir de rupturas súbitas (*outburst floods*) {cite}`carey_2005` o del fusion rápida de nieve y hielo {cite}`zaginaev_2019`.
 
+## Causas
+
 En terminos del origen, diferentes causas han sido descritas como detonantes de flujos torrenciales, Slaymaker {cite}`slaymaker_1988` divide los mecanismos detonantes como internos y externos. Los mecanismos externos se refieren a intensos o prolongados eventos de lluvia, sismos, enjambre de avalanchas de escombros o avalanchas de nieve {cite}`miles_1957`, rotura de presas naturales y su liberación instantánea {cite}`takahashi_1981`, y entre los mecanismos internos, Slaymaker {cite}`slaymaker_1988` resalta la desestabilización y removilización de los sedimentos del cauce.
+
+Las flujos torrenciales pueden iniciarse mediante tres mecanismos:  
+
+#### 1. Ocurrencia de movimientos en masa sobre laderas que evolucionan a flujos de escombros
+
+Los movimientos en masa que evolucionan directamente en flujos de escombros generalmente ocurren durante o inmediatamente después de eventos de lluvias intensas, ya que los sedimentos del deslizamiento deben contener suficiente agua para su movilización {cite}`iverson_physics_1997,takahashi_debrisflow_2014`.
+
+#### 2. Flujos de escombros en cauces de primer orden desencadenados por erosión
+
+Los aumentos en el caudal de la escorrentía superficial durante lluvias intensas desencadenan flujos de escombros, los cuales se clasifican dentro del segundo mecanismo. La escorrentía superficial se convierte en un flujo de escombros debido a la erosión de depósitos del canal y coluviones {cite}`brayshaw_2009,jakob_hungr_2005`. La tasa de recarga de sedimentos y la cantidad de sedimentos inestables en los canales y sus alrededores controlan la recurrencia y el volumen de los flujos de escombros desencadenados por escorrentía superficial {cite}`bovis_1999,jakob_hungr_2005`. Los incendios forestales, que aumentan el caudal de la escorrentía superficial y la tasa de aporte de sedimentos, incrementan significativamente la frecuencia de flujos de escombros desencadenados por escorrentía superficial {cite}`santi_2021,kean_2011`.
+
+#### 3. Fallas de presas naturales o artificiales y ruptura súbita de lagos glaciares (GLOFs)
+
+El tercer mecanismo, la falla de presas naturales o artificiales, ocurre tanto durante como después de eventos de lluvia intensa {cite}`zaginaev_2019`. El represamiento de ríos montañosos por sedimentos de deslizamientos es la causa común de este tipo de flujo de escombros {cite}`costa_1986,zaginaev_2019`. El vaciado súbito de lagos glaciares (por ejemplo, la falla de presas morrénicas) genera flujos de escombros en regiones frías {cite}`zaginaev_2019`.
 
 En cuencas de ambientes tropicales y zonas de montaña, como Colombia, las precipitaciones cortas e intensas generan una rápida concentración del flujo en la red de drenajes dando lugar un flujo torrencial, que corresponde a un fenómeno estrictamente
 hidrológico definido como inundaciones súbitas. 
@@ -210,18 +232,4 @@ Estudios sedimentológicos recientes basados en depósitos de campo han permitid
 
 Estos criterios de campo —ángulo y orientación de la imbricación de clastos, contenido de materia orgánica y tipo de facies— resultan particularmente útiles para la reconstrucción de eventos históricos y la clasificación genética de depósitos antiguos o no instrumentados, complementando los criterios morfométricos e hidrológicos descritos en las secciones anteriores.
 
-## Mecanismos de iniciación
 
-Los flujos de escombros pueden iniciarse mediante tres mecanismos:  
-
-### Ocurrencia de movimientos en masa sobre laderas que evolucionan a flujos de escombros
-
-Los movimientos en masa que evolucionan directamente en flujos de escombros generalmente ocurren durante o inmediatamente después de eventos de lluvias intensas, ya que los sedimentos del deslizamiento deben contener suficiente agua para su movilización {cite}`iverson_physics_1997,takahashi_debrisflow_2014`.
-
-### Flujos de escombros en cauces de primer orden desencadenados por erosión
-
-Los aumentos en el caudal de la escorrentía superficial durante lluvias intensas desencadenan flujos de escombros, los cuales se clasifican dentro del segundo mecanismo. La escorrentía superficial se convierte en un flujo de escombros debido a la erosión de depósitos del canal y coluviones {cite}`brayshaw_2009,jakob_hungr_2005`. La tasa de recarga de sedimentos y la cantidad de sedimentos inestables en los canales y sus alrededores controlan la recurrencia y el volumen de los flujos de escombros desencadenados por escorrentía superficial {cite}`bovis_1999,jakob_hungr_2005`. Los incendios forestales, que aumentan el caudal de la escorrentía superficial y la tasa de aporte de sedimentos, incrementan significativamente la frecuencia de flujos de escombros desencadenados por escorrentía superficial {cite}`santi_2021,kean_2011`.
-
-### Fallas de presas naturales o artificiales y ruptura súbita de lagos glaciares (GLOFs)
-
-El tercer mecanismo, la falla de presas naturales o artificiales, ocurre tanto durante como después de eventos de lluvia intensa {cite}`zaginaev_2019`. El represamiento de ríos montañosos por sedimentos de deslizamientos es la causa común de este tipo de flujo de escombros {cite}`costa_1986,zaginaev_2019`. El vaciado súbito de lagos glaciares (por ejemplo, la falla de presas morrénicas) genera flujos de escombros en regiones frías {cite}`zaginaev_2019`.
